@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<title>Instructivo del facilitador · Curso cooperativas · Mercantil SI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primario: #003DA5;
+    --primario-oscuro: #002868;
+    --primario-claro: #E6EDF7;
+    --acento: #F47B20;
+    --acento-claro: #FDE9D7;
+    --texto: #1A1A1A;
+    --texto-sutil: #5A6375;
+    --borde: #D5DCE8;
+    --positivo: #2E7D55;
+    --alerta: #B4312E;
+    --fondo-sutil: #F5F7FA;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 16mm 18mm 16mm;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--texto);
+    line-height: 1.55;
+    font-size: 11pt;
+    margin: 0;
+    max-width: 780px;
+    padding: 2rem;
+    background: #fff;
+  }
+
+  @media screen {
+    body { background: #f0f2f5; padding: 3rem 1rem; }
+    .pagina { background: #fff; max-width: 800px; margin: 0 auto 2rem; padding: 2.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.1); border-radius: 4px; }
+  }
+  @media print {
+    body { padding: 0; max-width: none; background: #fff; }
+    .pagina { page-break-after: always; }
+    .pagina:last-child { page-break-after: auto; }
+    .no-print { display: none !important; }
+    h1, h2, h3 { page-break-after: avoid; }
+    .evitar-romper { page-break-inside: avoid; }
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--primario-oscuro);
+    line-height: 1.2;
+    margin-top: 0;
+  }
+  h1 { font-size: 22pt; font-weight: 700; letter-spacing: -0.01em; }
+  h2 { font-size: 16pt; font-weight: 700; padding-bottom: 6pt; border-bottom: 2px solid var(--primario); margin-top: 0; }
+  h3 { font-size: 13pt; font-weight: 700; color: var(--primario); margin-top: 20pt; }
+  h4 { font-size: 11.5pt; font-weight: 600; margin: 16pt 0 6pt; color: var(--texto); }
+
+  p { margin: 8pt 0; }
+  ul, ol { margin: 8pt 0; padding-left: 22pt; }
+  li { margin: 4pt 0; }
+  strong { color: var(--primario-oscuro); font-weight: 700; }
+  em { color: var(--acento); font-style: normal; font-weight: 600; }
+
+  .portada {
+    min-height: 240mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, var(--primario) 0%, var(--primario-oscuro) 100%);
+    color: #fff;
+    padding: 3rem 2.5rem;
+  }
+  .portada h1, .portada h2, .portada h3 { color: #fff; border: 0; }
+  .portada .eyebrow { font-size: 10pt; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.85; font-weight: 600; }
+  .portada .titulo { font-family: "Fraunces", Georgia, serif; font-size: 44pt; line-height: 1.05; margin: 0.3em 0; font-weight: 700; }
+  .portada .subtitulo { font-size: 18pt; font-weight: 400; opacity: 0.95; margin-top: 0.3em; }
+  .portada .marca { font-size: 13pt; font-weight: 600; }
+  .portada .meta { font-size: 10pt; opacity: 0.85; margin-top: 2em; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1em; }
+
+  .kicker {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--acento);
+    font-weight: 700;
+    margin-bottom: 4pt;
+  }
+
+  .toc {
+    background: var(--fondo-sutil);
+    border-radius: 6pt;
+    padding: 1em 1.4em;
+    margin: 1em 0;
+  }
+  .toc ol { margin: 0; padding-left: 20pt; }
+  .toc li { padding: 2pt 0; font-size: 10.5pt; }
+  .toc li strong { color: var(--primario-oscuro); }
+
+  .card {
+    background: var(--fondo-sutil);
+    border: 1px solid var(--borde);
+    border-radius: 6pt;
+    padding: 1em 1.2em;
+    margin: 0.8em 0;
+  }
+  .card.primario { border-left: 4pt solid var(--primario); }
+  .card.acento { border-left: 4pt solid var(--acento); background: var(--acento-claro); }
+  .card.alerta { border-left: 4pt solid var(--alerta); background: #FBE9E8; }
+  .card.positivo { border-left: 4pt solid var(--positivo); background: #E8F5EF; }
+  .card h4 { margin-top: 0; }
+
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+  }
+  .checklist li {
+    padding: 4pt 0 4pt 22pt;
+    position: relative;
+    border-bottom: 1px dashed var(--borde);
+  }
+  .checklist li:last-child { border-bottom: 0; }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: var(--primario);
+    font-size: 14pt;
+    font-weight: 700;
+    line-height: 1;
+    top: 4pt;
+  }
+
+  .tabla-flujo {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin: 1em 0;
+  }
+  .tabla-flujo thead th {
+    background: var(--primario);
+    color: #fff;
+    text-align: left;
+    padding: 6pt 8pt;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .tabla-flujo tbody td {
+    padding: 7pt 8pt;
+    border-bottom: 1px solid var(--borde);
+    vertical-align: top;
+  }
+  .tabla-flujo tbody tr:nth-child(even) { background: var(--fondo-sutil); }
+  .tabla-flujo .min {
+    background: var(--primario-claro) !important;
+    color: var(--primario-oscuro);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    width: 48pt;
+  }
+  .tabla-flujo .accion { font-weight: 600; color: var(--primario-oscuro); }
+  .tabla-flujo .frase { font-style: italic; color: var(--texto); }
+
+  .tabla-polls {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin: 0.8em 0;
+  }
+  .tabla-polls th, .tabla-polls td {
+    padding: 6pt 8pt;
+    border: 1px solid var(--borde);
+    text-align: left;
+    vertical-align: top;
+  }
+  .tabla-polls th { background: var(--fondo-sutil); font-weight: 600; }
+  .tabla-polls .num { width: 30pt; text-align: center; background: var(--primario-claro); font-weight: 700; }
+
+  .frase-dia {
+    background: var(--primario);
+    color: #fff;
+    padding: 1.4em 1.6em;
+    border-radius: 6pt;
+    margin: 1em 0;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 13pt;
+    line-height: 1.4;
+  }
+  .frase-dia.acento { background: var(--acento); }
+  .frase-dia::before { content: "❝"; font-size: 36pt; float: left; line-height: 0.6; margin-right: 8pt; }
+
+  .archivos-abrir {
+    background: #fff;
+    border: 2px solid var(--primario);
+    border-radius: 6pt;
+    padding: 1em 1.2em;
+    margin: 1em 0;
+  }
+  .archivos-abrir h4 { color: var(--primario); margin: 0 0 0.5em; }
+  .archivos-abrir code {
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    background: var(--fondo-sutil);
+    padding: 4pt 8pt;
+    border-radius: 3pt;
+    font-size: 9pt;
+    margin: 3pt 0;
+    word-break: break-all;
+  }
+
+  .muy-importante {
+    background: var(--acento);
+    color: #fff;
+    padding: 0.8em 1.2em;
+    border-radius: 6pt;
+    margin: 1em 0;
+    font-weight: 600;
+  }
+
+  .resumen-sesion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8em;
+    margin: 1em 0;
+  }
+  .resumen-sesion .dato {
+    background: var(--fondo-sutil);
+    padding: 0.6em 0.9em;
+    border-radius: 4pt;
+    border-left: 3pt solid var(--primario);
+  }
+  .resumen-sesion .dato strong { display: block; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; color: var(--texto-sutil); margin-bottom: 2pt; }
+  .resumen-sesion .dato .valor { font-size: 10.5pt; color: var(--primario-oscuro); font-weight: 600; }
+
+  .palancas-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4pt;
+    margin: 0.6em 0;
+  }
+  .pmini {
+    padding: 4pt 6pt;
+    font-size: 8pt;
+    border-radius: 3pt;
+    background: var(--fondo-sutil);
+    border: 1px solid var(--borde);
+    text-align: center;
+    color: var(--texto-sutil);
+  }
+  .pmini.activa { background: var(--acento-claro); border-color: var(--acento); color: var(--primario-oscuro); font-weight: 600; }
+  .pmini.abierta { background: var(--primario-claro); border-color: var(--primario); color: var(--primario-oscuro); font-weight: 600; }
+  .pmini strong { display: block; font-size: 9pt; }
+
+  .pie-pagina {
+    text-align: center;
+    font-size: 8pt;
+    color: var(--texto-sutil);
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid var(--borde);
+  }
+
+  .boton-imprimir {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: var(--primario);
+    color: #fff;
+    border: 0;
+    padding: 0.6em 1.2em;
+    border-radius: 6pt;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 10pt;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+
+<button class="boton-imprimir no-print" onclick="window.print()">
+  Imprimir / Guardar como PDF
+</button>
+
+<!-- ============================================ -->
+<!-- PORTADA -->
+<!-- ============================================ -->
+<div class="pagina portada">
+  <div>
+    <div class="eyebrow">Instructivo del facilitador · v1.0</div>
+    <div class="marca">Mercantil Servicios de Inversión</div>
+  </div>
+
+  <div>
+    <div class="titulo">Guía paso<br>a paso</div>
+    <div class="subtitulo">Cómo dictar el curso<br>de finanzas para dirigentes cooperativos</div>
+  </div>
+
+  <div class="meta">
+    <p>4 sesiones virtuales · 2 horas cada una · ~100 participantes · Mayo 2026</p>
+    <p style="opacity: 0.85;">Este documento te acompaña minuto a minuto. Léelo una vez completo. Úsalo como checklist el día de cada sesión.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- TOC -->
+<!-- ============================================ -->
+<div class="pagina">
+  <h1>Contenido</h1>
+
+  <div class="toc">
+    <ol>
+      <li><strong>Cómo usar este instructivo</strong> — cómo leerlo, cómo practicar</li>
+      <li><strong>Antes del curso (preparación general)</strong> — 2 semanas, 1 semana, 1 día antes</li>
+      <li><strong>Ritual pre-sesión</strong> — los 15 minutos antes de cada sesión</li>
+      <li><strong>Sesión 1 — Estados financieros</strong> — flujo completo, archivos, frases</li>
+      <li><strong>Sesión 2 — Flujo de caja</strong> — flujo completo</li>
+      <li><strong>Sesión 3 — Productos financieros</strong> — flujo + protocolo anti-pitch</li>
+      <li><strong>Sesión 4 — Financiamiento</strong> — flujo + ritual de cierre del curso</li>
+      <li><strong>Post-curso</strong> — qué envías y cuándo</li>
+      <li><strong>Ensayo recomendado</strong> — cómo practicar antes de Sesión 1</li>
+      <li><strong>Contingencias</strong> — qué hacer cuando algo se sale del plan</li>
+      <li><strong>Referencias rápidas</strong> — mapa de archivos, polls, frases clave</li>
+    </ol>
+  </div>
+
+  <div class="card acento">
+    <strong>Lectura rápida:</strong> 45 minutos para leerlo completo. 15 minutos para revisar la sesión del día. 5 minutos para el ritual pre-sesión.
+  </div>
+
+  <div class="card primario">
+    <strong>Tu compañero:</strong> el <code>guion.md</code> de cada sesión en <code>sesiones/sesion-N-*/</code> tiene el script minuto a minuto con mayor detalle del que cabe acá. Este instructivo te da el mapa; el guion te da la letra exacta.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 1. CÓMO USAR -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 1</div>
+  <h1>Cómo usar este instructivo</h1>
+
+  <p>Este documento asume que ya leíste los materiales del curso al menos una vez. Si no, empieza por ahí: abre <code>README.md</code> del repositorio y navega por las sesiones.</p>
+
+  <h3>Qué encontrarás aquí</h3>
+  <ul>
+    <li><strong>Preparación general</strong> para que llegues al día del evento sin sorpresas.</li>
+    <li><strong>Un ritual de 15 minutos</strong> antes de cada sesión.</li>
+    <li><strong>Una hoja de ruta por sesión</strong>: qué archivo abrir, en qué minuto, qué decir.</li>
+    <li><strong>Las frases literales</strong> que si dices exactamente así, la sesión rinde.</li>
+    <li><strong>Los polls</strong> listos para configurar antes de conectarte.</li>
+    <li><strong>Contingencias</strong> para los momentos en que algo se sale.</li>
+  </ul>
+
+  <h3>Qué <em>no</em> encontrarás aquí</h3>
+  <ul>
+    <li>El script completo minuto a minuto → vive en <code>sesiones/sesion-N-*/guion.md</code>.</li>
+    <li>Las respuestas a preguntas técnicas que te hagan los participantes → son casos reales y dependen del contexto; responde con el marco del curso o aplaza con honestidad.</li>
+  </ul>
+
+  <h3>Recomendación de uso</h3>
+
+  <div class="card primario">
+    <h4>La primera vez (antes del curso)</h4>
+    <ol>
+      <li>Lee este instructivo completo, una tarde, sin prisa.</li>
+      <li>Haz el <strong>ensayo</strong> del capítulo 9, con tu laptop y celular a la mano.</li>
+      <li>Deja el documento impreso o en PDF en una pestaña abierta para cuando lo necesites.</li>
+    </ol>
+  </div>
+
+  <div class="card primario">
+    <h4>El día de cada sesión</h4>
+    <ol>
+      <li>Ejecuta el <strong>ritual pre-sesión</strong> 15 min antes (capítulo 3).</li>
+      <li>Sigue el <strong>flujo de la sesión</strong> del capítulo correspondiente (4, 5, 6 ó 7).</li>
+      <li>Después, sigue el <strong>post-sesión</strong> (capítulo 8).</li>
+    </ol>
+  </div>
+
+  <h3>Acerca del co-facilitador</h3>
+  <p>El curso está diseñado para <strong>dos voces</strong>: tú (perfil técnico, Mercantil SI) y un co-facilitador (perfil práctico, idealmente alguien con experiencia operativa cooperativa). Si vas solo, marca las intervenciones del co-facilitador y decide por adelantado cuáles asumes tú y cuáles se cortan.</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 2. ANTES DEL CURSO -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 2</div>
+  <h1>Antes del curso</h1>
+  <p>Preparación general antes de que empiece la Sesión 1.</p>
+
+  <h2>2 semanas antes</h2>
+
+  <div class="card primario">
+    <h4>Despliegue técnico</h4>
+    <ul class="checklist">
+      <li>Crear repositorio GitHub con el contenido del proyecto.</li>
+      <li>Activar GitHub Pages en <em>Settings → Pages → Deploy from branch main / root</em>.</li>
+      <li>Confirmar URLs de las 4 herramientas (deberán responder desde celular).</li>
+      <li>Generar los 4 códigos QR con <code>scripts/generar-qr.html</code>.</li>
+      <li>Descargar los PNG y guardarlos en <code>sesiones/sesion-N-*/slides/qr/</code>.</li>
+      <li>Reemplazar los placeholders de QR en los 4 slides por <code>&lt;img src="qr/..."&gt;</code>.</li>
+      <li>Probar cada herramienta desde al menos 2 celulares distintos.</li>
+    </ul>
+    <p>Guía paso a paso en <code>DESPLIEGUE.md</code>.</p>
+  </div>
+
+  <div class="card primario">
+    <h4>Co-facilitador</h4>
+    <ul class="checklist">
+      <li>Confirmar persona.</li>
+      <li>Compartir todos los <code>guion.md</code> de las 4 sesiones.</li>
+      <li>Reunión de 45 minutos para alinear alternancia cada ≤7 min.</li>
+      <li>Acordar canal privado (WhatsApp o chat directo en Zoom) para coordinación durante la sesión.</li>
+    </ul>
+  </div>
+
+  <div class="card primario">
+    <h4>Difusión a participantes</h4>
+    <ul class="checklist">
+      <li>Enviar invitación con fechas, enlaces de Zoom/Teams, duración.</li>
+      <li>Enviar <strong>pre-test</strong> (formulario Google Forms / Tally construido desde <code>evaluacion/pre-test.md</code>).</li>
+      <li>Marcar corte para respuestas: 48 h antes de la Sesión 1.</li>
+    </ul>
+  </div>
+
+  <h2>1 semana antes de cada sesión</h2>
+
+  <ul class="checklist">
+    <li>Enviar por correo el <strong>PDF previo</strong> correspondiente (<code>sesiones/sesion-N-*/previo.md</code> exportado a PDF).</li>
+    <li>Mensaje del correo con 3-4 líneas. Mensaje sugerido abajo.</li>
+  </ul>
+
+  <div class="card acento">
+    <h4>Mensaje de correo sugerido (1 semana antes)</h4>
+    <p style="font-style: italic;">
+      "Hola [nombre]. En adjunto va la lectura previa a la Sesión N del curso de finanzas para cooperativas. Son 10 minutos de lectura. La sesión te rinde mucho más si llegas con esto leído. Nos vemos el [día], a las [hora]. — [tu nombre], Mercantil SI."
+    </p>
+  </div>
+
+  <h2>1 día antes de cada sesión</h2>
+
+  <ul class="checklist">
+    <li>Recordatorio corto por correo o WhatsApp con enlace de la reunión.</li>
+    <li>Ensayo técnico (capítulo 9) si es la primera sesión.</li>
+    <li>Revisar respuestas del pre-test (Sesión 1) o del feedback previo (Sesiones 2-4).</li>
+  </ul>
+
+  <div class="card acento">
+    <h4>Mensaje de recordatorio sugerido (24 h antes)</h4>
+    <p style="font-style: italic;">
+      "Mañana [hora] nos vemos para la Sesión N. Enlace: [URL]. Recomendación: ten el celular a la mano — vas a usar una herramienta en vivo. Y trae [micro-tarea si aplica]. — [tu nombre]."
+    </p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 3. RITUAL PRE-SESIÓN -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 3</div>
+  <h1>Ritual pre-sesión</h1>
+  <p>Los 15 minutos que separan el caos de una sesión bien dictada. Aplica a todas las sesiones por igual.</p>
+
+  <h3>T-15 min · Configuración técnica</h3>
+  <ul class="checklist">
+    <li>Abrir Zoom/Teams como host. Compartir pantalla funcional.</li>
+    <li>Habilitar chat para todos los participantes.</li>
+    <li>Configurar los <strong>5 polls</strong> de la sesión (ver sección de esa sesión para preguntas y opciones).</li>
+    <li>Probar compartir pantalla con audio (para videos si hubiera, no es el caso habitual).</li>
+  </ul>
+
+  <h3>T-12 min · Archivos abiertos</h3>
+
+  <div class="archivos-abrir">
+    <h4>Pestañas del navegador principal</h4>
+    <code>sesiones/sesion-N-*/slides/index.html</code>
+    <code>sesiones/sesion-N-*/herramientas/*/index.html</code>
+    <code>guion.md (puede ser en editor o navegador con preview)</code>
+  </div>
+
+  <div class="archivos-abrir">
+    <h4>En segundo monitor o laptop paralela (recomendado)</h4>
+    <code>Este instructivo en PDF o HTML</code>
+    <code>Chat privado con co-facilitador</code>
+  </div>
+
+  <h3>T-8 min · Mental check</h3>
+  <ul class="checklist">
+    <li>Leer en voz alta la <strong>frase del día</strong> de la sesión (ver resumen de cada sesión).</li>
+    <li>Repasar los 3-5 nombres de los arquetipos para citarlos por nombre si surge.</li>
+    <li>Verificar el volumen de micrófono y cámara.</li>
+    <li>Tener un vaso de agua.</li>
+  </ul>
+
+  <h3>T-5 min · Admisión de participantes</h3>
+  <ul class="checklist">
+    <li>Abrir sala.</li>
+    <li>Saludar por chat a los que van llegando. Nombre personal.</li>
+    <li>Pedir que activen cámara si se sienten cómodos (no obligatorio).</li>
+  </ul>
+
+  <h3>T-0 min · Arranque</h3>
+  <ul class="checklist">
+    <li>Saludo breve (30 segundos máximo).</li>
+    <li>"Vamos a empezar" y compartir pantalla con el primer slide.</li>
+  </ul>
+
+  <div class="muy-importante">
+    Nunca arrancar con agenda. La pregunta disparadora del Bloque 0 es la que abre cada sesión.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 4. SESIÓN 1 -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 4</div>
+  <h1>Sesión 1 — Estados financieros sin miedo</h1>
+  <p>La primera sesión fija la voz, el ritmo, y las expectativas para las tres que siguen. Quítale peso emocional: es tu mejor sesión si la haces sin prisa.</p>
+
+  <div class="resumen-sesion">
+    <div class="dato"><strong>Duración meta</strong><div class="valor">120 min (techo 150)</div></div>
+    <div class="dato"><strong>Concepto del día</strong><div class="valor">La regla de los tres cuadros</div></div>
+    <div class="dato"><strong>Herramienta</strong><div class="valor">Mi foto financiera</div></div>
+    <div class="dato"><strong>Caso narrativo</strong><div class="valor">Cooperativa El Paraíso</div></div>
+    <div class="dato"><strong>Polls</strong><div class="valor">5 (uno por bloque clave)</div></div>
+    <div class="dato"><strong>Palancas</strong><div class="valor">Abre 1, 2, 3 — cierra 3</div></div>
+  </div>
+
+  <h3>Archivos que abres antes de empezar</h3>
+  <div class="archivos-abrir">
+    <code>sesiones/sesion-1-estados-financieros/slides/index.html</code>
+    <code>sesiones/sesion-1-estados-financieros/herramientas/mi-foto-financiera/index.html</code>
+    <code>sesiones/sesion-1-estados-financieros/guion.md (referencia completa)</code>
+    <code>sesiones/sesion-1-estados-financieros/datos/el-paraiso.md (números del caso)</code>
+  </div>
+
+  <h3>Frase del día</h3>
+  <div class="frase-dia">
+    Si en una junta alguien no puede llenar los tres cuadros en una servilleta, no debería estar votando el presupuesto.
+  </div>
+
+  <h3>Flujo de 120 minutos</h3>
+
+  <table class="tabla-flujo">
+    <thead><tr><th>Min</th><th>Acción</th><th>Qué decir (resumido)</th><th>Qué proyectas</th></tr></thead>
+    <tbody>
+      <tr><td class="min">0–5</td><td class="accion">Apertura + Poll #1</td><td class="frase">"¿Cómo puede una cooperativa con B/. 420k de utilidad no tener con qué pagar la nómina de diciembre?"</td><td>Slide pregunta disparadora</td></tr>
+      <tr><td class="min">5–15</td><td class="accion">Caso El Paraíso (co-facilitador)</td><td class="frase">Co-facilitador narra. Tú: "Fíjense… la utilidad era real, el problema era otro."</td><td>Slides con balance y P&L del caso</td></tr>
+      <tr><td class="min">15–30</td><td class="accion">Los tres cuadros</td><td class="frase">Dibujas los tres cuadros en pantalla. Minisúper como analogía. Frase del día, repetida 2 veces.</td><td>Slides con cuadros progresivos</td></tr>
+      <tr><td class="min">30–45</td><td class="accion">Herramienta en vivo + Poll #2</td><td class="frase">"Toma tu celular. Vas a llenar tu propia foto en 5 minutos."</td><td>Slide con QR; compartir herramienta al fondo</td></tr>
+      <tr><td class="min">45–60</td><td class="accion">Los 3 indicadores</td><td class="frase">Endeudamiento, generación de patrimonio, dependencia de ingresos.</td><td>Slides de los 3 indicadores</td></tr>
+      <tr><td class="min">60–65</td><td class="accion">Break + Poll #3</td><td class="frase">"5 minutos. Poll activo."</td><td>Slide de break</td></tr>
+      <tr><td class="min">65–85</td><td class="accion">Ejercicio aplicado al caso 2</td><td class="frase">Caso mediano. Que abran la herramienta en modo cooperativa.</td><td>Slide con datos del caso</td></tr>
+      <tr><td class="min">85–100</td><td class="accion">Mini-debate + Poll #4</td><td class="frase">"¿Cuál es el número más importante del balance?" Deja hablar 3-4 personas.</td><td>Slide con 4 opciones</td></tr>
+      <tr><td class="min">100–120</td><td class="accion">Cierre + checklist + micro-tarea + Poll #5</td><td class="frase">Mapa de palancas. Checklist de 5 preguntas. Tarea: traer estado de resultados.</td><td>Slides de cierre + palancas + checklist</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagina">
+  <h2>Sesión 1 · Polls preconfigurados</h2>
+
+  <table class="tabla-polls">
+    <thead><tr><th class="num">#</th><th>Cuándo</th><th>Pregunta y opciones</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Min 2</td><td><strong>¿Por qué El Paraíso no pudo pagar la nómina?</strong> (a) Mala administración (b) Fraude (c) Cartera no se cobra (d) Balance sano no garantiza caja (e) Todas las anteriores</td></tr>
+      <tr><td class="num">2</td><td>Min 38</td><td><strong>Tu patrimonio personal resultó:</strong> (a) Mayor de lo que pensabas (b) Menor (c) Lo que esperabas</td></tr>
+      <tr><td class="num">3</td><td>Min 60 (break)</td><td><strong>¿Cuál de los 3 indicadores te cuesta más seguir en tu cooperativa?</strong></td></tr>
+      <tr><td class="num">4</td><td>Min 86</td><td><strong>Si muestras UN número del balance a los asociados, ¿cuál?</strong> (a) Utilidad (b) Patrimonio (c) Crecimiento (d) Mora</td></tr>
+      <tr><td class="num">5</td><td>Min 115</td><td><strong>En una palabra, ¿cómo te vas?</strong> (respuesta libre, word cloud)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Momentos donde puedes tropezar</h2>
+
+  <div class="card alerta">
+    <h4>Si la pregunta disparadora no genera respuestas</h4>
+    <p>Normal los primeros 30 segundos. Espera. Si a los 60 segundos nadie contesta el poll, co-facilitador da su propia respuesta en voz para romper el hielo: <em>"Yo empiezo — me quedo con la (d), porque lo hemos visto."</em></p>
+  </div>
+
+  <div class="card alerta">
+    <h4>Si el ejercicio del caso 2 se extiende demasiado</h4>
+    <p>Corta a los 18 min. Di: <em>"Me encantaría seguir esta conversación y vamos a volver a ella. Sigamos."</em></p>
+  </div>
+
+  <div class="card alerta">
+    <h4>Si alguien pregunta por productos de Mercantil SI</h4>
+    <p><em>"Hoy no venimos a vender. Si quieres al final dejo contacto. Volvamos al balance."</em> Y continúas.</p>
+  </div>
+
+  <h2>Al cerrar: qué envías en las próximas 24 horas</h2>
+  <ul class="checklist">
+    <li>Correo de agradecimiento.</li>
+    <li>PDF de <code>material-participante.md</code> de Sesión 1.</li>
+    <li>Recordatorio de la micro-tarea: traer el último estado de resultados.</li>
+    <li>URL de la herramienta "Mi foto financiera" para usarla cuando quieran.</li>
+    <li>Anuncio de fecha de Sesión 2 + promesa del PDF previo en 3 días.</li>
+  </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- 5. SESIÓN 2 -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 5</div>
+  <h1>Sesión 2 — El flujo de caja</h1>
+  <p>Esta sesión resuelve el misterio que dejaste abierto en Sesión 1 (por qué El Paraíso no pudo pagar). Tiene aire de revelación — úsala así.</p>
+
+  <div class="resumen-sesion">
+    <div class="dato"><strong>Duración meta</strong><div class="valor">120 min (techo 150)</div></div>
+    <div class="dato"><strong>Concepto del día</strong><div class="valor">Foto miente; película no</div></div>
+    <div class="dato"><strong>Herramienta</strong><div class="valor">Mi película del mes</div></div>
+    <div class="dato"><strong>Caso narrativo</strong><div class="valor">El Paraíso revisitado</div></div>
+    <div class="dato"><strong>Polls</strong><div class="valor">5</div></div>
+    <div class="dato"><strong>Palancas</strong><div class="valor">Cierra 1 y 2 — abre 5</div></div>
+  </div>
+
+  <h3>Archivos que abres antes de empezar</h3>
+  <div class="archivos-abrir">
+    <code>sesiones/sesion-2-flujo-caja/slides/index.html</code>
+    <code>sesiones/sesion-2-flujo-caja/herramientas/mi-pelicula-del-mes/index.html</code>
+    <code>sesiones/sesion-2-flujo-caja/guion.md</code>
+  </div>
+
+  <h3>Frase del día</h3>
+  <div class="frase-dia">
+    Un balance sano es una invitación, no una garantía. La garantía está en la película.
+  </div>
+
+  <h3>Flujo de 120 minutos</h3>
+
+  <table class="tabla-flujo">
+    <thead><tr><th>Min</th><th>Acción</th><th>Qué decir (resumido)</th><th>Qué proyectas</th></tr></thead>
+    <tbody>
+      <tr><td class="min">0–5</td><td class="accion">Apertura + Poll #1</td><td class="frase">"Hoy cumplimos la promesa: ¿cómo se ve 60 días antes de que una cooperativa quiebre?"</td><td>Slide de apertura</td></tr>
+      <tr><td class="min">5–15</td><td class="accion">El Paraíso en película</td><td class="frase">Co-facilitador en primera persona. Tú muestras Oct-Nov en la tabla.</td><td>Slide con la tabla de 12 meses</td></tr>
+      <tr><td class="min">15–30</td><td class="accion">4 parejas + frase del día</td><td class="frase">Ingreso/cobro, gasto/pago, utilidad/disponible, recurrente/extraordinario.</td><td>Slide con las 4 parejas</td></tr>
+      <tr><td class="min">30–45</td><td class="accion">Herramienta en vivo + Poll #2</td><td class="frase">"Abre tu celular. Modo personal primero, después El Paraíso."</td><td>Slide con QR</td></tr>
+      <tr><td class="min">45–60</td><td class="accion">3 momentos del año</td><td class="frase">Aguinaldo, inicio de clases, retiros concentrados.</td><td>Slide con 3 momentos</td></tr>
+      <tr><td class="min">60–65</td><td class="accion">Break + Poll #3</td><td class="frase">"5 minutos. Poll: ¿tu cooperativa presenta flujo proyectado?"</td><td>Slide de break</td></tr>
+      <tr><td class="min">65–85</td><td class="accion">Ejercicio con caso propio</td><td class="frase">Para quienes trajeron su estado de resultados.</td><td>Slide con preguntas guiadas</td></tr>
+      <tr><td class="min">85–100</td><td class="accion">Mini-debate + Poll #4</td><td class="frase">"¿Qué indicador de flujo mensual pedirías a tu gerencia?"</td><td>Slide con 4 opciones</td></tr>
+      <tr><td class="min">100–120</td><td class="accion">Cierre + checklist + tarea + Poll #5</td><td class="frase">Palancas 1-2 cerradas, 5 abierta. Tarea: listar productos donde hay plata.</td><td>Slides de cierre</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagina">
+  <h2>Sesión 2 · Polls preconfigurados</h2>
+
+  <table class="tabla-polls">
+    <thead><tr><th class="num">#</th><th>Cuándo</th><th>Pregunta y opciones</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Min 3</td><td><strong>¿Cómo se ve en los números 60 días antes de quebrar?</strong> (a) Mora sube (b) Utilidad negativa (c) Caja se mueve raro (d) No se ve (e) Todas</td></tr>
+      <tr><td class="num">2</td><td>Min 37</td><td><strong>Tu flujo proyectado, ¿en qué mes está más cerca del rojo?</strong> (a) Enero (b) Julio (c) Diciembre (d) Ninguno (e) Más de uno</td></tr>
+      <tr><td class="num">3</td><td>Min 60 (break)</td><td><strong>¿Tu cooperativa presenta flujo proyectado en juntas?</strong> (a) Mensual (b) Anual (c) Solo pasado (d) No sé</td></tr>
+      <tr><td class="num">4</td><td>Min 86</td><td><strong>¿Qué indicador mensual pedirías?</strong> (a) Saldo caja (b) Cobertura liquidez (c) Flujo neto (d) Proyección 3m</td></tr>
+      <tr><td class="num">5</td><td>Min 115</td><td><strong>En una palabra, ¿cómo te vas?</strong> (word cloud)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Momentos donde puedes tropezar</h2>
+
+  <div class="card alerta">
+    <h4>Si muchos no trajeron el estado de resultados</h4>
+    <p>Ocurrirá. No lo hagas incómodo. Dales un segundo para escribir "no lo traje" en el chat. Mira el chat, dices <em>"entiendo, son agendas complicadas. Trabajamos con el caso del curso."</em> Y continúas con El Paraíso.</p>
+  </div>
+
+  <div class="card alerta">
+    <h4>Si la herramienta tarda en cargar</h4>
+    <p>No improvisar. Tienes un caso precargado ("Cargar caso El Paraíso") que podrás proyectar desde tu laptop. Nadie pierde la experiencia.</p>
+  </div>
+
+  <h2>Al cerrar: qué envías en las próximas 24 horas</h2>
+  <ul class="checklist">
+    <li>PDF de <code>material-participante.md</code> de Sesión 2.</li>
+    <li>Micro-tarea de Sesión 3: lista de productos donde hay plata.</li>
+    <li>URL permanente de "Mi película del mes".</li>
+    <li>Fecha Sesión 3 + PDF previo programado.</li>
+  </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- 6. SESIÓN 3 -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 6</div>
+  <h1>Sesión 3 — Productos financieros</h1>
+
+  <div class="muy-importante">
+    Esta es la sesión más expuesta a parecer pitch. Lee el protocolo anti-pitch dos veces antes de entrar.
+  </div>
+
+  <div class="resumen-sesion">
+    <div class="dato"><strong>Duración meta</strong><div class="valor">120 min (techo 150)</div></div>
+    <div class="dato"><strong>Concepto del día</strong><div class="valor">Las 4 gavetas del dinero</div></div>
+    <div class="dato"><strong>Herramienta</strong><div class="valor">Mi caja de herramientas</div></div>
+    <div class="dato"><strong>Caso narrativo</strong><div class="valor">DPF de 5 años roto al año</div></div>
+    <div class="dato"><strong>Polls</strong><div class="valor">4</div></div>
+    <div class="dato"><strong>Palancas</strong><div class="valor">Abre 4 — abre 7 y 8</div></div>
+  </div>
+
+  <h2>Protocolo anti-pitch (leer dos veces)</h2>
+
+  <div class="card alerta">
+    <h4>Las 4 reglas</h4>
+    <ol>
+      <li><strong>No mencionar productos específicos de Mercantil SI</strong> en slides ni en voz durante la sesión.</li>
+      <li><strong>Ejemplos con múltiples entidades</strong> (bancos, casas de valores, cooperativas grandes) — nunca una sola.</li>
+      <li>Si alguien pregunta por productos o tarifas Mercantil: <em>"Hoy venimos a marco, no a catálogo. Contacto al final si tu caso amerita conversación."</em> Y vuelves al tema.</li>
+      <li>Cerrar con: <em>"Si esta sesión te ayuda a pedirle mejor asesoría a alguien —aunque no sea a nosotros— hicimos nuestro trabajo."</em></li>
+    </ol>
+  </div>
+
+  <div class="card primario">
+    <h4>Por qué este protocolo importa</h4>
+    <p>La audiencia es alta dirigencia de cooperativas financieras — personas que han escuchado cientos de pitches. Detectan venta disfrazada en 30 segundos. Si la sesión se percibe como venta, pierdes credibilidad en las 8 horas completas del curso. Esta sesión es precisamente donde más fácil es desviarse — y precisamente donde más cuesta si te desvías.</p>
+  </div>
+
+  <h3>Archivos que abres antes de empezar</h3>
+  <div class="archivos-abrir">
+    <code>sesiones/sesion-3-productos-financieros/slides/index.html</code>
+    <code>sesiones/sesion-3-productos-financieros/herramientas/mi-caja-herramientas/index.html</code>
+    <code>sesiones/sesion-3-productos-financieros/guion.md</code>
+  </div>
+
+  <h3>Frase del día</h3>
+  <div class="frase-dia">
+    Un mal producto en un buen banco sigue siendo un mal producto. Meter plata en la gaveta equivocada cuesta más que elegir un producto mediano en la gaveta correcta.
+  </div>
+</div>
+
+<div class="pagina">
+  <h2>Sesión 3 · Flujo de 120 minutos</h2>
+
+  <table class="tabla-flujo">
+    <thead><tr><th>Min</th><th>Acción</th><th>Qué decir (resumido)</th><th>Qué proyectas</th></tr></thead>
+    <tbody>
+      <tr><td class="min">0–5</td><td class="accion">Apertura + Poll #1</td><td class="frase">"Si solo puedes hacer UNA pregunta antes de invertir, ¿cuál sería?"</td><td>Slide de apertura</td></tr>
+      <tr><td class="min">5–15</td><td class="accion">Caso del DPF roto</td><td class="frase">Co-facilitador cuenta. Tú cierras: "No fue un mal producto. Fue el producto correcto en la gaveta equivocada."</td><td>Slide con desglose del costo</td></tr>
+      <tr><td class="min">15–30</td><td class="accion">Las 4 gavetas</td><td class="frase">Describes cada gaveta + error típico + ALM opcional.</td><td>Slide con 4 cuadros coloreados</td></tr>
+      <tr><td class="min">30–45</td><td class="accion">Herramienta en vivo + Poll #2</td><td class="frase">"Ingresa los productos que trajiste. Mira en qué gaveta quedan."</td><td>Slide con QR</td></tr>
+      <tr><td class="min">45–60</td><td class="accion">4 dimensiones del producto</td><td class="frase">Rentabilidad, riesgo, liquidez, plazo — la ley de las 4 perillas.</td><td>Slide con 4 dimensiones</td></tr>
+      <tr><td class="min">60–65</td><td class="accion">Break + Poll #3</td><td class="frase">"5 minutos. Poll: ¿qué mismatch reconoces?"</td><td>Slide de break</td></tr>
+      <tr><td class="min">65–85</td><td class="accion">Ahorro, inversión, especulación + Poll #4</td><td class="frase">"No es malo especular. Es peligroso que te lo disfracen de inversión."</td><td>Slides con tabla comparativa</td></tr>
+      <tr><td class="min">85–100</td><td class="accion">Las 5 preguntas al asesor</td><td class="frase">Las lees todas. Explicas cada una en 30 segundos.</td><td>Slide con checklist</td></tr>
+      <tr><td class="min">100–120</td><td class="accion">Cierre + tarea + frase anti-pitch</td><td class="frase">Mapa de palancas. Tarea: listar 2-3 instrumentos de crédito.</td><td>Slides de cierre</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Sesión 3 · Polls preconfigurados</h2>
+
+  <table class="tabla-polls">
+    <thead><tr><th class="num">#</th><th>Cuándo</th><th>Pregunta</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Min 3</td><td><strong>Una sola pregunta antes de invertir B/. 100k:</strong> (a) Rendimiento (b) Tiempo de bloqueo (c) Riesgo (d) Liquidez (e) Comisión del asesor</td></tr>
+      <tr><td class="num">2</td><td>Min 38</td><td><strong>¿Tus productos quedaron todos en la misma gaveta?</strong> Sí / No</td></tr>
+      <tr><td class="num">3</td><td>Min 60 (break)</td><td><strong>¿Qué mismatch reconoces?</strong> (a) G2 inflada (b) G4 vacía (c) G1/2 en G3 (d) No veo (e) Pensarlo</td></tr>
+      <tr><td class="num">4</td><td>Min 72</td><td><strong>¿Cuál frase es más riesgosa?</strong> (a) Mi cuñado dice (b) Horizonte 3 años (c) DPFs rotatorios (d) Video en internet</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Al cerrar</h2>
+  <ul class="checklist">
+    <li>PDF de material Sesión 3.</li>
+    <li>Tarea: listar 2-3 instrumentos de crédito.</li>
+    <li>URL permanente de "Mi caja de herramientas".</li>
+    <li>Fecha Sesión 4 (la última) + PDF previo.</li>
+    <li><strong>No enviar</strong> correos promocionales de Mercantil SI — rompe el protocolo anti-pitch.</li>
+  </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- 7. SESIÓN 4 -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 7</div>
+  <h1>Sesión 4 — Financiamiento · Cierre del curso</h1>
+  <p>La última sesión. Integra todo, cierra con ritual emocional, abre la puerta a la conversación post-curso sin empujar.</p>
+
+  <div class="resumen-sesion">
+    <div class="dato"><strong>Duración meta</strong><div class="valor">120 min (techo 150)</div></div>
+    <div class="dato"><strong>Concepto del día</strong><div class="valor">Tasa cuenta, plazo pesa</div></div>
+    <div class="dato"><strong>Herramienta</strong><div class="valor">Costo real del crédito</div></div>
+    <div class="dato"><strong>Caso final</strong><div class="valor">Esfuerzo Unido R.L. (integrador)</div></div>
+    <div class="dato"><strong>Polls</strong><div class="valor">5</div></div>
+    <div class="dato"><strong>Palancas</strong><div class="valor">Cierra 5, 6, 7, 8 — todas completas</div></div>
+  </div>
+
+  <h3>Archivos que abres antes de empezar</h3>
+  <div class="archivos-abrir">
+    <code>sesiones/sesion-4-financiamiento/slides/index.html</code>
+    <code>sesiones/sesion-4-financiamiento/herramientas/costo-real-credito/index.html</code>
+    <code>sesiones/sesion-1-estados-financieros/herramientas/mi-foto-financiera/index.html (para caso integrador)</code>
+    <code>sesiones/sesion-2-flujo-caja/herramientas/mi-pelicula-del-mes/index.html (para caso integrador)</code>
+    <code>evaluacion/post-test.md (link para compartir al final)</code>
+    <code>evaluacion/caso-integrador.md (datos de Esfuerzo Unido)</code>
+  </div>
+
+  <h3>Frase del curso (no solo del día)</h3>
+  <div class="frase-dia">
+    La asesoría financiera no es para quien no sabe. Es para quien quiere tomar mejores decisiones.
+  </div>
+
+  <h3>Flujo de 120 minutos</h3>
+
+  <table class="tabla-flujo">
+    <thead><tr><th>Min</th><th>Acción</th><th>Qué decir (resumido)</th><th>Qué proyectas</th></tr></thead>
+    <tbody>
+      <tr><td class="min">0–5</td><td class="accion">Apertura + Poll #1</td><td class="frase">"Un asesor te ofrece B/. 500k al 9%. ¿Qué haces antes de decir sí?"</td><td>Slide de apertura</td></tr>
+      <tr><td class="min">5–15</td><td class="accion">Dos ofertas, una cooperativa</td><td class="frase">A vs. B. "¿Cuál eligen a simple vista?" (Mayoría B)</td><td>Slides con dos ofertas</td></tr>
+      <tr><td class="min">15–30</td><td class="accion">Tasa cuenta, plazo pesa</td><td class="frase">Comisiones, plazo, comportamiento. TEA.</td><td>Slides del concepto</td></tr>
+      <tr><td class="min">30–50</td><td class="accion">Herramienta en vivo + Poll #2</td><td class="frase">"Carga el ejemplo. Mira cuota, TEA, costo total." Revelación: mirada inicial se invierte.</td><td>Slide con QR + resultados</td></tr>
+      <tr><td class="min">50–60</td><td class="accion">Buen vs. mal endeudamiento + 3 señales</td><td class="frase">3 preguntas de criterio + 3 señales de alerta.</td><td>Slides con criterios</td></tr>
+      <tr><td class="min">60–65</td><td class="accion">Break + Poll #3</td><td class="frase">"5 min. Poll: ¿qué señal de alerta has oído real?"</td><td>Slide de break</td></tr>
+      <tr><td class="min">65–90</td><td class="accion">Caso integrador Esfuerzo Unido</td><td class="frase">Los participantes usan las 3 herramientas del curso. 25 minutos.</td><td>Slide con datos del caso</td></tr>
+      <tr><td class="min">90–95</td><td class="accion">Poll #4 + síntesis</td><td class="frase">Síntesis explícita: "Acabaron de usar las 8 palancas en 20 minutos."</td><td>Slide con opciones A/B/C/D</td></tr>
+      <tr><td class="min">95–110</td><td class="accion">Ritual de cierre del curso</td><td class="frase">Retrospectiva + mapa 8 palancas completas + 7 señales + la frase.</td><td>Slides de cierre</td></tr>
+      <tr><td class="min">110–115</td><td class="accion">Invitación sin pitch</td><td class="frase">Sesión de seguimiento + contacto por chat + "Si prefieren con otra firma, también está bien."</td><td>Slides de invitación</td></tr>
+      <tr><td class="min">115–120</td><td class="accion">Poll #5 + post-test + gracias</td><td class="frase">Word cloud + link al post-test. Gracias genuino.</td><td>Slides finales</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagina">
+  <h2>Sesión 4 · Polls preconfigurados</h2>
+
+  <table class="tabla-polls">
+    <thead><tr><th class="num">#</th><th>Cuándo</th><th>Pregunta</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Min 3</td><td><strong>Un asesor ofrece B/. 500k al 9%. ¿Qué haces antes?</strong> Marca todas: (a) Negociar tasa (b) Preguntar comisiones (c) Modelar flujo (d) Preguntar plazo (e) Comparar otra oferta</td></tr>
+      <tr><td class="num">2</td><td>Min 43</td><td><strong>La inversión produce retorno en año 3. ¿Qué opción calza?</strong> (a) A (7 años) (b) B (3 años) (c) Combinación</td></tr>
+      <tr><td class="num">3</td><td>Min 60 (break)</td><td><strong>¿Qué señal de alerta has oído literalmente?</strong></td></tr>
+      <tr><td class="num">4</td><td>Min 90</td><td><strong>Esfuerzo Unido — ¿qué recomiendas?</strong> (a) A (b) B (c) C (d) B+C combinada</td></tr>
+      <tr><td class="num">5</td><td>Min 118</td><td><strong>En una palabra, ¿cómo te vas del curso?</strong> (word cloud)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>El ritual de cierre, en detalle</h2>
+
+  <div class="card primario">
+    <h4>Paso 1 · Mapa completo de 8 palancas</h4>
+    <p>Slide con las 8 palancas todas en color activo. Dices: <em>"Hace 4 sesiones nadie en esta sala sabía que estas palancas existían. Hoy las usaron todas, en 20 minutos, para una decisión de B/. 1.5M."</em></p>
+    <div class="palancas-mini">
+      <div class="pmini activa"><strong>1</strong>Foto vs. película</div>
+      <div class="pmini activa"><strong>2</strong>Utilidad ≠ liquidez</div>
+      <div class="pmini activa"><strong>3</strong>Activos ≠ patrimonio</div>
+      <div class="pmini activa"><strong>4</strong>4 dimensiones</div>
+      <div class="pmini activa"><strong>5</strong>Plazo manda</div>
+      <div class="pmini activa"><strong>6</strong>Costo real</div>
+      <div class="pmini activa"><strong>7</strong>Concentración mata</div>
+      <div class="pmini activa"><strong>8</strong>Asesoría = preguntas</div>
+    </div>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 2 · Retrospectiva breve (90 segundos)</h4>
+    <p><em>"Sesión 1: llegaron mirando el balance con respeto sordo. Salieron con la regla de los tres cuadros.</em><br><em>Sesión 2: entendieron que foto miente; película no.</em><br><em>Sesión 3: abrieron las 4 gavetas.</em><br><em>Hoy: desmontaron la tasa. Y juntaron todo."</em></p>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 3 · Las 7 señales de buena decisión de crédito</h4>
+    <p>Entregar la checklist en pantalla + chat + correo.</p>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 4 · La frase del curso</h4>
+    <div class="frase-dia acento" style="margin: 0;">La asesoría financiera no es para quien no sabe. Es para quien quiere tomar mejores decisiones.</div>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 5 · Invitación sin pitch</h4>
+    <p>Sesión de seguimiento opcional + contacto por chat + la frase: <em>"Si prefieren con otra firma, también está bien. Ahora saben qué preguntar."</em></p>
+  </div>
+
+  <h2>Al cerrar el curso</h2>
+  <ul class="checklist">
+    <li>Enviar en ≤2 h: PDF material Sesión 4 + tarjeta del facilitador + link al post-test.</li>
+    <li>En las 24 h siguientes: correo de cierre personalizado.</li>
+    <li>En los 3-5 días siguientes: análisis de respuestas post-test.</li>
+    <li>En 14 días: sesión de seguimiento opcional.</li>
+    <li>En 30 días: feedback extendido.</li>
+  </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- 8. POST-CURSO -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 8</div>
+  <h1>Post-curso</h1>
+  <p>El curso termina cuando pasan 30 días, no cuando termina la Sesión 4.</p>
+
+  <h2>0-2 horas después de la Sesión 4</h2>
+  <ul class="checklist">
+    <li>Enviar correo global de agradecimiento con PDF de Sesión 4 y link al post-test.</li>
+    <li>Adjuntar en el correo las <strong>4 URLs permanentes</strong> de las herramientas.</li>
+    <li>Ofrecer contacto directo en la firma del correo (sin empujar).</li>
+  </ul>
+
+  <h2>24 horas después</h2>
+  <ul class="checklist">
+    <li>Correo <strong>personalizado</strong> a participantes activos (los que hablaron, hicieron preguntas relevantes). 3-4 líneas agradeciendo algo concreto que dijeron.</li>
+    <li>Revisar completitud del post-test. Si &lt;50% completaron, recordatorio ligero.</li>
+  </ul>
+
+  <h2>3-5 días después</h2>
+  <ul class="checklist">
+    <li>Análisis de respuestas post-test:
+      <ul>
+        <li>Movimiento pre vs. post en preguntas de conocimiento.</li>
+        <li>NPS obtenido.</li>
+        <li>Respuestas abiertas: temas recurrentes.</li>
+      </ul>
+    </li>
+    <li>Producir un <strong>resumen de una página</strong> para stakeholders internos de Mercantil SI.</li>
+    <li>Identificar leads calificados para asesoría (no perseguirlos; que se acerquen ellos).</li>
+  </ul>
+
+  <h2>2 semanas después · Sesión de seguimiento opcional</h2>
+  <ul class="checklist">
+    <li>Enviar invitación a quienes dijeron "Sí" en la encuesta.</li>
+    <li>Videollamada 60 min.</li>
+    <li>Formato: preguntas abiertas de los participantes. Casos reales (anonimizados). Sin slides.</li>
+    <li>Objetivo: cerrar ciclo educativo. No vender.</li>
+  </ul>
+
+  <h2>30 días después · Feedback extendido</h2>
+  <ul class="checklist">
+    <li>Enviar encuesta <code>evaluacion/feedback-nps.md</code> versión extendida.</li>
+    <li>Leer respuestas abiertas — lo que sigue rondando en la mente de los participantes 30 días después es el mejor insumo para iterar el curso.</li>
+    <li>Comparar NPS día 0 vs. día 30 (una caída &lt;15 puntos es saludable).</li>
+  </ul>
+
+  <h2>Más allá</h2>
+  <p>Si hubo leads calificados — cooperativas que mostraron interés genuino en asesoría profesional — el seguimiento comercial es tarea <em>separada</em> del curso educativo. Nunca mezclar. La confianza que construyes en el curso se rompe si el seguimiento se siente como cierre de venta.</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 9. ENSAYO -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 9</div>
+  <h1>Ensayo recomendado</h1>
+  <p>Un ensayo completo antes de Sesión 1. Después, ensayos más ligeros antes de cada sesión siguiente.</p>
+
+  <h2>Ensayo 1 — 90 minutos, una semana antes de Sesión 1</h2>
+
+  <div class="card primario">
+    <h4>Paso 1 (10 min) · Setup</h4>
+    <ul class="checklist">
+      <li>Abre el entorno completo como si fuera el día real (capítulo 3).</li>
+      <li>Con un cronómetro visible.</li>
+    </ul>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 2 (15 min) · Bloque 0, 1 y 2 en voz alta</h4>
+    <ul class="checklist">
+      <li>Proyecta los slides.</li>
+      <li>Di la pregunta disparadora. Cronométrate.</li>
+      <li>Narra el caso El Paraíso como si hubiera gente escuchando.</li>
+      <li>Llega a la frase del día. Repítela 2 veces, como indica el guion.</li>
+      <li>Si te toma más de 30 min: aprende dónde recortar.</li>
+    </ul>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 3 (20 min) · Herramienta en vivo como participante</h4>
+    <ul class="checklist">
+      <li>Toma tu celular. Escanea el QR que vas a proyectar.</li>
+      <li>Llena la herramienta con tus propios números.</li>
+      <li>Nota: ¿todo carga? ¿los semáforos se mueven como esperabas?</li>
+      <li>Cambia a modo cooperativa. Ingresa números del caso.</li>
+      <li>Si algo falla, anótalo para revisar antes del día real.</li>
+    </ul>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 4 (15 min) · Bloques 4, 6, 7 en voz alta</h4>
+    <ul class="checklist">
+      <li>Los 3 indicadores, el ejercicio con el caso 2, el mini-debate.</li>
+      <li>Practica leer los polls en voz alta sin sonar robótico.</li>
+    </ul>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 5 (15 min) · Cierre completo</h4>
+    <ul class="checklist">
+      <li>Mapa de palancas.</li>
+      <li>Checklist de 5 preguntas.</li>
+      <li>Micro-tarea.</li>
+      <li>Puente a Sesión 2.</li>
+      <li>Poll final.</li>
+      <li>Agradecimiento.</li>
+      <li>Verificar que cierras cerca de los 120 min.</li>
+    </ul>
+  </div>
+
+  <div class="card primario">
+    <h4>Paso 6 (15 min) · Contingencias</h4>
+    <ul class="checklist">
+      <li>Simula: ¿qué pasa si nadie responde el poll 1?</li>
+      <li>Simula: ¿qué pasa si alguien pregunta por productos de Mercantil?</li>
+      <li>Simula: ¿qué pasa si la herramienta se cuelga?</li>
+      <li>Practica las respuestas. Son las que importan cuando improvisas.</li>
+    </ul>
+  </div>
+
+  <h2>Ensayos rápidos (Sesiones 2, 3, 4)</h2>
+
+  <p>30 minutos, el día anterior. No hace falta repetir todo el proceso — ya tienes el músculo. Pero sí:</p>
+  <ul class="checklist">
+    <li>Leer la frase del día en voz alta 3 veces.</li>
+    <li>Repasar el flujo de 120 minutos.</li>
+    <li>Probar la herramienta de la sesión.</li>
+    <li>Configurar los polls.</li>
+    <li>(Sesión 3 específicamente) Repasar las 4 reglas del protocolo anti-pitch.</li>
+    <li>(Sesión 4 específicamente) Repasar el ritual de cierre completo, en voz alta.</li>
+  </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- 10. CONTINGENCIAS -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 10</div>
+  <h1>Contingencias</h1>
+  <p>Qué hacer cuando algo se sale del plan. Léelo una vez; vuelve aquí si hace falta.</p>
+
+  <h2>Tecnología</h2>
+
+  <div class="card alerta">
+    <h4>Zoom/Teams falla del host</h4>
+    <p>Si tu conexión cae, el co-facilitador asume. Por eso es importante que sepa el flujo tan bien como tú. Si estás solo, tener una segunda conexión 4G disponible en el celular puede salvar la sesión.</p>
+  </div>
+
+  <div class="card alerta">
+    <h4>La herramienta no carga desde celulares</h4>
+    <p>Causa habitual: problema en GitHub Pages o cache. Alternativas, en orden:</p>
+    <ol>
+      <li>Compartir la herramienta desde tu laptop proyectándola. Pedirle a los participantes que respondan por chat.</li>
+      <li>Probar la URL alternativa de Netlify Drop si la tienes preparada.</li>
+      <li>Saltar el ejercicio individual y hacerlo colectivamente proyectando tu pantalla.</li>
+    </ol>
+  </div>
+
+  <div class="card alerta">
+    <h4>Los polls de la plataforma fallan</h4>
+    <p>Usar el chat como poll manual: <em>"Escriban en el chat: A, B, C, D, o E."</em> Co-facilitador cuenta rápido y reporta.</p>
+  </div>
+
+  <h2>Dinámica de grupo</h2>
+
+  <div class="card alerta">
+    <h4>Silencio absoluto, nadie participa</h4>
+    <p>Primeros 60 segundos son normales en virtual. Si continúa: co-facilitador da su propia opinión en voz <em>"Yo empiezo — yo iría con la C porque..."</em>. Casi siempre eso rompe el hielo.</p>
+  </div>
+
+  <div class="card alerta">
+    <h4>Una persona domina el chat o el micro</h4>
+    <p>Agradecer genuinamente. Después: <em>"Quiero escuchar también a alguien que no ha hablado hoy. [nombre del chat], ¿qué piensas?"</em>. Si persiste, mensaje privado del co-facilitador.</p>
+  </div>
+
+  <div class="card alerta">
+    <h4>Pregunta técnica que no sabes responder</h4>
+    <p><em>"Buena pregunta. No tengo la respuesta exacta y no te voy a improvisar. Te la mando por correo esta semana."</em> Anotar y cumplir. Nunca inventar.</p>
+  </div>
+
+  <div class="card alerta">
+    <h4>Conflicto entre participantes (muy raro)</h4>
+    <p>Co-facilitador interviene rápido: <em>"Vamos a dejar esto para off-line. El tema es interesante; sigamos con el caso."</em></p>
+  </div>
+
+  <h2>Contenido</h2>
+
+  <div class="card alerta">
+    <h4>Te queda mucho tiempo, terminaste muy rápido</h4>
+    <p>Abre preguntas libres. <em>"Me sobraron 20 minutos. ¿Qué preguntas me están haciendo internamente?"</em> El silencio post-curso suele ser más productivo que más contenido.</p>
+  </div>
+
+  <div class="card alerta">
+    <h4>Te queda poco tiempo, vas atrasado</h4>
+    <p>Orden de recorte:</p>
+    <ol>
+      <li>Recorta el mini-debate del Bloque 7 a 5 minutos.</li>
+      <li>Si aún falta: recorta el ejercicio aplicado a 10 minutos y haz menos preguntas.</li>
+      <li>El cierre <strong>nunca</strong> se recorta. El cierre es donde se ancla el aprendizaje.</li>
+    </ol>
+  </div>
+
+  <div class="card alerta">
+    <h4>Te preguntan directo "¿cuánto cuesta Mercantil SI?"</h4>
+    <p><em>"Hoy no venimos a eso. Si al final quieres conversar de tu caso, dejo contacto. Volvamos al balance."</em> Y continúas <strong>sin</strong> explicar más.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 11. REFERENCIAS RÁPIDAS -->
+<!-- ============================================ -->
+<div class="pagina">
+  <div class="kicker">Capítulo 11</div>
+  <h1>Referencias rápidas</h1>
+
+  <h2>Las 4 frases que se tienen que decir literales</h2>
+
+  <div class="frase-dia">
+    Sesión 1 · Si en una junta alguien no puede llenar los tres cuadros en una servilleta, no debería estar votando el presupuesto.
+  </div>
+  <div class="frase-dia acento">
+    Sesión 2 · Un balance sano es una invitación, no una garantía. La garantía está en la película.
+  </div>
+  <div class="frase-dia">
+    Sesión 3 · Meter plata en la gaveta equivocada cuesta más que elegir un producto mediano en la gaveta correcta.
+  </div>
+  <div class="frase-dia acento">
+    Sesión 4 · La asesoría financiera no es para quien no sabe. Es para quien quiere tomar mejores decisiones.
+  </div>
+
+  <h2>Las 8 palancas del curso</h2>
+
+  <table class="tabla-polls">
+    <thead><tr><th class="num">#</th><th>Palanca</th><th>Dónde se cierra</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Foto vs. película</td><td>Sesión 2</td></tr>
+      <tr><td class="num">2</td><td>Utilidad ≠ liquidez</td><td>Sesión 2</td></tr>
+      <tr><td class="num">3</td><td>Activos ≠ patrimonio</td><td>Sesión 1</td></tr>
+      <tr><td class="num">4</td><td>4 dimensiones del producto</td><td>Sesión 3</td></tr>
+      <tr><td class="num">5</td><td>Plazo manda tanto como tasa</td><td>Sesión 4</td></tr>
+      <tr><td class="num">6</td><td>Costo real ≠ tasa</td><td>Sesión 4</td></tr>
+      <tr><td class="num">7</td><td>Concentración mata</td><td>Sesión 4</td></tr>
+      <tr><td class="num">8</td><td>Asesoría = preguntas correctas</td><td>Sesión 4 (cierre curso)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagina">
+  <h2>Mapa de archivos del repositorio</h2>
+
+  <div class="card primario">
+    <h4>Raíz</h4>
+    <code>README.md · ABOUT-ME.md · INSTRUCCIONES.md · avances.md · DESPLIEGUE.md</code>
+  </div>
+
+  <div class="card primario">
+    <h4>Diseño transversal</h4>
+    <code>diseno/00-arco-narrativo.md · 01-audiencia.md · 02-metaforas-base.md · 03-voz-y-estilo.md · 04-stack-tecnico.md</code>
+  </div>
+
+  <div class="card primario">
+    <h4>Investigación</h4>
+    <code>referencias/benchmarks.md · fuentes-panama.md</code>
+  </div>
+
+  <div class="card primario">
+    <h4>Sesiones (mismo patrón las 4)</h4>
+    <code>sesiones/sesion-N-*/objetivos.md</code>
+    <code>sesiones/sesion-N-*/previo.md (PDF previo a la sesión)</code>
+    <code>sesiones/sesion-N-*/guion.md (script minuto a minuto)</code>
+    <code>sesiones/sesion-N-*/material-participante.md (guía que se envía después)</code>
+    <code>sesiones/sesion-N-*/evaluacion.md</code>
+    <code>sesiones/sesion-N-*/slides/index.html (presentación reveal.js)</code>
+    <code>sesiones/sesion-N-*/herramientas/*/index.html (herramienta interactiva)</code>
+  </div>
+
+  <div class="card primario">
+    <h4>Evaluación transversal</h4>
+    <code>evaluacion/pre-test.md · post-test.md · caso-integrador.md · feedback-nps.md</code>
+  </div>
+
+  <div class="card primario">
+    <h4>Operación</h4>
+    <code>scripts/generar-qr.html (generador local de QR)</code>
+    <code>assets/css/base.css · assets/js/shared.js</code>
+  </div>
+
+  <div class="card primario">
+    <h4>Facilitador</h4>
+    <code>instructivo-facilitador/instructivo.html (este documento)</code>
+    <code>instructivo-facilitador/instructivo.md (fuente markdown)</code>
+  </div>
+
+  <h2>Las 4 herramientas interactivas</h2>
+
+  <table class="tabla-polls">
+    <thead><tr><th class="num">S</th><th>Nombre</th><th>Propósito rápido</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Mi foto financiera</td><td>Balance (personal o cooperativa), semáforos.</td></tr>
+      <tr><td class="num">2</td><td>Mi película del mes</td><td>Flujo proyectado 12 meses, gráfica, alertas.</td></tr>
+      <tr><td class="num">3</td><td>Mi caja de herramientas</td><td>Productos en 4 gavetas, mismatches.</td></tr>
+      <tr><td class="num">4</td><td>Costo real del crédito</td><td>Dos ofertas lado a lado, TEA, amortización.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Últimas palabras</h2>
+
+  <div class="card acento">
+    <p><strong>Tu trabajo no es ser perfecto.</strong> Es ser <em>honesto, claro y útil</em>. Los participantes no recordarán qué tan impecablemente dijiste cada palabra. Recordarán que salieron sintiéndose más capaces de leer los números de su cooperativa. Ese es el éxito.</p>
+    <p style="margin-top: 0.8em;"><strong>Y si algo sale mal</strong>, te cuentas el chiste contigo mismo, lo anotas para la próxima cohorte, y sigues. Nadie nace sabiendo dictar este curso. Pero después de la Sesión 1 ya lo vas a estar haciendo.</p>
+    <p style="margin-top: 0.8em; text-align: right; font-style: italic;">Gracias por llevarlo adelante. — El material te acompaña.</p>
+  </div>
+
+  <p class="pie-pagina">
+    Instructivo del facilitador · v1.0 · Generado 2026-04-21 · Mercantil Servicios de Inversión
+  </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costo real del crédito · Sesión 4</title>
+<link rel="stylesheet" href="../../../../assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { background: var(--color-fondo-sutil); }
+
+  .comparador {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+  @media (max-width: 720px) { .comparador { grid-template-columns: 1fr; } }
+
+  .oferta {
+    background: #fff;
+    border: 2px solid var(--color-borde);
+    border-top: 6px solid var(--color-primario);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-1);
+  }
+  .oferta.b { border-top-color: var(--color-acento); }
+  .oferta .titulo {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .oferta.b .titulo { color: var(--color-acento); }
+  .oferta h3 { margin: 0.2rem 0 1rem 0; }
+
+  .campo { margin-bottom: 0.8rem; }
+  .campo label { display: block; font-size: 0.85rem; margin-bottom: 0.25rem; color: var(--color-texto-sutil); font-weight: 500; }
+  .campo input { width: 100%; text-align: right; padding: 0.55rem 0.8rem; font-variant-numeric: tabular-nums; }
+  .campo .hint { font-size: 0.75rem; color: var(--color-texto-sutil); margin-top: 0.2rem; }
+
+  .resumen {
+    background: var(--color-fondo-sutil);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  .resumen .fila {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    font-size: 0.92rem;
+  }
+  .resumen .fila.destacado {
+    border-top: 1px solid var(--color-borde);
+    margin-top: 0.4rem;
+    padding-top: 0.7rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-primario-oscuro);
+  }
+  .resumen .valor { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+  .veredicto {
+    background: var(--color-primario);
+    color: #fff;
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    margin-top: var(--space-3);
+    text-align: center;
+  }
+  .veredicto.acento { background: var(--color-acento); }
+  .veredicto h3 { color: #fff; margin: 0 0 0.5rem 0; }
+  .veredicto p { margin: 0; opacity: 0.95; }
+  .veredicto .diferencia { font-size: 1.8rem; font-weight: 700; margin: 0.3rem 0; font-variant-numeric: tabular-nums; }
+
+  .grafica-wrap {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow-1);
+    margin-bottom: var(--space-3);
+  }
+  .grafica-wrap h3 { margin: 0 0 0.3rem 0; font-size: 1.1rem; }
+  .grafica-wrap .leyenda {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
+    color: var(--color-texto-sutil);
+  }
+  .grafica-wrap .leyenda .dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+  }
+  svg.amortizacion {
+    width: 100%;
+    height: 260px;
+    display: block;
+  }
+
+  .acciones { display: flex; gap: 0.7rem; justify-content: flex-end; flex-wrap: wrap; margin-top: var(--space-3); }
+  .privacidad { text-align: center; font-size: 0.82rem; color: var(--color-texto-sutil); padding: var(--space-3); }
+  .privacidad strong { color: var(--color-primario); }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div>
+    <div class="marca">Costo real del crédito</div>
+    <div class="subtitulo">Tasa cuenta · plazo pesa · Mercantil SI · Sesión 4</div>
+  </div>
+</header>
+
+<div class="contenedor">
+
+  <div class="callout info" style="margin-bottom: var(--space-4);">
+    Dos ofertas de crédito lado a lado. Ingresa los datos y mira lo que la tasa nominal <em>no</em> te estaba diciendo.
+  </div>
+
+  <div class="comparador">
+
+    <!-- OFERTA A -->
+    <div class="oferta a">
+      <div class="titulo">Oferta A</div>
+      <h3 id="titulo-a">Banco / cooperativa 1</h3>
+
+      <div class="campo">
+        <label for="a-monto">Monto del crédito (B/.)</label>
+        <input type="number" id="a-monto" min="0" step="1000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="a-tasa">Tasa nominal anual (%)</label>
+        <input type="number" id="a-tasa" min="0" step="0.05" placeholder="0">
+        <div class="hint">La tasa que te dicen en la oferta.</div>
+      </div>
+      <div class="campo">
+        <label for="a-plazo">Plazo (meses)</label>
+        <input type="number" id="a-plazo" min="1" step="1" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="a-comision">Comisión apertura (% del monto)</label>
+        <input type="number" id="a-comision" min="0" step="0.1" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="a-seguro">Seguro / comisión mensual (B/.)</label>
+        <input type="number" id="a-seguro" min="0" step="5" placeholder="0">
+      </div>
+
+      <div class="resumen" id="resumen-a">
+        <div class="fila"><span>Cuota mensual</span><span class="valor" id="a-cuota">—</span></div>
+        <div class="fila"><span>Intereses totales</span><span class="valor" id="a-intereses">—</span></div>
+        <div class="fila"><span>Comisiones + seguros</span><span class="valor" id="a-comisiones">—</span></div>
+        <div class="fila"><span>Tasa efectiva anual</span><span class="valor" id="a-tea">—</span></div>
+        <div class="fila destacado"><span>Costo total</span><span class="valor" id="a-total">—</span></div>
+      </div>
+    </div>
+
+    <!-- OFERTA B -->
+    <div class="oferta b">
+      <div class="titulo">Oferta B</div>
+      <h3 id="titulo-b">Banco / cooperativa 2</h3>
+
+      <div class="campo">
+        <label for="b-monto">Monto del crédito (B/.)</label>
+        <input type="number" id="b-monto" min="0" step="1000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="b-tasa">Tasa nominal anual (%)</label>
+        <input type="number" id="b-tasa" min="0" step="0.05" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="b-plazo">Plazo (meses)</label>
+        <input type="number" id="b-plazo" min="1" step="1" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="b-comision">Comisión apertura (% del monto)</label>
+        <input type="number" id="b-comision" min="0" step="0.1" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="b-seguro">Seguro / comisión mensual (B/.)</label>
+        <input type="number" id="b-seguro" min="0" step="5" placeholder="0">
+      </div>
+
+      <div class="resumen" id="resumen-b">
+        <div class="fila"><span>Cuota mensual</span><span class="valor" id="b-cuota">—</span></div>
+        <div class="fila"><span>Intereses totales</span><span class="valor" id="b-intereses">—</span></div>
+        <div class="fila"><span>Comisiones + seguros</span><span class="valor" id="b-comisiones">—</span></div>
+        <div class="fila"><span>Tasa efectiva anual</span><span class="valor" id="b-tea">—</span></div>
+        <div class="fila destacado"><span>Costo total</span><span class="valor" id="b-total">—</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="veredicto" id="veredicto" style="display: none;">
+    <h3 id="v-titulo">Veredicto</h3>
+    <div class="diferencia" id="v-diferencia"></div>
+    <p id="v-detalle"></p>
+  </div>
+
+  <div class="grafica-wrap">
+    <h3>Amortización mes a mes</h3>
+    <div class="leyenda">
+      <span><span class="dot" style="background: #003DA5;"></span>Capital A</span>
+      <span><span class="dot" style="background: #6E9BD9;"></span>Interés A</span>
+      <span><span class="dot" style="background: #F47B20;"></span>Capital B</span>
+      <span><span class="dot" style="background: #F9B57D;"></span>Interés B</span>
+    </div>
+    <svg class="amortizacion" id="grafica-amort" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
+    <p style="font-size: 0.8rem; color: var(--color-texto-sutil); margin-top: 0.8rem;">
+      Cómo se distribuye cada pago mensual entre capital (la deuda que pagas de verdad) e interés (lo que el banco se lleva). En los primeros meses casi todo es interés; es la regla general del crédito francés.
+    </p>
+  </div>
+
+  <div class="acciones">
+    <button class="ghost" onclick="cargarEjemplo()">Cargar ejemplo del curso</button>
+    <button class="ghost" onclick="limpiar()">Limpiar</button>
+    <button class="primary" onclick="guardar()">Guardar en mi celular</button>
+  </div>
+
+  <p class="privacidad">
+    <strong>Tu privacidad importa.</strong> Los datos no salen de tu dispositivo.
+  </p>
+</div>
+
+<footer class="pie">
+  Mercantil Servicios de Inversión · Curso para dirigentes de cooperativas financieras · Sesión 4
+</footer>
+
+<script src="../../../../assets/js/shared.js"></script>
+<script>
+  function calcularOferta(pre) {
+    const monto = parseFloat(document.getElementById(pre + "monto").value) || 0;
+    const tasaAnual = (parseFloat(document.getElementById(pre + "tasa").value) || 0) / 100;
+    const plazo = parseInt(document.getElementById(pre + "plazo").value) || 0;
+    const comisionPct = (parseFloat(document.getElementById(pre + "comision").value) || 0) / 100;
+    const seguroMensual = parseFloat(document.getElementById(pre + "seguro").value) || 0;
+
+    if (monto <= 0 || plazo <= 0) {
+      ["cuota", "intereses", "comisiones", "tea", "total"].forEach(k => {
+        document.getElementById(pre + k).textContent = "—";
+      });
+      return null;
+    }
+
+    const tasaMensual = tasaAnual / 12;
+    let cuotaBase;
+    if (tasaMensual === 0) {
+      cuotaBase = monto / plazo;
+    } else {
+      cuotaBase = monto * tasaMensual * Math.pow(1 + tasaMensual, plazo) / (Math.pow(1 + tasaMensual, plazo) - 1);
+    }
+
+    // Tabla de amortización
+    const amort = [];
+    let saldo = monto;
+    let interesesTotales = 0;
+    for (let m = 1; m <= plazo; m++) {
+      const interesMes = saldo * tasaMensual;
+      const capitalMes = cuotaBase - interesMes;
+      saldo -= capitalMes;
+      interesesTotales += interesMes;
+      amort.push({ mes: m, capital: capitalMes, interes: interesMes, saldo: Math.max(0, saldo) });
+    }
+
+    const comisionApertura = monto * comisionPct;
+    const segurosTotal = seguroMensual * plazo;
+    const comisionesTotal = comisionApertura + segurosTotal;
+    const cuotaTotal = cuotaBase + seguroMensual;
+    const costoTotal = interesesTotales + comisionesTotal;
+    const totalPagado = monto + costoTotal;
+
+    // Tasa efectiva aproximada
+    const teaSimple = costoTotal / monto / (plazo / 12);
+
+    document.getElementById(pre + "cuota").textContent = Fmt.moneda(cuotaTotal);
+    document.getElementById(pre + "intereses").textContent = Fmt.moneda(interesesTotales);
+    document.getElementById(pre + "comisiones").textContent = Fmt.moneda(comisionesTotal);
+    document.getElementById(pre + "tea").textContent = Fmt.porcentaje(teaSimple, 2);
+    document.getElementById(pre + "total").textContent = Fmt.moneda(totalPagado);
+
+    return { monto, amort, cuotaBase, cuotaTotal, interesesTotales, comisionesTotal, costoTotal, totalPagado, teaSimple, plazo };
+  }
+
+  function recalc() {
+    const A = calcularOferta("a-");
+    const B = calcularOferta("b-");
+    actualizarVeredicto(A, B);
+    dibujarAmort(A, B);
+  }
+
+  function actualizarVeredicto(A, B) {
+    const v = document.getElementById("veredicto");
+    if (!A || !B) { v.style.display = "none"; return; }
+    v.style.display = "block";
+    const diferencia = Math.abs(A.costoTotal - B.costoTotal);
+    const masBarata = A.costoTotal < B.costoTotal ? "A" : "B";
+    const masLarga = A.plazo > B.plazo ? "A" : "B";
+
+    v.className = "veredicto" + (masBarata === "B" ? " acento" : "");
+    document.getElementById("v-titulo").textContent = `La oferta ${masBarata} cuesta menos en total`;
+    document.getElementById("v-diferencia").textContent = Fmt.moneda(diferencia);
+
+    let detalle;
+    if (A.plazo !== B.plazo) {
+      detalle = `Diferencia de costo total. La oferta ${masLarga} es a un plazo más largo (${masLarga === "A" ? A.plazo : B.plazo} meses vs ${masLarga === "A" ? B.plazo : A.plazo} meses). Plazo más largo = cuota menor pero costo total mayor. Antes de decidir: ¿la plata prestada generará retorno durante todo ese plazo?`;
+    } else {
+      detalle = `Con mismo plazo, la diferencia viene de la combinación tasa + comisiones. La TEA resume todo en un solo número comparable.`;
+    }
+    document.getElementById("v-detalle").textContent = detalle;
+  }
+
+  function dibujarAmort(A, B) {
+    const svg = document.getElementById("grafica-amort");
+    if (!A && !B) { svg.innerHTML = ""; return; }
+
+    const W = 600, H = 260, padL = 40, padR = 15, padT = 15, padB = 30;
+    const ancho = W - padL - padR;
+    const alto = H - padT - padB;
+
+    const maxPlazo = Math.max(A ? A.plazo : 0, B ? B.plazo : 0);
+    const maxCuota = Math.max(A ? A.cuotaBase : 0, B ? B.cuotaBase : 0);
+
+    const x = m => padL + ((m - 1) / Math.max(maxPlazo - 1, 1)) * ancho;
+    const y = v => padT + alto - (v / maxCuota) * alto;
+
+    let content = `<rect x="${padL}" y="${padT}" width="${ancho}" height="${alto}" fill="#F5F7FA" rx="4"/>`;
+
+    function serie(color, colorLight, data, cuota) {
+      if (!data || data.length === 0) return "";
+      let capitalPath = "";
+      let interesPath = "";
+      let areaInteres = "";
+      for (let i = 0; i < data.length; i++) {
+        const px = x(data[i].mes);
+        const pyCap = y(data[i].capital);
+        const pyCuota = y(cuota);
+        capitalPath += (i === 0 ? "M " : "L ") + px + " " + pyCap + " ";
+        interesPath += (i === 0 ? "M " : "L ") + px + " " + pyCuota + " ";
+      }
+      areaInteres = capitalPath + " L " + x(data[data.length - 1].mes) + " " + y(cuota) + " L " + x(data[0].mes) + " " + y(cuota) + " Z";
+      return `
+        <path d="${areaInteres}" fill="${colorLight}" opacity="0.5"/>
+        <path d="${capitalPath}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>
+      `;
+    }
+
+    if (A) content += serie("#003DA5", "#6E9BD9", A.amort, A.cuotaBase);
+    if (B) content += serie("#F47B20", "#F9B57D", B.amort, B.cuotaBase);
+
+    // Ejes labels
+    content += `<text x="${padL - 5}" y="${padT + 4}" text-anchor="end" font-size="9" fill="#5A6375" font-family="Inter">Cuota máx</text>`;
+    content += `<text x="${padL - 5}" y="${padT + alto + 4}" text-anchor="end" font-size="9" fill="#5A6375" font-family="Inter">0</text>`;
+    // Eje X
+    for (let t = 0; t <= 4; t++) {
+      const mes = Math.round((t / 4) * maxPlazo);
+      if (mes === 0) continue;
+      const px = padL + (t / 4) * ancho;
+      content += `<text x="${px}" y="${H - padB + 14}" text-anchor="middle" font-size="9" fill="#5A6375" font-family="Inter">mes ${mes}</text>`;
+    }
+
+    svg.innerHTML = content;
+  }
+
+  function cargarEjemplo() {
+    // Caso del curso: B/. 1.5M, Oferta B vs C del caso integrador
+    document.getElementById("titulo-a").textContent = "Oferta A · banco";
+    document.getElementById("a-monto").value = 1500000;
+    document.getElementById("a-tasa").value = 8.5;
+    document.getElementById("a-plazo").value = 84;
+    document.getElementById("a-comision").value = 2.0;
+    document.getElementById("a-seguro").value = 75;
+
+    document.getElementById("titulo-b").textContent = "Oferta B · emisión";
+    document.getElementById("b-monto").value = 1500000;
+    document.getElementById("b-tasa").value = 5.5;
+    document.getElementById("b-plazo").value = 36;
+    document.getElementById("b-comision").value = 1.33;
+    document.getElementById("b-seguro").value = 0;
+    recalc();
+  }
+
+  function limpiar() {
+    ["a-monto","a-tasa","a-plazo","a-comision","a-seguro","b-monto","b-tasa","b-plazo","b-comision","b-seguro"].forEach(id => document.getElementById(id).value = "");
+    Store.borrar("costo-credito");
+    recalc();
+  }
+
+  function guardar() {
+    const data = {};
+    ["a-monto","a-tasa","a-plazo","a-comision","a-seguro","b-monto","b-tasa","b-plazo","b-comision","b-seguro"].forEach(id => data[id] = document.getElementById(id).value);
+    Store.guardar("costo-credito", data);
+    avisar("Guardado en este celular.");
+  }
+
+  function avisar(msg) {
+    const div = document.createElement("div");
+    div.textContent = msg;
+    div.style.cssText = "position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--color-primario);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;box-shadow:var(--shadow-2);z-index:100;";
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 1800);
+  }
+
+  function restore() {
+    const data = Store.leer("costo-credito");
+    if (!data) return;
+    Object.keys(data).forEach(k => {
+      const el = document.getElementById(k);
+      if (el) el.value = data[k];
+    });
+  }
+
+  // Listeners
+  ["a-monto","a-tasa","a-plazo","a-comision","a-seguro","b-monto","b-tasa","b-plazo","b-comision","b-seguro"].forEach(id => {
+    document.getElementById(id).addEventListener("input", recalc);
+  });
+
+  restore();
+  recalc();
+</script>
+</body>
+</html>

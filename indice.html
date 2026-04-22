@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navegador del curso · Mercantil SI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+  :root {
+    --primario: #003DA5;
+    --primario-oscuro: #002868;
+    --primario-claro: #E6EDF7;
+    --acento: #F47B20;
+    --acento-claro: #FDE9D7;
+    --fondo: #FFFFFF;
+    --fondo-sutil: #F5F7FA;
+    --texto: #1A1A1A;
+    --texto-sutil: #5A6375;
+    --borde: #E2E6EE;
+    --positivo: #2E7D55;
+    --alerta: #B4312E;
+    --aside-w: 320px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--texto);
+    background: var(--fondo-sutil);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .app {
+    display: grid;
+    grid-template-columns: var(--aside-w) 1fr;
+    grid-template-rows: 64px 1fr;
+    grid-template-areas: "header header" "aside main";
+    height: 100vh;
+  }
+
+  header.barra {
+    grid-area: header;
+    background: var(--primario);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 1.2rem;
+    gap: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    z-index: 10;
+  }
+  header.barra .logo {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  header.barra .sub {
+    opacity: 0.85;
+    font-size: 0.88rem;
+  }
+  header.barra .crumbs {
+    margin-left: auto;
+    opacity: 0.85;
+    font-size: 0.85rem;
+    font-family: "JetBrains Mono", monospace;
+    max-width: 50%;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  header.barra .hamburguesa {
+    display: none;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  aside.nav {
+    grid-area: aside;
+    background: #fff;
+    border-right: 1px solid var(--borde);
+    overflow-y: auto;
+    padding: 1rem 0.75rem 2rem;
+  }
+
+  main.contenido {
+    grid-area: main;
+    overflow-y: auto;
+    background: var(--fondo);
+  }
+
+  .grupo {
+    margin-bottom: 0.3rem;
+  }
+  .grupo summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.55rem 0.7rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primario-oscuro);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .grupo summary::-webkit-details-marker { display: none; }
+  .grupo summary::before {
+    content: "▶";
+    font-size: 0.7em;
+    color: var(--texto-sutil);
+    transition: transform 0.15s ease;
+  }
+  .grupo[open] summary::before { transform: rotate(90deg); }
+  .grupo summary:hover { background: var(--fondo-sutil); }
+
+  .grupo .icono {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    font-size: 0.9em;
+  }
+
+  .items {
+    list-style: none;
+    padding: 0.2rem 0 0.4rem 1.2rem;
+    margin: 0;
+  }
+  .items li { padding: 0; }
+  .items a {
+    display: block;
+    padding: 0.4rem 0.7rem;
+    color: var(--texto);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    border-left: 2px solid transparent;
+  }
+  .items a:hover {
+    background: var(--primario-claro);
+    color: var(--primario-oscuro);
+  }
+  .items a.activo {
+    background: var(--primario-claro);
+    color: var(--primario-oscuro);
+    border-left-color: var(--primario);
+    font-weight: 600;
+  }
+  .items a .etiqueta {
+    display: inline-block;
+    font-size: 0.7rem;
+    background: var(--acento-claro);
+    color: #9C4A14;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 0.4rem;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .items a .etiqueta.ext { background: var(--primario-claro); color: var(--primario-oscuro); }
+  .items a .etiqueta.pdf { background: #FBE9E8; color: var(--alerta); }
+
+  /* Área de contenido renderizado */
+  .md {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.2rem 2rem 5rem;
+  }
+  .md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
+    color: var(--primario-oscuro);
+    line-height: 1.22;
+    margin-top: 1.6em;
+    margin-bottom: 0.4em;
+    font-weight: 700;
+  }
+  .md h1 { font-size: 2rem; margin-top: 0; padding-bottom: 0.4rem; border-bottom: 2px solid var(--primario); }
+  .md h2 { font-size: 1.5rem; }
+  .md h3 { font-size: 1.2rem; color: var(--primario); }
+  .md h4 { font-size: 1.05rem; }
+  .md p { margin: 0.7em 0; }
+  .md strong { color: var(--primario-oscuro); font-weight: 700; }
+  .md em { color: var(--acento); font-style: normal; font-weight: 600; }
+  .md a { color: var(--primario); text-decoration: underline; text-underline-offset: 2px; }
+  .md a:hover { color: var(--primario-oscuro); }
+  .md ul, .md ol { padding-left: 1.5rem; }
+  .md li { margin: 0.25em 0; }
+  .md li > ul, .md li > ol { margin: 0.3em 0; }
+  .md blockquote {
+    border-left: 4px solid var(--acento);
+    background: var(--acento-claro);
+    padding: 0.8em 1.2em;
+    margin: 1em 0;
+    border-radius: 0 6px 6px 0;
+    color: var(--texto);
+  }
+  .md blockquote p { margin: 0.3em 0; }
+  .md code {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.9em;
+    background: var(--fondo-sutil);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    color: var(--primario-oscuro);
+  }
+  .md pre {
+    background: var(--primario-oscuro);
+    color: #E6EDF7;
+    padding: 1em 1.2em;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 0.88em;
+    line-height: 1.45;
+  }
+  .md pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+  .md table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+    font-size: 0.93em;
+  }
+  .md table th {
+    background: var(--primario-claro);
+    color: var(--primario-oscuro);
+    font-weight: 700;
+    text-align: left;
+    padding: 0.55em 0.8em;
+    border-bottom: 2px solid var(--primario);
+  }
+  .md table td {
+    padding: 0.55em 0.8em;
+    border-bottom: 1px solid var(--borde);
+  }
+  .md table tr:nth-child(even) td { background: var(--fondo-sutil); }
+  .md hr {
+    border: 0;
+    border-top: 1px solid var(--borde);
+    margin: 2em 0;
+  }
+  .md img { max-width: 100%; height: auto; border-radius: 4px; }
+  .md input[type="checkbox"] { margin-right: 0.4em; transform: scale(1.1); }
+
+  /* Home / bienvenida */
+  .home {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  .home h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 2.4rem;
+    color: var(--primario-oscuro);
+    margin: 0 0 0.3rem;
+    line-height: 1.1;
+  }
+  .home .bajada {
+    font-size: 1.1rem;
+    color: var(--texto-sutil);
+    margin-bottom: 2rem;
+  }
+  .home .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .home .card {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 1.2rem;
+    border-top: 4px solid var(--primario);
+    transition: transform 0.12s ease, box-shadow 0.15s ease;
+  }
+  .home .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,61,165,0.08);
+  }
+  .home .card h3 { margin: 0 0 0.3rem; color: var(--primario-oscuro); font-size: 1.05rem; }
+  .home .card p { margin: 0; font-size: 0.9rem; color: var(--texto-sutil); }
+  .home .card a { display: block; color: inherit; text-decoration: none; }
+
+  /* Error fallback cuando fetch falla */
+  .error-panel {
+    max-width: 780px;
+    margin: 2rem auto;
+    background: #FBE9E8;
+    border-left: 6px solid var(--alerta);
+    padding: 1.5rem 1.8rem;
+    border-radius: 0 8px 8px 0;
+  }
+  .error-panel h2 { color: var(--alerta); margin: 0 0 0.5rem; }
+  .error-panel pre {
+    background: #fff;
+    padding: 0.8em 1em;
+    border-radius: 4px;
+    border: 1px solid var(--borde);
+    font-size: 0.88em;
+    overflow-x: auto;
+    color: var(--texto);
+  }
+  .error-panel code { background: var(--fondo-sutil); padding: 1px 5px; border-radius: 3px; }
+
+  /* Skeleton / loading */
+  .cargando {
+    text-align: center;
+    padding: 3rem;
+    color: var(--texto-sutil);
+    font-style: italic;
+  }
+
+  /* Task list items (marked) */
+  .md ul.contains-task-list { list-style: none; padding-left: 0.5em; }
+  .md .task-list-item { padding-left: 0; }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; grid-template-areas: "header" "main"; }
+    aside.nav {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 280px;
+      height: calc(100% - 64px);
+      border-right: 1px solid var(--borde);
+      transform: translateX(-100%);
+      transition: transform 0.22s ease;
+      z-index: 20;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+    }
+    aside.nav.abierta { transform: translateX(0); }
+    header.barra .hamburguesa { display: inline-block; }
+    .md, .home { padding: 1.5rem 1rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <header class="barra">
+    <button class="hamburguesa" onclick="toggleNav()" aria-label="Menú">☰</button>
+    <div>
+      <div class="logo">Curso cooperativas</div>
+      <div class="sub">Mercantil SI · Navegador de contenido</div>
+    </div>
+    <div class="crumbs" id="crumbs"></div>
+  </header>
+
+  <aside class="nav" id="nav">
+
+    <details class="grupo" open>
+      <summary><span class="icono">🏠</span> Raíz del proyecto</summary>
+      <ul class="items">
+        <li><a href="#" data-md="README.md">README</a></li>
+        <li><a href="#" data-md="ABOUT-ME.md">ABOUT-ME</a></li>
+        <li><a href="#" data-md="INSTRUCCIONES.md">INSTRUCCIONES</a></li>
+        <li><a href="#" data-md="avances.md">avances <span class="etiqueta">bitácora</span></a></li>
+        <li><a href="#" data-md="DESPLIEGUE.md">DESPLIEGUE</a></li>
+      </ul>
+    </details>
+
+    <details class="grupo">
+      <summary><span class="icono">🧭</span> Diseño transversal</summary>
+      <ul class="items">
+        <li><a href="#" data-md="diseno/00-arco-narrativo.md">00 · Arco narrativo</a></li>
+        <li><a href="#" data-md="diseno/01-audiencia.md">01 · Audiencia</a></li>
+        <li><a href="#" data-md="diseno/02-metaforas-base.md">02 · Metáforas base</a></li>
+        <li><a href="#" data-md="diseno/03-voz-y-estilo.md">03 · Voz y estilo</a></li>
+        <li><a href="#" data-md="diseno/04-stack-tecnico.md">04 · Stack técnico</a></li>
+      </ul>
+    </details>
+
+    <details class="grupo">
+      <summary><span class="icono">📚</span> Investigación</summary>
+      <ul class="items">
+        <li><a href="#" data-md="referencias/benchmarks.md">Benchmarks (10 referencias)</a></li>
+        <li><a href="#" data-md="referencias/fuentes-panama.md">Fuentes Panamá</a></li>
+      </ul>
+    </details>
+
+    <details class="grupo" open>
+      <summary><span class="icono">1️⃣</span> Sesión 1 · Estados financieros</summary>
+      <ul class="items">
+        <li><a href="#" data-md="sesiones/sesion-1-estados-financieros/README.md">README</a></li>
+        <li><a href="#" data-md="sesiones/sesion-1-estados-financieros/objetivos.md">Objetivos</a></li>
+        <li><a href="#" data-md="sesiones/sesion-1-estados-financieros/previo.md">PDF previo (fuente)</a></li>
+        <li><a href="#" data-md="sesiones/sesion-1-estados-financieros/guion.md">Guion del facilitador</a></li>
+        <li><a href="#" data-md="sesiones/sesion-1-estados-financieros/material-participante.md">Material del participante</a></li>
+        <li><a href="#" data-md="sesiones/sesion-1-estados-financieros/evaluacion.md">Evaluación</a></li>
+        <li><a href="#" data-md="sesiones/sesion-1-estados-financieros/datos/el-paraiso.md">Caso El Paraíso (datos)</a></li>
+        <li><a href="sesiones/sesion-1-estados-financieros/slides/index.html" target="_blank">Slides <span class="etiqueta ext">HTML</span></a></li>
+        <li><a href="sesiones/sesion-1-estados-financieros/herramientas/mi-foto-financiera/index.html" target="_blank">Mi foto financiera <span class="etiqueta ext">HTML</span></a></li>
+      </ul>
+    </details>
+
+    <details class="grupo">
+      <summary><span class="icono">2️⃣</span> Sesión 2 · Flujo de caja</summary>
+      <ul class="items">
+        <li><a href="#" data-md="sesiones/sesion-2-flujo-caja/README.md">README</a></li>
+        <li><a href="#" data-md="sesiones/sesion-2-flujo-caja/objetivos.md">Objetivos</a></li>
+        <li><a href="#" data-md="sesiones/sesion-2-flujo-caja/previo.md">PDF previo (fuente)</a></li>
+        <li><a href="#" data-md="sesiones/sesion-2-flujo-caja/plan-sesion.md">Plan de sesión</a></li>
+        <li><a href="#" data-md="sesiones/sesion-2-flujo-caja/guion.md">Guion del facilitador</a></li>
+        <li><a href="#" data-md="sesiones/sesion-2-flujo-caja/material-participante.md">Material del participante</a></li>
+        <li><a href="#" data-md="sesiones/sesion-2-flujo-caja/evaluacion.md">Evaluación</a></li>
+        <li><a href="sesiones/sesion-2-flujo-caja/slides/index.html" target="_blank">Slides <span class="etiqueta ext">HTML</span></a></li>
+        <li><a href="sesiones/sesion-2-flujo-caja/herramientas/mi-pelicula-del-mes/index.html" target="_blank">Mi película del mes <span class="etiqueta ext">HTML</span></a></li>
+      </ul>
+    </details>
+
+    <details class="grupo">
+      <summary><span class="icono">3️⃣</span> Sesión 3 · Productos financieros</summary>
+      <ul class="items">
+        <li><a href="#" data-md="sesiones/sesion-3-productos-financieros/README.md">README</a></li>
+        <li><a href="#" data-md="sesiones/sesion-3-productos-financieros/objetivos.md">Objetivos</a></li>
+        <li><a href="#" data-md="sesiones/sesion-3-productos-financieros/previo.md">PDF previo (fuente)</a></li>
+        <li><a href="#" data-md="sesiones/sesion-3-productos-financieros/plan-sesion.md">Plan de sesión</a></li>
+        <li><a href="#" data-md="sesiones/sesion-3-productos-financieros/guion.md">Guion del facilitador</a></li>
+        <li><a href="#" data-md="sesiones/sesion-3-productos-financieros/material-participante.md">Material del participante</a></li>
+        <li><a href="#" data-md="sesiones/sesion-3-productos-financieros/evaluacion.md">Evaluación</a></li>
+        <li><a href="sesiones/sesion-3-productos-financieros/slides/index.html" target="_blank">Slides <span class="etiqueta ext">HTML</span></a></li>
+        <li><a href="sesiones/sesion-3-productos-financieros/herramientas/mi-caja-herramientas/index.html" target="_blank">Mi caja de herramientas <span class="etiqueta ext">HTML</span></a></li>
+      </ul>
+    </details>
+
+    <details class="grupo">
+      <summary><span class="icono">4️⃣</span> Sesión 4 · Financiamiento</summary>
+      <ul class="items">
+        <li><a href="#" data-md="sesiones/sesion-4-financiamiento/README.md">README</a></li>
+        <li><a href="#" data-md="sesiones/sesion-4-financiamiento/objetivos.md">Objetivos</a></li>
+        <li><a href="#" data-md="sesiones/sesion-4-financiamiento/previo.md">PDF previo (fuente)</a></li>
+        <li><a href="#" data-md="sesiones/sesion-4-financiamiento/plan-sesion.md">Plan de sesión</a></li>
+        <li><a href="#" data-md="sesiones/sesion-4-financiamiento/guion.md">Guion del facilitador</a></li>
+        <li><a href="#" data-md="sesiones/sesion-4-financiamiento/material-participante.md">Material del participante</a></li>
+        <li><a href="#" data-md="sesiones/sesion-4-financiamiento/evaluacion.md">Evaluación</a></li>
+        <li><a href="sesiones/sesion-4-financiamiento/slides/index.html" target="_blank">Slides <span class="etiqueta ext">HTML</span></a></li>
+        <li><a href="sesiones/sesion-4-financiamiento/herramientas/costo-real-credito/index.html" target="_blank">Costo real del crédito <span class="etiqueta ext">HTML</span></a></li>
+      </ul>
+    </details>
+
+    <details class="grupo">
+      <summary><span class="icono">✅</span> Evaluación transversal</summary>
+      <ul class="items">
+        <li><a href="#" data-md="evaluacion/README.md">README</a></li>
+        <li><a href="#" data-md="evaluacion/pre-test.md">Pre-test (antes del curso)</a></li>
+        <li><a href="#" data-md="evaluacion/post-test.md">Post-test (cierre)</a></li>
+        <li><a href="#" data-md="evaluacion/caso-integrador.md">Caso integrador Esfuerzo Unido</a></li>
+        <li><a href="#" data-md="evaluacion/feedback-nps.md">Feedback + NPS (30 días)</a></li>
+      </ul>
+    </details>
+
+    <details class="grupo" open>
+      <summary><span class="icono">📘</span> Instructivo del facilitador</summary>
+      <ul class="items">
+        <li><a href="#" data-md="instructivo-facilitador/README.md">README del instructivo</a></li>
+        <li><a href="#" data-md="instructivo-facilitador/instructivo.md">Instructivo (markdown)</a></li>
+        <li><a href="instructivo-facilitador/instructivo.html" target="_blank">Instructivo <span class="etiqueta ext">HTML</span></a></li>
+        <li><a href="instructivo-facilitador/instructivo-facilitador.pdf" target="_blank">Instructivo <span class="etiqueta pdf">PDF</span></a></li>
+      </ul>
+    </details>
+
+    <details class="grupo">
+      <summary><span class="icono">🛠️</span> Operación</summary>
+      <ul class="items">
+        <li><a href="scripts/generar-qr.html" target="_blank">Generador de QR <span class="etiqueta ext">HTML</span></a></li>
+      </ul>
+    </details>
+
+  </aside>
+
+  <main class="contenido">
+    <div id="render">
+      <!-- Pantalla de inicio -->
+      <div class="home">
+        <h1>Curso para cooperativas panameñas</h1>
+        <p class="bajada">Finanzas para dirigentes · 4 sesiones virtuales · Mercantil Servicios de Inversión</p>
+
+        <p>Este es el navegador del contenido del curso. Desde el menú lateral puedes abrir cualquier archivo del proyecto.</p>
+
+        <h3 style="color: var(--primario); margin-top: 2rem;">Por dónde empezar</h3>
+        <div class="cards">
+          <div class="card"><a href="#" data-md="README.md"><h3>README</h3><p>Mapa general del repositorio.</p></a></div>
+          <div class="card"><a href="#" data-md="instructivo-facilitador/instructivo.md"><h3>Instructivo facilitador</h3><p>Guía paso a paso para dictar el curso.</p></a></div>
+          <div class="card"><a href="#" data-md="diseno/00-arco-narrativo.md"><h3>Arco narrativo</h3><p>Cómo se conectan las 4 sesiones.</p></a></div>
+          <div class="card"><a href="#" data-md="avances.md"><h3>Avances</h3><p>Bitácora cronológica del proyecto.</p></a></div>
+          <div class="card"><a href="#" data-md="sesiones/sesion-1-estados-financieros/guion.md"><h3>Guion Sesión 1</h3><p>Script minuto a minuto.</p></a></div>
+          <div class="card"><a href="#" data-md="DESPLIEGUE.md"><h3>Despliegue</h3><p>Publicar en GitHub Pages.</p></a></div>
+        </div>
+
+        <h3 style="color: var(--primario); margin-top: 2rem;">Las 4 herramientas interactivas del curso</h3>
+        <div class="cards">
+          <div class="card"><a href="sesiones/sesion-1-estados-financieros/herramientas/mi-foto-financiera/index.html" target="_blank"><h3>Mi foto financiera</h3><p>Sesión 1 · Balance y semáforos.</p></a></div>
+          <div class="card"><a href="sesiones/sesion-2-flujo-caja/herramientas/mi-pelicula-del-mes/index.html" target="_blank"><h3>Mi película del mes</h3><p>Sesión 2 · Flujo 12 meses.</p></a></div>
+          <div class="card"><a href="sesiones/sesion-3-productos-financieros/herramientas/mi-caja-herramientas/index.html" target="_blank"><h3>Mi caja de herramientas</h3><p>Sesión 3 · Las 4 gavetas.</p></a></div>
+          <div class="card"><a href="sesiones/sesion-4-financiamiento/herramientas/costo-real-credito/index.html" target="_blank"><h3>Costo real del crédito</h3><p>Sesión 4 · Dos ofertas comparadas.</p></a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<script>
+  // Configuración de marked
+  marked.setOptions({
+    breaks: false,
+    gfm: true,
+  });
+
+  // Renderer custom para tasks y para remover frontmatter YAML
+  const origText = marked.parse;
+
+  function limpiarFrontmatter(md) {
+    // Elimina frontmatter YAML al inicio (--- ... ---)
+    if (md.startsWith("---")) {
+      const fin = md.indexOf("---", 3);
+      if (fin !== -1) {
+        return md.slice(fin + 3).replace(/^\n+/, "");
+      }
+    }
+    return md;
+  }
+
+  async function cargar(path, actualizarHash = true) {
+    const render = document.getElementById("render");
+    const crumbs = document.getElementById("crumbs");
+    crumbs.textContent = path;
+
+    // Marcar activo en nav
+    document.querySelectorAll("aside.nav a").forEach(a => a.classList.remove("activo"));
+    document.querySelectorAll(`aside.nav a[data-md="${CSS.escape(path)}"]`).forEach(a => {
+      a.classList.add("activo");
+      // Abrir su grupo si está cerrado
+      const grupo = a.closest("details.grupo");
+      if (grupo && !grupo.open) grupo.open = true;
+    });
+
+    render.innerHTML = `<div class="cargando">Cargando ${path}…</div>`;
+
+    try {
+      const resp = await fetch(path);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      let texto = await resp.text();
+      texto = limpiarFrontmatter(texto);
+      const html = marked.parse(texto);
+      render.innerHTML = `<article class="md">${html}</article>`;
+      render.scrollTop = 0;
+      document.querySelector("main.contenido").scrollTop = 0;
+      if (actualizarHash) location.hash = encodeURIComponent(path);
+
+      // Cerrar sidebar en móvil al navegar
+      if (window.innerWidth <= 900) {
+        document.getElementById("nav").classList.remove("abierta");
+      }
+    } catch (e) {
+      mostrarError(path, e);
+    }
+  }
+
+  function mostrarError(path, e) {
+    const render = document.getElementById("render");
+    const crumbs = document.getElementById("crumbs");
+    crumbs.textContent = "error: " + path;
+
+    const esFile = location.protocol === "file:";
+    const rutaProyecto = "c:/users/pocho/onedrive/mercantil_cooperativas";
+
+    if (esFile) {
+      render.innerHTML = `
+        <div class="error-panel">
+          <h2>El navegador bloquea leer archivos locales</h2>
+          <p>Estás abriendo este <code>indice.html</code> directamente desde el disco (<code>file://</code>). Chrome y Edge bloquean la lectura de otros archivos del mismo disco por seguridad. Se resuelve en 10 segundos.</p>
+
+          <h3 style="color: var(--primario);">Opción 1 — Doble-click a <code>servir.bat</code> (recomendada)</h3>
+          <p>En la carpeta del proyecto hay un archivo <code>servir.bat</code>. Dale doble-click. Se abre una ventana negra, arranca el servidor y tu navegador abre automáticamente. No requiere instalar nada.</p>
+          <p style="font-size: 0.88em; color: var(--texto-sutil);">Usa PowerShell + .NET (ya incluidos en Windows). Si Windows pregunta si confías en el script, di "Ejecutar de todos modos".</p>
+
+          <h3 style="color: var(--primario);">Opción 2 — Firefox</h3>
+          <p>Firefox permite leer archivos locales con <code>file://</code>. Abre <code>indice.html</code> con Firefox y funciona sin servidor.</p>
+
+          <h3 style="color: var(--primario);">Opción 3 — Instalar Python</h3>
+          <p>En PowerShell escribe <code>python</code> y presiona Enter. Windows abrirá la Microsoft Store; click en "Obtener" (1 click). Luego:</p>
+          <pre>cd "${rutaProyecto}"
+python -m http.server 8000</pre>
+          <p>Abre <code>http://localhost:8000/indice.html</code> en tu navegador.</p>
+
+          <h3 style="color: var(--primario);">Opción 4 — VS Code + Live Server</h3>
+          <p>Si usas VS Code: instala la extensión "Live Server", click derecho a <code>indice.html</code>, "Open with Live Server".</p>
+
+          <hr style="margin: 1.5rem 0;">
+          <p style="font-size: 0.88em; color: var(--texto-sutil);">Archivo que se intentó cargar: <code>${path}</code><br>Error técnico: ${e.message}</p>
+        </div>
+      `;
+    } else {
+      render.innerHTML = `
+        <div class="error-panel">
+          <h2>No se pudo cargar el archivo</h2>
+          <p>Archivo: <code>${path}</code></p>
+          <p>Error: ${e.message}</p>
+          <p>Verifica que el archivo existe en la ruta esperada.</p>
+        </div>
+      `;
+    }
+  }
+
+  // Listeners de navegación
+  document.body.addEventListener("click", (ev) => {
+    const enlace = ev.target.closest("a[data-md]");
+    if (!enlace) return;
+    ev.preventDefault();
+    const path = enlace.dataset.md;
+    cargar(path);
+  });
+
+  function toggleNav() {
+    document.getElementById("nav").classList.toggle("abierta");
+  }
+
+  // Cargar desde hash si lo hay
+  function cargarDesdeHash() {
+    const h = decodeURIComponent(location.hash.slice(1));
+    if (h) cargar(h, false);
+  }
+
+  window.addEventListener("hashchange", cargarDesdeHash);
+  if (location.hash) cargarDesdeHash();
+</script>
+
+</body>
+</html>

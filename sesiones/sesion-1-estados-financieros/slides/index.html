@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sesión 1 · Estados financieros sin miedo · Mercantil SI</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5;
+    --m-primario-oscuro: #002868;
+    --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20;
+    --m-acento-claro: #FDE9D7;
+    --m-fondo: #FFFFFF;
+    --m-fondo-sutil: #F5F7FA;
+    --m-texto: #1A1A1A;
+    --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE;
+    --m-positivo: #2E7D55;
+    --m-alerta: #B4312E;
+    --m-aviso: #B78A00;
+  }
+  .reveal {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--m-texto);
+    font-size: 28px;
+  }
+  .reveal .slides { text-align: left; }
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    color: var(--m-primario-oscuro);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.6em; }
+  .reveal h3 { font-size: 1.2em; }
+  .reveal p, .reveal li { line-height: 1.5; }
+  .reveal strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  .reveal em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+
+  /* Portadas */
+  .portada {
+    background: linear-gradient(135deg, var(--m-primario) 0%, var(--m-primario-oscuro) 100%);
+    color: #fff !important;
+    padding: 2em 1.5em;
+    border-radius: 0;
+    height: 100%;
+  }
+  .portada h1, .portada h2 { color: #fff; }
+  .portada .kicker { color: var(--m-acento-claro); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.12em; }
+  .portada .marca { position: absolute; top: 1em; right: 1em; font-size: 0.55em; opacity: 0.85; }
+
+  /* Bloques */
+  .kicker { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.12em; color: var(--m-acento); font-weight: 700; margin-bottom: 0.3em; }
+  .nota-facilitador { font-size: 0.5em; color: var(--m-texto-sutil); border-top: 1px solid var(--m-borde); padding-top: 0.8em; margin-top: 1.5em; font-style: italic; }
+
+  /* Tarjetas */
+  .tarjeta {
+    background: var(--m-fondo-sutil);
+    border: 1px solid var(--m-borde);
+    border-radius: 12px;
+    padding: 1em 1.2em;
+    margin: 0.3em 0;
+  }
+  .tarjeta.acento { border-left: 6px solid var(--m-acento); }
+  .tarjeta.primario { border-left: 6px solid var(--m-primario); }
+  .tarjeta.alerta { border-left: 6px solid var(--m-alerta); background: #FBE9E8; }
+  .tarjeta.positivo { border-left: 6px solid var(--m-positivo); background: #E8F5EF; }
+
+  /* Tablas */
+  .reveal table { font-size: 0.75em; margin: 0.5em 0; }
+  .reveal table th { background: var(--m-primario-claro); color: var(--m-primario-oscuro); font-weight: 700; font-size: 0.75em; text-transform: uppercase; }
+  .reveal table td, .reveal table th { padding: 0.4em 0.7em; border-bottom: 1px solid var(--m-borde); }
+  .reveal table tr.destacado td { font-weight: 700; background: var(--m-primario-claro); }
+  .reveal table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Cuadros de la regla */
+  .tres-cuadros {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.8em;
+    margin: 1em 0;
+  }
+  .cuadro {
+    border: 3px solid var(--m-primario);
+    border-radius: 14px;
+    padding: 1em;
+    min-height: 220px;
+    background: #fff;
+  }
+  .cuadro.lleno { background: var(--m-primario-claro); }
+  .cuadro.destacado { background: var(--m-acento-claro); border-color: var(--m-acento); }
+  .cuadro .num {
+    display: inline-block;
+    width: 2em; height: 2em; line-height: 2em;
+    background: var(--m-primario); color: #fff;
+    border-radius: 50%; text-align: center;
+    font-weight: 700; font-size: 0.8em;
+  }
+  .cuadro.destacado .num { background: var(--m-acento); }
+  .cuadro h3 { color: var(--m-primario-oscuro); font-size: 0.9em; margin: 0.5em 0; }
+  .cuadro p { margin: 0.3em 0; font-size: 0.7em; line-height: 1.3; color: var(--m-texto-sutil); }
+  .cuadro .valor-grande { font-size: 1.5em; font-weight: 700; color: var(--m-primario); font-variant-numeric: tabular-nums; margin-top: 0.5em; }
+
+  /* Palancas */
+  .palancas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5em;
+  }
+  .palanca {
+    background: var(--m-fondo-sutil);
+    border: 1px solid var(--m-borde);
+    border-radius: 8px;
+    padding: 0.6em;
+    font-size: 0.6em;
+    text-align: center;
+  }
+  .palanca.activa { background: var(--m-acento-claro); border-color: var(--m-acento); color: var(--m-primario-oscuro); font-weight: 600; }
+  .palanca .num {
+    display: inline-block;
+    width: 1.6em; height: 1.6em; line-height: 1.6em;
+    background: var(--m-texto-sutil); color: #fff;
+    border-radius: 50%; font-weight: 700; margin-bottom: 0.3em;
+  }
+  .palanca.activa .num { background: var(--m-acento); }
+
+  /* QR */
+  .qr-bloque {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5em;
+    align-items: center;
+    background: var(--m-fondo-sutil);
+    border-radius: 12px;
+    padding: 1.2em;
+  }
+  .qr-bloque .qr-placeholder {
+    width: 240px; height: 240px;
+    background: #fff;
+    border: 8px solid var(--m-primario);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: monospace; color: var(--m-texto-sutil); font-size: 0.5em; text-align: center; padding: 1em;
+  }
+  .qr-bloque .url { font-family: monospace; font-size: 0.65em; color: var(--m-primario); word-break: break-all; }
+
+  /* KPI destacado */
+  .kpi-destacado {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8em;
+    margin: 0.8em 0;
+  }
+  .kpi-bloque {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1em;
+    border: 2px solid var(--m-borde);
+    border-left-width: 6px;
+  }
+  .kpi-bloque.rojo { border-left-color: var(--m-alerta); }
+  .kpi-bloque.amarillo { border-left-color: var(--m-aviso); }
+  .kpi-bloque.verde { border-left-color: var(--m-positivo); }
+  .kpi-bloque .valor { font-size: 1.8em; font-weight: 700; color: var(--m-primario-oscuro); font-variant-numeric: tabular-nums; }
+  .kpi-bloque .etiqueta { font-size: 0.6em; color: var(--m-texto-sutil); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .kpi-bloque .pista { font-size: 0.6em; color: var(--m-texto); margin-top: 0.3em; }
+
+  /* Callout grande */
+  .callout-grande {
+    background: var(--m-primario-claro);
+    border-left: 8px solid var(--m-primario);
+    padding: 1.2em 1.5em;
+    border-radius: 0 12px 12px 0;
+    margin: 0.8em 0;
+    font-size: 1.1em;
+  }
+  .callout-grande.acento { background: var(--m-acento-claro); border-left-color: var(--m-acento); }
+
+  /* Pie corporativo */
+  .pie-mini {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 11px;
+    color: var(--m-texto-sutil);
+    opacity: 0.65;
+  }
+  .reveal .slide-number { color: var(--m-texto-sutil); background: transparent; font-family: "Inter", sans-serif; }
+
+  /* Check list */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 0.6em 0 0.6em 2em;
+    position: relative;
+    border-bottom: 1px solid var(--m-borde);
+  }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0.2em;
+    color: var(--m-primario);
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ============================================ -->
+<!-- PORTADA -->
+<!-- ============================================ -->
+<section class="portada" data-background-color="#003DA5">
+  <div class="marca">Mercantil Servicios de Inversión</div>
+  <div class="kicker">Sesión 1 · Finanzas para dirigentes cooperativos</div>
+  <h1 style="margin-top: 0.8em;">Entender el dinero</h1>
+  <h2 style="font-weight: 400; opacity: 0.92;">Estados financieros sin miedo</h2>
+  <p style="margin-top: 2em; opacity: 0.8; font-size: 0.8em;">Dos horas · Tu celular a la mano · Sin diapositivas llenas de fórmulas</p>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 0 — APERTURA -->
+<!-- ============================================ -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">0:00 · Una pregunta</div>
+  <h2 style="font-size: 1.8em; margin-top: 0.5em;">¿Cómo puede una cooperativa que ganó <em>B/. 420,000</em> no tener con qué pagar la nómina de diciembre?</h2>
+  <div class="nota-facilitador">Facilitador: no responder aún. Lanzar poll #1. Leer resultados sin corregir. Transición al caso.</div>
+</section>
+
+<section>
+  <div class="kicker">Poll en vivo</div>
+  <h3>Marca todas las que consideres posibles</h3>
+  <ul>
+    <li>a. Mala administración del gerente</li>
+    <li>b. Fraude</li>
+    <li>c. Todo el dinero está en cartera de crédito que no se cobra</li>
+    <li>d. Un balance sano no garantiza caja</li>
+    <li>e. Todas las anteriores pueden ser</li>
+  </ul>
+  <div class="callout-grande">La respuesta importa menos que la conversación que dispara.</div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 1 — CASO EL PARAÍSO -->
+<!-- ============================================ -->
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">0:05 · Caso real (anonimizado)</div>
+    <h1 style="color: #fff; font-size: 2.5em;">Cooperativa El Paraíso</h1>
+    <p style="opacity: 0.9; font-size: 1.1em;">28 años en el sector · 3,200 asociados · B/. 20M en activos</p>
+    <p style="margin-top: 1.5em; opacity: 0.8;">Una cooperativa mediana, como tantas. Cerró el mejor año de su historia. Tres meses después pidió prestado para pagar el aguinaldo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Balance al cierre · El Paraíso</div>
+  <h3>La foto firmada por todos en la junta</h3>
+  <table>
+    <thead><tr><th>Rubro</th><th class="num">B/.</th></tr></thead>
+    <tbody>
+      <tr><td>Caja y bancos</td><td class="num">180,000</td></tr>
+      <tr><td>Inversiones líquidas</td><td class="num">320,000</td></tr>
+      <tr><td>Cartera de crédito neta</td><td class="num">17,400,000</td></tr>
+      <tr><td>Activos fijos</td><td class="num">1,600,000</td></tr>
+      <tr><td>Otros activos</td><td class="num">500,000</td></tr>
+      <tr class="destacado"><td>Activo total</td><td class="num">20,000,000</td></tr>
+      <tr><td>Depósitos a la vista</td><td class="num">3,200,000</td></tr>
+      <tr><td>Depósitos &lt; 90 días</td><td class="num">4,800,000</td></tr>
+      <tr><td>Depósitos &gt; 90 días</td><td class="num">8,200,000</td></tr>
+      <tr><td>Préstamos y otros</td><td class="num">800,000</td></tr>
+      <tr class="destacado"><td>Pasivo total</td><td class="num">17,000,000</td></tr>
+      <tr class="destacado"><td>Patrimonio</td><td class="num">3,000,000</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="kicker">Estado de resultados · El Paraíso</div>
+  <h3>La utilidad que generó aplausos</h3>
+  <table>
+    <thead><tr><th>Rubro</th><th class="num">B/.</th></tr></thead>
+    <tbody>
+      <tr><td>Intereses de cartera</td><td class="num">2,180,000</td></tr>
+      <tr><td>Comisiones y otros</td><td class="num">200,000</td></tr>
+      <tr class="destacado"><td>Total ingresos</td><td class="num">2,380,000</td></tr>
+      <tr><td>Intereses a depositantes</td><td class="num">510,000</td></tr>
+      <tr><td>Salarios y prestaciones</td><td class="num">780,000</td></tr>
+      <tr><td>Gastos administrativos</td><td class="num">320,000</td></tr>
+      <tr><td>Provisiones</td><td class="num">210,000</td></tr>
+      <tr><td>Otros gastos</td><td class="num">140,000</td></tr>
+      <tr class="destacado"><td>Total gastos</td><td class="num">1,960,000</td></tr>
+      <tr class="destacado" style="background: var(--m-acento-claro);"><td>Utilidad neta</td><td class="num">420,000</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="kicker">Lo que no se vio</div>
+  <h3>Los mismos estados, leídos de otra forma</h3>
+  <div class="kpi-destacado">
+    <div class="kpi-bloque verde"><div class="etiqueta">Utilidad neta</div><div class="valor">B/. 420k</div><div class="pista">Rentable el año.</div></div>
+    <div class="kpi-bloque verde"><div class="etiqueta">Adecuación de capital</div><div class="valor">15%</div><div class="pista">Patrimonio / Activo. Cómoda.</div></div>
+    <div class="kpi-bloque rojo"><div class="etiqueta">Cobertura de liquidez</div><div class="valor">6.3%</div><div class="pista">Caja + liquidez vs. depósitos &lt;90d.</div></div>
+  </div>
+  <div class="tarjeta alerta" style="margin-top: 1em;">
+    Si el 7% de los depositantes de corto plazo retira sus fondos, <strong>la caja se agota</strong>. Un rumor en redes puede mover al 15%.
+  </div>
+</section>
+
+<section>
+  <div class="kicker">La moraleja del caso</div>
+  <div class="callout-grande acento" style="font-size: 1.3em; margin-top: 1em;">
+    <em>"La foto estaba firmada por todos los que firmamos balances en esta junta. La información estaba ahí. Lo que no estaba, era el hábito de mirarla completa."</em>
+  </div>
+  <p style="text-align: right; opacity: 0.7;">— dirigente anónimo, El Paraíso.</p>
+  <div class="nota-facilitador">Facilitador: pausa de 3 segundos. Transición a los tres cuadros.</div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 2 — TRES CUADROS -->
+<!-- ============================================ -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">0:15 · El concepto de la sesión</div>
+  <h1 style="font-size: 2.6em;">La regla de los tres cuadros</h1>
+  <p style="font-size: 1.1em; color: var(--m-texto-sutil); margin-top: 1em;">Antes de votar un presupuesto en junta, cualquier directivo debe poder llenar estos tres cuadros en una servilleta.</p>
+</section>
+
+<section>
+  <h3>Los tres cuadros, vacíos</h3>
+  <div class="tres-cuadros">
+    <div class="cuadro"><span class="num">1</span><h3>¿Qué tiene?</h3><p>Todo lo que la cooperativa posee.</p></div>
+    <div class="cuadro"><span class="num">2</span><h3>¿Qué debe?</h3><p>Todo lo que la cooperativa debe a terceros.</p></div>
+    <div class="cuadro destacado"><span class="num">3</span><h3>¿Qué es realmente suyo?</h3><p>Lo que quedaría si pagara todo.</p></div>
+  </div>
+  <p style="font-size: 0.75em; color: var(--m-texto-sutil); text-align: center;">Nombres contables: <strong>Activo · Pasivo · Patrimonio</strong>.</p>
+</section>
+
+<section>
+  <h3>La analogía del minisúper</h3>
+  <div class="tres-cuadros">
+    <div class="cuadro lleno"><span class="num">1</span><h3>Inventario en los estantes</h3><p>Lo que tienes para vender.</p></div>
+    <div class="cuadro lleno"><span class="num">2</span><h3>Lo que debes al proveedor</h3><p>Mercancía aún no pagada.</p></div>
+    <div class="cuadro destacado"><span class="num">3</span><h3>Lo que es tuyo de verdad</h3><p>Lo que sí pagaste tú.</p></div>
+  </div>
+  <div class="callout-grande" style="margin-top: 1em;">
+    Cuando alguien dice "mi tienda vale B/. 80,000", ¿de cuál cuadro habla? Casi siempre del equivocado.
+  </div>
+</section>
+
+<section>
+  <h3>El Paraíso, en tres cuadros</h3>
+  <div class="tres-cuadros">
+    <div class="cuadro lleno">
+      <span class="num">1</span><h3>¿Qué tiene?</h3>
+      <p>Caja, cartera, inmuebles.</p>
+      <div class="valor-grande">B/. 20.0M</div>
+    </div>
+    <div class="cuadro lleno">
+      <span class="num">2</span><h3>¿Qué debe?</h3>
+      <p>Depósitos, préstamos.</p>
+      <div class="valor-grande">B/. 17.0M</div>
+    </div>
+    <div class="cuadro destacado">
+      <span class="num">3</span><h3>¿Qué es suyo?</h3>
+      <p>Aportes, reservas, utilidades.</p>
+      <div class="valor-grande">B/. 3.0M</div>
+    </div>
+  </div>
+  <p style="text-align: center; font-family: monospace; color: var(--m-texto-sutil); font-size: 0.8em;">Activo 20 = Pasivo 17 + Patrimonio 3 · Siempre cuadra.</p>
+</section>
+
+<section>
+  <div class="tarjeta" style="background: var(--m-primario); color: #fff; border-left: 0; padding: 2em;">
+    <h2 style="color: #fff;">La frase del día</h2>
+    <p style="font-size: 1.35em; font-weight: 600; line-height: 1.35; margin-top: 0.5em;">
+      "Si en una junta alguien no puede llenar los tres cuadros en una servilleta, no debería estar votando el presupuesto."
+    </p>
+    <p style="opacity: 0.8; margin-top: 1em; font-size: 0.8em;">Y eso nos incluye a todos.</p>
+  </div>
+</section>
+
+<section>
+  <div class="tarjeta" style="background: var(--m-fondo-sutil); padding: 1.5em; border: 1px dashed var(--m-texto-sutil);">
+    <div class="kicker" style="color: var(--m-primario);">Acento técnico · opcional</div>
+    <p style="font-size: 0.9em; color: var(--m-texto-sutil);">
+      El <strong>patrimonio</strong> también se llama capital contable o <em>equity</em>. Su adecuación —patrimonio/activo— es una métrica de solvencia. <strong>IPACOOP</strong> vigila umbrales mínimos. Referencia operativa del sector: <strong>≥ 8%</strong>.
+    </p>
+    <p style="font-size: 0.9em; color: var(--m-texto-sutil); margin-top: 0.5em;">
+      La <strong>Ley 17 de 1997</strong> exige a las cooperativas constituir reserva patrimonial con al menos el <strong>10% del excedente</strong> cada año, hasta llegar al 20% del patrimonio.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 3 — HERRAMIENTA EN VIVO -->
+<!-- ============================================ -->
+<section data-background-color="#F47B20">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: #fff;">0:30 · A jugar con tus números</div>
+    <h1 style="color: #fff; font-size: 2.4em;">Construye tu foto financiera</h1>
+    <p style="opacity: 0.92; font-size: 1.1em; margin-top: 0.8em;">Toma tu celular. Escanea el código. En 5 minutos tendrás los tres cuadros llenos.</p>
+  </div>
+</section>
+
+<section>
+  <h3>Herramienta "Mi foto financiera"</h3>
+  <div class="qr-bloque">
+    <div class="qr-placeholder" style="padding: 0;">
+      <img src="qr/mi-foto-financiera.png" alt="QR Mi foto financiera" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+    <div>
+      <p style="font-size: 0.9em; margin-bottom: 0.5em;"><strong>Escanea y abre desde tu celular.</strong></p>
+      <p class="url">https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-1-estados-financieros/herramientas/mi-foto-financiera/</p>
+      <div class="tarjeta primario" style="margin-top: 1em; font-size: 0.75em;">
+        <strong>Privacidad:</strong> los datos se quedan en tu celular. Nada se envía a ningún servidor.
+      </div>
+    </div>
+  </div>
+  <div class="nota-facilitador">Dar 1 min para escanear. Luego guiar llenado campo por campo. Leer resultados de poll #2 en chat.</div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 4 — TRES INDICADORES -->
+<!-- ============================================ -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">0:45 · Después de los tres cuadros</div>
+  <h1 style="font-size: 2.2em;">De los mil indicadores que existen, <em>tres</em> deberían dormirte en paz.</h1>
+</section>
+
+<section>
+  <div class="kicker">Indicador 1</div>
+  <h2>Nivel de endeudamiento</h2>
+  <div class="tarjeta primario">
+    <p style="font-size: 1.1em;"><strong>¿De cada dólar que tengo, cuánto debo?</strong></p>
+    <p style="font-family: monospace; color: var(--m-primario); font-size: 1em; margin-top: 0.5em;">Pasivo total ÷ Activo total</p>
+  </div>
+  <p style="margin-top: 0.8em;">En cooperativas, es <strong>apalancamiento por depósitos</strong>. Alto <em>no</em> es malo: es el negocio. Pero sin gestión de plazos, se vuelve trampa.</p>
+</section>
+
+<section>
+  <div class="kicker">Indicador 2</div>
+  <h2>Capacidad de generar patrimonio</h2>
+  <div class="tarjeta primario">
+    <p style="font-size: 1.1em;"><strong>¿Crece mi patrimonio con el tiempo, o se estanca?</strong></p>
+    <p style="margin-top: 0.5em;">Comparar patrimonio año vs. año anterior.</p>
+  </div>
+  <p style="margin-top: 0.8em;">Si crecen los activos pero no el patrimonio, <strong>estás creciendo con plata ajena</strong>. Eso no es crecer.</p>
+</section>
+
+<section>
+  <div class="kicker">Indicador 3</div>
+  <h2>Dependencia de ingresos</h2>
+  <div class="tarjeta primario">
+    <p style="font-size: 1.1em;"><strong>¿Cuántas fuentes tengo? Si una se corta, ¿sobrevivo?</strong></p>
+    <p style="margin-top: 0.5em;">En cooperativas: concentración de cartera por empleador, sector, producto.</p>
+  </div>
+  <div class="tarjeta alerta" style="margin-top: 0.8em;">
+    El Paraíso tenía el <strong>72% de cartera</strong> con empleados de una sola cadena. Un anuncio de recorte = un problema.
+  </div>
+</section>
+
+<section>
+  <div class="tarjeta" style="background: var(--m-fondo-sutil); padding: 1.5em; border: 1px dashed var(--m-texto-sutil);">
+    <div class="kicker" style="color: var(--m-primario);">Acento técnico · opcional</div>
+    <p style="font-size: 0.88em; color: var(--m-texto-sutil);">
+      Más allá de estos tres, hay <strong>ROA, ROE</strong>, eficiencia operativa, margen financiero, cobertura de mora, razón de apalancamiento regulatorio. <strong>IPACOOP publica benchmarks sectoriales</strong>; revisar el propio contra el sector permite distinguir lo que viene del mercado de lo que viene de gestión.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 5 — BREAK -->
+<!-- ============================================ -->
+<section data-background-color="#003DA5">
+  <div style="color: #fff; padding: 2em; text-align: center;">
+    <div class="kicker" style="color: var(--m-acento-claro);">1:00 · Respira</div>
+    <h1 style="color: #fff; font-size: 3em;">5 minutos</h1>
+    <p style="font-size: 1.3em; opacity: 0.9; margin-top: 1em;">
+      Durante el break:<br><em>"Si tuvieras que explicarle 'los tres cuadros' a alguien sin background financiero en 60 segundos, ¿cómo lo harías?"</em>
+    </p>
+    <p style="opacity: 0.7; margin-top: 2em; font-size: 0.85em;">Poll #3 activo · responde cuando vuelvas.</p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 6 — EJERCICIO APLICADO -->
+<!-- ============================================ -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">1:05 · Aplicando la regla</div>
+  <h2>Ahora tú lees el balance</h2>
+  <p>Cooperativa panameña mediana · 35 años · 4,500 asociados · Activo B/. 45M.</p>
+  <table style="margin-top: 0.5em;">
+    <thead><tr><th>Dato</th><th class="num">Valor</th></tr></thead>
+    <tbody>
+      <tr><td>Activo total</td><td class="num">B/. 45,000,000</td></tr>
+      <tr><td>Pasivos totales</td><td class="num">B/. 38,800,000</td></tr>
+      <tr><td>Cartera de crédito neta</td><td class="num">B/. 35,100,000</td></tr>
+      <tr><td>Caja + inversiones líquidas</td><td class="num">B/. 2,100,000</td></tr>
+      <tr><td>Depósitos exigibles &lt; 90 días</td><td class="num">B/. 4,800,000</td></tr>
+      <tr><td>Mora &gt; 30 días</td><td class="num">9%</td></tr>
+    </tbody>
+  </table>
+  <div class="tarjeta primario" style="margin-top: 0.8em;">
+    Abre <strong>Mi foto financiera</strong> en modo cooperativa. Ingresa los números. Mira los semáforos.
+  </div>
+</section>
+
+<section>
+  <h3>Preguntas para el chat</h3>
+  <ul>
+    <li>¿Qué te <strong>preocupa más</strong> de esta foto?</li>
+    <li>¿Qué le preguntarías al <strong>gerente financiero</strong>?</li>
+    <li>¿Qué información pedirías <strong>además</strong> del balance?</li>
+  </ul>
+  <div class="nota-facilitador">Co-facilitador elige 2-3 respuestas del chat y abre micrófono.</div>
+</section>
+
+<section>
+  <h3>Lo que los números no dijeron solos</h3>
+  <div class="tarjeta alerta">
+    <p style="font-size: 1.05em;"><strong>Cobertura de liquidez: 44%.</strong> Aceptable en calma; vulnerable ante eventos.</p>
+  </div>
+  <div class="tarjeta" style="background: var(--m-acento-claro); border-left: 6px solid var(--m-acento); margin-top: 0.8em;">
+    <p style="font-size: 1.05em;">Los números por sí solos <em>no gritaron "peligro"</em>. Lo que gritó peligro fue el <strong>cruce entre liquidez y pasivos exigibles</strong>. Eso es flujo de caja. Es la próxima sesión.</p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 7 — MINI-DEBATE -->
+<!-- ============================================ -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">1:25 · Un debate para llevarse a casa</div>
+  <h2>Si tuvieras que elegir <em>un solo número</em> del balance para mostrar a los asociados en asamblea anual...</h2>
+  <div class="kpi-destacado" style="margin-top: 1em;">
+    <div class="kpi-bloque"><div class="etiqueta">Opción A</div><div class="valor" style="font-size: 1.2em;">Utilidad</div></div>
+    <div class="kpi-bloque"><div class="etiqueta">Opción B</div><div class="valor" style="font-size: 1.2em;">Patrimonio</div></div>
+    <div class="kpi-bloque"><div class="etiqueta">Opción C</div><div class="valor" style="font-size: 1.2em;">Crecimiento</div></div>
+  </div>
+  <p style="text-align: center; color: var(--m-texto-sutil); margin-top: 1em;">Poll #4 · 3-4 intervenciones por micrófono.</p>
+</section>
+
+<section>
+  <div class="callout-grande acento" style="font-size: 1.15em;">
+    <p>No hay respuesta única. Todos pueden tener razón. La diferencia la hace <strong>el contexto de tu cooperativa</strong>.</p>
+    <p style="margin-top: 0.8em;">Lo peor es elegir el número equivocado para tu realidad. <em>Un buen asesor no te dice cuál elegir; te ayuda a verlos todos con la misma claridad.</em></p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOQUE 8 — CIERRE -->
+<!-- ============================================ -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">1:40 · Mapa del curso</div>
+  <h3>Las 8 palancas · tres ya activadas</h3>
+  <div class="palancas">
+    <div class="palanca activa"><span class="num">1</span>Foto vs. película</div>
+    <div class="palanca activa"><span class="num">2</span>Utilidad ≠ liquidez</div>
+    <div class="palanca activa"><span class="num">3</span>Activos ≠ patrimonio</div>
+    <div class="palanca"><span class="num">4</span>4 dimensiones del producto</div>
+    <div class="palanca"><span class="num">5</span>Plazo manda tanto como tasa</div>
+    <div class="palanca"><span class="num">6</span>Costo real ≠ tasa</div>
+    <div class="palanca"><span class="num">7</span>Concentración mata</div>
+    <div class="palanca"><span class="num">8</span>Asesoría = preguntas correctas</div>
+  </div>
+</section>
+
+<section>
+  <h3>Checklist para tu próxima junta</h3>
+  <ul class="checklist">
+    <li>¿Activo, pasivo y patrimonio? ¿La suma cuadra?</li>
+    <li>¿Cuánto del activo en cartera vs. en caja/inversiones? ¿Por qué esa proporción?</li>
+    <li>¿Creció más el patrimonio o los activos? ¿Estamos creciendo o endeudándonos?</li>
+    <li>¿Indicador de mora? ¿Cómo se compara con el año anterior?</li>
+    <li>Si mañana el 20% retira sus depósitos, ¿tenemos con qué?</li>
+  </ul>
+  <p style="text-align: right; font-size: 0.8em; color: var(--m-texto-sutil);">Imprimible en el material que te llevas.</p>
+</section>
+
+<section>
+  <div class="tarjeta acento" style="padding: 2em;">
+    <div class="kicker">Micro-tarea hasta la Sesión 2</div>
+    <h2 style="margin-top: 0.3em;">Pide el último estado de resultados de tu cooperativa.</h2>
+    <p style="font-size: 1em; margin-top: 0.5em;">No tienes que analizarlo. Solo tráelo. Lo abrimos juntos.</p>
+    <p style="font-size: 0.85em; margin-top: 0.8em; color: var(--m-texto-sutil);">Si tu cooperativa no lo facilita con agilidad, esa ya es información.</p>
+  </div>
+</section>
+
+<section data-background-color="#003DA5">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">Próxima sesión</div>
+    <h1 style="color: #fff;">La película</h1>
+    <p style="font-size: 1.2em; opacity: 0.92; margin-top: 1em;">Hoy leímos la foto. La próxima sesión <em>entendemos por qué El Paraíso no pudo pagar la nómina</em> — y cómo reconocerlo en tu cooperativa antes de que pase.</p>
+    <p style="margin-top: 2em; opacity: 0.7; font-size: 0.85em;">Poll #5 · En una palabra, ¿cómo te vas de esta sesión?</p>
+  </div>
+</section>
+
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 3em 2em; text-align: center;">
+    <h1 style="color: #fff; font-size: 3em;">Gracias.</h1>
+    <p style="opacity: 0.9; font-size: 1.1em; margin-top: 1em;">Mercantil Servicios de Inversión</p>
+    <p style="opacity: 0.7; font-size: 0.9em; margin-top: 2em;">No venimos a vender. Venimos a que preguntes mejor.<br>Si en ese camino Mercantil SI te sirve, seguimos conversando.</p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    controls: true,
+    progress: true,
+    transition: 'fade',
+    backgroundTransition: 'fade',
+    width: 1280,
+    height: 800,
+    margin: 0.06,
+    center: false,
+  });
+</script>
+</body>
+</html>

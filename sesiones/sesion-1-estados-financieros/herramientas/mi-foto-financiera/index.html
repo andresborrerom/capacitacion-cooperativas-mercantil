@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi foto financiera · Sesión 1</title>
+<link rel="stylesheet" href="../../../../assets/css/base.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --max-ancho: 720px; }
+  body { background: var(--color-fondo-sutil); }
+  header.barra { background: var(--color-primario); }
+  header.barra .marca { font-size: 1.05rem; }
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid var(--color-borde);
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab {
+    flex: 1;
+    padding: 0.9rem 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-texto-sutil);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    font-size: 0.95rem;
+  }
+  .tab.activa {
+    color: var(--color-primario);
+    border-bottom-color: var(--color-primario);
+  }
+  .panel { display: none; }
+  .panel.activo { display: block; }
+  .seccion {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+    box-shadow: var(--shadow-1);
+  }
+  .seccion h3 {
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .seccion .pista {
+    color: var(--color-texto-sutil);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .campo {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.6rem;
+  }
+  .campo label {
+    margin: 0;
+    font-weight: 500;
+    color: var(--color-texto);
+    font-size: 0.95rem;
+  }
+  .campo input {
+    text-align: right;
+    max-width: 160px;
+    font-variant-numeric: tabular-nums;
+  }
+  .totales {
+    background: var(--color-primario);
+    color: #fff;
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    margin-top: var(--space-3);
+  }
+  .totales .fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.35rem 0;
+  }
+  .totales .fila.destacado {
+    border-top: 1px solid rgba(255,255,255,0.3);
+    margin-top: 0.5rem;
+    padding-top: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .totales .etiqueta { opacity: 0.85; }
+  .totales .valor { font-variant-numeric: tabular-nums; }
+  .indicadores {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: var(--space-3);
+  }
+  @media (min-width: 600px) {
+    .indicadores { grid-template-columns: 1fr 1fr; }
+  }
+  .kpi {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-left: 5px solid var(--color-texto-sutil);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+  }
+  .kpi.verde { border-left-color: var(--color-positivo); }
+  .kpi.amarillo { border-left-color: var(--color-aviso); }
+  .kpi.rojo { border-left-color: var(--color-alerta); }
+  .kpi .etiqueta {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-texto-sutil);
+    font-weight: 600;
+  }
+  .kpi .valor {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .kpi .interpretacion {
+    font-size: 0.88rem;
+    color: var(--color-texto);
+    margin-top: 0.3rem;
+  }
+  .acciones {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: var(--space-3);
+  }
+  .privacidad {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--color-texto-sutil);
+    padding: var(--space-3);
+  }
+  .privacidad strong { color: var(--color-primario); }
+  .icono-cuadro {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  .icono-cuadro.uno { background: var(--color-primario); }
+  .icono-cuadro.dos { background: var(--color-acento); }
+  .icono-cuadro.tres { background: var(--color-positivo); }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div>
+    <div class="marca">Mi foto financiera</div>
+    <div class="subtitulo">La regla de los tres cuadros · Mercantil SI</div>
+  </div>
+</header>
+
+<div class="tabs" role="tablist">
+  <div class="tab activa" data-panel="personal" role="tab">Modo personal</div>
+  <div class="tab" data-panel="cooperativa" role="tab">Modo cooperativa</div>
+</div>
+
+<div class="contenedor">
+
+  <!-- ==================== PANEL PERSONAL ==================== -->
+  <section class="panel activo" id="panel-personal">
+    <div class="callout info" style="margin-bottom: var(--space-4);">
+      Vamos a construir tu foto financiera personal. Los números se quedan en tu celular — no se envían a nadie.
+    </div>
+
+    <div class="seccion">
+      <h3><span class="icono-cuadro uno">1</span> Cuadro 1 · ¿Qué tienes?</h3>
+      <p class="pista">Lo que es tuyo hoy, a valor razonable. No la ilusión.</p>
+
+      <div class="campo">
+        <label for="p-efectivo">Efectivo y cuentas bancarias</label>
+        <input type="number" id="p-efectivo" min="0" step="50" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="p-inversiones">Inversiones (DPF, fondos, acciones)</label>
+        <input type="number" id="p-inversiones" min="0" step="50" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="p-vehiculo">Vehículo (valor de venta hoy)</label>
+        <input type="number" id="p-vehiculo" min="0" step="500" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="p-vivienda">Vivienda (valor de mercado hoy)</label>
+        <input type="number" id="p-vivienda" min="0" step="1000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="p-otros-activos">Otros activos</label>
+        <input type="number" id="p-otros-activos" min="0" step="50" placeholder="0">
+      </div>
+    </div>
+
+    <div class="seccion">
+      <h3><span class="icono-cuadro dos">2</span> Cuadro 2 · ¿Qué debes?</h3>
+      <p class="pista">Saldos pendientes, no las cuotas mensuales.</p>
+
+      <div class="campo">
+        <label for="p-hipoteca">Hipoteca (saldo pendiente)</label>
+        <input type="number" id="p-hipoteca" min="0" step="500" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="p-auto">Crédito de auto</label>
+        <input type="number" id="p-auto" min="0" step="100" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="p-tarjetas">Saldos de tarjetas de crédito</label>
+        <input type="number" id="p-tarjetas" min="0" step="50" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="p-personales">Préstamos personales / cooperativa</label>
+        <input type="number" id="p-personales" min="0" step="100" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="p-otros-pasivos">Otras deudas</label>
+        <input type="number" id="p-otros-pasivos" min="0" step="50" placeholder="0">
+      </div>
+    </div>
+
+    <div class="totales">
+      <div class="fila"><span class="etiqueta">Cuadro 1 · Activos totales</span><span class="valor" id="p-total-activos">B/. 0.00</span></div>
+      <div class="fila"><span class="etiqueta">Cuadro 2 · Pasivos totales</span><span class="valor" id="p-total-pasivos">B/. 0.00</span></div>
+      <div class="fila destacado"><span class="etiqueta">Cuadro 3 · Tu patrimonio</span><span class="valor" id="p-patrimonio">B/. 0.00</span></div>
+    </div>
+
+    <div class="indicadores" id="p-indicadores">
+      <div class="kpi" id="kpi-endeudamiento">
+        <div class="etiqueta">Nivel de endeudamiento</div>
+        <div class="valor">—</div>
+        <div class="interpretacion">Ingresa tus datos para ver tu indicador.</div>
+      </div>
+      <div class="kpi" id="kpi-tarjetas">
+        <div class="etiqueta">Peso de tarjetas en tu deuda</div>
+        <div class="valor">—</div>
+        <div class="interpretacion">Tarjetas caras vs. deudas productivas.</div>
+      </div>
+    </div>
+
+    <div class="acciones">
+      <button class="ghost" onclick="limpiarPersonal()">Limpiar</button>
+      <button class="primary" onclick="guardarPersonal()">Guardar en mi celular</button>
+    </div>
+  </section>
+
+  <!-- ==================== PANEL COOPERATIVA ==================== -->
+  <section class="panel" id="panel-cooperativa">
+    <div class="callout info" style="margin-bottom: var(--space-4);">
+      La misma lógica, aplicada a una cooperativa. Puedes usar datos reales, ficticios o los del caso que trabajamos en sesión.
+    </div>
+
+    <div class="seccion">
+      <h3><span class="icono-cuadro uno">1</span> Cuadro 1 · Activos de la cooperativa</h3>
+      <p class="pista">Todo lo que la cooperativa tiene. En <strong>B/.</strong> o <strong>USD</strong> — es lo mismo.</p>
+
+      <div class="campo">
+        <label for="c-caja">Caja y bancos</label>
+        <input type="number" id="c-caja" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-inversiones">Inversiones líquidas</label>
+        <input type="number" id="c-inversiones" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-cartera">Cartera de crédito neta</label>
+        <input type="number" id="c-cartera" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-fijos">Activos fijos (inmuebles, equipos)</label>
+        <input type="number" id="c-fijos" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-otros-activos">Otros activos</label>
+        <input type="number" id="c-otros-activos" min="0" step="10000" placeholder="0">
+      </div>
+    </div>
+
+    <div class="seccion">
+      <h3><span class="icono-cuadro dos">2</span> Cuadro 2 · Pasivos de la cooperativa</h3>
+      <p class="pista">Lo que la cooperativa debe. Distinguir por plazo es clave para la Sesión 2.</p>
+
+      <div class="campo">
+        <label for="c-dep-vista">Depósitos a la vista</label>
+        <input type="number" id="c-dep-vista" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-dep-corto">Depósitos a plazo &lt; 90 días</label>
+        <input type="number" id="c-dep-corto" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-dep-largo">Depósitos a plazo &gt; 90 días</label>
+        <input type="number" id="c-dep-largo" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-prestamos">Préstamos recibidos</label>
+        <input type="number" id="c-prestamos" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-otros-pasivos">Otros pasivos</label>
+        <input type="number" id="c-otros-pasivos" min="0" step="10000" placeholder="0">
+      </div>
+    </div>
+
+    <div class="totales">
+      <div class="fila"><span class="etiqueta">Cuadro 1 · Activo total</span><span class="valor" id="c-total-activos">B/. 0.00</span></div>
+      <div class="fila"><span class="etiqueta">Cuadro 2 · Pasivo total</span><span class="valor" id="c-total-pasivos">B/. 0.00</span></div>
+      <div class="fila destacado"><span class="etiqueta">Cuadro 3 · Patrimonio</span><span class="valor" id="c-patrimonio">B/. 0.00</span></div>
+    </div>
+
+    <div class="indicadores" id="c-indicadores">
+      <div class="kpi" id="kpi-adecuacion">
+        <div class="etiqueta">Adecuación de capital (Patrimonio / Activo)</div>
+        <div class="valor">—</div>
+        <div class="interpretacion">Cuánto del activo está respaldado por plata propia de la cooperativa.</div>
+      </div>
+      <div class="kpi" id="kpi-concentracion">
+        <div class="etiqueta">Concentración en cartera (Cartera / Activo)</div>
+        <div class="valor">—</div>
+        <div class="interpretacion">Qué tan expuesta está la cooperativa al riesgo de crédito.</div>
+      </div>
+      <div class="kpi" id="kpi-liquidez">
+        <div class="etiqueta">Cobertura de liquidez inmediata</div>
+        <div class="valor">—</div>
+        <div class="interpretacion">Caja + inversiones líquidas vs. depósitos exigibles en 90 días o menos.</div>
+      </div>
+      <div class="kpi" id="kpi-apalancamiento">
+        <div class="etiqueta">Nivel de endeudamiento</div>
+        <div class="valor">—</div>
+        <div class="interpretacion">Pasivo total como porcentaje del activo total.</div>
+      </div>
+    </div>
+
+    <div class="acciones">
+      <button class="ghost" onclick="cargarCasoEjemplo()">Cargar caso de ejemplo</button>
+      <button class="ghost" onclick="limpiarCooperativa()">Limpiar</button>
+      <button class="primary" onclick="guardarCooperativa()">Guardar en mi celular</button>
+    </div>
+  </section>
+
+  <p class="privacidad">
+    <strong>Tu privacidad importa.</strong> Ningún dato que escribas sale de tu dispositivo. Esta herramienta no envía nada a ningún servidor.
+  </p>
+
+</div>
+
+<footer class="pie">
+  Mercantil Servicios de Inversión · Curso para dirigentes de cooperativas financieras · Sesión 1
+</footer>
+
+<script src="../../../../assets/js/shared.js"></script>
+<script>
+  const tabs = document.querySelectorAll(".tab");
+  const paneles = document.querySelectorAll(".panel");
+  tabs.forEach(t => t.addEventListener("click", () => {
+    tabs.forEach(x => x.classList.remove("activa"));
+    paneles.forEach(p => p.classList.remove("activo"));
+    t.classList.add("activa");
+    document.getElementById("panel-" + t.dataset.panel).classList.add("activo");
+  }));
+
+  function val(id) {
+    const el = document.getElementById(id);
+    const n = parseFloat(el.value);
+    return isNaN(n) ? 0 : n;
+  }
+
+  function fmt(n) {
+    return Fmt.moneda(n);
+  }
+
+  function recalcPersonal() {
+    const activos = val("p-efectivo") + val("p-inversiones") + val("p-vehiculo") + val("p-vivienda") + val("p-otros-activos");
+    const pasivos = val("p-hipoteca") + val("p-auto") + val("p-tarjetas") + val("p-personales") + val("p-otros-pasivos");
+    const patrimonio = activos - pasivos;
+
+    document.getElementById("p-total-activos").textContent = fmt(activos);
+    document.getElementById("p-total-pasivos").textContent = fmt(pasivos);
+    document.getElementById("p-patrimonio").textContent = fmt(patrimonio);
+
+    const kpiEnd = document.getElementById("kpi-endeudamiento");
+    const kpiTar = document.getElementById("kpi-tarjetas");
+
+    if (activos === 0) {
+      kpiEnd.querySelector(".valor").textContent = "—";
+      kpiEnd.querySelector(".interpretacion").textContent = "Ingresa tus datos para ver tu indicador.";
+      kpiEnd.className = "kpi";
+      kpiTar.querySelector(".valor").textContent = "—";
+      kpiTar.querySelector(".interpretacion").textContent = "Tarjetas caras vs. deudas productivas.";
+      kpiTar.className = "kpi";
+      return;
+    }
+
+    const end = pasivos / activos;
+    kpiEnd.querySelector(".valor").textContent = Fmt.porcentaje(end, 1);
+    let nivel, interp;
+    if (end < 0.40) { nivel = "verde"; interp = "Saludable. Tienes margen para decisiones grandes."; }
+    else if (end < 0.65) { nivel = "amarillo"; interp = "Moderado. Vigilar que no crezca sin propósito productivo."; }
+    else { nivel = "rojo"; interp = "Alto. Antes de tomar más deuda, revisar plazos y capacidad de pago."; }
+    kpiEnd.className = "kpi " + nivel;
+    kpiEnd.querySelector(".interpretacion").textContent = interp;
+
+    if (pasivos === 0) {
+      kpiTar.querySelector(".valor").textContent = "0%";
+      kpiTar.querySelector(".interpretacion").textContent = "Sin deuda de tarjetas. Buena señal.";
+      kpiTar.className = "kpi verde";
+    } else {
+      const pesoTar = val("p-tarjetas") / pasivos;
+      kpiTar.querySelector(".valor").textContent = Fmt.porcentaje(pesoTar, 0);
+      let n2, i2;
+      if (pesoTar < 0.10) { n2 = "verde"; i2 = "La tarjeta no manda en tu deuda. Bien."; }
+      else if (pesoTar < 0.25) { n2 = "amarillo"; i2 = "Empieza a pesar. Revisar si hay tarjetas que conviene consolidar."; }
+      else { n2 = "rojo"; i2 = "Peso alto. La tarjeta suele ser la deuda más cara — conviene plan de salida."; }
+      kpiTar.className = "kpi " + n2;
+      kpiTar.querySelector(".interpretacion").textContent = i2;
+    }
+  }
+
+  function recalcCooperativa() {
+    const activos = val("c-caja") + val("c-inversiones") + val("c-cartera") + val("c-fijos") + val("c-otros-activos");
+    const depVista = val("c-dep-vista");
+    const depCorto = val("c-dep-corto");
+    const pasivos = depVista + depCorto + val("c-dep-largo") + val("c-prestamos") + val("c-otros-pasivos");
+    const patrimonio = activos - pasivos;
+
+    document.getElementById("c-total-activos").textContent = fmt(activos);
+    document.getElementById("c-total-pasivos").textContent = fmt(pasivos);
+    document.getElementById("c-patrimonio").textContent = fmt(patrimonio);
+
+    const kpiAd = document.getElementById("kpi-adecuacion");
+    const kpiCo = document.getElementById("kpi-concentracion");
+    const kpiLi = document.getElementById("kpi-liquidez");
+    const kpiAp = document.getElementById("kpi-apalancamiento");
+
+    if (activos === 0) {
+      [kpiAd, kpiCo, kpiLi, kpiAp].forEach(k => {
+        k.querySelector(".valor").textContent = "—";
+        k.className = "kpi";
+      });
+      return;
+    }
+
+    const adec = patrimonio / activos;
+    kpiAd.querySelector(".valor").textContent = Fmt.porcentaje(adec, 1);
+    let na, ia;
+    if (adec < 0.08) { na = "rojo"; ia = "Baja. Poco colchón para absorber pérdidas. Referencia mínima típica: 8%."; }
+    else if (adec < 0.15) { na = "amarillo"; ia = "Razonable. Vigilar que crezca con los años."; }
+    else { na = "verde"; ia = "Sólida. Hay colchón para crecer con prudencia."; }
+    kpiAd.className = "kpi " + na;
+    kpiAd.querySelector(".interpretacion").textContent = ia;
+
+    const conc = val("c-cartera") / activos;
+    kpiCo.querySelector(".valor").textContent = Fmt.porcentaje(conc, 0);
+    let nc, ic;
+    if (conc > 0.85) { nc = "rojo"; ic = "Muy alta. Sin liquidez alternativa, la cooperativa depende totalmente del cobro puntual."; }
+    else if (conc > 0.70) { nc = "amarillo"; ic = "Alta. Típico del sector, pero exige buen manejo de liquidez."; }
+    else { nc = "verde"; ic = "Diversificada. Hay activos líquidos además de cartera."; }
+    kpiCo.className = "kpi " + nc;
+    kpiCo.querySelector(".interpretacion").textContent = ic;
+
+    const liquido = val("c-caja") + val("c-inversiones");
+    const exigibleCorto = depVista + depCorto;
+    let cobertura, nl, il;
+    if (exigibleCorto === 0) {
+      cobertura = null;
+      kpiLi.querySelector(".valor").textContent = "—";
+      kpiLi.querySelector(".interpretacion").textContent = "Ingresa depósitos a la vista o a corto plazo para evaluar.";
+      kpiLi.className = "kpi";
+    } else {
+      cobertura = liquido / exigibleCorto;
+      kpiLi.querySelector(".valor").textContent = Fmt.porcentaje(cobertura, 0);
+      if (cobertura < 0.30) { nl = "rojo"; il = "Baja. Ante retiros simultáneos, la cooperativa pasaría apuros."; }
+      else if (cobertura < 0.60) { nl = "amarillo"; il = "Aceptable. Conviene stress-test regular."; }
+      else { nl = "verde"; il = "Cómoda. Bien posicionada ante retiros inesperados."; }
+      kpiLi.className = "kpi " + nl;
+      kpiLi.querySelector(".interpretacion").textContent = il;
+    }
+
+    const apalanc = pasivos / activos;
+    kpiAp.querySelector(".valor").textContent = Fmt.porcentaje(apalanc, 1);
+    let nap, iap;
+    if (apalanc > 0.92) { nap = "rojo"; iap = "Muy alto. El patrimonio es colchón delgado ante pérdidas."; }
+    else if (apalanc > 0.85) { nap = "amarillo"; iap = "Alto, típico del sector. Vigilar crecimiento."; }
+    else { nap = "verde"; iap = "Razonable. Apalancamiento prudente."; }
+    kpiAp.className = "kpi " + nap;
+    kpiAp.querySelector(".interpretacion").textContent = iap;
+  }
+
+  function cargarCasoEjemplo() {
+    const casos = {
+      "c-caja": 180000,
+      "c-inversiones": 320000,
+      "c-cartera": 17400000,
+      "c-fijos": 1600000,
+      "c-otros-activos": 500000,
+      "c-dep-vista": 3200000,
+      "c-dep-corto": 4800000,
+      "c-dep-largo": 8200000,
+      "c-prestamos": 600000,
+      "c-otros-pasivos": 200000
+    };
+    for (const [k, v] of Object.entries(casos)) {
+      document.getElementById(k).value = v;
+    }
+    recalcCooperativa();
+  }
+
+  function limpiarPersonal() {
+    document.querySelectorAll("#panel-personal input").forEach(i => i.value = "");
+    Store.borrar("foto-personal");
+    recalcPersonal();
+  }
+  function limpiarCooperativa() {
+    document.querySelectorAll("#panel-cooperativa input").forEach(i => i.value = "");
+    Store.borrar("foto-cooperativa");
+    recalcCooperativa();
+  }
+
+  function snapshotInputs(selector) {
+    const obj = {};
+    document.querySelectorAll(selector + " input").forEach(i => obj[i.id] = i.value);
+    return obj;
+  }
+
+  function restore(obj) {
+    if (!obj) return;
+    for (const [k, v] of Object.entries(obj)) {
+      const el = document.getElementById(k);
+      if (el) el.value = v;
+    }
+  }
+
+  function guardarPersonal() {
+    Store.guardar("foto-personal", snapshotInputs("#panel-personal"));
+    avisar("Guardado en este celular.");
+  }
+  function guardarCooperativa() {
+    Store.guardar("foto-cooperativa", snapshotInputs("#panel-cooperativa"));
+    avisar("Guardado en este celular.");
+  }
+
+  function avisar(msg) {
+    const div = document.createElement("div");
+    div.textContent = msg;
+    div.style.cssText = "position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--color-primario);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;box-shadow:var(--shadow-2);z-index:100;";
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 1800);
+  }
+
+  document.querySelectorAll("#panel-personal input").forEach(i => i.addEventListener("input", recalcPersonal));
+  document.querySelectorAll("#panel-cooperativa input").forEach(i => i.addEventListener("input", recalcCooperativa));
+
+  restore(Store.leer("foto-personal"));
+  restore(Store.leer("foto-cooperativa"));
+  recalcPersonal();
+  recalcCooperativa();
+</script>
+
+</body>
+</html>

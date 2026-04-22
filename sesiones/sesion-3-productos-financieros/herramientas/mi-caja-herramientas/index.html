@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi caja de herramientas · Sesión 3</title>
+<link rel="stylesheet" href="../../../../assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { background: var(--color-fondo-sutil); }
+  .seccion { background: #fff; border: 1px solid var(--color-borde); border-radius: var(--radius); padding: var(--space-4); margin-bottom: var(--space-3); box-shadow: var(--shadow-1); }
+  .seccion h3 { margin: 0 0 0.5rem 0; }
+  .seccion .pista { color: var(--color-texto-sutil); font-size: 0.9rem; margin-bottom: 1rem; }
+
+  .producto-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1fr 1.1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--color-borde);
+    font-size: 0.92rem;
+  }
+  .producto-grid.encabezado {
+    font-weight: 700;
+    color: var(--color-texto-sutil);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 0.5rem;
+  }
+  .producto-grid input, .producto-grid select {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  .producto-grid .gaveta-chip {
+    padding: 0.25rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .producto-grid button.eliminar {
+    background: transparent;
+    color: var(--color-alerta);
+    border: 0;
+    padding: 0.3rem 0.5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  @media (max-width: 720px) {
+    .producto-grid { grid-template-columns: 1fr 1fr; row-gap: 0.3rem; padding: 0.8rem 0; }
+    .producto-grid.encabezado { display: none; }
+    .producto-grid input, .producto-grid select { width: 100%; }
+  }
+
+  .gaveta-chip.g1 { background: #E6EDF7; color: #003DA5; }
+  .gaveta-chip.g2 { background: #FDE9D7; color: #9C4A14; }
+  .gaveta-chip.g3 { background: #E8F5EF; color: #1E5E3F; }
+  .gaveta-chip.g4 { background: #F3E6F5; color: #5C2E63; }
+
+  .gavetas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin: var(--space-3) 0;
+  }
+  @media (min-width: 900px) { .gavetas { grid-template-columns: repeat(4, 1fr); } }
+  .gaveta {
+    background: #fff;
+    border: 2px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+  }
+  .gaveta.g1 { border-top: 6px solid #003DA5; }
+  .gaveta.g2 { border-top: 6px solid #F47B20; }
+  .gaveta.g3 { border-top: 6px solid #2E7D55; }
+  .gaveta.g4 { border-top: 6px solid #9C4EA3; }
+  .gaveta h4 { margin: 0 0 0.3rem 0; font-size: 0.95rem; color: var(--color-primario-oscuro); }
+  .gaveta .plazo { font-size: 0.7rem; color: var(--color-texto-sutil); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; margin-bottom: 0.6rem; }
+  .gaveta .monto { font-size: 1.5rem; font-weight: 700; color: var(--color-primario-oscuro); font-variant-numeric: tabular-nums; }
+  .gaveta .items { font-size: 0.75rem; color: var(--color-texto-sutil); margin-top: 0.3rem; }
+  .gaveta .necesidad { font-size: 0.75rem; color: var(--color-texto); margin-top: 0.4rem; padding-top: 0.5rem; border-top: 1px dashed var(--color-borde); }
+  .gaveta .estado {
+    position: absolute; top: -12px; right: 10px;
+    background: #fff; padding: 2px 8px; border-radius: 12px;
+    font-size: 0.7rem; font-weight: 700; border: 2px solid;
+  }
+  .gaveta .estado.ok { color: var(--color-positivo); border-color: var(--color-positivo); }
+  .gaveta .estado.bajo { color: var(--color-aviso); border-color: var(--color-aviso); }
+  .gaveta .estado.exceso { color: var(--color-aviso); border-color: var(--color-aviso); }
+  .gaveta .estado.mal { color: var(--color-alerta); border-color: var(--color-alerta); }
+
+  .alertas { background: #FBE9E8; border-left: 5px solid var(--color-alerta); padding: 1rem 1.2rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: var(--space-3); }
+  .alertas h4 { margin: 0 0 0.4rem 0; color: var(--color-alerta); }
+  .alertas ul { margin: 0; padding-left: 1.2rem; }
+  .alertas li { margin-bottom: 0.4rem; font-size: 0.92rem; }
+  .alertas.verde { background: #E8F5EF; border-left-color: var(--color-positivo); }
+  .alertas.verde h4 { color: var(--color-positivo); }
+
+  .acciones { display: flex; gap: 0.7rem; justify-content: flex-end; flex-wrap: wrap; margin-top: var(--space-3); }
+  .privacidad { text-align: center; font-size: 0.82rem; color: var(--color-texto-sutil); padding: var(--space-3); }
+  .privacidad strong { color: var(--color-primario); }
+
+  .campo { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; align-items: center; margin-bottom: 0.6rem; }
+  .campo label { margin: 0; font-weight: 500; color: var(--color-texto); font-size: 0.92rem; }
+  .campo input { text-align: right; max-width: 180px; font-variant-numeric: tabular-nums; }
+
+  button.agregar {
+    background: var(--color-acento);
+    color: #fff;
+    border: 0;
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div>
+    <div class="marca">Mi caja de herramientas</div>
+    <div class="subtitulo">Las 4 gavetas del dinero · Mercantil SI · Sesión 3</div>
+  </div>
+</header>
+
+<div class="contenedor">
+
+  <div class="callout info" style="margin-bottom: var(--space-4);">
+    Esta herramienta mira dos cosas: los <strong>productos donde tu cooperativa (o tú) tiene plata hoy</strong>, y las <strong>necesidades reales</strong> en cada gaveta. Detecta mismatches automáticos.
+  </div>
+
+  <!-- ============ Inventario productos ============ -->
+  <section class="seccion">
+    <h3>1 · Productos donde tienes plata hoy</h3>
+    <p class="pista">Ingresa uno a uno los productos. No hace falta que sean montos reales; pueden ser aproximaciones.</p>
+
+    <div id="productos-lista">
+      <div class="producto-grid encabezado">
+        <div>Producto / entidad</div>
+        <div>Monto (B/.)</div>
+        <div>Plazo</div>
+        <div>Rendimiento</div>
+        <div>Gaveta</div>
+        <div></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 0.8rem;">
+      <button class="agregar" onclick="agregarProducto()">+ Agregar producto</button>
+      <button class="ghost" onclick="cargarEjemplo()">Cargar ejemplo cooperativa</button>
+    </div>
+  </section>
+
+  <!-- ============ Necesidades ============ -->
+  <section class="seccion">
+    <h3>2 · ¿Qué necesita cada gaveta?</h3>
+    <p class="pista">Una estimación rápida. Si es tu cooperativa, usa cifras típicas del último año.</p>
+
+    <div class="campo">
+      <label for="n-operacion">Gaveta 1 · Operación mensual (caja circulante)</label>
+      <input type="number" id="n-operacion" min="0" step="1000" placeholder="0">
+    </div>
+    <div class="campo">
+      <label for="n-liquidez">Gaveta 2 · Reserva de liquidez deseada (3-6 meses de operación)</label>
+      <input type="number" id="n-liquidez" min="0" step="5000" placeholder="0">
+    </div>
+    <div class="campo">
+      <label for="n-inversion">Gaveta 3 · Plata para inversión a plazo (6m-5 años)</label>
+      <input type="number" id="n-inversion" min="0" step="5000" placeholder="0">
+    </div>
+    <div class="campo">
+      <label for="n-estrategico">Gaveta 4 · Capital estratégico / largo plazo (5+ años)</label>
+      <input type="number" id="n-estrategico" min="0" step="5000" placeholder="0">
+    </div>
+  </section>
+
+  <!-- ============ Visualización 4 gavetas ============ -->
+  <div class="gavetas" id="gavetas-visual">
+    <div class="gaveta g1">
+      <span class="estado" id="est-1">—</span>
+      <h4>Gaveta 1</h4>
+      <div class="plazo">0-30 días · operación</div>
+      <div class="monto" id="m-g1">B/. 0</div>
+      <div class="items" id="it-g1">0 productos</div>
+      <div class="necesidad" id="n-g1">Necesidad: —</div>
+    </div>
+    <div class="gaveta g2">
+      <span class="estado" id="est-2">—</span>
+      <h4>Gaveta 2</h4>
+      <div class="plazo">1-6 meses · liquidez</div>
+      <div class="monto" id="m-g2">B/. 0</div>
+      <div class="items" id="it-g2">0 productos</div>
+      <div class="necesidad" id="n-g2">Necesidad: —</div>
+    </div>
+    <div class="gaveta g3">
+      <span class="estado" id="est-3">—</span>
+      <h4>Gaveta 3</h4>
+      <div class="plazo">6m-5 años · inversión</div>
+      <div class="monto" id="m-g3">B/. 0</div>
+      <div class="items" id="it-g3">0 productos</div>
+      <div class="necesidad" id="n-g3">Necesidad: —</div>
+    </div>
+    <div class="gaveta g4">
+      <span class="estado" id="est-4">—</span>
+      <h4>Gaveta 4</h4>
+      <div class="plazo">5+ años · estratégico</div>
+      <div class="monto" id="m-g4">B/. 0</div>
+      <div class="items" id="it-g4">0 productos</div>
+      <div class="necesidad" id="n-g4">Necesidad: —</div>
+    </div>
+  </div>
+
+  <!-- ============ Alertas ============ -->
+  <div id="zona-alertas"></div>
+
+  <div class="acciones">
+    <button class="ghost" onclick="limpiarTodo()">Limpiar todo</button>
+    <button class="primary" onclick="guardarTodo()">Guardar en mi celular</button>
+  </div>
+
+  <p class="privacidad">
+    <strong>Tu privacidad importa.</strong> Los productos y montos no salen de tu celular.
+  </p>
+</div>
+
+<footer class="pie">
+  Mercantil Servicios de Inversión · Curso para dirigentes de cooperativas financieras · Sesión 3
+</footer>
+
+<script src="../../../../assets/js/shared.js"></script>
+<script>
+  let productos = [];
+  let idCounter = 0;
+
+  function plazoAGaveta(meses) {
+    if (meses <= 1) return 1;
+    if (meses <= 6) return 2;
+    if (meses <= 60) return 3;
+    return 4;
+  }
+
+  function agregarProducto(nombre = "", monto = "", plazoMeses = "", rendimiento = "") {
+    const id = ++idCounter;
+    productos.push({ id, nombre, monto, plazoMeses, rendimiento });
+    renderProductos();
+  }
+
+  function eliminarProducto(id) {
+    productos = productos.filter(p => p.id !== id);
+    renderProductos();
+  }
+
+  function actualizarCampo(id, campo, valor) {
+    const p = productos.find(x => x.id === id);
+    if (p) { p[campo] = valor; recalcular(); }
+  }
+
+  function renderProductos() {
+    const lista = document.getElementById("productos-lista");
+    // Remover filas previas (excepto encabezado)
+    lista.querySelectorAll(".producto-grid:not(.encabezado)").forEach(n => n.remove());
+
+    productos.forEach(p => {
+      const fila = document.createElement("div");
+      fila.className = "producto-grid";
+      const g = p.plazoMeses ? plazoAGaveta(parseFloat(p.plazoMeses) || 0) : null;
+      fila.innerHTML = `
+        <input type="text" placeholder="Ej: DPF Banistmo" value="${p.nombre || ''}" onchange="actualizarCampo(${p.id}, 'nombre', this.value)">
+        <input type="number" placeholder="0" step="500" value="${p.monto || ''}" onchange="actualizarCampo(${p.id}, 'monto', this.value); recalcular();">
+        <input type="number" placeholder="meses" step="1" min="0" value="${p.plazoMeses || ''}" onchange="actualizarCampo(${p.id}, 'plazoMeses', this.value); recalcular();">
+        <input type="number" placeholder="% anual" step="0.1" value="${p.rendimiento || ''}" onchange="actualizarCampo(${p.id}, 'rendimiento', this.value)">
+        <span class="gaveta-chip ${g ? 'g' + g : ''}" id="chip-${p.id}">${g ? 'Gaveta ' + g : '—'}</span>
+        <button class="eliminar" onclick="eliminarProducto(${p.id})" title="Eliminar">×</button>
+      `;
+      lista.appendChild(fila);
+    });
+    recalcular();
+  }
+
+  function recalcular() {
+    const totalPorGaveta = [0, 0, 0, 0, 0];
+    const countPorGaveta = [0, 0, 0, 0, 0];
+
+    productos.forEach(p => {
+      const monto = parseFloat(p.monto) || 0;
+      const plazo = parseFloat(p.plazoMeses) || 0;
+      if (monto > 0 && plazo >= 0) {
+        const g = plazoAGaveta(plazo);
+        totalPorGaveta[g] += monto;
+        countPorGaveta[g]++;
+        const chip = document.getElementById("chip-" + p.id);
+        if (chip) {
+          chip.textContent = "Gaveta " + g;
+          chip.className = "gaveta-chip g" + g;
+        }
+      }
+    });
+
+    const necesidades = [
+      0,
+      parseFloat(document.getElementById("n-operacion").value) || 0,
+      parseFloat(document.getElementById("n-liquidez").value) || 0,
+      parseFloat(document.getElementById("n-inversion").value) || 0,
+      parseFloat(document.getElementById("n-estrategico").value) || 0
+    ];
+
+    const alertas = [];
+
+    for (let g = 1; g <= 4; g++) {
+      document.getElementById("m-g" + g).textContent = Fmt.moneda(totalPorGaveta[g]);
+      document.getElementById("it-g" + g).textContent = countPorGaveta[g] + " producto" + (countPorGaveta[g] !== 1 ? "s" : "");
+      const nec = necesidades[g];
+      document.getElementById("n-g" + g).textContent = nec > 0 ? "Necesidad: " + Fmt.moneda(nec) : "Necesidad: no indicada";
+
+      const estadoEl = document.getElementById("est-" + g);
+      if (nec === 0) {
+        estadoEl.textContent = "";
+        estadoEl.className = "estado";
+        continue;
+      }
+      const ratio = totalPorGaveta[g] / nec;
+      if (ratio >= 0.9 && ratio <= 1.4) {
+        estadoEl.textContent = "OK";
+        estadoEl.className = "estado ok";
+      } else if (ratio < 0.9 && ratio >= 0.5) {
+        estadoEl.textContent = "Bajo";
+        estadoEl.className = "estado bajo";
+        alertas.push({ tipo: "bajo", texto: `<strong>Gaveta ${g}:</strong> tienes ${Fmt.porcentaje(ratio, 0)} de lo que estimas necesitar. Considera mover plata de otra gaveta.` });
+      } else if (ratio < 0.5) {
+        estadoEl.textContent = "¡Baja!";
+        estadoEl.className = "estado mal";
+        alertas.push({ tipo: "mal", texto: `<strong>Gaveta ${g}:</strong> tienes menos de la mitad de lo que necesitas. Riesgo serio si se activa esta necesidad.` });
+      } else {
+        estadoEl.textContent = "Exceso";
+        estadoEl.className = "estado exceso";
+        alertas.push({ tipo: "exceso", texto: `<strong>Gaveta ${g}:</strong> tienes ${Fmt.porcentaje(ratio, 0)} de lo que necesitas. Exceso podría estar más productivo en otra gaveta.` });
+      }
+    }
+
+    // Detectar mismatches por concentración: si toda la plata está en una sola gaveta
+    const total = totalPorGaveta.reduce((a, b) => a + b, 0);
+    if (total > 0) {
+      for (let g = 1; g <= 4; g++) {
+        const pct = totalPorGaveta[g] / total;
+        if (pct > 0.85 && countPorGaveta[g] >= 1) {
+          alertas.push({ tipo: "mal", texto: `<strong>Concentración:</strong> ${Fmt.porcentaje(pct, 0)} de toda tu plata está en la gaveta ${g}. Diversificación por plazo es principio básico.` });
+          break;
+        }
+      }
+    }
+
+    // Mostrar alertas
+    const zona = document.getElementById("zona-alertas");
+    if (alertas.length === 0 && productos.length > 0) {
+      zona.innerHTML = `<div class="alertas verde"><h4>Sin alertas graves</h4><p style="margin: 0;">Las gavetas están alineadas con tus necesidades declaradas. Buena señal — sigue monitoreando.</p></div>`;
+    } else if (alertas.length > 0) {
+      zona.innerHTML = `<div class="alertas"><h4>Señales a revisar</h4><ul>${alertas.map(a => "<li>" + a.texto + "</li>").join("")}</ul></div>`;
+    } else {
+      zona.innerHTML = "";
+    }
+  }
+
+  function cargarEjemplo() {
+    productos = [];
+    idCounter = 0;
+    const ejs = [
+      ["Caja y bancos", 180000, 0, 0.5],
+      ["DPF Banistmo a 30 días", 200000, 1, 2.8],
+      ["DPF Banco Nacional a 90 días", 150000, 3, 3.2],
+      ["DPF Cooperativa X a 3 años", 600000, 36, 4.5],
+      ["Bono corporativo a 5 años", 400000, 60, 5.2],
+      ["Fondo de inversión balanceado", 300000, 72, null]
+    ];
+    ejs.forEach(([n, m, pl, r]) => agregarProducto(n, m, pl, r));
+    // necesidades de cooperativa mediana
+    document.getElementById("n-operacion").value = 150000;
+    document.getElementById("n-liquidez").value = 600000;
+    document.getElementById("n-inversion").value = 500000;
+    document.getElementById("n-estrategico").value = 800000;
+    recalcular();
+  }
+
+  function limpiarTodo() {
+    productos = [];
+    idCounter = 0;
+    document.getElementById("n-operacion").value = "";
+    document.getElementById("n-liquidez").value = "";
+    document.getElementById("n-inversion").value = "";
+    document.getElementById("n-estrategico").value = "";
+    Store.borrar("caja-herramientas");
+    renderProductos();
+  }
+
+  function guardarTodo() {
+    Store.guardar("caja-herramientas", {
+      productos,
+      necesidades: {
+        operacion: document.getElementById("n-operacion").value,
+        liquidez: document.getElementById("n-liquidez").value,
+        inversion: document.getElementById("n-inversion").value,
+        estrategico: document.getElementById("n-estrategico").value
+      }
+    });
+    avisar("Guardado en este celular.");
+  }
+
+  function avisar(msg) {
+    const div = document.createElement("div");
+    div.textContent = msg;
+    div.style.cssText = "position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--color-primario);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;box-shadow:var(--shadow-2);z-index:100;";
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 1800);
+  }
+
+  function restore() {
+    const data = Store.leer("caja-herramientas");
+    if (!data) {
+      agregarProducto(); // empezar con una fila vacía
+      return;
+    }
+    productos = (data.productos || []).map(p => ({ ...p, id: ++idCounter }));
+    if (data.necesidades) {
+      document.getElementById("n-operacion").value = data.necesidades.operacion || "";
+      document.getElementById("n-liquidez").value = data.necesidades.liquidez || "";
+      document.getElementById("n-inversion").value = data.necesidades.inversion || "";
+      document.getElementById("n-estrategico").value = data.necesidades.estrategico || "";
+    }
+    renderProductos();
+  }
+
+  ["n-operacion", "n-liquidez", "n-inversion", "n-estrategico"].forEach(id => {
+    document.getElementById(id).addEventListener("input", recalcular);
+  });
+
+  restore();
+</script>
+</body>
+</html>

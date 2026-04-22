@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sesión 4 · Financiamiento · Mercantil SI</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5; --m-primario-oscuro: #002868; --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20; --m-acento-claro: #FDE9D7;
+    --m-fondo-sutil: #F5F7FA; --m-texto: #1A1A1A; --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE; --m-positivo: #2E7D55; --m-alerta: #B4312E;
+  }
+  .reveal { font-family: "Inter", sans-serif; color: var(--m-texto); font-size: 28px; }
+  .reveal .slides { text-align: left; }
+  .reveal h1, .reveal h2, .reveal h3 { font-family: "Inter", sans-serif; font-weight: 700; color: var(--m-primario-oscuro); text-transform: none; letter-spacing: -0.01em; line-height: 1.15; }
+  .reveal h1 { font-size: 2.2em; } .reveal h2 { font-size: 1.6em; } .reveal h3 { font-size: 1.2em; }
+  .reveal strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  .reveal em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+  .portada { background: linear-gradient(135deg, var(--m-primario) 0%, var(--m-primario-oscuro) 100%); color: #fff !important; padding: 2em 1.5em; height: 100%; }
+  .portada h1, .portada h2 { color: #fff; }
+  .portada .kicker { color: var(--m-acento-claro); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.12em; }
+  .portada .marca { position: absolute; top: 1em; right: 1em; font-size: 0.55em; opacity: 0.85; }
+  .kicker { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.12em; color: var(--m-acento); font-weight: 700; margin-bottom: 0.3em; }
+  .nota-facilitador { font-size: 0.5em; color: var(--m-texto-sutil); border-top: 1px solid var(--m-borde); padding-top: 0.8em; margin-top: 1.5em; font-style: italic; }
+  .tarjeta { background: var(--m-fondo-sutil); border: 1px solid var(--m-borde); border-radius: 12px; padding: 1em 1.2em; }
+  .tarjeta.acento { border-left: 6px solid var(--m-acento); }
+  .tarjeta.primario { border-left: 6px solid var(--m-primario); }
+  .tarjeta.alerta { border-left: 6px solid var(--m-alerta); background: #FBE9E8; }
+
+  .ofertas { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7em; margin: 0.6em 0; }
+  .oferta { background: #fff; border-radius: 12px; padding: 1em; border: 2px solid var(--m-borde); border-top: 6px solid var(--m-primario); }
+  .oferta.b { border-top-color: var(--m-acento); }
+  .oferta h4 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 1.05em; }
+  .oferta.b h4 { color: var(--m-acento); }
+  .oferta table { font-size: 0.8em; width: 100%; }
+  .oferta td { padding: 0.25em 0.4em; }
+  .oferta td:last-child { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  .palancas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5em; }
+  .palanca { background: var(--m-fondo-sutil); border: 1px solid var(--m-borde); border-radius: 8px; padding: 0.6em; font-size: 0.6em; text-align: center; }
+  .palanca.activa { background: var(--m-acento-claro); border-color: var(--m-acento); color: var(--m-primario-oscuro); font-weight: 600; }
+  .palanca .num { display: inline-block; width: 1.6em; height: 1.6em; line-height: 1.6em; background: var(--m-texto-sutil); color: #fff; border-radius: 50%; font-weight: 700; margin-bottom: 0.3em; }
+  .palanca.activa .num { background: var(--m-acento); }
+
+  .qr-bloque { display: grid; grid-template-columns: auto 1fr; gap: 1.5em; align-items: center; background: var(--m-fondo-sutil); border-radius: 12px; padding: 1.2em; }
+  .qr-bloque .qr-placeholder { width: 240px; height: 240px; background: #fff; border: 8px solid var(--m-primario); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: monospace; color: var(--m-texto-sutil); font-size: 0.5em; text-align: center; padding: 1em; }
+  .qr-bloque .url { font-family: monospace; font-size: 0.65em; color: var(--m-primario); word-break: break-all; }
+  .callout-grande { background: var(--m-primario-claro); border-left: 8px solid var(--m-primario); padding: 1.2em 1.5em; border-radius: 0 12px 12px 0; margin: 0.8em 0; font-size: 1.1em; }
+  .callout-grande.acento { background: var(--m-acento-claro); border-left-color: var(--m-acento); }
+
+  .senales { display: grid; grid-template-columns: 1fr; gap: 0.6em; }
+  .senal {
+    background: #FBE9E8; border-left: 6px solid var(--m-alerta);
+    padding: 0.8em 1em; border-radius: 0 8px 8px 0;
+    font-size: 0.9em;
+  }
+  .senal .trad { font-size: 0.75em; color: var(--m-texto-sutil); margin-top: 0.3em; font-style: italic; }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 0.6em 0 0.6em 2em; position: relative; border-bottom: 1px solid var(--m-borde); font-size: 0.9em; }
+  .checklist li::before { content: "☐"; position: absolute; left: 0.2em; color: var(--m-primario); font-size: 1.2em; font-weight: 700; }
+
+  .reveal .slide-number { color: var(--m-texto-sutil); background: transparent; font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- PORTADA -->
+<section class="portada" data-background-color="#003DA5">
+  <div class="marca">Mercantil Servicios de Inversión</div>
+  <div class="kicker">Sesión 4 · La última · Finanzas para dirigentes cooperativos</div>
+  <h1 style="margin-top: 0.8em;">Conseguir recursos</h1>
+  <h2 style="font-weight: 400; opacity: 0.92;">Endeudarse bien vs. mal</h2>
+  <p style="margin-top: 2em; opacity: 0.8; font-size: 0.8em;">Dos horas · El cierre · Caso integrador · Un despedir bien</p>
+</section>
+
+<!-- APERTURA -->
+<section>
+  <div class="kicker">0:00 · La última pregunta del curso</div>
+  <h2 style="font-size: 1.6em;">Un asesor te ofrece <em>B/. 500,000 al 9% anual</em> para tu cooperativa. ¿Qué haces antes de decir sí?</h2>
+  <div class="nota-facilitador">POLL #1 — marca todas las que harías.</div>
+</section>
+
+<!-- CASO: DOS OFERTAS -->
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">0:05 · Dos ofertas, una cooperativa</div>
+    <h1 style="color: #fff; font-size: 2em;">¿Cuál elegirías a simple vista?</h1>
+    <p style="opacity: 0.9; margin-top: 0.5em;">Inversión: B/. 1.5M para abrir sucursal. Recupera inversión en ~7 años.</p>
+  </div>
+</section>
+
+<section>
+  <div class="ofertas">
+    <div class="oferta a">
+      <h4>Oferta A · Banco</h4>
+      <table>
+        <tr><td>Tasa nominal</td><td>8.5%</td></tr>
+        <tr><td>Plazo</td><td>7 años (84 meses)</td></tr>
+        <tr><td>Comisión apertura</td><td>2%</td></tr>
+        <tr><td>Seguro mensual</td><td>B/. 75</td></tr>
+      </table>
+    </div>
+    <div class="oferta b">
+      <h4>Oferta B · Emisión a asociados</h4>
+      <table>
+        <tr><td>Tasa nominal</td><td>5.5%</td></tr>
+        <tr><td>Plazo</td><td>3 años (36 meses)</td></tr>
+        <tr><td>Costo emisión</td><td>B/. 20k (~1.33%)</td></tr>
+        <tr><td>Sin mensual</td><td>—</td></tr>
+      </table>
+    </div>
+  </div>
+  <p style="margin-top: 0.8em; text-align: center; color: var(--m-texto-sutil);">A primera vista, B parece más barata. <em>Vamos a mirar más profundo.</em></p>
+</section>
+
+<!-- CONCEPTO -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">0:15 · El concepto de hoy</div>
+  <h1 style="font-size: 3em;">Tasa cuenta.<br><em>Plazo pesa.</em></h1>
+</section>
+
+<section>
+  <h3>3 cosas que no son la tasa y también cuestan</h3>
+  <ol style="font-size: 1.05em;">
+    <li><strong>Comisiones</strong> — apertura, manejo, seguros atados.</li>
+    <li><strong>Plazo</strong> — mismo préstamo a 3 vs. 10 años = intereses totales hasta 3x mayores.</li>
+    <li><strong>Comportamiento</strong> — multas, intereses por mora, renegociaciones.</li>
+  </ol>
+  <div class="callout-grande acento" style="margin-top: 1em;">
+    <strong>Todo se resume en un número:</strong> <em>Tasa Efectiva Anual (TEA)</em>. En Panamá, la SBP obliga a mostrarla. Siempre pedirla.
+  </div>
+</section>
+
+<!-- HERRAMIENTA -->
+<section data-background-color="#F47B20">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: #fff;">0:30 · Desmonta las dos ofertas</div>
+    <h1 style="color: #fff; font-size: 2.3em;">Costo real del crédito</h1>
+    <p style="opacity: 0.92; margin-top: 0.8em;">Ingresa A y B. Mira cuota, costo total, TEA, amortización mes a mes.</p>
+  </div>
+</section>
+
+<section>
+  <h3>Herramienta "Costo real del crédito"</h3>
+  <div class="qr-bloque">
+    <div class="qr-placeholder" style="padding: 0;">
+      <img src="qr/costo-real-credito.png" alt="QR Costo real del crédito" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+    <div>
+      <p style="font-size: 0.9em; margin-bottom: 0.5em;"><strong>Abre desde tu celular.</strong></p>
+      <p class="url">https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-4-financiamiento/herramientas/costo-real-credito/</p>
+      <div class="tarjeta primario" style="margin-top: 1em; font-size: 0.75em;">
+        <strong>Botón "Cargar ejemplo del curso"</strong> — viene precargado con las ofertas A y B.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Resultados del comparador</h3>
+  <table>
+    <thead><tr><th></th><th>Oferta A</th><th>Oferta B</th></tr></thead>
+    <tbody>
+      <tr><td>Cuota mensual</td><td style="text-align:right;">B/. 23,800</td><td style="text-align:right;">B/. 45,300</td></tr>
+      <tr><td>Intereses totales</td><td style="text-align:right;">B/. 497,000</td><td style="text-align:right;">B/. 130,000</td></tr>
+      <tr><td>Comisiones + seguros</td><td style="text-align:right;">B/. 30,000</td><td style="text-align:right;">B/. 20,000</td></tr>
+      <tr><td>TEA aprox.</td><td style="text-align:right;">9.3%</td><td style="text-align:right;">6.0%</td></tr>
+      <tr style="background: var(--m-primario-claro); font-weight:700;"><td>Costo total</td><td style="text-align:right;">B/. 527,000</td><td style="text-align:right;">B/. 150,000</td></tr>
+    </tbody>
+  </table>
+  <div class="tarjeta alerta" style="margin-top: 0.8em;">
+    <strong>Aparentemente B gana.</strong> Pero B/. 45k/mes por 36 meses es una cuota muy alta vs. B/. 24k/mes por 84.
+    <strong>Y al año 3, justo cuando la inversión empieza a rendir bien, B termina y hay que refinanciar.</strong>
+  </div>
+</section>
+
+<section>
+  <div class="callout-grande acento" style="font-size: 1.1em;">
+    <p>Opción B es barata <em>si el flujo de la cooperativa aguanta</em>, <em>si hay plan para refinanciar en año 3</em>, y <em>si la tasa futura no se dispara</em>. Tres "si" es mucho "si".</p>
+    <p style="margin-top: 0.5em;">Opción A calza con el horizonte de producción. <strong>Plazo pesa.</strong></p>
+  </div>
+</section>
+
+<!-- BUEN VS MAL -->
+<section>
+  <div class="kicker">0:50 · Criterios generales</div>
+  <h3>Buen endeudamiento vs. mal endeudamiento — 3 preguntas</h3>
+  <ol>
+    <li><strong>¿Para qué pides la plata?</strong> Bueno si genera capacidad de pago; malo si solo cubre gastos corrientes.</li>
+    <li><strong>¿Hay calce entre lo que produce y lo que cuesta?</strong> Retorno > costo, en el mismo horizonte.</li>
+    <li><strong>¿Qué pasa si sale mal?</strong> Plan B que no destruye patrimonio.</li>
+  </ol>
+</section>
+
+<section>
+  <h3>3 señales de alerta — frases que traducir</h3>
+  <div class="senales">
+    <div class="senal">
+      <strong>"No te preocupes por la tasa, mira la cuota."</strong>
+      <div class="trad">Traducción: plazo estirado escondiendo el costo.</div>
+    </div>
+    <div class="senal">
+      <strong>"Esto es solo hasta que crucemos el año."</strong>
+      <div class="trad">Traducción: moviendo un problema de caja a un problema de balance.</div>
+    </div>
+    <div class="senal">
+      <strong>"Todos nuestros clientes lo hacen."</strong>
+      <div class="trad">Traducción: presión social sin argumento para tu caso.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASO INTEGRADOR -->
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">1:05 · El caso que integra todo</div>
+    <h1 style="color: #fff; font-size: 2em;">Esfuerzo Unido R.L.</h1>
+    <p style="opacity: 0.9; margin-top: 0.5em;">22 años · 2,800 asociados · B/. 28M activos · 3 opciones de financiamiento</p>
+  </div>
+</section>
+
+<section>
+  <h3>Datos</h3>
+  <table style="font-size: 0.82em;">
+    <tr><td>Activos</td><td style="text-align:right;">B/. 28,000,000</td></tr>
+    <tr><td>Patrimonio</td><td style="text-align:right;">B/. 3,600,000</td></tr>
+    <tr><td>Caja + líquido</td><td style="text-align:right;">B/. 1,200,000</td></tr>
+    <tr><td>Utilidad año</td><td style="text-align:right;">B/. 380,000</td></tr>
+    <tr><td>Mora &gt;30d</td><td style="text-align:right;">7%</td></tr>
+  </table>
+  <div class="tarjeta primario" style="margin-top: 0.8em;">
+    <strong>Propuesta:</strong> invertir B/. 1.5M en nueva sucursal. Retorno estimado: +B/. 200k/año desde año 3.
+  </div>
+</section>
+
+<section>
+  <h3>Las 3 opciones</h3>
+  <ul style="font-size: 1em;">
+    <li><strong>A.</strong> Usar B/. 1.5M de inversiones líquidas actuales.</li>
+    <li><strong>B.</strong> Crédito bancario 8.5% a 7 años, 2% apertura.</li>
+    <li><strong>C.</strong> Emisión de certificados 5.5% a 3 años, costo B/. 20k.</li>
+  </ul>
+  <div class="tarjeta acento" style="margin-top: 1em;">
+    <strong>Recorrido:</strong> abre Mi foto financiera, Mi película del mes, Costo real del crédito. Las 3 herramientas, juntas.
+  </div>
+</section>
+
+<!-- CIERRE: MAPA COMPLETO -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">1:30 · Lo que aprendieron</div>
+  <h2>Las 8 palancas · todas completas</h2>
+  <div class="palancas">
+    <div class="palanca activa"><span class="num">1</span>Foto vs. película</div>
+    <div class="palanca activa"><span class="num">2</span>Utilidad ≠ liquidez</div>
+    <div class="palanca activa"><span class="num">3</span>Activos ≠ patrimonio</div>
+    <div class="palanca activa"><span class="num">4</span>4 dimensiones</div>
+    <div class="palanca activa"><span class="num">5</span>Plazo manda</div>
+    <div class="palanca activa"><span class="num">6</span>Costo real ≠ tasa</div>
+    <div class="palanca activa"><span class="num">7</span>Concentración mata</div>
+    <div class="palanca activa"><span class="num">8</span>Asesoría = preguntas</div>
+  </div>
+  <p style="margin-top: 1em; font-size: 0.85em; color: var(--m-texto-sutil);">Hace 4 sesiones nadie sabía que estas palancas existían. Hoy las usaron en un caso de B/. 1.5M en 20 minutos.</p>
+</section>
+
+<section>
+  <h3>Las 7 señales de una buena decisión de crédito</h3>
+  <ul class="checklist">
+    <li>¿Para qué pides la plata? ¿Genera capacidad de pago?</li>
+    <li>¿Plazo de la plata vs. plazo de lo que produce?</li>
+    <li>¿Vi la tasa efectiva, no solo la nominal?</li>
+    <li>¿Qué pasa si sale mal? ¿Hay plan B?</li>
+    <li>¿Cómo le pagan al asesor que me lo ofrece?</li>
+    <li>¿Lo puedo explicar en 90 segundos a un asociado sin ocultar nada?</li>
+    <li>Si fuera mi plata personal, ¿lo haría?</li>
+  </ul>
+</section>
+
+<!-- FRASE DE CIERRE -->
+<section data-background-color="#003DA5">
+  <div style="color: #fff; padding: 3em 2em;">
+    <h1 style="color: #fff; font-size: 2.3em; line-height: 1.25;">La asesoría financiera no es para quien no sabe.</h1>
+    <h1 style="color: #fff; font-size: 2.3em; line-height: 1.25; margin-top: 0.3em;">Es para quien quiere <em>tomar mejores decisiones</em>.</h1>
+  </div>
+</section>
+
+<!-- INVITACIÓN -->
+<section>
+  <div class="tarjeta primario" style="padding: 1.5em;">
+    <h3>Sesión de seguimiento opcional · 2 semanas después</h3>
+    <p style="font-size: 0.95em;">Videollamada abierta. Sin agenda. Preguntas que surgen al aplicar esto en sus cooperativas. Si te interesa, marca "sí" en la encuesta de cierre.</p>
+  </div>
+  <div class="tarjeta acento" style="padding: 1.5em; margin-top: 0.8em;">
+    <h3>Contacto</h3>
+    <p style="font-size: 0.95em;">Si tu cooperativa quiere explorar asesoría profesional, dejo mi contacto en el chat. Cuando lo sientan. Si prefieren con otra firma, también está bien. <strong>Ahora saben qué preguntar.</strong></p>
+  </div>
+</section>
+
+<!-- POLL FINAL -->
+<section data-background-color="#F47B20">
+  <div style="color: #fff; padding: 2em; text-align: center;">
+    <div class="kicker" style="color: #fff;">1:50 · Pulso final</div>
+    <h1 style="color: #fff; font-size: 2.8em;">En una palabra, ¿cómo te vas?</h1>
+    <p style="margin-top: 1em; opacity: 0.9;">Poll #5 — word cloud en vivo.</p>
+  </div>
+</section>
+
+<!-- GRACIAS -->
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 3em 2em; text-align: center;">
+    <h1 style="color: #fff; font-size: 3.5em;">Gracias.</h1>
+    <p style="opacity: 0.9; font-size: 1em; margin-top: 1em;">Mercantil Servicios de Inversión</p>
+    <p style="opacity: 0.75; font-size: 0.85em; margin-top: 2em; line-height: 1.6;">
+      Por 8 horas de atención, de preguntas,<br>de paciencia con lo que no supimos explicar bien.<br><br>
+      Este grupo nos enseñó cosas que las próximas cohortes van a agradecer.
+    </p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true, slideNumber: 'c/t', controls: true, progress: true,
+    transition: 'fade', backgroundTransition: 'fade',
+    width: 1280, height: 800, margin: 0.06, center: false,
+  });
+</script>
+</body>
+</html>

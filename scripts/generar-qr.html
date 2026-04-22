@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<title>Generador de QR · Mercantil SI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primario: #003DA5;
+    --acento: #F47B20;
+    --fondo-sutil: #F5F7FA;
+    --texto: #1A1A1A;
+    --texto-sutil: #5A6375;
+    --borde: #E2E6EE;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    margin: 0;
+    color: var(--texto);
+    background: var(--fondo-sutil);
+    min-height: 100vh;
+  }
+  header {
+    background: var(--primario);
+    color: #fff;
+    padding: 1rem 1.5rem;
+  }
+  header h1 { margin: 0; font-size: 1.3rem; }
+  header p { margin: 0.2rem 0 0; opacity: 0.85; font-size: 0.9rem; }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,61,165,0.08);
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: var(--texto-sutil);
+  }
+  input, select {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  input:focus { outline: 2px solid var(--primario); border-color: var(--primario); }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  button {
+    background: var(--primario);
+    color: #fff;
+    border: 0;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  button:hover { filter: brightness(1.1); }
+  button.secundario {
+    background: transparent;
+    color: var(--primario);
+    border: 1px solid var(--borde);
+  }
+  .qr-area {
+    text-align: center;
+    padding: 1.5rem;
+  }
+  #qr-canvas {
+    padding: 1rem;
+    background: #fff;
+    border: 8px solid var(--primario);
+    border-radius: 8px;
+    display: inline-block;
+  }
+  .instrucciones {
+    background: #FDE9D7;
+    border-left: 5px solid var(--acento);
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+  }
+  .instrucciones strong { color: var(--primario); }
+  .acciones {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  h2 { font-size: 1.1rem; color: var(--primario); margin-top: 0; }
+  code {
+    background: var(--fondo-sutil);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Generador de QR · Curso Mercantil SI</h1>
+  <p>Genera los códigos QR que van en los slides. Abre, pega, descarga, lista.</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>1 · URL de la herramienta</h2>
+    <label for="url">URL completa (incluye https://)</label>
+    <input type="url" id="url" placeholder="https://tu-usuario.github.io/capacitacion-cooperativas/sesion-1/herramientas/mi-foto-financiera/" />
+
+    <div class="row" style="margin-top: 0.8rem;">
+      <div>
+        <label for="nombre">Nombre de archivo para descarga</label>
+        <input type="text" id="nombre" placeholder="qr-mi-foto-financiera" value="qr-mi-foto-financiera">
+      </div>
+      <div>
+        <label for="tamano">Tamaño (px)</label>
+        <select id="tamano">
+          <option value="300">300</option>
+          <option value="480" selected>480</option>
+          <option value="640">640</option>
+          <option value="800">800</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 0.8rem; margin-top: 1rem;">
+      <button onclick="generar()">Generar QR</button>
+      <button class="secundario" onclick="limpiar()">Limpiar</button>
+    </div>
+  </div>
+
+  <div class="card qr-area" id="salida" style="display: none;">
+    <h2 style="text-align: left;">2 · Tu QR</h2>
+    <div id="qr-canvas"></div>
+    <p id="qr-url" style="font-family: monospace; font-size: 0.82rem; color: var(--texto-sutil); word-break: break-all; margin: 1rem 0;"></p>
+    <div class="acciones">
+      <button onclick="descargar()">Descargar PNG</button>
+      <button class="secundario" onclick="probarEnlace()">Probar enlace</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3 · Cómo usarlo en los slides</h2>
+    <ol style="padding-left: 1.2rem; line-height: 1.6;">
+      <li>Descarga el PNG y guárdalo en <code>sesiones/sesion-N/slides/qr/nombre.png</code>.</li>
+      <li>En el HTML del slide, reemplaza el placeholder con: <br>
+        <code>&lt;img src="qr/nombre.png" alt="QR" style="width:240px;"&gt;</code></li>
+      <li>Listo. <strong>No depende de internet</strong> al mostrarse: el QR está embebido como imagen.</li>
+    </ol>
+    <div class="instrucciones">
+      <strong>Recomendación.</strong> Una herramienta por sesión → un QR por sesión. Genera los 4 al final del desarrollo, cuando las URLs de GitHub Pages ya estén estables.
+    </div>
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script>
+  let ultimoDataURL = null;
+  let ultimoNombre = "qr";
+
+  function generar() {
+    const url = document.getElementById("url").value.trim();
+    const nombre = (document.getElementById("nombre").value || "qr").trim();
+    const size = parseInt(document.getElementById("tamano").value, 10);
+    if (!url) { alert("Pega una URL primero."); return; }
+
+    const canvas = document.createElement("canvas");
+    QRCode.toCanvas(canvas, url, { width: size, margin: 2, errorCorrectionLevel: "H", color: { dark: "#003DA5", light: "#FFFFFF" } }, (err) => {
+      if (err) { alert("No se pudo generar el QR: " + err); return; }
+      const cont = document.getElementById("qr-canvas");
+      cont.innerHTML = "";
+      cont.appendChild(canvas);
+      document.getElementById("qr-url").textContent = url;
+      document.getElementById("salida").style.display = "block";
+      ultimoDataURL = canvas.toDataURL("image/png");
+      ultimoNombre = nombre.replace(/[^a-z0-9-_]/gi, "-");
+      document.getElementById("salida").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function descargar() {
+    if (!ultimoDataURL) return;
+    const a = document.createElement("a");
+    a.href = ultimoDataURL;
+    a.download = ultimoNombre + ".png";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  function probarEnlace() {
+    const url = document.getElementById("url").value.trim();
+    if (url) window.open(url, "_blank");
+  }
+
+  function limpiar() {
+    document.getElementById("url").value = "";
+    document.getElementById("nombre").value = "qr-mi-foto-financiera";
+    document.getElementById("salida").style.display = "none";
+    ultimoDataURL = null;
+  }
+</script>
+
+</body>
+</html>

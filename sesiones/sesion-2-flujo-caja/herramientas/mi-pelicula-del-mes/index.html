@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi película del mes · Sesión 2</title>
+<link rel="stylesheet" href="../../../../assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { background: var(--color-fondo-sutil); }
+  .tabs { display: flex; border-bottom: 2px solid var(--color-borde); background: #fff; position: sticky; top: 0; z-index: 10; }
+  .tab { flex: 1; padding: 0.9rem 0.5rem; text-align: center; font-weight: 600; color: var(--color-texto-sutil); cursor: pointer; border-bottom: 3px solid transparent; font-size: 0.95rem; }
+  .tab.activa { color: var(--color-primario); border-bottom-color: var(--color-primario); }
+  .panel { display: none; }
+  .panel.activo { display: block; }
+  .seccion { background: #fff; border: 1px solid var(--color-borde); border-radius: var(--radius); padding: var(--space-4); margin-bottom: var(--space-3); box-shadow: var(--shadow-1); }
+  .seccion h3 { margin: 0 0 0.5rem 0; }
+  .seccion .pista { color: var(--color-texto-sutil); font-size: 0.9rem; margin-bottom: 1rem; }
+
+  .campo-ancho {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.6rem;
+  }
+  .campo-ancho label { margin: 0; font-weight: 500; color: var(--color-texto); font-size: 0.95rem; }
+  .campo-ancho input { text-align: right; max-width: 180px; font-variant-numeric: tabular-nums; }
+
+  /* Tabla de meses */
+  .tabla-meses {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.85rem;
+  }
+  .tabla-meses thead th {
+    position: sticky;
+    top: 52px;
+    background: var(--color-primario);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.55rem 0.35rem;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  .tabla-meses tbody td {
+    padding: 0.25rem;
+    border-bottom: 1px solid var(--color-borde);
+    font-variant-numeric: tabular-nums;
+  }
+  .tabla-meses tbody td:first-child {
+    font-weight: 600;
+    color: var(--color-texto-sutil);
+    text-align: center;
+    padding: 0.5rem 0.3rem;
+    background: var(--color-fondo-sutil);
+    width: 54px;
+  }
+  .tabla-meses input {
+    width: 100%;
+    padding: 0.35rem 0.4rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.85rem;
+    background: transparent;
+  }
+  .tabla-meses input:hover { border-color: var(--color-borde); background: #fff; }
+  .tabla-meses input:focus { border-color: var(--color-primario); background: #fff; outline: 0; }
+  .tabla-meses td.calc {
+    padding: 0.5rem 0.5rem;
+    text-align: right;
+    font-weight: 600;
+    color: var(--color-primario-oscuro);
+    background: var(--color-primario-claro);
+  }
+  .tabla-meses td.calc.neg { color: #fff; background: var(--color-alerta); }
+  .tabla-meses td.calc.amarillo { background: #FBEFD0; color: #704500; }
+
+  /* Wrapper scrollable para móvil */
+  .tabla-wrap { overflow-x: auto; margin: 0 -1rem; padding: 0 1rem; }
+
+  /* Gráfica */
+  .grafica-wrap {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow-1);
+    margin-bottom: var(--space-3);
+  }
+  .grafica-wrap h3 { margin: 0 0 0.8rem 0; font-size: 1.1rem; }
+  svg.grafica {
+    width: 100%;
+    height: 260px;
+    display: block;
+  }
+
+  .kpis {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    margin-bottom: var(--space-3);
+  }
+  @media (min-width: 600px) { .kpis { grid-template-columns: repeat(3, 1fr); } }
+  .kpi-card {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-left: 5px solid var(--color-texto-sutil);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem;
+  }
+  .kpi-card.verde { border-left-color: var(--color-positivo); }
+  .kpi-card.amarillo { border-left-color: var(--color-aviso); }
+  .kpi-card.rojo { border-left-color: var(--color-alerta); }
+  .kpi-card .etiqueta { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-texto-sutil); font-weight: 600; }
+  .kpi-card .valor { font-size: 1.45rem; font-weight: 700; color: var(--color-primario-oscuro); font-variant-numeric: tabular-nums; line-height: 1.2; }
+  .kpi-card .pista { font-size: 0.78rem; color: var(--color-texto); margin-top: 0.2rem; }
+
+  .acciones { display: flex; gap: 0.7rem; justify-content: flex-end; flex-wrap: wrap; margin-top: var(--space-3); }
+  .privacidad { text-align: center; font-size: 0.82rem; color: var(--color-texto-sutil); padding: var(--space-3); }
+  .privacidad strong { color: var(--color-primario); }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div>
+    <div class="marca">Mi película del mes</div>
+    <div class="subtitulo">Foto miente · película no · Mercantil SI · Sesión 2</div>
+  </div>
+</header>
+
+<div class="tabs" role="tablist">
+  <div class="tab activa" data-panel="personal" role="tab">Modo personal</div>
+  <div class="tab" data-panel="cooperativa" role="tab">Modo cooperativa</div>
+</div>
+
+<div class="contenedor">
+
+  <div class="callout info" style="margin-bottom: var(--space-4);">
+    Completa las filas de los próximos 12 meses. La herramienta suma, proyecta saldo acumulado y te avisa cuándo se pone en rojo. Los datos se quedan en tu celular.
+  </div>
+
+  <!-- ========== PANEL PERSONAL ========== -->
+  <section class="panel activo" id="panel-personal">
+
+    <div class="seccion">
+      <h3>Saldo inicial</h3>
+      <p class="pista">Cuánto tienes en caja y cuentas hoy. Mes 0.</p>
+      <div class="campo-ancho">
+        <label for="p-saldo-inicial">Saldo inicial (B/.)</label>
+        <input type="number" id="p-saldo-inicial" min="0" step="100" placeholder="0">
+      </div>
+    </div>
+
+    <div class="seccion">
+      <h3>Tus próximos 12 meses</h3>
+      <p class="pista">Ingresos y egresos mes a mes. La última columna se calcula sola.</p>
+      <div class="tabla-wrap">
+        <table class="tabla-meses" id="tabla-personal">
+          <thead><tr>
+            <th>Mes</th>
+            <th>Ingresos recurrentes</th>
+            <th>Gastos recurrentes</th>
+            <th>Extra (+)</th>
+            <th>Extra (−)</th>
+            <th>Saldo acumulado</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grafica-wrap">
+      <h3>Saldo acumulado mes a mes</h3>
+      <svg class="grafica" id="grafica-personal" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi-card" id="p-kpi-minimo"><div class="etiqueta">Saldo mínimo del año</div><div class="valor">—</div><div class="pista">El mes más flaco.</div></div>
+      <div class="kpi-card" id="p-kpi-meses-rojos"><div class="etiqueta">Meses en rojo</div><div class="valor">—</div><div class="pista">Cuántos meses tu saldo entra en negativo.</div></div>
+      <div class="kpi-card" id="p-kpi-cambio"><div class="etiqueta">Fin vs. inicio</div><div class="valor">—</div><div class="pista">¿Terminas el año más rico, igual o más pobre?</div></div>
+    </div>
+
+    <div class="acciones">
+      <button class="ghost" onclick="cargarPresetPersonal()">Cargar ejemplo</button>
+      <button class="ghost" onclick="limpiar('personal')">Limpiar</button>
+      <button class="primary" onclick="guardar('personal')">Guardar en mi celular</button>
+    </div>
+  </section>
+
+  <!-- ========== PANEL COOPERATIVA ========== -->
+  <section class="panel" id="panel-cooperativa">
+
+    <div class="seccion">
+      <h3>Caja inicial de la cooperativa</h3>
+      <p class="pista">Caja + inversiones líquidas al comienzo del año. Lo que tienen <strong>hoy</strong>.</p>
+      <div class="campo-ancho">
+        <label for="c-saldo-inicial">Saldo inicial (B/.)</label>
+        <input type="number" id="c-saldo-inicial" min="0" step="10000" placeholder="0">
+      </div>
+    </div>
+
+    <div class="seccion">
+      <h3>Los 12 meses de la cooperativa</h3>
+      <p class="pista">Ingresos recurrentes: intereses cobrados, comisiones. Egresos recurrentes: intereses a depositantes, salarios, operativos. Extra: aportes, aguinaldos, inversiones puntuales, retiros grandes.</p>
+      <div class="tabla-wrap">
+        <table class="tabla-meses" id="tabla-cooperativa">
+          <thead><tr>
+            <th>Mes</th>
+            <th>Ingresos recurrentes</th>
+            <th>Egresos recurrentes</th>
+            <th>Extra (+)</th>
+            <th>Extra (−)</th>
+            <th>Saldo acumulado</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grafica-wrap">
+      <h3>Saldo acumulado — la película del año</h3>
+      <svg class="grafica" id="grafica-cooperativa" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi-card" id="c-kpi-minimo"><div class="etiqueta">Saldo mínimo del año</div><div class="valor">—</div><div class="pista">El mes más flaco.</div></div>
+      <div class="kpi-card" id="c-kpi-meses-rojos"><div class="etiqueta">Meses en rojo</div><div class="valor">—</div><div class="pista">Meses de caja negativa.</div></div>
+      <div class="kpi-card" id="c-kpi-volatilidad"><div class="etiqueta">Volatilidad</div><div class="valor">—</div><div class="pista">Rango pico-valle del año. Cuánto oscila.</div></div>
+    </div>
+
+    <div class="acciones">
+      <button class="ghost" onclick="cargarPresetCooperativa()">Cargar caso El Paraíso</button>
+      <button class="ghost" onclick="limpiar('cooperativa')">Limpiar</button>
+      <button class="primary" onclick="guardar('cooperativa')">Guardar en mi celular</button>
+    </div>
+  </section>
+
+  <p class="privacidad">
+    <strong>Tu privacidad importa.</strong> Nada de lo que escribes sale de tu dispositivo.
+  </p>
+</div>
+
+<footer class="pie">
+  Mercantil Servicios de Inversión · Curso para dirigentes de cooperativas financieras · Sesión 2
+</footer>
+
+<script src="../../../../assets/js/shared.js"></script>
+<script>
+  const MESES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+
+  function crearFilas(modo) {
+    const tbody = document.querySelector("#tabla-" + modo + " tbody");
+    tbody.innerHTML = "";
+    MESES.forEach((m, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${m}</td>
+        <td><input type="number" data-mes="${i}" data-tipo="ing" step="50" placeholder="0"></td>
+        <td><input type="number" data-mes="${i}" data-tipo="egr" step="50" placeholder="0"></td>
+        <td><input type="number" data-mes="${i}" data-tipo="extrap" step="50" placeholder="0"></td>
+        <td><input type="number" data-mes="${i}" data-tipo="extran" step="50" placeholder="0"></td>
+        <td class="calc" data-mes="${i}">—</td>
+      `;
+      tbody.appendChild(tr);
+    });
+    tbody.querySelectorAll("input").forEach(inp => inp.addEventListener("input", () => recalc(modo)));
+  }
+
+  function prefijo(modo) { return modo === "personal" ? "p-" : "c-"; }
+
+  function recalc(modo) {
+    const saldo0 = parseFloat(document.getElementById(prefijo(modo) + "saldo-inicial").value) || 0;
+    const tbody = document.querySelector("#tabla-" + modo + " tbody");
+    let saldo = saldo0;
+    const serie = [saldo0];
+    let mesesRojos = 0;
+    let minimo = saldo0;
+    let maximo = saldo0;
+
+    for (let i = 0; i < 12; i++) {
+      const fila = tbody.rows[i];
+      const ing = parseFloat(fila.querySelector('[data-tipo="ing"]').value) || 0;
+      const egr = parseFloat(fila.querySelector('[data-tipo="egr"]').value) || 0;
+      const extP = parseFloat(fila.querySelector('[data-tipo="extrap"]').value) || 0;
+      const extN = parseFloat(fila.querySelector('[data-tipo="extran"]').value) || 0;
+      const flujo = ing + extP - egr - extN;
+      saldo += flujo;
+      serie.push(saldo);
+      if (saldo < 0) mesesRojos++;
+      if (saldo < minimo) minimo = saldo;
+      if (saldo > maximo) maximo = saldo;
+      const celda = fila.querySelector(".calc");
+      celda.textContent = Fmt.moneda(saldo);
+      celda.className = "calc";
+      if (saldo < 0) celda.classList.add("neg");
+      else if (saldo < Math.max(maximo * 0.15, 500)) celda.classList.add("amarillo");
+    }
+
+    // KPIs
+    const pre = prefijo(modo);
+    const kpiMin = document.getElementById(pre + "kpi-minimo");
+    kpiMin.querySelector(".valor").textContent = Fmt.moneda(minimo);
+    kpiMin.className = "kpi-card " + (minimo < 0 ? "rojo" : minimo < Math.max(maximo * 0.15, 500) ? "amarillo" : "verde");
+
+    const kpiRojos = document.getElementById(pre + "kpi-meses-rojos");
+    kpiRojos.querySelector(".valor").textContent = mesesRojos;
+    kpiRojos.className = "kpi-card " + (mesesRojos === 0 ? "verde" : mesesRojos <= 2 ? "amarillo" : "rojo");
+
+    if (modo === "personal") {
+      const cambio = saldo - saldo0;
+      const kpiCam = document.getElementById("p-kpi-cambio");
+      kpiCam.querySelector(".valor").textContent = (cambio >= 0 ? "+" : "") + Fmt.moneda(cambio);
+      kpiCam.className = "kpi-card " + (cambio >= saldo0 * 0.05 ? "verde" : cambio >= 0 ? "amarillo" : "rojo");
+    } else {
+      const vol = maximo - minimo;
+      const kpiVol = document.getElementById("c-kpi-volatilidad");
+      kpiVol.querySelector(".valor").textContent = Fmt.moneda(vol);
+      kpiVol.className = "kpi-card " + (vol > Math.abs(maximo) * 0.6 ? "rojo" : vol > Math.abs(maximo) * 0.3 ? "amarillo" : "verde");
+    }
+
+    dibujarGrafica(modo, serie);
+  }
+
+  function dibujarGrafica(modo, serie) {
+    const svg = document.getElementById("grafica-" + modo);
+    const W = 600, H = 260, padL = 50, padR = 15, padT = 15, padB = 30;
+    const ancho = W - padL - padR;
+    const alto = H - padT - padB;
+    const n = serie.length;
+    const maxVal = Math.max(...serie, 0);
+    const minVal = Math.min(...serie, 0);
+    const rango = maxVal - minVal || 1;
+
+    const x = i => padL + (i / (n - 1)) * ancho;
+    const y = v => padT + alto - ((v - minVal) / rango) * alto;
+
+    const y0 = y(0);
+
+    let svgContent = "";
+    // Fondo
+    svgContent += `<rect x="${padL}" y="${padT}" width="${ancho}" height="${alto}" fill="#F5F7FA" rx="4"/>`;
+    // Zona negativa
+    if (minVal < 0) {
+      svgContent += `<rect x="${padL}" y="${y0}" width="${ancho}" height="${alto + padT - y0}" fill="#FBE9E8" opacity="0.7"/>`;
+    }
+    // Eje cero
+    svgContent += `<line x1="${padL}" x2="${W - padR}" y1="${y0}" y2="${y0}" stroke="#B4312E" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+    // Labels eje y
+    svgContent += `<text x="${padL - 6}" y="${y(maxVal) + 4}" text-anchor="end" font-size="10" fill="#5A6375" font-family="Inter">${Fmt.moneda(maxVal)}</text>`;
+    svgContent += `<text x="${padL - 6}" y="${y0 + 4}" text-anchor="end" font-size="10" fill="#B4312E" font-family="Inter">0</text>`;
+    if (minVal < 0) {
+      svgContent += `<text x="${padL - 6}" y="${y(minVal) + 4}" text-anchor="end" font-size="10" fill="#B4312E" font-family="Inter">${Fmt.moneda(minVal)}</text>`;
+    }
+    // Línea de la serie
+    let pathD = "";
+    for (let i = 0; i < n; i++) {
+      pathD += (i === 0 ? "M " : "L ") + x(i) + " " + y(serie[i]) + " ";
+    }
+    // Área bajo la curva
+    let areaD = pathD + " L " + x(n - 1) + " " + y0 + " L " + x(0) + " " + y0 + " Z";
+    svgContent += `<path d="${areaD}" fill="#003DA5" fill-opacity="0.08"/>`;
+    svgContent += `<path d="${pathD}" fill="none" stroke="#003DA5" stroke-width="2.5" stroke-linejoin="round"/>`;
+    // Puntos
+    for (let i = 0; i < n; i++) {
+      const color = serie[i] < 0 ? "#B4312E" : "#003DA5";
+      svgContent += `<circle cx="${x(i)}" cy="${y(serie[i])}" r="3.5" fill="${color}"/>`;
+    }
+    // Labels eje x
+    const etiquetas = ["Ini", ...MESES];
+    for (let i = 0; i < n; i++) {
+      if (i % 2 === 0 || i === n - 1) {
+        svgContent += `<text x="${x(i)}" y="${H - padB + 15}" text-anchor="middle" font-size="10" fill="#5A6375" font-family="Inter">${etiquetas[i]}</text>`;
+      }
+    }
+    svg.innerHTML = svgContent;
+  }
+
+  function cargarPresetPersonal() {
+    document.getElementById("p-saldo-inicial").value = 3500;
+    const ingresos = Array(12).fill(2200);
+    const gastos = Array(12).fill(1800);
+    const extrasMas = Array(12).fill(0); extrasMas[5] = 1200; // bono mitad de año
+    const extrasMenos = Array(12).fill(0); extrasMenos[0] = 400; extrasMenos[11] = 900;
+    llenarTabla("personal", { ingresos, gastos, extrasMas, extrasMenos });
+    recalc("personal");
+  }
+
+  function cargarPresetCooperativa() {
+    // Caso El Paraíso, año previo a la crisis
+    document.getElementById("c-saldo-inicial").value = 500000;
+    const ingresos = Array(12).fill(180000); // intereses cobrados mensual
+    const gastos = Array(12).fill(148000);   // intereses pagados + opex + provisiones
+    const extrasMas = Array(12).fill(0);
+    const extrasMenos = Array(12).fill(0);
+    // Dec: aguinaldo + renovación pólizas
+    extrasMenos[11] = 165000;
+    // Ene: inicio clases, caída neta en cobranza por créditos nuevos
+    extrasMenos[0] = 75000;
+    // May: aportes anuales asociados
+    extrasMas[4] = 45000;
+    // Jul: XIII mes
+    extrasMenos[6] = 65000;
+    // Oct-Nov: rumores y retiros anticipados
+    extrasMenos[9] = 95000;
+    extrasMenos[10] = 140000;
+    llenarTabla("cooperativa", { ingresos, gastos, extrasMas, extrasMenos });
+    recalc("cooperativa");
+  }
+
+  function llenarTabla(modo, datos) {
+    const tbody = document.querySelector("#tabla-" + modo + " tbody");
+    for (let i = 0; i < 12; i++) {
+      const fila = tbody.rows[i];
+      fila.querySelector('[data-tipo="ing"]').value = datos.ingresos[i] || "";
+      fila.querySelector('[data-tipo="egr"]').value = datos.gastos[i] || "";
+      fila.querySelector('[data-tipo="extrap"]').value = datos.extrasMas[i] || "";
+      fila.querySelector('[data-tipo="extran"]').value = datos.extrasMenos[i] || "";
+    }
+  }
+
+  function snapshot(modo) {
+    const data = { saldoInicial: document.getElementById(prefijo(modo) + "saldo-inicial").value, filas: [] };
+    const tbody = document.querySelector("#tabla-" + modo + " tbody");
+    for (let i = 0; i < 12; i++) {
+      const fila = tbody.rows[i];
+      data.filas.push({
+        ing: fila.querySelector('[data-tipo="ing"]').value,
+        egr: fila.querySelector('[data-tipo="egr"]').value,
+        extrap: fila.querySelector('[data-tipo="extrap"]').value,
+        extran: fila.querySelector('[data-tipo="extran"]').value
+      });
+    }
+    return data;
+  }
+
+  function restore(modo, data) {
+    if (!data) return;
+    document.getElementById(prefijo(modo) + "saldo-inicial").value = data.saldoInicial || "";
+    const tbody = document.querySelector("#tabla-" + modo + " tbody");
+    for (let i = 0; i < 12 && i < data.filas.length; i++) {
+      const fila = tbody.rows[i];
+      fila.querySelector('[data-tipo="ing"]').value = data.filas[i].ing || "";
+      fila.querySelector('[data-tipo="egr"]').value = data.filas[i].egr || "";
+      fila.querySelector('[data-tipo="extrap"]').value = data.filas[i].extrap || "";
+      fila.querySelector('[data-tipo="extran"]').value = data.filas[i].extran || "";
+    }
+  }
+
+  function limpiar(modo) {
+    document.getElementById(prefijo(modo) + "saldo-inicial").value = "";
+    const tbody = document.querySelector("#tabla-" + modo + " tbody");
+    tbody.querySelectorAll("input").forEach(i => i.value = "");
+    Store.borrar("pelicula-" + modo);
+    recalc(modo);
+  }
+
+  function guardar(modo) {
+    Store.guardar("pelicula-" + modo, snapshot(modo));
+    avisar("Guardado en este celular.");
+  }
+
+  function avisar(msg) {
+    const div = document.createElement("div");
+    div.textContent = msg;
+    div.style.cssText = "position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--color-primario);color:#fff;padding:0.7rem 1.2rem;border-radius:8px;box-shadow:var(--shadow-2);z-index:100;";
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 1800);
+  }
+
+  // Tabs
+  document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.classList.remove("activa"));
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("activo"));
+    t.classList.add("activa");
+    document.getElementById("panel-" + t.dataset.panel).classList.add("activo");
+  }));
+
+  // Init
+  crearFilas("personal");
+  crearFilas("cooperativa");
+  document.getElementById("p-saldo-inicial").addEventListener("input", () => recalc("personal"));
+  document.getElementById("c-saldo-inicial").addEventListener("input", () => recalc("cooperativa"));
+  restore("personal", Store.leer("pelicula-personal"));
+  restore("cooperativa", Store.leer("pelicula-cooperativa"));
+  recalc("personal");
+  recalc("cooperativa");
+</script>
+</body>
+</html>

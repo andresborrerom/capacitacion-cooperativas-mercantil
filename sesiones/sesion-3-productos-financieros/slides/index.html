@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sesión 3 · Productos financieros · Mercantil SI</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5; --m-primario-oscuro: #002868; --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20; --m-acento-claro: #FDE9D7;
+    --m-fondo-sutil: #F5F7FA; --m-texto: #1A1A1A; --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE; --m-positivo: #2E7D55; --m-alerta: #B4312E;
+    --m-g4: #9C4EA3;
+  }
+  .reveal { font-family: "Inter", sans-serif; color: var(--m-texto); font-size: 28px; }
+  .reveal .slides { text-align: left; }
+  .reveal h1, .reveal h2, .reveal h3 { font-family: "Inter", sans-serif; font-weight: 700; color: var(--m-primario-oscuro); text-transform: none; letter-spacing: -0.01em; line-height: 1.15; }
+  .reveal h1 { font-size: 2.2em; } .reveal h2 { font-size: 1.6em; } .reveal h3 { font-size: 1.2em; }
+  .reveal strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  .reveal em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+  .portada { background: linear-gradient(135deg, var(--m-primario) 0%, var(--m-primario-oscuro) 100%); color: #fff !important; padding: 2em 1.5em; height: 100%; }
+  .portada h1, .portada h2 { color: #fff; }
+  .portada .kicker { color: var(--m-acento-claro); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.12em; }
+  .portada .marca { position: absolute; top: 1em; right: 1em; font-size: 0.55em; opacity: 0.85; }
+  .kicker { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.12em; color: var(--m-acento); font-weight: 700; margin-bottom: 0.3em; }
+  .nota-facilitador { font-size: 0.5em; color: var(--m-texto-sutil); border-top: 1px solid var(--m-borde); padding-top: 0.8em; margin-top: 1.5em; font-style: italic; }
+  .tarjeta { background: var(--m-fondo-sutil); border: 1px solid var(--m-borde); border-radius: 12px; padding: 1em 1.2em; }
+  .tarjeta.acento { border-left: 6px solid var(--m-acento); }
+  .tarjeta.primario { border-left: 6px solid var(--m-primario); }
+  .tarjeta.alerta { border-left: 6px solid var(--m-alerta); background: #FBE9E8; }
+
+  .gavetas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7em; margin: 0.6em 0; }
+  .gaveta { background: #fff; border-radius: 12px; padding: 1em; border: 2px solid var(--m-borde); }
+  .gaveta.g1 { border-top: 8px solid var(--m-primario); }
+  .gaveta.g2 { border-top: 8px solid var(--m-acento); }
+  .gaveta.g3 { border-top: 8px solid var(--m-positivo); }
+  .gaveta.g4 { border-top: 8px solid var(--m-g4); }
+  .gaveta h4 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 1em; }
+  .gaveta .plazo { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.06em; color: var(--m-texto-sutil); font-weight: 600; margin-bottom: 0.5em; }
+  .gaveta p { font-size: 0.75em; margin: 0.3em 0; line-height: 1.4; }
+  .gaveta .error { background: #FBE9E8; border-left: 4px solid var(--m-alerta); padding: 0.4em 0.6em; font-size: 0.7em; margin-top: 0.5em; border-radius: 0 6px 6px 0; }
+
+  .dimensiones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6em; margin: 0.6em 0; }
+  .dimension { background: var(--m-primario-claro); border-radius: 10px; padding: 0.8em; text-align: center; }
+  .dimension h4 { margin: 0; color: var(--m-primario-oscuro); font-size: 1.1em; }
+  .dimension p { font-size: 0.7em; margin: 0.3em 0 0; color: var(--m-texto-sutil); }
+
+  .palancas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5em; }
+  .palanca { background: var(--m-fondo-sutil); border: 1px solid var(--m-borde); border-radius: 8px; padding: 0.6em; font-size: 0.6em; text-align: center; }
+  .palanca.activa { background: var(--m-acento-claro); border-color: var(--m-acento); color: var(--m-primario-oscuro); font-weight: 600; }
+  .palanca.abierta { background: var(--m-primario-claro); border-color: var(--m-primario); color: var(--m-primario-oscuro); font-weight: 600; }
+  .palanca .num { display: inline-block; width: 1.6em; height: 1.6em; line-height: 1.6em; background: var(--m-texto-sutil); color: #fff; border-radius: 50%; font-weight: 700; margin-bottom: 0.3em; }
+  .palanca.activa .num { background: var(--m-acento); }
+  .palanca.abierta .num { background: var(--m-primario); }
+
+  .qr-bloque { display: grid; grid-template-columns: auto 1fr; gap: 1.5em; align-items: center; background: var(--m-fondo-sutil); border-radius: 12px; padding: 1.2em; }
+  .qr-bloque .qr-placeholder { width: 240px; height: 240px; background: #fff; border: 8px solid var(--m-primario); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: monospace; color: var(--m-texto-sutil); font-size: 0.5em; text-align: center; padding: 1em; }
+  .qr-bloque .url { font-family: monospace; font-size: 0.65em; color: var(--m-primario); word-break: break-all; }
+  .callout-grande { background: var(--m-primario-claro); border-left: 8px solid var(--m-primario); padding: 1.2em 1.5em; border-radius: 0 12px 12px 0; margin: 0.8em 0; font-size: 1.1em; }
+  .callout-grande.acento { background: var(--m-acento-claro); border-left-color: var(--m-acento); }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 0.6em 0 0.6em 2em; position: relative; border-bottom: 1px solid var(--m-borde); font-size: 0.9em; }
+  .checklist li::before { content: "☐"; position: absolute; left: 0.2em; color: var(--m-primario); font-size: 1.2em; font-weight: 700; }
+
+  .reveal .slide-number { color: var(--m-texto-sutil); background: transparent; font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- PORTADA -->
+<section class="portada" data-background-color="#003DA5">
+  <div class="marca">Mercantil Servicios de Inversión</div>
+  <div class="kicker">Sesión 3 · Finanzas para dirigentes cooperativos</div>
+  <h1 style="margin-top: 0.8em;">Productos financieros</h1>
+  <h2 style="font-weight: 400; opacity: 0.92;">Herramientas, no milagros</h2>
+  <p style="margin-top: 2em; opacity: 0.8; font-size: 0.8em;">Dos horas · La caja de herramientas · Lo que distingue un asesor de un vendedor</p>
+</section>
+
+<!-- APERTURA -->
+<section>
+  <div class="kicker">0:00 · La pregunta de hoy</div>
+  <h2 style="font-size: 1.5em;">Si tuvieras que invertir B/. 100,000 de tu cooperativa mañana y <em>solo puedes hacer una pregunta antes</em>, ¿cuál sería?</h2>
+  <div class="nota-facilitador">POLL #1. No corregir. "La pregunta que eliges dice algo. Vamos a ver si cambia hoy."</div>
+</section>
+
+<!-- CASO -->
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">0:05 · Un caso de verdad (anonimizado)</div>
+    <h1 style="color: #fff; font-size: 2em;">"Colocamos B/. 1M al 5.2% a 5 años. Todos contentos."</h1>
+    <p style="opacity: 0.9; margin-top: 1em;">Un año después apareció una oportunidad de B/. 60 días. La única plata disponible era ese DPF. Tuvieron que romperlo.</p>
+  </div>
+</section>
+
+<section>
+  <h3>El costo del mismatch</h3>
+  <table style="font-size: 0.9em;">
+    <tbody>
+      <tr><td>Principal colocado</td><td style="text-align:right;">B/. 1,000,000</td></tr>
+      <tr><td>Penalización por romper (2%)</td><td style="text-align:right; color: var(--m-alerta);">−B/. 20,000</td></tr>
+      <tr><td>Intereses dejados de cobrar (10 meses)</td><td style="text-align:right; color: var(--m-alerta);">−B/. 90,000</td></tr>
+      <tr style="font-weight:700; background: #FBE9E8;"><td>Neto recibido</td><td style="text-align:right;">B/. 890,000</td></tr>
+    </tbody>
+  </table>
+  <div class="callout-grande acento" style="margin-top: 0.8em;">
+    <em>"No fue un mal producto. Fue el producto correcto para la gaveta equivocada."</em>
+  </div>
+</section>
+
+<!-- CONCEPTO PEGAJOSO -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">0:15 · El concepto de la sesión</div>
+  <h1 style="font-size: 2.8em;">Las 4 gavetas del dinero</h1>
+  <p style="font-size: 1.05em; color: var(--m-texto-sutil); margin-top: 1em;">Imagínate cuatro cajones en tu escritorio. Cada uno tiene un propósito. Si te confundes de cajón, pagas caro.</p>
+</section>
+
+<section>
+  <h3>Los 4 cajones</h3>
+  <div class="gavetas">
+    <div class="gaveta g1">
+      <h4>Gaveta 1 · Operación diaria</h4>
+      <div class="plazo">0 a 30 días</div>
+      <p><strong>Propósito:</strong> estar a mano. Pagar lo de este mes.</p>
+      <p><strong>Productos:</strong> cuenta corriente, ahorro líquido.</p>
+      <div class="error"><strong>Error caro:</strong> buscarle rendimiento.</div>
+    </div>
+    <div class="gaveta g2">
+      <h4>Gaveta 2 · Reserva de liquidez</h4>
+      <div class="plazo">1 a 6 meses</div>
+      <p><strong>Propósito:</strong> colchón para imprevistos.</p>
+      <p><strong>Productos:</strong> DPF corto, fondos de liquidez.</p>
+      <div class="error"><strong>Error caro:</strong> tenerla en gaveta 3 o 4.</div>
+    </div>
+    <div class="gaveta g3">
+      <h4>Gaveta 3 · Inversión a plazo</h4>
+      <div class="plazo">6m a 5 años</div>
+      <p><strong>Propósito:</strong> crecer con disciplina.</p>
+      <p><strong>Productos:</strong> DPF largo, bonos, fondos.</p>
+      <div class="error"><strong>Error caro:</strong> tocarla antes de tiempo.</div>
+    </div>
+    <div class="gaveta g4">
+      <h4>Gaveta 4 · Estratégico / largo</h4>
+      <div class="plazo">5+ años</div>
+      <p><strong>Propósito:</strong> décadas — legado, retiro, reservas.</p>
+      <p><strong>Productos:</strong> portafolios diversificados, bonos largos.</p>
+      <div class="error"><strong>Error caro:</strong> mantenerla en gaveta 2.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="tarjeta" style="background: var(--m-fondo-sutil); padding: 1.5em; border: 1px dashed var(--m-texto-sutil);">
+    <div class="kicker" style="color: var(--m-primario);">Acento técnico · opcional</div>
+    <p style="font-size: 0.9em; color: var(--m-texto-sutil);">
+      En lenguaje profesional: <strong>ALM por plazos</strong>. Cada cooperativa tiene una curva de pasivos (cuándo debe devolver plata) y debería tener una curva de activos (cuándo la recupera). El <em>asset-liability matching</em> evita ventas forzadas como la del caso.
+    </p>
+  </div>
+</section>
+
+<!-- HERRAMIENTA -->
+<section data-background-color="#F47B20">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: #fff;">0:30 · Tu caja de herramientas</div>
+    <h1 style="color: #fff; font-size: 2.4em;">Mapea tus productos a las gavetas</h1>
+    <p style="opacity: 0.92; margin-top: 0.8em;">Ingresa los productos que trajiste de tarea. La herramienta los clasifica. Te muestra mismatches.</p>
+  </div>
+</section>
+
+<section>
+  <h3>Herramienta "Mi caja de herramientas"</h3>
+  <div class="qr-bloque">
+    <div class="qr-placeholder" style="padding: 0;">
+      <img src="qr/mi-caja-herramientas.png" alt="QR Mi caja de herramientas" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+    <div>
+      <p style="font-size: 0.9em; margin-bottom: 0.5em;"><strong>Abre desde tu celular.</strong></p>
+      <p class="url">https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-3-productos-financieros/herramientas/mi-caja-herramientas/</p>
+      <div class="tarjeta primario" style="margin-top: 1em; font-size: 0.75em;">
+        <strong>Tip:</strong> botón "Cargar ejemplo cooperativa" al final para ver un caso típico.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 DIMENSIONES -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">0:45 · Las 4 perillas</div>
+  <h2>Todo producto tiene 4 dimensiones</h2>
+  <div class="dimensiones">
+    <div class="dimension"><h4>Rentabilidad</h4><p>Cuánto rinde.</p></div>
+    <div class="dimension"><h4>Riesgo</h4><p>Probabilidad de perder.</p></div>
+    <div class="dimension"><h4>Liquidez</h4><p>¿Puedo sacarla antes?</p></div>
+    <div class="dimension"><h4>Plazo</h4><p>¿Por cuánto tiempo?</p></div>
+  </div>
+  <div class="callout-grande" style="margin-top: 1em;">
+    <strong>Ley de la naturaleza financiera:</strong> <em>no se pueden maximizar las 4 a la vez.</em> Quien te prometa las 4 está mintiendo o no entiende su producto.
+  </div>
+</section>
+
+<!-- AHORRO / INVERSIÓN / ESPECULACIÓN -->
+<section>
+  <h3>3 palabras que NO son sinónimos</h3>
+  <table style="font-size: 0.85em;">
+    <thead><tr><th>Palabra</th><th>Qué es</th><th>Gaveta típica</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ahorrar</strong></td><td>Guardar plata para no tocar.</td><td>1-2</td></tr>
+      <tr><td><strong>Invertir</strong></td><td>Poner plata a trabajar <em>con tesis y criterio de salida</em>.</td><td>3-4</td></tr>
+      <tr><td><strong>Especular</strong></td><td>Apostar al precio sin tesis.</td><td>Ninguna — y hay que saberlo.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top: 0.6em; font-size: 0.9em;">No es malo especular <strong>si sabes que lo haces</strong>. Es peligroso cuando te lo disfrazan de inversión.</p>
+</section>
+
+<!-- LAS 5 PREGUNTAS -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">1:25 · La herramienta más poderosa del curso</div>
+  <h1 style="font-size: 2em;">Las 5 preguntas al asesor</h1>
+  <p style="margin-top: 0.5em; color: var(--m-texto-sutil);">Úsalas con quien sea — incluyéndonos.</p>
+</section>
+
+<section>
+  <ul class="checklist">
+    <li><strong>1.</strong> ¿Cómo te pagan a ti por venderme este producto?</li>
+    <li><strong>2.</strong> Si en 6 meses necesito la plata, ¿qué pasa exactamente?</li>
+    <li><strong>3.</strong> ¿Cuál es el peor escenario realista para esto?</li>
+    <li><strong>4.</strong> ¿Qué producto NO me recomendarías hoy y por qué?</li>
+    <li><strong>5.</strong> ¿Dónde están las comisiones que no son obvias en el folleto?</li>
+  </ul>
+  <div class="callout-grande acento" style="margin-top: 0.8em; font-size: 0.95em;">
+    <em>"Un asesor profesional responde las 5 sin incomodarse. Un vendedor se pone nervioso en la primera y elude la cuarta."</em>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section>
+  <div class="kicker">1:40 · Mapa del curso</div>
+  <h3>8 palancas · ya tocamos 6</h3>
+  <div class="palancas">
+    <div class="palanca activa"><span class="num">1</span>Foto vs. película</div>
+    <div class="palanca activa"><span class="num">2</span>Utilidad ≠ liquidez</div>
+    <div class="palanca activa"><span class="num">3</span>Activos ≠ patrimonio</div>
+    <div class="palanca activa"><span class="num">4</span>4 dimensiones</div>
+    <div class="palanca abierta"><span class="num">5</span>Plazo manda</div>
+    <div class="palanca"><span class="num">6</span>Costo real ≠ tasa</div>
+    <div class="palanca abierta"><span class="num">7</span>Concentración mata</div>
+    <div class="palanca abierta"><span class="num">8</span>Asesoría = preguntas</div>
+  </div>
+</section>
+
+<section>
+  <div class="tarjeta acento" style="padding: 2em;">
+    <div class="kicker">Micro-tarea hasta la Sesión 4</div>
+    <h2 style="margin-top: 0.3em;">Lista 2-3 instrumentos de crédito</h2>
+    <p style="font-size: 0.95em;">Uno que tu cooperativa use, otro que le hayan ofrecido, o uno personal. Nombre · tasa · plazo. Los desmontamos la próxima sesión.</p>
+  </div>
+</section>
+
+<section data-background-color="#003DA5">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">Última sesión</div>
+    <h1 style="color: #fff;">Tasa cuenta,<br>plazo pesa.</h1>
+    <p style="font-size: 1.1em; opacity: 0.92; margin-top: 1em;">Cerramos el curso con financiamiento. Cómo distinguir una buena deuda de una mala — y por qué la tasa no manda sola.</p>
+  </div>
+</section>
+
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 3em 2em; text-align: center;">
+    <h1 style="color: #fff; font-size: 2.5em;">Gracias.</h1>
+    <p style="opacity: 0.9; margin-top: 1em;">Mercantil Servicios de Inversión</p>
+    <p style="opacity: 0.7; font-size: 0.85em; margin-top: 2em; line-height: 1.5;">
+      Si esta sesión te ayuda a pedir mejor asesoría a alguien —aunque no sea a nosotros—<br>hicimos nuestro trabajo.
+    </p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true, slideNumber: 'c/t', controls: true, progress: true,
+    transition: 'fade', backgroundTransition: 'fade',
+    width: 1280, height: 800, margin: 0.06, center: false,
+  });
+</script>
+</body>
+</html>

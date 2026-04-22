@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sesión 2 · El flujo de caja · Mercantil SI</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5;
+    --m-primario-oscuro: #002868;
+    --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20;
+    --m-acento-claro: #FDE9D7;
+    --m-fondo-sutil: #F5F7FA;
+    --m-texto: #1A1A1A;
+    --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE;
+    --m-positivo: #2E7D55;
+    --m-alerta: #B4312E;
+  }
+  .reveal { font-family: "Inter", system-ui, sans-serif; color: var(--m-texto); font-size: 28px; }
+  .reveal .slides { text-align: left; }
+  .reveal h1, .reveal h2, .reveal h3 { font-family: "Inter", sans-serif; font-weight: 700; color: var(--m-primario-oscuro); text-transform: none; letter-spacing: -0.01em; line-height: 1.15; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.6em; }
+  .reveal h3 { font-size: 1.2em; }
+  .reveal p, .reveal li { line-height: 1.5; }
+  .reveal strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  .reveal em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+  .portada { background: linear-gradient(135deg, var(--m-primario) 0%, var(--m-primario-oscuro) 100%); color: #fff !important; padding: 2em 1.5em; height: 100%; }
+  .portada h1, .portada h2 { color: #fff; }
+  .portada .kicker { color: var(--m-acento-claro); font-weight: 600; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.12em; }
+  .portada .marca { position: absolute; top: 1em; right: 1em; font-size: 0.55em; opacity: 0.85; }
+  .kicker { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.12em; color: var(--m-acento); font-weight: 700; margin-bottom: 0.3em; }
+  .nota-facilitador { font-size: 0.5em; color: var(--m-texto-sutil); border-top: 1px solid var(--m-borde); padding-top: 0.8em; margin-top: 1.5em; font-style: italic; }
+  .tarjeta { background: var(--m-fondo-sutil); border: 1px solid var(--m-borde); border-radius: 12px; padding: 1em 1.2em; margin: 0.3em 0; }
+  .tarjeta.acento { border-left: 6px solid var(--m-acento); }
+  .tarjeta.primario { border-left: 6px solid var(--m-primario); }
+  .tarjeta.alerta { border-left: 6px solid var(--m-alerta); background: #FBE9E8; }
+  .tarjeta.positivo { border-left: 6px solid var(--m-positivo); background: #E8F5EF; }
+  .reveal table { font-size: 0.68em; margin: 0.5em 0; }
+  .reveal table th { background: var(--m-primario-claro); color: var(--m-primario-oscuro); font-weight: 700; font-size: 0.8em; text-transform: uppercase; }
+  .reveal table td, .reveal table th { padding: 0.35em 0.55em; border-bottom: 1px solid var(--m-borde); }
+  .reveal table tr.peligro td { background: #FBE9E8; font-weight: 700; }
+  .reveal table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .parejas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6em;
+    margin: 0.6em 0;
+  }
+  .pareja {
+    background: #fff;
+    border: 2px solid var(--m-primario-claro);
+    border-radius: 12px;
+    padding: 0.8em 0.9em;
+  }
+  .pareja h4 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 0.95em; }
+  .pareja p { margin: 0; font-size: 0.72em; color: var(--m-texto-sutil); }
+
+  .palancas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5em; }
+  .palanca { background: var(--m-fondo-sutil); border: 1px solid var(--m-borde); border-radius: 8px; padding: 0.6em; font-size: 0.6em; text-align: center; }
+  .palanca.activa { background: var(--m-acento-claro); border-color: var(--m-acento); color: var(--m-primario-oscuro); font-weight: 600; }
+  .palanca.abierta { background: var(--m-primario-claro); border-color: var(--m-primario); color: var(--m-primario-oscuro); font-weight: 600; }
+  .palanca .num { display: inline-block; width: 1.6em; height: 1.6em; line-height: 1.6em; background: var(--m-texto-sutil); color: #fff; border-radius: 50%; font-weight: 700; margin-bottom: 0.3em; }
+  .palanca.activa .num { background: var(--m-acento); }
+  .palanca.abierta .num { background: var(--m-primario); }
+
+  .qr-bloque { display: grid; grid-template-columns: auto 1fr; gap: 1.5em; align-items: center; background: var(--m-fondo-sutil); border-radius: 12px; padding: 1.2em; }
+  .qr-bloque .qr-placeholder { width: 240px; height: 240px; background: #fff; border: 8px solid var(--m-primario); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: monospace; color: var(--m-texto-sutil); font-size: 0.5em; text-align: center; padding: 1em; }
+  .qr-bloque .url { font-family: monospace; font-size: 0.65em; color: var(--m-primario); word-break: break-all; }
+
+  .callout-grande { background: var(--m-primario-claro); border-left: 8px solid var(--m-primario); padding: 1.2em 1.5em; border-radius: 0 12px 12px 0; margin: 0.8em 0; font-size: 1.1em; }
+  .callout-grande.acento { background: var(--m-acento-claro); border-left-color: var(--m-acento); }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 0.6em 0 0.6em 2em; position: relative; border-bottom: 1px solid var(--m-borde); }
+  .checklist li::before { content: "☐"; position: absolute; left: 0.2em; color: var(--m-primario); font-size: 1.2em; font-weight: 700; }
+
+  .momentos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7em;
+  }
+  .momento {
+    background: #fff;
+    border-top: 6px solid var(--m-acento);
+    border: 1px solid var(--m-borde);
+    border-top: 6px solid var(--m-acento);
+    border-radius: 10px;
+    padding: 0.9em;
+  }
+  .momento h4 { margin: 0 0 0.3em; font-size: 0.9em; color: var(--m-acento); }
+  .momento p { font-size: 0.75em; margin: 0; color: var(--m-texto); }
+
+  .reveal .slide-number { color: var(--m-texto-sutil); background: transparent; font-family: "Inter", sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- PORTADA -->
+<section class="portada" data-background-color="#003DA5">
+  <div class="marca">Mercantil Servicios de Inversión</div>
+  <div class="kicker">Sesión 2 · Finanzas para dirigentes cooperativos</div>
+  <h1 style="margin-top: 0.8em;">El flujo de caja</h1>
+  <h2 style="font-weight: 400; opacity: 0.92;">El verdadero termómetro financiero</h2>
+  <p style="margin-top: 2em; opacity: 0.8; font-size: 0.8em;">Dos horas · Tu celular a la mano · Hoy resolvemos el misterio de El Paraíso</p>
+</section>
+
+<!-- APERTURA -->
+<section>
+  <div class="kicker">0:00 · Retomamos la pregunta pendiente</div>
+  <h2 style="font-size: 1.7em; margin-top: 0.5em;">¿Cómo se ve en los números el momento <em>60 días antes</em> de que una cooperativa quiebre?</h2>
+  <p style="font-size: 0.85em; color: var(--m-texto-sutil); margin-top: 1em;">La semana pasada vimos que El Paraíso tenía utilidad de B/. 420k y no pudo pagar el aguinaldo. Hoy explicamos cómo.</p>
+  <div class="nota-facilitador">Lanzar poll #1. Sin corregir aún.</div>
+</section>
+
+<!-- EL PARAÍSO — FLUJO MENSUAL -->
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">0:05 · La película de El Paraíso</div>
+    <h1 style="color: #fff; font-size: 2.3em;">12 meses, un año</h1>
+    <p style="opacity: 0.9; font-size: 1.05em; margin-top: 1em;">Balance año previo: utilidad B/. 420k, patrimonio B/. 3M. Ahora veámoslo por dentro, mes a mes.</p>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Flujo de caja mensual · El Paraíso</div>
+  <table style="font-size: 0.54em;">
+    <thead><tr><th>Mes</th><th class="num">Ingr. rec.</th><th class="num">Egr. rec.</th><th class="num">Extra (+)</th><th class="num">Extra (−)</th><th class="num">Saldo acum.</th></tr></thead>
+    <tbody>
+      <tr><td>Inicio</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num"><strong>500,000</strong></td></tr>
+      <tr><td>Ene</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">75,000</td><td class="num">457,000</td></tr>
+      <tr><td>Feb</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">0</td><td class="num">489,000</td></tr>
+      <tr><td>Mar</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">0</td><td class="num">521,000</td></tr>
+      <tr><td>Abr</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">0</td><td class="num">553,000</td></tr>
+      <tr><td>May</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">45,000</td><td class="num">0</td><td class="num">630,000</td></tr>
+      <tr><td>Jun</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">0</td><td class="num">662,000</td></tr>
+      <tr><td>Jul</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">65,000</td><td class="num">629,000</td></tr>
+      <tr><td>Ago</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">0</td><td class="num">661,000</td></tr>
+      <tr><td>Sep</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">0</td><td class="num">693,000</td></tr>
+      <tr class="peligro"><td>Oct</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">95,000</td><td class="num">630,000</td></tr>
+      <tr class="peligro"><td>Nov</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">140,000</td><td class="num">522,000</td></tr>
+      <tr class="peligro"><td>Dic</td><td class="num">180,000</td><td class="num">148,000</td><td class="num">0</td><td class="num">165,000</td><td class="num">389,000</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 0.55em; color: var(--m-texto-sutil); margin-top: 0.5em;">En rojo: Oct-Nov-Dic. La señal estaba en <strong>octubre</strong>.</p>
+</section>
+
+<section>
+  <div class="kicker">Lo que nadie vio a tiempo</div>
+  <h3>El saldo seguía positivo... hasta que los pagos de diciembre llegaron</h3>
+  <div class="tarjeta alerta">
+    <p style="font-size: 1em;">Diciembre cerró con <strong>B/. 389k</strong>. Depósitos exigibles a la vista: <strong>B/. 3.2M</strong>. Aguinaldo y proveedores: <strong>B/. 205k</strong>. Pago simultáneo de un solo depositante mediano = caja en rojo.</p>
+  </div>
+  <div class="callout-grande acento" style="margin-top: 0.8em;">
+    <em>"Lo importante no es que en diciembre faltó plata. Lo importante es que el indicador cambió en octubre — y nadie en la junta lo miraba. No porque fueran irresponsables. Porque nunca habíamos mirado la película, solo la foto del año."</em>
+  </div>
+</section>
+
+<!-- CONCEPTO PEGAJOSO -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">0:15 · El concepto de la sesión</div>
+  <h1 style="font-size: 3em; line-height: 1.1;">Foto miente;<br><em>película no.</em></h1>
+  <p style="font-size: 1.05em; color: var(--m-texto-sutil); margin-top: 1em;">El balance puede lucir impecable el 31 de diciembre y la cooperativa no tener con qué pagar en febrero.</p>
+</section>
+
+<section>
+  <h3>Las 4 parejas de verbos que parecían sinónimos</h3>
+  <div class="parejas">
+    <div class="pareja">
+      <h4>Ingreso ≠ cobro</h4>
+      <p>"Gana" B/. 180k de intereses. Cobra B/. 151k. La mora separa uno del otro.</p>
+    </div>
+    <div class="pareja">
+      <h4>Gasto ≠ pago</h4>
+      <p>La provisión es gasto; no sale de caja. El aguinaldo es pago; lleva meses devengándose.</p>
+    </div>
+    <div class="pareja">
+      <h4>Utilidad ≠ disponible</h4>
+      <p>Una es cálculo del papel. La otra es el saldo del banco. Pueden ir en direcciones opuestas.</p>
+    </div>
+    <div class="pareja">
+      <h4>Recurrente ≠ extraordinario</h4>
+      <p>Si solo modelas lo típico, la primera vez que llega algo grande te pilla.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="tarjeta" style="background: var(--m-primario); color: #fff; border-left: 0; padding: 2em;">
+    <h2 style="color: #fff;">La frase del día</h2>
+    <p style="font-size: 1.35em; font-weight: 600; line-height: 1.35; margin-top: 0.5em;">
+      "Un balance sano es una invitación, no una garantía. La garantía está en la película."
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="tarjeta" style="background: var(--m-fondo-sutil); padding: 1.5em; border: 1px dashed var(--m-texto-sutil);">
+    <div class="kicker" style="color: var(--m-primario);">Acento técnico · opcional</div>
+    <p style="font-size: 0.9em; color: var(--m-texto-sutil);">
+      El <strong>estado de flujo de efectivo</strong> (método directo o indirecto) formaliza lo que vimos. En cooperativas panameñas, forma parte de los <strong>estados auditados</strong> anuales. Es el documento que separa lo que vale la pena leer de lo que ya salió en periódico.
+    </p>
+  </div>
+</section>
+
+<!-- HERRAMIENTA -->
+<section data-background-color="#F47B20">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: #fff;">0:30 · A jugar con la película</div>
+    <h1 style="color: #fff; font-size: 2.4em;">Construye tu propia película</h1>
+    <p style="opacity: 0.92; font-size: 1.1em; margin-top: 0.8em;">Proyecta 12 meses. Detecta dónde se acerca al rojo. Carga el caso El Paraíso y ve Oct-Nov en vivo.</p>
+  </div>
+</section>
+
+<section>
+  <h3>Herramienta "Mi película del mes"</h3>
+  <div class="qr-bloque">
+    <div class="qr-placeholder" style="padding: 0;">
+      <img src="qr/mi-pelicula-del-mes.png" alt="QR Mi película del mes" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+    <div>
+      <p style="font-size: 0.9em; margin-bottom: 0.5em;"><strong>Abre desde tu celular.</strong></p>
+      <p class="url">https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-2-flujo-caja/herramientas/mi-pelicula-del-mes/</p>
+      <div class="tarjeta primario" style="margin-top: 1em; font-size: 0.75em;">
+        <strong>Tip:</strong> prueba el botón <em>"Cargar caso El Paraíso"</em> al final.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 MOMENTOS -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">0:45 · Patrones del año</div>
+  <h2>La crisis de caja nunca llega sin avisar. <em>Lo que falta es mirar a tiempo.</em></h2>
+  <div class="momentos" style="margin-top: 1em;">
+    <div class="momento">
+      <h4>1. Antes del aguinaldo</h4>
+      <p>Nov-Dic. XIII, aguinaldo, renovaciones. Si el Q3 cobró flojo, diciembre truena.</p>
+    </div>
+    <div class="momento">
+      <h4>2. Inicio de clases</h4>
+      <p>Ene-Feb. Préstamos simultáneos. Cartera crece, caja se drena.</p>
+    </div>
+    <div class="momento">
+      <h4>3. Retiros concentrados</h4>
+      <p>Imprevisibles. Rumores, crisis sectoriales. El asegurado no es evitar el evento; es tener cobertura.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="tarjeta" style="background: var(--m-fondo-sutil); padding: 1.5em; border: 1px dashed var(--m-texto-sutil);">
+    <div class="kicker" style="color: var(--m-primario);">Acento técnico · opcional</div>
+    <p style="font-size: 0.88em; color: var(--m-texto-sutil);">
+      Un <strong>stress test</strong> simple: ¿qué pasa con la caja si la mora sube 3 puntos porcentuales este trimestre? Los bancos regulados lo hacen formalmente (Basilea). Las cooperativas pueden empezar en hoja de cálculo. Mercantil SI construye estos modelos para cooperativas asesoradas.
+    </p>
+  </div>
+</section>
+
+<!-- BREAK -->
+<section data-background-color="#003DA5">
+  <div style="color: #fff; padding: 2em; text-align: center;">
+    <div class="kicker" style="color: var(--m-acento-claro);">1:00 · Respira</div>
+    <h1 style="color: #fff; font-size: 3em;">5 minutos</h1>
+    <p style="opacity: 0.85; margin-top: 1.5em; font-size: 0.9em;">Poll activo: <em>"¿Tu cooperativa presenta hoy un flujo proyectado en las juntas?"</em></p>
+  </div>
+</section>
+
+<!-- EJERCICIO APLICADO -->
+<section>
+  <div class="kicker">1:05 · Abre el tuyo</div>
+  <h2>Si trajiste el estado de resultados de tu cooperativa...</h2>
+  <ul>
+    <li>¿Cuánto de los ingresos fueron intereses <strong>cobrados</strong> efectivamente?</li>
+    <li>¿Hay gap significativo entre gastos registrados y pagos hechos?</li>
+    <li>¿En qué mes de los próximos 6 proyectarías el saldo más bajo?</li>
+  </ul>
+  <div class="tarjeta primario" style="margin-top: 0.8em;">
+    En modo cooperativa de la herramienta, ingresa un flujo aproximado y mira qué dice.
+  </div>
+</section>
+
+<!-- MINI DEBATE -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">1:25 · Un debate</div>
+  <h2>Si pudieras pedir <em>un solo indicador de flujo</em> mensual a tu gerencia que hoy no recibes, ¿cuál sería?</h2>
+  <ul style="margin-top: 0.8em;">
+    <li><strong>a.</strong> Saldo de caja al cierre del mes.</li>
+    <li><strong>b.</strong> Cobertura de liquidez (caja + líquidos / depósitos exigibles &lt;90d).</li>
+    <li><strong>c.</strong> Flujo neto del mes (entradas − salidas).</li>
+    <li><strong>d.</strong> Proyección a 3 meses.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="callout-grande acento">
+    <p>Las 4 son defendibles. <strong>Lo que no es defendible</strong> es no pedir ninguna. Una cooperativa que nunca proyecta su caja está manejando con los ojos solo en el retrovisor.</p>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section data-background-color="#FFFFFF">
+  <div class="kicker">1:40 · Mapa del curso</div>
+  <h3>8 palancas · ya tocamos 5</h3>
+  <div class="palancas">
+    <div class="palanca activa"><span class="num">1</span>Foto vs. película</div>
+    <div class="palanca activa"><span class="num">2</span>Utilidad ≠ liquidez</div>
+    <div class="palanca activa"><span class="num">3</span>Activos ≠ patrimonio</div>
+    <div class="palanca"><span class="num">4</span>4 dimensiones</div>
+    <div class="palanca abierta"><span class="num">5</span>Plazo manda</div>
+    <div class="palanca"><span class="num">6</span>Costo real ≠ tasa</div>
+    <div class="palanca"><span class="num">7</span>Concentración mata</div>
+    <div class="palanca"><span class="num">8</span>Asesoría = preguntas</div>
+  </div>
+  <p style="margin-top: 0.5em; font-size: 0.75em; color: var(--m-texto-sutil);">Naranja: cerradas. Azul: abiertas y en progreso.</p>
+</section>
+
+<section>
+  <h3>Checklist para tu próxima junta</h3>
+  <ul class="checklist">
+    <li>¿Cómo se ve el saldo de caja proyectado a 90 días si no hacemos nada?</li>
+    <li>¿Cuánto de los depósitos son a la vista o a plazo &lt; 90 días?</li>
+    <li>¿Qué gastos extraordinarios tenemos agendados en los próximos 6 meses?</li>
+    <li>¿Cómo cambia la caja si la mora sube 2 puntos porcentuales?</li>
+  </ul>
+</section>
+
+<section>
+  <div class="tarjeta acento" style="padding: 2em;">
+    <div class="kicker">Micro-tarea hasta la Sesión 3</div>
+    <h2 style="margin-top: 0.3em;">Lista 2-3 productos donde tu cooperativa (o tú) tiene plata hoy.</h2>
+    <p style="font-size: 1em; margin-top: 0.5em;">Nombre · entidad · plazo aproximado. Sin montos si no deseas.</p>
+  </div>
+</section>
+
+<section data-background-color="#003DA5">
+  <div style="color: #fff; padding: 2em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">Próxima sesión</div>
+    <h1 style="color: #fff;">Las 4 gavetas del dinero</h1>
+    <p style="font-size: 1.15em; opacity: 0.92; margin-top: 1em;">Abrimos la caja de herramientas. Qué productos hay, para qué sirven, y cuál es el error más caro: meter plata en el cajón equivocado.</p>
+  </div>
+</section>
+
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 3em 2em; text-align: center;">
+    <h1 style="color: #fff; font-size: 3em;">Gracias.</h1>
+    <p style="opacity: 0.9; font-size: 1em; margin-top: 1em;">Mercantil Servicios de Inversión</p>
+    <p style="opacity: 0.7; font-size: 0.85em; margin-top: 2em;">La película sigue. Gracias por mirar con nosotros.</p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true, slideNumber: 'c/t', controls: true, progress: true,
+    transition: 'fade', backgroundTransition: 'fade',
+    width: 1280, height: 800, margin: 0.06, center: false,
+  });
+</script>
+</body>
+</html>
