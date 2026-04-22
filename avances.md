@@ -305,6 +305,52 @@ El usuario revisa, decide metáforas/arquetipos/repo, y Claude itera sobre feedb
 
 ---
 
+## 2026-04-22 — Día 2, checkpoint 11 (Google Forms + audit + fix)
+
+### Google Forms integradas
+- [x] Usuario ejecutó `evaluacion/crear-formularios.gs` → 6 formularios creados en Google Drive.
+- [x] `evaluacion/URLS.md` — referencia central con 6 URLs cortos, URLs edición, flujo de distribución.
+- [x] QR generados para 4 de los 6 formularios (pre-test y feedback-30d se distribuyen por correo, no en slide).
+- [x] Slide de evaluación agregado antes del "Gracias" en cada una de las 4 sesiones (tiempo ~[1:55]).
+- [x] Guiones de las 4 sesiones actualizados con paso [1:55] "Evaluación de la sesión" — mostrar slide + pegar link en chat.
+- [x] Instructivo (MD + HTML) actualizado con sección "Los 6 formularios de evaluación" en preparación y referencia.
+
+### Audit guion vs slides (subagente)
+Detectó polls con opciones no visibles en los slides:
+- **S1:** OK (solo detalle de Mora que ya se había fijado).
+- **S2:** POLL #2 (mes más cerca del rojo) faltaba → AGREGADO como slide dedicado.
+- **S3:** POLL #4 (cuál frase más riesgosa) faltaba → AGREGADO como slide dedicado con 4 opciones.
+- **S4:** POLL #1 (apertura, marca todas) sin opciones visibles → ACTUALIZADO slide de apertura.
+- **S4:** POLL #4 (qué recomiendas Esfuerzo Unido) faltaba → AGREGADO slide dedicado con 4 opciones incluyendo B+C combinada.
+
+Polls menores (durante herramienta o en break) quedaron como referencia en guion; facilitador lee opciones en voz. No bloquean dinámica.
+
+### Commits pendientes de push (6 total)
+
+| # | Hash | Descripción |
+|---|---|---|
+| 1 | ce3ed2b | root `index.html` redirigiendo a `indice.html` |
+| 2 | e708d8d | S1 bloque 6 — desglose caso mediano + botón preset |
+| 3 | 0d801d7 | `.nojekyll` — desactivar Jekyll |
+| 4 | bee44fd | Apps Script `crear-formularios.gs` |
+| 5 | 048da39 | Integración Google Forms en slides/guiones/instructivo + fix Mora S1 |
+| 6 | 5ca171e | Fix polls — opciones visibles en slides S2/S3/S4 |
+
+### Para pushear
+
+```bash
+cd "C:/users/pocho/onedrive/mercantil_cooperativas"
+git push
+```
+
+Después del push: esperar 1-2 min, recargar las páginas en GitHub Pages, verificar que:
+1. La URL raíz carga (gracias a `index.html` y `indice.html`).
+2. Los `.md` cargan en el navegador (gracias a `.nojekyll`).
+3. Los QR de evaluación aparecen en el penúltimo slide de cada sesión.
+4. Los polls #4 de S3 y S4 se ven con opciones.
+
+---
+
 ## 2026-04-22 — Día 2, checkpoint 8 (navegador del proyecto)
 
 ### Entregado
