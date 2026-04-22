@@ -60,6 +60,13 @@ fecha: "2026-04-21"
 - Enviar pre-test (Google Forms / Tally desde `evaluacion/pre-test.md`).
 - Corte: 48 h antes de Sesión 1.
 
+### 48 h antes de Sesión 1
+- Enviar correo a los 100 participantes con:
+  - Link del evento (Zoom/Teams).
+  - **Pre-test**: https://forms.gle/HwMAYPHj1fbDtKW89 · 10 min, ayuda a calibrar.
+  - PDF previo de Sesión 1.
+- Corte: pedir respuestas del pre-test 24 h antes.
+
 ### 1 semana antes de cada sesión
 - Enviar PDF previo correspondiente.
 - Mensaje corto (3-4 líneas).
@@ -376,6 +383,19 @@ fecha: "2026-04-21"
 | 2 | Mi película del mes | Flujo 12m + gráfica |
 | 3 | Mi caja de herramientas | Productos en 4 gavetas |
 | 4 | Costo real del crédito | 2 ofertas + TEA + amortización |
+
+### Los 6 formularios de evaluación (links cortos)
+
+| Cuándo | Formulario | Link |
+|---|---|---|
+| 48 h antes Sesión 1 | Pre-test | https://forms.gle/HwMAYPHj1fbDtKW89 |
+| Cierre Sesión 1 | Eval Sesión 1 | https://forms.gle/d9cRDhnCdVG7dCfE6 |
+| Cierre Sesión 2 | Eval Sesión 2 | https://forms.gle/ZQtXx8SGroivW8WQ8 |
+| Cierre Sesión 3 | Eval Sesión 3 | https://forms.gle/wiz2Vs4uCHa5T8ZW8 |
+| Cierre Sesión 4 | Post-test + NPS | https://forms.gle/juVNGrodnWJccfht9 |
+| +30 días | Feedback extendido | https://forms.gle/C69JgyTdPLwXVDTc8 |
+
+El slide penúltimo de cada sesión muestra el QR correspondiente. Además pega el link en el chat de la videollamada al llegar a ese momento (min ~1:55 de la sesión).
 
 ### Últimas palabras
 

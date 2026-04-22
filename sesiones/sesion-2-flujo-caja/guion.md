@@ -210,6 +210,7 @@ En diciembre la caja todavía muestra B/. 389,000 — pero los depósitos exigib
 - [1:50] **Puente a Sesión 3:**
   > *"Hoy cerramos la foto y la película. La próxima sesión abrimos la caja de herramientas: qué productos hay, para qué sirven de verdad, y cuáles son los errores más caros — meter plata en el cajón equivocado."*
 - [1:53] **[POLL #5 — pulso]:** *"En una palabra, ¿qué te llevas hoy?"*
+- [1:55] **Evaluación de la sesión.** Slide con QR. *"Como la semana pasada, les dejo un link en el chat — 3 minutos, anónimo opcional. Ayuda a seguir afilando el curso."* Pega en chat: `https://forms.gle/ZQtXx8SGroivW8WQ8`.
 - [1:56] Agradecimiento. Nombres del equipo. *"Mercantil SI acompaña cooperativas que quieren ver la película con claridad. No les estamos vendiendo; estamos enseñándoles a mirar."*
 - [1:58] Cerrar exactamente en 2:00.
 

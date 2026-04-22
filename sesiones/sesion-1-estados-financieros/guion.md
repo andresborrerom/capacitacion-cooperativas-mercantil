@@ -179,6 +179,7 @@ Esta es la frase en la que vive, sin decirse explícitamente, el valor de un ase
 - [1:50] Anunciar **el puente a la Sesión 2**:
   > *"Hoy aprendimos a leer la foto. La próxima sesión vamos a ver la película. Vamos a entender por qué El Paraíso no pudo pagar la nómina — y cómo reconocerlo en tu cooperativa antes de que pase."*
 - [1:53] **[POLL #5 — pulso de cierre]**: *"En una palabra, ¿cómo te vas de esta sesión?"* (palabra libre, muestra word cloud).
+- [1:55] **Evaluación de la sesión.** Cambia al slide con QR. *"Antes de irse, les comparto un link por chat con ~12 preguntas de evaluación. Son 3 minutos, anónimo si quieren. Me permite calibrar la próxima sesión."* Pega en el chat el link: `https://forms.gle/d9cRDhnCdVG7dCfE6`. Deja el slide visible mientras hablas lo siguiente.
 - [1:56] Agradecimiento. Nombres del equipo. *"Mercantil SI acompaña cooperativas en exactamente este tipo de decisiones. No les estamos vendiendo; les estamos acompañando para que pregunten mejor."*
 - [1:58] *Cerrar exactamente en 2:00.* Si el debate se extendió, se recorta aquí.
 

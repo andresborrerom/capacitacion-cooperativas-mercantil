@@ -216,8 +216,7 @@
 
 - [1:50] **[POLL #5]:** *"En una palabra, ¿cómo se van del curso?"* (muestra word cloud en vivo).
 - [1:52] Leer en voz alta 8-10 palabras del word cloud.
-- [1:54] Enviar por chat: link al **post-test + feedback NPS**.
-  > *"Un último pedido: nos cuentan cómo les fue. 10 minutos para que podamos hacer esto mejor."*
+- [1:54] **Post-test del curso.** Slide con QR. *"Un último pedido: 10 minutos para contarnos cómo fue. Las primeras 8 preguntas son las mismas del pre-test — así medimos cuánto movió el curso tu conocimiento. El resto es evaluación integral + NPS. Es anónimo opcional, y sinceramente, es nuestro insumo más valioso para mejorar la siguiente cohorte."* Pega en el chat: `https://forms.gle/juVNGrodnWJccfht9`.
 - [1:56] Agradecimiento genuino:
   > *"Gracias por 8 horas de atención, de preguntas, de paciencia con lo que no supimos explicar bien. Este grupo particular nos enseñó cosas que se van a colar en las próximas cohortes. Gracias de verdad."*
 - [1:58] Cerrar exactamente en 2:00.

@@ -203,7 +203,8 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 - [1:48] **Puente a Sesión 4:**
   > *"Hoy vimos dónde poner la plata. La próxima, dónde conseguirla. Cerramos el curso con financiamiento: cómo distinguir una buena deuda de una mala — y por qué la tasa no manda sola."*
 - [1:52] **[POLL #5]:** *"En una palabra, ¿qué te llevas hoy?"*
-- [1:55] Palabra clave de cierre:
+- [1:54] **Evaluación de la sesión.** Slide con QR. *"Mismo flujo: 4 minutos de evaluación, anónimo opcional. Lo pego en el chat."* Pega en chat: `https://forms.gle/wiz2Vs4uCHa5T8ZW8`.
+- [1:56] Palabra clave de cierre:
   > *"Si esta sesión te ayuda a pedir mejor asesoría a alguien —aunque no sea a nosotros— hicimos nuestro trabajo. Mercantil SI está al final del curso si quieres conversar."*
 - [1:58] Cerrar en 2:00.
 
