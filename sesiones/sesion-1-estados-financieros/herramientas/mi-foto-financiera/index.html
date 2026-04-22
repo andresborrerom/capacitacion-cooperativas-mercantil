@@ -350,7 +350,8 @@
     </div>
 
     <div class="acciones">
-      <button class="ghost" onclick="cargarCasoEjemplo()">Cargar caso de ejemplo</button>
+      <button class="ghost" onclick="cargarCasoEjemplo('paraiso')">El Paraíso · B/. 20M</button>
+      <button class="ghost" onclick="cargarCasoEjemplo('mediano')">Caso mediano · B/. 45M</button>
       <button class="ghost" onclick="limpiarCooperativa()">Limpiar</button>
       <button class="primary" onclick="guardarCooperativa()">Guardar en mi celular</button>
     </div>
@@ -504,19 +505,34 @@
     kpiAp.querySelector(".interpretacion").textContent = iap;
   }
 
-  function cargarCasoEjemplo() {
-    const casos = {
-      "c-caja": 180000,
-      "c-inversiones": 320000,
-      "c-cartera": 17400000,
-      "c-fijos": 1600000,
-      "c-otros-activos": 500000,
-      "c-dep-vista": 3200000,
-      "c-dep-corto": 4800000,
-      "c-dep-largo": 8200000,
-      "c-prestamos": 600000,
-      "c-otros-pasivos": 200000
+  function cargarCasoEjemplo(cual = "paraiso") {
+    const presets = {
+      paraiso: {
+        "c-caja": 180000,
+        "c-inversiones": 320000,
+        "c-cartera": 17400000,
+        "c-fijos": 1600000,
+        "c-otros-activos": 500000,
+        "c-dep-vista": 3200000,
+        "c-dep-corto": 4800000,
+        "c-dep-largo": 8200000,
+        "c-prestamos": 600000,
+        "c-otros-pasivos": 200000
+      },
+      mediano: {
+        "c-caja": 900000,
+        "c-inversiones": 1200000,
+        "c-cartera": 35100000,
+        "c-fijos": 5600000,
+        "c-otros-activos": 2200000,
+        "c-dep-vista": 1800000,
+        "c-dep-corto": 3000000,
+        "c-dep-largo": 33500000,
+        "c-prestamos": 300000,
+        "c-otros-pasivos": 200000
+      }
     };
+    const casos = presets[cual] || presets.paraiso;
     for (const [k, v] of Object.entries(casos)) {
       document.getElementById(k).value = v;
     }

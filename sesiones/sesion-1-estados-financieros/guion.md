@@ -135,7 +135,10 @@ Repetirla 2 veces. Sonreír. Transición.
   - Contexto: cooperativa de 35 años, 4,500 asociados, activos B/. 45M.
   - Datos clave: patrimonio B/. 6.2M, pasivos B/. 38.8M. Cartera 78% del activo. Mora >30 días: 9%. Liquidez inmediata: B/. 2.1M vs. depósitos exigibles 30 días: B/. 4.8M.
 - [1:10] Pregunta al chat: *"Llena los tres cuadros en tu mente. Luego calcula el nivel de endeudamiento. ¿Qué te dice la foto?"*
-- [1:13] Abrir segunda herramienta o re-usar la primera: los participantes ingresan los números del caso en **"Mi foto financiera"** (modo cooperativa). La herramienta calcula y muestra semáforo.
+- [1:13] Los participantes re-abren **"Mi foto financiera"** en modo cooperativa. Dos caminos:
+  - (a) **Click al botón "Caso mediano · B/. 45M"** → se llenan los 10 campos automáticamente. Rápido.
+  - (b) Ingresan los números manualmente siguiendo el desglose que aparece en el slide. Más lento pero más formativo.
+  - Sea cual sea el camino, **la herramienta calcula y muestra los 4 semáforos** (adecuación, concentración, cobertura de liquidez, apalancamiento).
 - [1:17] Discusión guiada (chat + 2-3 intervenciones de voz, co-facilitador elige):
   - ¿Qué te preocupa más?
   - ¿Qué le preguntarías al gerente financiero?
