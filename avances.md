@@ -358,3 +358,47 @@ Creado servidor HTTP en PowerShell nativo — no requiere instalar nada en Windo
 3. Se abre consola negra mostrando "Servidor corriendo en localhost:8000".
 4. Automáticamente abre navegador en `http://localhost:8000/indice.html`.
 5. Usa el índice normalmente. Cuando termina, cierra la consola con Ctrl+C o la X.
+
+---
+
+## 2026-04-22 — Día 2, checkpoint 10 (despliegue preparado)
+
+### Decisiones del usuario
+- Usuario GitHub: `andresborrerom`
+- Repo: `capacitacion-cooperativas-mercantil`
+- URL base futura: `https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/`
+
+### Ejecutado autónomamente
+
+**QR codes generados** (via QR Server API, 480x480, ECC alta, margin 10):
+- [x] `sesiones/sesion-1-estados-financieros/slides/qr/mi-foto-financiera.png`
+- [x] `sesiones/sesion-2-flujo-caja/slides/qr/mi-pelicula-del-mes.png`
+- [x] `sesiones/sesion-3-productos-financieros/slides/qr/mi-caja-herramientas.png`
+- [x] `sesiones/sesion-4-financiamiento/slides/qr/costo-real-credito.png`
+
+**Slides actualizados** (4 archivos):
+- Placeholder `<div class="qr-placeholder">[ QR ]...</div>` reemplazado por `<img src="qr/...">`.
+- URL textual corregida al repo real (antes era `mercantilsi.github.io/...` placeholder).
+
+**Repo git inicializado:**
+- `.gitignore` creado.
+- `git init -b main` ejecutado.
+- `git config --local user.name "Andres Borrero"` y `user.email "andres.borrerom@gmail.com"` (solo scope del repo).
+- 69 archivos en commit inicial (5de928c).
+- Remote `origin` configurado a `https://github.com/andresborrerom/capacitacion-cooperativas-mercantil.git`.
+
+### Bloqueado por input del usuario (lo que yo no puedo hacer)
+1. **Crear el repo en github.com** (1 min): github.com → "+" → New repository → nombre `capacitacion-cooperativas-mercantil` → Public → NO marcar "Add README" / "Add .gitignore" / "Add LICENSE" → Create.
+2. **Autenticar git push con GitHub**: primera vez abrirá un navegador (Git Credential Manager ya viene con Git for Windows).
+3. **Push del commit**: `git push -u origin main` desde la carpeta del proyecto.
+4. **Activar GitHub Pages**: Settings → Pages → Source: "Deploy from a branch" → Branch: `main`, folder: `/ (root)` → Save.
+
+### Tiempo estimado para completar
+~5 minutos.
+
+### Verificación post-deploy
+Tras el push y activación de Pages, en 1-2 minutos las URLs deberían responder:
+- Índice raíz: `https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/`
+- Slides Sesión 1: `.../sesiones/sesion-1-estados-financieros/slides/`
+- Herramienta Sesión 1: `.../sesiones/sesion-1-estados-financieros/herramientas/mi-foto-financiera/`
+- Los QR en las slides escaneados deberían llevar a las herramientas.
