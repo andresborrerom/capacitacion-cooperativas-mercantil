@@ -351,6 +351,64 @@ Después del push: esperar 1-2 min, recargar las páginas en GitHub Pages, verif
 
 ---
 
+## 2026-04-23 — Checkpoint 12 · Cierre de sesión · Estado final v1.0
+
+### Confirmado
+- [x] Push completado. `origin/main` está en `369af09` (checkpoint 11). No hay commits locales pendientes.
+- [x] Sitio LIVE en `https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/`.
+- [x] Los 6 Google Forms creados en el Drive del usuario, URLs cortos integrados en slides + guiones + instructivo.
+- [x] `.nojekyll` activo — los `.md` se sirven como texto plano (el navegador `indice.html` los renderiza con marked.js).
+
+### Entregable v1.0 — composición
+
+| Componente | Archivo / ubicación | Estado |
+|---|---|---|
+| Diseño transversal | `diseno/` (5 archivos) | ✓ |
+| Investigación | `referencias/` (2 archivos) | ✓ |
+| Sesión 1 | `sesiones/sesion-1-estados-financieros/` | ✓ |
+| Sesión 2 | `sesiones/sesion-2-flujo-caja/` | ✓ |
+| Sesión 3 | `sesiones/sesion-3-productos-financieros/` | ✓ |
+| Sesión 4 | `sesiones/sesion-4-financiamiento/` | ✓ |
+| Evaluaciones transversales | `evaluacion/` | ✓ |
+| Google Forms (6) | Drive del usuario + `evaluacion/URLS.md` | ✓ |
+| Instructivo del facilitador | `instructivo-facilitador/` (HTML + MD + PDF) | ✓ |
+| Navegador del proyecto | `indice.html` + `servir.bat` + `servir.ps1` | ✓ |
+| Generador de QR | `scripts/generar-qr.html` | ✓ |
+| Guía de despliegue | `DESPLIEGUE.md` | ✓ |
+
+### Decisiones del usuario que siguen abiertas (no-bloqueantes)
+- **Metáfora madre:** default tablero + GPS. No confirmada formalmente pero activa en materiales.
+- **Arquetipos:** default Dra. Vega / Lic. Mendoza / Ing. Álvarez. Puede aterrizar con nombres más representativos.
+- **Co-facilitador:** guiones asumen 2 voces. Si va solo, reescribir alternancia.
+- **Casos reales vs ficticios:** actualmente ficticios (El Paraíso, Esfuerzo Unido). Si el usuario tiene casos reales anonimizados, reemplazar.
+- **Plataforma de video / polls:** usuario iba a confirmar si Teams tiene polls integrados o se usa Mentimeter/Slido. Pendiente decisión.
+
+### Pendientes operativos (si se abre nueva sesión)
+- Generar PDFs de los `previo.md` de cada sesión (para enviar por correo a participantes 1 semana antes). Actualmente son markdown fuente.
+- Ensayo técnico del facilitador antes de Sesión 1 (guía en capítulo 9 del instructivo).
+- Verificar en un celular real que los QR de las slides llevan a las URLs correctas y que las páginas destino cargan.
+
+### Memoria actualizada para continuidad
+Archivos en `C:\Users\pocho\.claude\projects\...\memory\`:
+- `MEMORY.md` (índice)
+- `project_capacitacion_cooperativas.md` (estado actual completo)
+- `reference_curso_urls.md` (todas las URLs)
+- `feedback_entorno_windows.md` (herramientas disponibles/no disponibles en la máquina del usuario)
+- `feedback_modo_trabajo.md` (autonomía con checkpoints)
+- `user_role.md` (perfil Mercantil SI / wealth management)
+
+### Comandos útiles para la próxima sesión
+```bash
+cd "C:/users/pocho/onedrive/mercantil_cooperativas"
+git status                    # ver si hay cambios sin commitear
+git log --oneline -5          # últimos commits
+git push                      # subir cambios
+```
+
+Servir localmente: doble-click a `servir.bat` (no requiere nada instalado).
+
+---
+
 ## 2026-04-22 — Día 2, checkpoint 8 (navegador del proyecto)
 
 ### Entregado
