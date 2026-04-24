@@ -10,6 +10,14 @@ Caso ficcional, **números plausibles** para una cooperativa de ahorro y crédit
 - Giro: cooperativa de ahorro y crédito. Afiliados mayoritariamente empleados de una cadena de supermercados regional (dato clave para el indicador de concentración).
 - Cierre fiscal: 31 de diciembre del año anterior.
 
+## Personajes (arquetipos del curso)
+
+- **Dra. Ana Vega** — pediatra, presidenta de la junta. Firma los estados con la confianza del voto de su equipo; es el arquetipo del directivo con rol fiduciario pero sin formación financiera profunda.
+- **Lic. Raúl Mendoza** — gerente general. Es quien operativamente tuvo que ir a pedir prestado para el aguinaldo. Es la voz del caso cuando el co-facilitador narra en primera persona.
+- **Ing. Marcos Álvarez** — miembro del comité de inversiones. El que al final del episodio preguntó *"¿por qué nadie nos enseñó a leer esto antes?"*. Es el gatillo narrativo que justifica la existencia del curso.
+
+Los tres se pueden reusar en materiales de sesiones 2, 3 y 4 para dar continuidad narrativa sin introducir personajes nuevos.
+
 ## Balance al cierre (B/.)
 
 | Rubro | Monto | Notas |

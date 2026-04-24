@@ -38,7 +38,7 @@ Regla aritmética que siempre se cumple: **Activo = Pasivo + Patrimonio.** Si no
 
 ---
 
-## Los tres indicadores que deberían dormirte en paz
+## Los tres indicadores que deberían permitirte dormir en paz
 
 | Indicador | Cómo se calcula | Qué te dice |
 |---|---|---|

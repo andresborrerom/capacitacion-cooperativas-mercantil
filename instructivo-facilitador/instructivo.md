@@ -80,28 +80,65 @@ fecha: "2026-04-21"
 
 ---
 
-## 3 · Ritual pre-sesión (15 min antes)
+## 3 · Ritual pre-sesión
 
-**T-15 · Tecnología:**
+El ensayo técnico (capítulo 9) se hace una semana antes. Este capítulo cubre las últimas 90 minutos antes del arranque — cuando ya no hay tiempo de improvisar.
+
+### T-90 — preparación final (no improvisable)
+
+**Tecnología y conectividad:**
+- Test de velocidad (`fast.com` o `speedtest.net`) en el equipo que vas a usar. Meta: ≥ 25 Mbps subida y ≥ 50 Mbps bajada estables. Si no, cambiar de ubicación o de red.
+- Abrir Teams con la cuenta de host. Confirmar que "compartir pantalla" no está bloqueado y que el audio entra/sale.
+- Dejar un segundo equipo o teléfono encendido como respaldo para probar el QR desde la perspectiva del participante.
+
+**Pestañas listas en el equipo que vas a compartir:**
+1. `slides/index.html` de la sesión, ya en modo presentación (Reveal abajo a la derecha muestra `c/t`).
+2. `herramientas/*/index.html` de la sesión (para proyectar si algún celular falla).
+3. `guion.md` abierto y scrolleable (segunda pantalla si es posible).
+4. `indice.html` del curso como fallback si hay que buscar cualquier archivo.
+
+**Polls precargados en Teams:**
+- Cargar los 5 polls de la sesión con los textos exactos del guion.
+- Probar al menos uno con el co-facilitador antes del arranque.
+
+**Textos en portapapeles (o documento en segunda pantalla):**
+- URL corta de la herramienta interactiva de la sesión.
+- URL del Google Form de evaluación (ver `evaluacion/URLS.md`).
+- Preguntas literales que se pegan en chat (ver guion de cada sesión).
+- Micro-tarea inter-sesión para la siguiente sesión.
+
+**Co-facilitador:**
+- Chat privado abierto con él/ella durante toda la sesión.
+- Confirmar que vio el brief de la sesión.
+- Caso del día (El Paraíso, Esfuerzo Unido, etc.) impreso o en tablet separada.
+- Acuerdo de señales mudas (emojis en chat) para "acelerar / bajar ritmo / tomar chat".
+
+**Tu preparación física:**
+- Agua a mano. Micrófono y cámara probados.
+- Notificaciones del sistema en "no molestar" / modo enfoque.
+- Celular en silencio pero a la vista (por si el organizador te necesita).
+- Frase del día leída en voz alta dos veces.
+
+### T-15 · Tecnología final
 - Zoom/Teams como host, compartir pantalla OK.
 - Chat habilitado para todos.
-- 5 polls configurados (ver sección de cada sesión).
+- 5 polls ya cargados y verificados.
 
-**T-12 · Archivos abiertos:**
+### T-12 · Archivos abiertos
 - Pestaña 1: `slides/index.html` de la sesión.
 - Pestaña 2: `herramientas/*/index.html` de la sesión.
 - Pestaña 3: `guion.md` como referencia.
 - Segunda pantalla: este instructivo + chat privado con co-facilitador.
 
-**T-8 · Mental check:**
-- Leer la frase del día en voz alta.
-- Repasar nombres de arquetipos (Vega/Mendoza/Álvarez).
+### T-8 · Mental check
+- Releer la frase del día en voz alta.
+- Repasar nombres de arquetipos (Vega / Mendoza / Álvarez).
 - Volumen, cámara, agua.
 
-**T-5 · Admisión:**
+### T-5 · Admisión
 - Abrir sala, saludar por chat.
 
-**T-0 · Arranque:**
+### T-0 · Arranque
 - Saludo breve (≤30 s).
 - Compartir primer slide.
 

@@ -48,15 +48,16 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 **Voz:** co-facilitador abre · facilitador principal cierra.
 
 - [0:05] Co-facilitador cuenta el caso, anonimizado:
-  > *"Hace tres años asesoré a una cooperativa que había colocado B/. 1M de 'excedente' en un depósito a plazo a 5 años al 5.2%. Todos contentos. Al año siguiente se les presentó una oportunidad — adquirir un edificio para abrir sucursal nueva, tenía que ser en 60 días. La única plata disponible era ese DPF. Rompieron el plazo. Cobraron 2% de penalización y perdieron los 10 meses de interés acumulado. Neto: 11% menos que el principal. Y todavía tuvieron que completar con crédito para la sucursal."*
+  > *"Hace tres años asesoré a una cooperativa que había colocado B/. 1M de 'excedente' en un depósito a plazo a 5 años al 5.2%. Todos contentos. Diez meses después se les presentó una oportunidad — adquirir un edificio para abrir sucursal nueva, plazo de decisión: 60 días. La única plata líquida disponible era ese DPF. Rompieron el plazo. Pagaron la penalización, perdieron los 10 meses de interés acumulado y aún así tuvieron que tomar un crédito puente para completar la compra."*
 - [0:09] Facilitador extrae la lección:
   > *"No fue un mal producto. Fue el producto correcto para la gaveta equivocada."*
-- [0:12] Slide con el desglose:
-  - Lo que colocaron: B/. 1,000,000.
-  - Penalización (2%): −B/. 20,000.
-  - Intereses dejados de cobrar: −B/. 90,000 (aprox).
-  - Recibido neto: B/. 890,000.
-  - *"El DPF es un buen producto. En la gaveta correcta hubiera sido excelente. En la equivocada costó B/. 110k."*
+- [0:12] Slide con el desglose en **tres componentes** — muy importante para cerrar la lógica:
+  - **Penalización** por romper DPF (2% sobre B/. 1M) = **−B/. 20k**.
+  - **Intereses devengados perdidos** (10 meses × 5.2% ÷ 12 × B/. 1M) ≈ **−B/. 43k**.
+  - **Sobrecosto del crédito puente** necesario para completar la compra (≈ B/. 500k al 9% × 24 meses, frente al 5.2% que dejó de ganar el capital retirado) ≈ **−B/. 47k**.
+  - **Pérdida económica total ≈ B/. 110k · 11% del principal.**
+  - Frase literal: *"El DPF es un buen producto. En la gaveta correcta hubiera sido excelente. En la equivocada costó 11%."*
+  - Notas operativas para el facilitador: los B/. 500k y 24 meses son supuestos razonables para cerrar la aritmética; si un participante pregunta por los detalles, decir *"cifras construidas con rangos SBP para préstamos comerciales"*. Evitar debate técnico que distraiga del punto pedagógico (un mismo producto, mal encasillado, genera tres costos).
 
 ---
 

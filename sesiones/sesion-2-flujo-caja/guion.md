@@ -144,7 +144,7 @@ En diciembre la caja todavía muestra B/. 389,000 — pero los depósitos exigib
 - Referencia: en la Sesión 1, el indicador que miramos fue *"cobertura de liquidez inmediata"*. Es el amortiguador de este momento.
 
 - [0:57] **Acento técnico opcional:**
-  > *Un "stress test" simple: ¿qué pasa con tu caja si la mora sube 3 pp este trimestre? Los bancos regulados lo hacen formalmente (Basilea). Las cooperativas pueden hacerlo en hoja de cálculo. Mercantil SI construye estos modelos para cooperativas que asesora.*
+  > *Un "stress test" simple: ¿qué pasa con tu caja si la mora sube 2-3 pp este trimestre? Los bancos regulados lo hacen formalmente bajo marcos tipo Basilea. Para cooperativas es **buena práctica sectorial** — no una cuantificación obligatoria uniforme por IPACOOP, pero sí esperada en cooperativas profesionalizadas. Con una hoja de cálculo sencilla se puede hacer. Mercantil SI construye estos modelos para cooperativas que asesora.*
 
 ---
 

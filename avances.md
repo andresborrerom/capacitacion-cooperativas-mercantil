@@ -506,3 +506,50 @@ Tras el push y activación de Pages, en 1-2 minutos las URLs deberían responder
 - Slides Sesión 1: `.../sesiones/sesion-1-estados-financieros/slides/`
 - Herramienta Sesión 1: `.../sesiones/sesion-1-estados-financieros/herramientas/mi-foto-financiera/`
 - Los QR en las slides escaneados deberían llevar a las herramientas.
+
+---
+
+## 2026-04-23 — Checkpoint 13 · Iteración S1 (fuentes, sensibilidades, UX)
+
+### Decisiones del usuario
+- **Metáfora madre: tablero + GPS** confirmado.
+- **Arquetipos Vega / Mendoza / Álvarez:** correctos, activarlos en el contenido.
+- **Co-facilitación:** dos perfiles — uno con conocimiento cooperativo, otro con conocimiento CFA.
+- **Casos El Paraíso / Esfuerzo Unido:** mantenerlos como ficticios, mejorar marcado ilustrativo.
+- **Plataforma:** Teams nativo por ahora; revisar polls cuando se pruebe.
+- **Nombre Mercantil SI:** mantener por ahora (no renombrar a Mercantil Asset & Wealth Management aún).
+
+### Operativos cerrados
+- **Ensayo técnico hecho** — salió bien.
+- **QR S1** verificados en celular y funcionaron.
+
+### S1 · cambios aplicados
+- Typo `dormirte` → `permitirte dormir` en slide 19, guion y material-participante.
+- Herramienta `mi-foto-financiera`: separador de miles en inputs (on focus/blur) + KPI con fondo coloreado según semáforo (hoy verde/amarillo/rojo pastel completo, no solo barra lateral).
+- Slide 7 (KPIs "Lo que no se vio"): pie con cálculo explícito del 7%.
+- **Slide 9 nuevo:** casos reales SVB 2023 + Metro Bank UK 2019 (WhatsApp rumor) sustituyen el inventado "15% rumor en redes".
+- Slide 14 (acento técnico): reformulado — el ≥8% ya no se presenta como umbral legal único sino referencia sectorial. Añadida fuente Ley 17 de 1997 para la reserva 10%.
+- Slide 22 (Indicador 3): marcado "caso ilustrativo" el 72% de concentración.
+- **Slide 7 nuevo:** cálculos intermedios ("Los mismos números, vistos de otra forma") — 3 cálculos derivados del balance/P&L visibles antes de las conclusiones.
+- Slide 25 (caso mediano): nota técnica compacta de dónde vive la mora en los estados financieros + marca de caso ilustrativo.
+- **Slides 26 y 27 nuevos:** casos alternos de sensibilidad (plazos de depósito / composición de activos) con A/P/Patrimonio estables y semáforos que cambian entre rojo/amarillo/verde.
+- `guion.md` S1 con anotaciones `[SLIDE N]` (37 slides totales después de los inserts).
+- `guion.md` S1: orden `frase del día → acento técnico` al cierre del Bloque 2 (alineado con los slides).
+
+### Audit S2/S3/S4 (pendiente de decisión del usuario)
+- S2: todos los números del caso El Paraíso son ilustrativos; el "stress test mora +2-3 pp" no tiene fuente regulatoria específica (se recomienda reformular como "buena práctica").
+- S3: **punto crítico** — el cálculo de "intereses dejados de cobrar B/. 90k" en el caso del DPF roto no cuadra con la narrativa ("10 meses al 5.2% anual ≈ B/. 43k, no B/. 90k"). La pérdida neta 11% que sostiene la historia depende del 90k. Opciones: (a) corregir narrativa a 10 meses = pérdida ~6.3%; (b) ajustar el caso a 20-24 meses para que 11% cuadre.
+- S4: tarjeta 22% es dato real SBP oct-2025 pero no está citado en slide; ofertas A/B de préstamos son ilustrativas; cálculos cuadran.
+
+### Memoria actualizada
+- `project_capacitacion_cooperativas.md` — decisiones activas (tablero+GPS confirmado, co-facilitación cooperativas+CFA, casos ficticios mantenidos).
+
+### Siguiente bloque ejecutado tras confirmación del usuario
+1. **DPF S3 opción C aplicada.** Slides y guion reescritos a 3 componentes: 20k penalización + 43k intereses devengados perdidos + 47k sobrecosto del crédito puente = 110k ≈ 11%. Marcado como caso ilustrativo.
+2. **Audit aplicado:** S2 stress-test reformulado como "buena práctica sectorial" sin citar norma IPACOOP no verificada. S4: fuente SBP oct-2025 añadida al dato tarjeta 22% en `previo.md` y `material-participante.md`; ofertas A/B marcadas como caso ilustrativo en slide y pie.
+3. **Tablero + GPS bajado a S1:** slide 19 (los 3 indicadores como "primeros relojes del tablero"), slide 32 (mapa de palancas con mención del GPS en S2), slide 35 (puente a Sesión 2 menciona "entra el GPS"). Guion complementado con frase metafórica.
+4. **Arquetipos activados en El Paraíso:** slide 4 (portada oscura) presenta a Vega/Mendoza/Álvarez; slide 10 (moraleja) atribuye la frase a Mendoza; guion Bloque 1 reescrito para que el co-facilitador narre desde la voz de Mendoza; `datos/el-paraiso.md` con sección de personajes.
+5. **Bloque T-90 min añadido al instructivo** (MD + HTML). Cubre: speedtest, pestañas listas, polls precargados, textos en portapapeles, co-facilitador, preparación física. `indice.html` ya linkea al instructivo.
+
+### Pendiente
+- Usuario revisa en local (`servir.bat`). Si OK → commit + push.

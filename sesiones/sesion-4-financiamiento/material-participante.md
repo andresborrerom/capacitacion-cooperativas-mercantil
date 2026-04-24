@@ -27,7 +27,7 @@ sesion: 4
 | Mecanismo | Ventaja | Desventaja | Cuándo usar |
 |---|---|---|---|
 | **Crédito bancario** | Transparencia, plazos largos. | Requisitos, lento. | Inversiones grandes con horizonte claro. |
-| **Tarjeta de crédito** | Flexibilidad corto plazo. | Tasa criminal (22% típico PA). | Emergencias del mes, nunca como financiamiento extendido. |
+| **Tarjeta de crédito** | Flexibilidad corto plazo. | Tasa criminal (≈ 22% anual PA · fuente: SBP, oct-2025). | Emergencias del mes, nunca como financiamiento extendido. |
 | **Crédito entre cooperativas** | Ágil, tasa razonable. | Concentra riesgo en la acreedora. | Necesidades de mediano plazo entre entidades del sector. |
 | **Emisión de certificados / valores** | Plazos largos, tasa buena. | Costos fijos de emisión; requiere tamaño. | Cooperativas con capacidad de estructura. |
 | **Capital propio / aportes** | No cobra interés. | Diluye, lento, tiene límites. | Fondeo estructural. |

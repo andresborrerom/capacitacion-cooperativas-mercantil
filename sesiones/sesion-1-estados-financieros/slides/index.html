@@ -254,10 +254,11 @@
 <!-- ============================================ -->
 <section data-background-color="#002868">
   <div style="color: #fff; padding: 2em;">
-    <div class="kicker" style="color: var(--m-acento-claro);">0:05 · Caso real (anonimizado)</div>
-    <h1 style="color: #fff; font-size: 2.5em;">Cooperativa El Paraíso</h1>
-    <p style="opacity: 0.9; font-size: 1.1em;">28 años en el sector · 3,200 asociados · B/. 20M en activos</p>
-    <p style="margin-top: 1.5em; opacity: 0.8;">Una cooperativa mediana, como tantas. Cerró el mejor año de su historia. Tres meses después pidió prestado para pagar el aguinaldo.</p>
+    <div class="kicker" style="color: var(--m-acento-claro);">0:05 · Caso ilustrativo</div>
+    <h1 style="color: #fff; font-size: 2.3em;">Cooperativa El Paraíso</h1>
+    <p style="opacity: 0.9; font-size: 1.05em;">28 años · 3,200 asociados · B/. 20M en activos</p>
+    <p style="opacity: 0.9; font-size: 0.88em; margin-top: 1em; line-height: 1.5;">La junta: <strong>Dra. Ana Vega</strong> (pediatra, presidenta) · <strong>Lic. Raúl Mendoza</strong> (gerente general) · <strong>Ing. Marcos Álvarez</strong> (comité de inversiones).</p>
+    <p style="margin-top: 1em; opacity: 0.82; font-size: 0.95em;">Una cooperativa mediana, como tantas. Cerró el mejor año de su historia. Tres meses después, Mendoza tuvo que pedir prestado para pagar el aguinaldo.</p>
   </div>
 </section>
 
@@ -304,6 +305,37 @@
 </section>
 
 <section>
+  <div class="kicker">De las tablas salen estas cuentas</div>
+  <h3>Los mismos números, vistos de otra forma</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7em; margin-top: 0.8em;">
+    <div class="tarjeta primario">
+      <div class="kicker" style="color: var(--m-primario);">Adecuación</div>
+      <div style="font-family: monospace; font-size: 0.72em; margin-top: 0.4em; color: var(--m-texto-sutil);">Patrimonio ÷ Activo</div>
+      <div style="font-family: monospace; font-size: 0.78em; color: var(--m-texto-sutil);">3,000k ÷ 20,000k</div>
+      <div style="font-size: 1.8em; font-weight: 700; color: var(--m-positivo); margin-top: 0.2em;">= 15%</div>
+      <div style="font-size: 0.62em; color: var(--m-texto-sutil); margin-top: 0.3em;">Colchón patrimonial.</div>
+    </div>
+    <div class="tarjeta" style="border-left: 6px solid var(--m-aviso); background: #FAF3D7;">
+      <div class="kicker" style="color: var(--m-aviso);">Concentración cartera</div>
+      <div style="font-family: monospace; font-size: 0.72em; margin-top: 0.4em; color: var(--m-texto-sutil);">Cartera neta ÷ Activo</div>
+      <div style="font-family: monospace; font-size: 0.78em; color: var(--m-texto-sutil);">17,400k ÷ 20,000k</div>
+      <div style="font-size: 1.8em; font-weight: 700; color: #7A5C00; margin-top: 0.2em;">= 87%</div>
+      <div style="font-size: 0.62em; color: var(--m-texto-sutil); margin-top: 0.3em;">Casi todo el activo es cartera.</div>
+    </div>
+    <div class="tarjeta alerta">
+      <div class="kicker" style="color: var(--m-alerta);">Cobertura liquidez</div>
+      <div style="font-family: monospace; font-size: 0.72em; margin-top: 0.4em; color: var(--m-texto-sutil);">(Caja + Liq.) ÷ Dep. ≤ 90d</div>
+      <div style="font-family: monospace; font-size: 0.78em; color: var(--m-texto-sutil);">500k ÷ 8,000k</div>
+      <div style="font-size: 1.8em; font-weight: 700; color: var(--m-alerta); margin-top: 0.2em;">= 6.3%</div>
+      <div style="font-size: 0.62em; color: var(--m-texto-sutil); margin-top: 0.3em;">Poco colchón vs. exigible.</div>
+    </div>
+  </div>
+  <div class="callout-grande acento" style="margin-top: 0.9em; font-size: 0.92em;">
+    Los tres cálculos ya estaban en el balance. Solo había que <em>cruzarlos</em>. Del slide siguiente salen <strong>las mismas tres cifras</strong>, ya convertidas en semáforos.
+  </div>
+</section>
+
+<section>
   <div class="kicker">Lo que no se vio</div>
   <h3>Los mismos estados, leídos de otra forma</h3>
   <div class="kpi-destacado">
@@ -312,8 +344,25 @@
     <div class="kpi-bloque rojo"><div class="etiqueta">Cobertura de liquidez</div><div class="valor">6.3%</div><div class="pista">Caja + liquidez vs. depósitos &lt;90d.</div></div>
   </div>
   <div class="tarjeta alerta" style="margin-top: 1em;">
-    Si el 7% de los depositantes de corto plazo retira sus fondos, <strong>la caja se agota</strong>. Un rumor en redes puede mover al 15%.
+    <strong>Si el 7% de los depositantes de corto plazo retira sus fondos, la caja se agota.</strong>
+    <div style="font-size: 0.62em; color: var(--m-texto-sutil); margin-top: 0.5em; font-weight: 400; line-height: 1.4;">
+      <em>Cálculo nuestro sobre los números del caso:</em> (Caja 180k + Inv. líquidas 320k) ÷ (Dep. a la vista 3.2M + Dep. a plazo &lt;90d 4.8M) = 500k ÷ 8M ≈ 6.3%.
+    </div>
   </div>
+</section>
+
+<section>
+  <div class="kicker">¿7% es mucho? · Casos reales</div>
+  <h3>Cómo se ven las corridas por rumores hoy</h3>
+  <div class="tarjeta alerta" style="margin-top: 0.4em;">
+    <p style="margin: 0;"><strong>Silicon Valley Bank · EE. UU. · marzo 2023</strong></p>
+    <p style="font-size: 0.82em; margin: 0.3em 0 0 0;">~25% de los depósitos — <strong>USD 42,000 M</strong> — retirados en <em>un día</em>. Gatillo: alertas en redes sociales y chats privados entre clientes.</p>
+  </div>
+  <div class="tarjeta" style="border-left: 6px solid var(--m-aviso); background: #FAF3D7; margin-top: 0.6em;">
+    <p style="margin: 0;"><strong>Metro Bank · Reino Unido · enero 2019</strong></p>
+    <p style="font-size: 0.82em; margin: 0.3em 0 0 0;">Un mensaje falso viralizado en grupos de <em>WhatsApp</em> generó filas físicas en sucursales en horas. Retiros masivos en un fin de semana.</p>
+  </div>
+  <p style="font-size: 0.58em; color: var(--m-texto-sutil); margin-top: 0.8em;">Fuentes: Reuters y FDIC (SVB); BBC News y Financial Times (Metro Bank). En Panamá, WhatsApp es el canal dominante para rumores financieros.</p>
 </section>
 
 <section>
@@ -321,7 +370,7 @@
   <div class="callout-grande acento" style="font-size: 1.3em; margin-top: 1em;">
     <em>"La foto estaba firmada por todos los que firmamos balances en esta junta. La información estaba ahí. Lo que no estaba, era el hábito de mirarla completa."</em>
   </div>
-  <p style="text-align: right; opacity: 0.7;">— dirigente anónimo, El Paraíso.</p>
+  <p style="text-align: right; opacity: 0.7;">— Lic. Raúl Mendoza, gerente general de El Paraíso.</p>
   <div class="nota-facilitador">Facilitador: pausa de 3 segundos. Transición a los tres cuadros.</div>
 </section>
 
@@ -392,10 +441,13 @@
   <div class="tarjeta" style="background: var(--m-fondo-sutil); padding: 1.5em; border: 1px dashed var(--m-texto-sutil);">
     <div class="kicker" style="color: var(--m-primario);">Acento técnico · opcional</div>
     <p style="font-size: 0.9em; color: var(--m-texto-sutil);">
-      El <strong>patrimonio</strong> también se llama capital contable o <em>equity</em>. Su adecuación —patrimonio/activo— es una métrica de solvencia. <strong>IPACOOP</strong> vigila umbrales mínimos. Referencia operativa del sector: <strong>≥ 8%</strong>.
+      El <strong>patrimonio</strong> también se llama capital contable o <em>equity</em>. Su adecuación —patrimonio/activo— es una métrica de solvencia. <strong>IPACOOP</strong> vigila la solidez patrimonial; la <strong>referencia sectorial comúnmente citada</strong> es ≥ 8%, aunque no es un umbral único publicado como norma cuantitativa uniforme.
     </p>
     <p style="font-size: 0.9em; color: var(--m-texto-sutil); margin-top: 0.5em;">
-      La <strong>Ley 17 de 1997</strong> exige a las cooperativas constituir reserva patrimonial con al menos el <strong>10% del excedente</strong> cada año, hasta llegar al 20% del patrimonio.
+      La <strong>Ley 17 de 1997</strong> sí exige constituir reserva patrimonial con al menos el <strong>10% del excedente</strong> anual, con un tope del 20% del patrimonio.
+    </p>
+    <p style="font-size: 0.62em; color: var(--m-texto-sutil); margin-top: 0.8em; border-top: 1px solid var(--m-borde); padding-top: 0.5em;">
+      Fuentes: Ley 17 del 1 de mayo de 1997 (régimen de cooperativas, Panamá) — distribución mínima de excedentes. El 8% circula como práctica sectorial (COLAC, IPACOOP); recomendamos verificar el umbral específico aplicable a cada cooperativa con IPACOOP.
     </p>
   </div>
 </section>
@@ -433,7 +485,8 @@
 <!-- ============================================ -->
 <section data-background-color="#FFFFFF">
   <div class="kicker">0:45 · Después de los tres cuadros</div>
-  <h1 style="font-size: 2.2em;">De los mil indicadores que existen, <em>tres</em> deberían dormirte en paz.</h1>
+  <h1 style="font-size: 2.2em;">De los mil indicadores que existen, <em>tres</em> deberían permitirte dormir en paz.</h1>
+  <p style="font-size: 0.9em; color: var(--m-texto-sutil); margin-top: 1.2em;">Los 3 primeros <strong>relojes de tu tablero</strong>. El <em>GPS</em> lo montamos en la Sesión 2.</p>
 </section>
 
 <section>
@@ -465,6 +518,9 @@
   </div>
   <div class="tarjeta alerta" style="margin-top: 0.8em;">
     El Paraíso tenía el <strong>72% de cartera</strong> con empleados de una sola cadena. Un anuncio de recorte = un problema.
+    <div style="font-size: 0.6em; color: var(--m-texto-sutil); margin-top: 0.5em; font-weight: 400;">
+      <em>Caso ilustrativo</em> — cifra construida sobre la estructura de El Paraíso, no dato de una cooperativa real.
+    </div>
   </div>
 </section>
 
@@ -524,6 +580,96 @@
     </table>
   </div>
   <p style="font-size: 0.8em; color: var(--m-texto-sutil); margin-top: 0.6em;">Dato extra (solo para tu análisis, no va en la herramienta): <strong>mora &gt; 30 días = 9%</strong>.</p>
+  <div class="tarjeta" style="background: var(--m-fondo-sutil); border: 1px dashed var(--m-texto-sutil); padding: 0.7em 1em; margin-top: 0.6em;">
+    <div class="kicker" style="color: var(--m-primario); font-size: 0.65em;">Nota técnica · dónde vive la mora en los estados financieros</div>
+    <table style="font-size: 0.62em; margin: 0.4em 0 0 0; width: 100%;">
+      <thead>
+        <tr><th>Reporte</th><th>Línea</th><th>Qué revela</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Balance</strong></td><td>Cartera bruta − Provisiones = Cartera neta</td><td>Tamaño del colchón ya constituido.</td></tr>
+        <tr><td><strong>Estado de resultados</strong></td><td>Gasto por provisiones del año</td><td>Cuánto impactó la mora en la utilidad.</td></tr>
+        <tr><td><strong>Notas al balance</strong></td><td>Cartera por antigüedad (&gt;30 / &gt;60 / &gt;90 d)</td><td>De aquí sale el 9% · pedirlo siempre.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size: 0.58em; color: var(--m-texto-sutil); margin-top: 0.4em; text-align: right;"><em>Caso ilustrativo</em> — números construidos, no estados de una cooperativa real.</p>
+</section>
+
+<section>
+  <div class="kicker">Caso 1 · Sensibilidad</div>
+  <h3>¿Y si cambia la composición de los <em>depósitos</em>?</h3>
+  <p style="font-size: 0.72em; color: var(--m-texto-sutil); margin: 0.2em 0 0.6em;">Activo total, Pasivo total y Patrimonio <strong>no cambian</strong>. Solo se mueve plata entre plazos dentro del pasivo.</p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5em;">
+    <div class="tarjeta" style="background: #FAF3D7; border-left: 6px solid var(--m-aviso); padding: 0.7em;">
+      <div class="kicker" style="color: var(--m-aviso); font-size: 0.6em;">Base (caso mediano)</div>
+      <p style="font-size: 0.68em; margin: 0.3em 0 0.15em;">Dep. ≤ 90d: <strong>4.8 M</strong></p>
+      <p style="font-size: 0.68em; margin: 0;">Dep. &gt; 90d: <strong>33.5 M</strong></p>
+      <div style="background: #fff; border-radius: 6px; padding: 0.3em 0.5em; margin-top: 0.5em; text-align: center;">
+        <div style="font-size: 0.55em; color: var(--m-texto-sutil);">Cobertura liquidez</div>
+        <div style="font-size: 1.4em; font-weight: 700; color: #7A5C00; line-height: 1.1;">44%</div>
+      </div>
+    </div>
+    <div class="tarjeta" style="background: #FBE9E8; border-left: 6px solid var(--m-alerta); padding: 0.7em;">
+      <div class="kicker" style="color: var(--m-alerta); font-size: 0.6em;">+3 M migran a corto</div>
+      <p style="font-size: 0.68em; margin: 0.3em 0 0.15em;">Dep. ≤ 90d: <strong>7.8 M</strong></p>
+      <p style="font-size: 0.68em; margin: 0;">Dep. &gt; 90d: <strong>30.5 M</strong></p>
+      <div style="background: #fff; border-radius: 6px; padding: 0.3em 0.5em; margin-top: 0.5em; text-align: center;">
+        <div style="font-size: 0.55em; color: var(--m-texto-sutil);">Cobertura liquidez</div>
+        <div style="font-size: 1.4em; font-weight: 700; color: var(--m-alerta); line-height: 1.1;">27%</div>
+      </div>
+    </div>
+    <div class="tarjeta" style="background: #E8F5EF; border-left: 6px solid var(--m-positivo); padding: 0.7em;">
+      <div class="kicker" style="color: var(--m-positivo); font-size: 0.6em;">Campaña DPF largo plazo</div>
+      <p style="font-size: 0.68em; margin: 0.3em 0 0.15em;">Dep. ≤ 90d: <strong>2.3 M</strong></p>
+      <p style="font-size: 0.68em; margin: 0;">Dep. &gt; 90d: <strong>36.0 M</strong></p>
+      <div style="background: #fff; border-radius: 6px; padding: 0.3em 0.5em; margin-top: 0.5em; text-align: center;">
+        <div style="font-size: 0.55em; color: var(--m-texto-sutil);">Cobertura liquidez</div>
+        <div style="font-size: 1.4em; font-weight: 700; color: #1F5B3D; line-height: 1.1;">91%</div>
+      </div>
+    </div>
+  </div>
+  <div class="tarjeta primario" style="margin-top: 0.7em; font-size: 0.72em;">
+    <strong>Por qué pasa en la realidad:</strong> competencia sectorial empuja a ofrecer mejor tasa a corto plazo (migran los DPF largos); o, al revés, campaña de DPF premium a largo plazo alinea el calce activo-pasivo. Misma cooperativa, dos decisiones.
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Caso 2 · Sensibilidad</div>
+  <h3>¿Y si cambia la composición de los <em>activos</em>?</h3>
+  <p style="font-size: 0.72em; color: var(--m-texto-sutil); margin: 0.2em 0 0.6em;">Activo total, Pasivo total y Patrimonio <strong>no cambian</strong>. Solo se mueve plata entre tipos dentro del activo.</p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5em;">
+    <div class="tarjeta" style="background: #FAF3D7; border-left: 6px solid var(--m-aviso); padding: 0.7em;">
+      <div class="kicker" style="color: var(--m-aviso); font-size: 0.6em;">Base (caso mediano)</div>
+      <p style="font-size: 0.68em; margin: 0.3em 0 0.15em;">Caja + Liq.: <strong>2.1 M</strong></p>
+      <p style="font-size: 0.68em; margin: 0;">Fijos: <strong>5.6 M</strong></p>
+      <div style="background: #fff; border-radius: 6px; padding: 0.3em 0.5em; margin-top: 0.5em; text-align: center;">
+        <div style="font-size: 0.55em; color: var(--m-texto-sutil);">Cobertura liquidez</div>
+        <div style="font-size: 1.4em; font-weight: 700; color: #7A5C00; line-height: 1.1;">44%</div>
+      </div>
+    </div>
+    <div class="tarjeta" style="background: #FBE9E8; border-left: 6px solid var(--m-alerta); padding: 0.7em;">
+      <div class="kicker" style="color: var(--m-alerta); font-size: 0.6em;">Compra de sucursal (1.2 M)</div>
+      <p style="font-size: 0.68em; margin: 0.3em 0 0.15em;">Caja + Liq.: <strong>0.9 M</strong></p>
+      <p style="font-size: 0.68em; margin: 0;">Fijos: <strong>6.8 M</strong></p>
+      <div style="background: #fff; border-radius: 6px; padding: 0.3em 0.5em; margin-top: 0.5em; text-align: center;">
+        <div style="font-size: 0.55em; color: var(--m-texto-sutil);">Cobertura liquidez</div>
+        <div style="font-size: 1.4em; font-weight: 700; color: var(--m-alerta); line-height: 1.1;">19%</div>
+      </div>
+    </div>
+    <div class="tarjeta" style="background: #E8F5EF; border-left: 6px solid var(--m-positivo); padding: 0.7em;">
+      <div class="kicker" style="color: var(--m-positivo); font-size: 0.6em;">Reserva líquida reforzada</div>
+      <p style="font-size: 0.68em; margin: 0.3em 0 0.15em;">Caja + Liq.: <strong>3.6 M</strong></p>
+      <p style="font-size: 0.68em; margin: 0;">Otros: <strong>0.7 M</strong></p>
+      <div style="background: #fff; border-radius: 6px; padding: 0.3em 0.5em; margin-top: 0.5em; text-align: center;">
+        <div style="font-size: 0.55em; color: var(--m-texto-sutil);">Cobertura liquidez</div>
+        <div style="font-size: 1.4em; font-weight: 700; color: #1F5B3D; line-height: 1.1;">75%</div>
+      </div>
+    </div>
+  </div>
+  <div class="tarjeta primario" style="margin-top: 0.7em; font-size: 0.72em;">
+    <strong>Por qué pasa en la realidad:</strong> comprar una sucursal o un inmueble inmoviliza caja; al revés, política de mantener excedentes en letras del tesoro o DPF cortos refuerza colchón. Mismo activo total, muy distinto colchón.
+  </div>
 </section>
 
 <section>
@@ -584,6 +730,9 @@
     <div class="palanca"><span class="num">7</span>Concentración mata</div>
     <div class="palanca"><span class="num">8</span>Asesoría = preguntas correctas</div>
   </div>
+  <p style="font-size: 0.78em; color: var(--m-texto-sutil); margin-top: 1em; text-align: center;">
+    Hoy instalamos los <strong>primeros relojes del tablero</strong>. La Sesión 2 monta el <em>GPS</em> (flujo de caja). Las sesiones 3 y 4 enseñan qué hacer con las señales.
+  </p>
 </section>
 
 <section>
@@ -610,8 +759,8 @@
 <section data-background-color="#003DA5">
   <div style="color: #fff; padding: 2em;">
     <div class="kicker" style="color: var(--m-acento-claro);">Próxima sesión</div>
-    <h1 style="color: #fff;">La película</h1>
-    <p style="font-size: 1.2em; opacity: 0.92; margin-top: 1em;">Hoy leímos la foto. La próxima sesión <em>entendemos por qué El Paraíso no pudo pagar la nómina</em> — y cómo reconocerlo en tu cooperativa antes de que pase.</p>
+    <h1 style="color: #fff;">La película · el GPS entra en escena</h1>
+    <p style="font-size: 1.2em; opacity: 0.92; margin-top: 1em;">Hoy instalamos los primeros relojes del tablero. La próxima sesión monta el <em>GPS</em> y <em>entendemos por qué El Paraíso no pudo pagar la nómina</em> — y cómo reconocerlo en tu cooperativa antes de que pase.</p>
     <p style="margin-top: 2em; opacity: 0.7; font-size: 0.85em;">Poll #5 · En una palabra, ¿cómo te vas de esta sesión?</p>
   </div>
 </section>

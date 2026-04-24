@@ -31,7 +31,7 @@ Una cooperativa (y un directivo como persona) típicamente tiene acceso a cinco 
 Banco de plaza, línea de crédito, préstamo. Tasa conocida, plazo definido, estructura estándar. Ventaja: transparencia. Desventaja: requisitos y lentitud.
 
 ### 2. Tarjetas de crédito
-Tecnología fantástica de corto plazo. Criminalmente cara si se usa como financiamiento extendido. Tasa típica en Panamá: **22% anual**. Si no pagas el total del mes, es el peor "crédito barato" que existe.
+Tecnología fantástica de corto plazo. Criminalmente cara si se usa como financiamiento extendido. Tasa típica en Panamá: **≈ 22% anual** (fuente: Superintendencia de Bancos de Panamá, estadística de tasas de interés activas, octubre 2025). Si no pagas el total del mes, es el peor "crédito barato" que existe.
 
 ### 3. Crédito entre cooperativas / de otra cooperativa
 Parte del modelo cooperativo. Suele ser más ágil y más barato que el bancario para la cooperativa deudora. La contrapartida es que la cooperativa acreedora asume riesgo concentrado.
