@@ -17,13 +17,35 @@ Referencia única de todos los links del curso. Mantener esto actualizado.
 
 **Raíz:** https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/
 
-### Slides por sesión
+### ⭐ Landings por sesión (lo que escanean los participantes)
+
+A partir de v1.2, **un solo QR por sesión** apunta a una landing con 4 pestañas (Polls · Herramienta · Evaluación · Material).
+
+- Sesión 1: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-1-estados-financieros/landing/
+- Sesión 2: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-2-flujo-caja/landing/
+- Sesión 3: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-3-productos-financieros/landing/
+- Sesión 4: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-4-financiamiento/landing/
+
+**Generar los 4 QR (una sola vez):**
+1. Abrir `https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/scripts/generar-qr.html`
+2. Para cada sesión:
+   - Pegar la URL de la landing
+   - Descargar PNG
+   - Renombrar a `landing-sesion-N.png`
+   - Reemplazar en `sesiones/sesion-N-*/slides/qr/`
+3. `git add` + `git commit` + `git push`
+
+### Sistema de polls (vista facilitador)
+- Vista facilitador con selector: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/polls/facilitador.html?token=TOKEN
+- Setup completo: ver `polls/INSTRUCCIONES.md` en el repo.
+
+### Slides por sesión (proyectables)
 - Sesión 1: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-1-estados-financieros/slides/
 - Sesión 2: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-2-flujo-caja/slides/
 - Sesión 3: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-3-productos-financieros/slides/
 - Sesión 4: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-4-financiamiento/slides/
 
-### Herramientas por sesión (las que ven los participantes vía QR)
+### Herramientas por sesión (también accesibles vía la landing)
 - Sesión 1 — Mi foto financiera: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-1-estados-financieros/herramientas/mi-foto-financiera/
 - Sesión 2 — Mi película del mes: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-2-flujo-caja/herramientas/mi-pelicula-del-mes/
 - Sesión 3 — Mi caja de herramientas: https://andresborrerom.github.io/capacitacion-cooperativas-mercantil/sesiones/sesion-3-productos-financieros/herramientas/mi-caja-herramientas/

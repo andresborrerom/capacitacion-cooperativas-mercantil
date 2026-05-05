@@ -553,3 +553,51 @@ Tras el push y activación de Pages, en 1-2 minutos las URLs deberían responder
 
 ### Pendiente
 - Usuario revisa en local (`servir.bat`). Si OK → commit + push.
+
+---
+
+## 2026-05-05 — Iteración v1.2 · comentarios S2 y aplicación cruzada a S3/S4 + sistema de polls
+
+### Comentarios del usuario sobre S2 (aplicados a S2 y donde correspondió a S3/S4)
+
+| # | Comentario | Aplicación |
+|---|---|---|
+| 1 | "Mi película del mes": 2 meses fuera de la visualización | Fix bug SVG (todos los meses visibles) |
+| 2 | Guion sin referencia a las diapositivas | Añadido `[Slide N]` por bloque en S2/S3/S4 |
+| 3 | Slide 5 no justifica por qué Dic faltó plata | Reforzado con desglose: caja 389k − aguinaldo 120k − proveedores 85k = 184k vs. mínimo 200k = brecha −16k antes de cualquier retiro |
+| 4 | Herramienta solo mostraba pareja 4 (recurrente vs extra) | Modo cooperativa ampliado: 4 inputs (cobrado, devengado adicional, pagado, provisión); columnas P&L mes y P&L acumulado en tabla; gráfica con 2 líneas; panel "Las 4 parejas en este caso" con barras comparativas |
+| 5 | Inputs recurrentes con 1 sola entrada → 12 meses | Botón "Aplicar a los 12 meses" en modo personal y cooperativa |
+| 6 | Min 45 — frase "asegurado" rara | Reescrita: *"Lo que importa no es evitar el evento — no se puede — es tener cobertura de liquidez para absorberlo sin romper"* |
+| 7 | Bloque 5 break con "música, cámaras y micros libres" confuso | Reescrito con instrucciones operativas: música stream, cámaras opt-in, contador 5:00, qué hace cada facilitador, aviso a 1 min |
+| 8 | Slide 16 Poll #4 sin material de apoyo para el debate | Slide nuevo (#18 en el deck) con tabla por indicador: para qué sirve, cuándo es mejor, sesgo/debilidad. Guion con frases listas para defender cada opción |
+| 9 | Slide 20 checklist sin ejemplos | Cada pregunta del checklist con ejemplo numérico concreto |
+| 10 | Justificar la "Entidad" en micro-tarea | Slide micro-tarea con bullets (concentración, calidad crediticia, diversificación) + voz facilitador 30 seg + slide nuevo en S3 ("Palanca 7 · La entidad") |
+
+### Aplicado a TODAS las sesiones (S1 incluida — único cambio S1 esta iteración)
+
+**QR único por sesión con landing de 4 pestañas:**
+- Nueva carpeta `sesiones/sesion-N-*/landing/` × 4 con index.html que tiene tabs: 📊 Polls · 🛠️ Herramienta · 📝 Evaluación/Post-test · 📚 Material.
+- Slides actualizadas: el slide del QR de la herramienta ahora muestra el QR único de la landing con 340×340 px y badges de las 4 pestañas. El slide final de evaluación dejó de tener QR repetido (recordatorio "abre la pestaña Evaluación del QR de la sesión").
+- Numeración de slides preservada (refs `[Slide N]` siguen válidas).
+
+### Sistema de polls casero (decisión usuario · opción C)
+
+Construido para funcionar tanto en modalidad presencial como vía Teams. Resultados en vivo (incluye wordcloud para preguntas abiertas).
+
+- `polls/polls.json` — catálogo de los 20 polls del curso (5 por sesión).
+- `polls/index.html` — vista participante (`?id=POLL_ID`).
+- `polls/facilitador.html` — vista facilitador con selector de polls + auto-refresh 3s + reset.
+- `polls/apps-script/Code.gs` — backend Google Apps Script (Sheet por poll).
+- `polls/config.js` — placeholder para URL del backend (usuario llena tras desplegar).
+- `polls/INSTRUCCIONES.md` — guía paso a paso (~15 min de setup).
+
+### Pendiente operativo del usuario
+
+1. **Desplegar Apps Script de polls** siguiendo `polls/INSTRUCCIONES.md`. Pegar URL en `polls/config.js`. ~15 min, una sola vez.
+2. **Generar los 4 QR** de las landings con `scripts/generar-qr.html`. Cada uno se guarda como `landing-sesion-N.png` en `sesiones/sesion-N-*/slides/qr/`. ~5 min total.
+3. Probar end-to-end: escanear QR → votar poll → ver resultado en vista facilitador.
+4. Decidir si se actualiza también el `indice.html` para apuntar a las landings en lugar de a los slides directamente.
+
+### Memoria actualizada
+- N/A esta iteración (las decisiones siguen vigentes).
+

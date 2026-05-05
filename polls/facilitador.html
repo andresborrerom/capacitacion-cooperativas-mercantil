@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vista facilitador · Polls · Mercantil SI</title>
+<link rel="stylesheet" href="../assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { background: #001A4F; color: #fff; font-family: "Inter", sans-serif; min-height: 100vh; margin: 0; }
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .top-bar .marca { font-weight: 700; font-size: 1.1rem; }
+  .top-bar .marca .sub { font-size: 0.75rem; opacity: 0.7; font-weight: 400; }
+  .top-bar .controles { display: flex; gap: 0.6rem; align-items: center; }
+  .top-bar .estado-conex {
+    font-size: 0.78rem;
+    padding: 0.3em 0.7em;
+    border-radius: 12px;
+    background: rgba(46, 125, 85, 0.3);
+    color: #8FE0B7;
+    font-weight: 600;
+  }
+  .top-bar .estado-conex.error { background: rgba(180, 49, 46, 0.3); color: #FFA8A6; }
+  .top-bar button {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.4em 0.9em;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .top-bar button:hover { background: rgba(255,255,255,0.25); }
+  .top-bar button.danger { background: rgba(180, 49, 46, 0.4); border-color: rgba(180, 49, 46, 0.7); }
+  .top-bar select {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.4em 0.7em;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-family: inherit;
+  }
+  .top-bar select option { background: #002868; color: #fff; }
+
+  .principal {
+    padding: 2rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .titulo-poll {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #F47B20;
+    font-weight: 700;
+    margin: 0 0 0.6rem;
+  }
+  .pregunta-grande {
+    font-size: 2.2rem;
+    line-height: 1.25;
+    font-weight: 700;
+    margin: 0 0 1.5rem;
+    color: #fff;
+  }
+  .total-respuestas {
+    font-size: 1.15rem;
+    color: #B0BEDC;
+    margin-bottom: 1rem;
+  }
+  .total-respuestas strong { color: #fff; font-size: 1.4rem; }
+
+  /* Barras */
+  .barras-container { display: flex; flex-direction: column; gap: 0.8rem; }
+  .barra-fila {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 0.9rem 1.2rem;
+  }
+  .barra-fila .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+  .barra-fila .top .opcion-texto {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .barra-fila .top .opcion-texto .letra {
+    background: rgba(244, 123, 32, 0.25);
+    color: #F47B20;
+    padding: 0.15em 0.55em;
+    border-radius: 6px;
+    margin-right: 0.5em;
+    font-weight: 700;
+  }
+  .barra-fila .top .num {
+    font-size: 1.05rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  .barra-fila .top .num .pct {
+    color: #F47B20;
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-left: 0.5em;
+  }
+  .barra-fila .barra {
+    height: 18px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 9px;
+    overflow: hidden;
+  }
+  .barra-fila .relleno {
+    height: 100%;
+    background: linear-gradient(90deg, #F47B20, #FFA666);
+    border-radius: 9px;
+    transition: width 0.6s ease-out;
+  }
+
+  /* Wordcloud */
+  .wordcloud {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em 1em;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    min-height: 320px;
+  }
+  .wordcloud span {
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    transition: transform 0.3s;
+  }
+  .wordcloud .w1 { color: #F47B20; }
+  .wordcloud .w2 { color: #FFA666; }
+  .wordcloud .w3 { color: #FFC18D; }
+  .wordcloud .w4 { color: #B0BEDC; }
+  .wordcloud .w5 { color: #889ECC; }
+
+  .vacio {
+    text-align: center;
+    color: #8895BC;
+    padding: 3rem;
+    font-size: 1.1rem;
+  }
+
+  .modal-error {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #B4312E;
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  .auth-prompt {
+    max-width: 420px;
+    margin: 6rem auto;
+    background: rgba(255,255,255,0.08);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .auth-prompt h2 { margin: 0 0 0.5rem; color: #fff; }
+  .auth-prompt input {
+    width: 100%;
+    padding: 0.8em;
+    margin: 1em 0;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+  .auth-prompt button {
+    padding: 0.7em 1.6em;
+    background: #F47B20;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script src="config.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const POLL_ID_INIT = params.get("id");
+  const TOKEN_PARAM = params.get("token");
+  const app = document.getElementById("app");
+
+  let pollsConfig = null;
+  let pollActual = null;
+  let intervalo = null;
+
+  async function init() {
+    if (TOKEN_PARAM !== POLLS_ADMIN_TOKEN) {
+      mostrarAuth();
+      return;
+    }
+    try {
+      const cfg = await fetch("polls.json").then(r => r.json());
+      pollsConfig = cfg.polls;
+    } catch (err) {
+      app.innerHTML = `<div class="modal-error">No se pudo cargar polls.json</div>`;
+      return;
+    }
+    arrancarUI(POLL_ID_INIT || Object.keys(pollsConfig)[0]);
+  }
+
+  function mostrarAuth() {
+    app.innerHTML = `
+      <div class="auth-prompt">
+        <h2>Vista facilitador</h2>
+        <p style="opacity: 0.8;">Ingresa el token de admin.</p>
+        <input id="auth-token" type="password" placeholder="Token" autofocus>
+        <button onclick="autenticar()">Entrar</button>
+      </div>
+    `;
+    document.getElementById("auth-token").addEventListener("keydown", e => {
+      if (e.key === "Enter") autenticar();
+    });
+  }
+
+  function autenticar() {
+    const token = document.getElementById("auth-token").value;
+    if (token === POLLS_ADMIN_TOKEN) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("token", token);
+      window.location.replace(url.toString());
+    } else {
+      alert("Token incorrecto");
+    }
+  }
+
+  function arrancarUI(pollId) {
+    pollActual = pollsConfig[pollId] ? { id: pollId, ...pollsConfig[pollId] } : null;
+    if (!pollActual) {
+      app.innerHTML = `<div class="modal-error">Poll no existe</div>`;
+      return;
+    }
+    pintarUI();
+    cargarResultados();
+    if (intervalo) clearInterval(intervalo);
+    intervalo = setInterval(cargarResultados, 3000);
+  }
+
+  function pintarUI() {
+    const opciones = Object.keys(pollsConfig)
+      .sort((a,b) => {
+        const pa = pollsConfig[a], pb = pollsConfig[b];
+        return (pa.sesion - pb.sesion) || (pa.orden - pb.orden);
+      })
+      .map(id => `<option value="${id}" ${id === pollActual.id ? "selected" : ""}>${esc(pollsConfig[id].titulo)}</option>`)
+      .join("");
+
+    app.innerHTML = `
+      <div class="top-bar">
+        <div class="marca">
+          Vista facilitador
+          <div class="sub">Mercantil SI · resultados en vivo</div>
+        </div>
+        <div class="controles">
+          <span id="estado-conex" class="estado-conex">conectando…</span>
+          <select id="selector-poll" onchange="cambiarPoll(this.value)">${opciones}</select>
+          <button onclick="cargarResultados()">↻ Actualizar</button>
+          <button class="danger" onclick="resetear()">Reset</button>
+        </div>
+      </div>
+      <div class="principal">
+        <div class="titulo-poll">${esc(pollActual.titulo)}</div>
+        <h1 class="pregunta-grande">${esc(pollActual.pregunta)}</h1>
+        <div class="total-respuestas" id="total-respuestas">—</div>
+        <div id="vis"></div>
+      </div>
+    `;
+  }
+
+  function cambiarPoll(id) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("id", id);
+    window.history.replaceState(null, "", url.toString());
+    arrancarUI(id);
+  }
+
+  async function cargarResultados() {
+    if (!POLLS_API_URL || POLLS_API_URL.includes("PEGAR_AQUI")) {
+      pintarVacio("Configura POLLS_API_URL en config.js tras desplegar el Apps Script.");
+      marcarConex(false);
+      return;
+    }
+    try {
+      const res = await fetch(POLLS_API_URL + "?action=results&poll=" + encodeURIComponent(pollActual.id));
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Error");
+      marcarConex(true);
+      pintarResultados(data);
+    } catch (e) {
+      marcarConex(false);
+    }
+  }
+
+  function marcarConex(ok) {
+    const el = document.getElementById("estado-conex");
+    if (!el) return;
+    el.textContent = ok ? "● en vivo" : "● desconectado";
+    el.classList.toggle("error", !ok);
+  }
+
+  function pintarResultados(data) {
+    const total = data.total || 0;
+    document.getElementById("total-respuestas").innerHTML = `<strong>${total}</strong> ${total === 1 ? "respuesta" : "respuestas"}`;
+    const vis = document.getElementById("vis");
+    if (pollActual.tipo === "wordcloud") {
+      const words = data.words || [];
+      if (words.length === 0) {
+        vis.innerHTML = `<div class="wordcloud vacio">Esperando palabras…</div>`;
+        return;
+      }
+      const max = words[0].count;
+      const min = words[words.length - 1].count;
+      const rango = Math.max(max - min, 1);
+      const html = words.map((w, i) => {
+        const peso = (w.count - min) / rango; // 0 a 1
+        const tam = 1.4 + peso * 3.6; // 1.4 a 5 rem
+        const cls = "w" + (Math.min(5, Math.max(1, 1 + Math.floor((1 - peso) * 5))));
+        return `<span class="${cls}" style="font-size: ${tam.toFixed(2)}rem;">${esc(w.word)}${w.count > 1 ? ` <small style="font-size: 0.55em; opacity: 0.7;">×${w.count}</small>` : ''}</span>`;
+      }).join("");
+      vis.innerHTML = `<div class="wordcloud">${html}</div>`;
+    } else {
+      const counts = data.counts || [];
+      const letras = ["a", "b", "c", "d", "e", "f", "g"];
+      let html = `<div class="barras-container">`;
+      pollActual.opciones.forEach((op, i) => {
+        const c = counts[i] || 0;
+        const pct = total > 0 ? Math.round(c * 100 / total) : 0;
+        html += `
+          <div class="barra-fila">
+            <div class="top">
+              <div class="opcion-texto"><span class="letra">${letras[i]}</span>${esc(op)}</div>
+              <div class="num">${c}<span class="pct">${pct}%</span></div>
+            </div>
+            <div class="barra"><div class="relleno" style="width: ${pct}%;"></div></div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+      if (total === 0) html = `<div class="vacio">Esperando votos…</div>` + html;
+      vis.innerHTML = html;
+    }
+  }
+
+  function pintarVacio(msg) {
+    const vis = document.getElementById("vis");
+    if (vis) vis.innerHTML = `<div class="vacio">${esc(msg)}</div>`;
+  }
+
+  async function resetear() {
+    if (!confirm(`¿Reset del poll "${pollActual.titulo}"? Esta acción borra todos los votos.`)) return;
+    try {
+      const res = await fetch(POLLS_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ action: "reset", poll: pollActual.id, token: POLLS_ADMIN_TOKEN })
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Reset falló");
+      cargarResultados();
+    } catch (e) {
+      alert("No se pudo resetear: " + e.message);
+    }
+  }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  init();
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 2 · Flujo de caja · Mercantil SI</title>
+<link rel="stylesheet" href="../../../assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { background: var(--color-fondo-sutil); font-family: "Inter", sans-serif; }
+  .hero {
+    background: linear-gradient(135deg, #003DA5, #002868);
+    color: #fff;
+    padding: 1.5rem 1.3rem 2rem;
+    text-align: center;
+  }
+  .hero .kicker { font-size: 0.78rem; opacity: 0.85; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+  .hero h1 { color: #fff; margin: 0.5rem 0 0; font-size: 1.7rem; }
+  .hero p { color: #B0BEDC; margin: 0.6rem 0 0; font-size: 0.92rem; }
+  .tabs { display: flex; background: #fff; border-bottom: 2px solid var(--color-borde); position: sticky; top: 0; z-index: 10; overflow-x: auto; }
+  .tab { flex: 1; min-width: 0; padding: 0.85rem 0.4rem; text-align: center; font-weight: 600; color: var(--color-texto-sutil); cursor: pointer; border-bottom: 3px solid transparent; font-size: 0.85rem; white-space: nowrap; }
+  .tab.activa { color: var(--color-primario); border-bottom-color: var(--color-primario); }
+  .tab .ico { font-size: 1.1em; margin-right: 0.2em; }
+  .panel { display: none; padding: 1.4rem 1.2rem; }
+  .panel.activo { display: block; }
+  .item-link {
+    display: flex; align-items: center; gap: 0.8rem;
+    background: #fff; border: 1px solid var(--color-borde); border-radius: 12px;
+    padding: 1rem 1.1rem; margin-bottom: 0.7rem;
+    text-decoration: none; color: var(--color-texto);
+    box-shadow: var(--shadow-1);
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .item-link:hover { border-color: var(--color-primario); transform: translateY(-1px); }
+  .item-link .num { flex: 0 0 38px; height: 38px; border-radius: 50%; background: var(--color-primario-claro); color: var(--color-primario-oscuro); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .item-link .info { flex: 1; }
+  .item-link .info .titulo { font-weight: 600; color: var(--color-primario-oscuro); margin: 0 0 0.15rem; font-size: 0.95rem; }
+  .item-link .info .pregunta { font-size: 0.84rem; color: var(--color-texto-sutil); line-height: 1.4; }
+  .item-link .flecha { color: var(--color-primario); font-size: 1.3rem; }
+  .item-link.destacada { border-left: 5px solid var(--color-acento, #F47B20); border-color: var(--color-acento, #F47B20); }
+  .item-link.destacada .num { background: rgba(244, 123, 32, 0.15); color: var(--color-acento, #F47B20); }
+  .badge-tipo { display: inline-block; background: var(--color-primario-claro); color: var(--color-primario-oscuro); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; padding: 0.15em 0.55em; border-radius: 10px; margin-left: 0.4em; }
+  .badge-tipo.cloud { background: #FDE9D7; color: var(--color-acento, #F47B20); }
+  .panel-intro { background: var(--color-primario-claro); border-left: 4px solid var(--color-primario); padding: 0.8rem 1rem; border-radius: 0 8px 8px 0; margin-bottom: 1rem; font-size: 0.88rem; color: var(--color-primario-oscuro); }
+  .grande { background: #fff; border: 1px solid var(--color-borde); border-radius: 12px; padding: 1.5rem 1.3rem; text-align: center; box-shadow: var(--shadow-1); }
+  .grande h2 { margin: 0 0 0.5rem; }
+  .grande p { color: var(--color-texto-sutil); font-size: 0.9rem; margin: 0 0 1rem; }
+  .grande a { display: inline-block; background: var(--color-acento, #F47B20); color: #fff; padding: 0.85em 1.6em; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; }
+  .grande a:hover { background: #d96a18; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Sesión 2 · Curso Mercantil SI</div>
+  <h1>Flujo de caja como termómetro</h1>
+  <p>Polls · Herramienta · Evaluación · Material</p>
+</header>
+
+<div class="tabs" role="tablist">
+  <div class="tab activa" data-panel="polls"><span class="ico">📊</span>Polls</div>
+  <div class="tab" data-panel="herramienta"><span class="ico">🛠️</span>Herramienta</div>
+  <div class="tab" data-panel="evaluacion"><span class="ico">📝</span>Evaluación</div>
+  <div class="tab" data-panel="material"><span class="ico">📚</span>Material</div>
+</div>
+
+<section class="panel activo" id="panel-polls">
+  <div class="panel-intro">El facilitador irá lanzando los polls durante la sesión. Toca el que esté activo cuando lo indique.</div>
+  <a class="item-link" href="../../../polls/?id=s2-p1-60dias">
+    <div class="num">1</div>
+    <div class="info"><div class="titulo">Poll #1<span class="badge-tipo">Opción única</span></div><div class="pregunta">¿Cómo se ven los números 60 días antes de la quiebra?</div></div>
+    <div class="flecha">→</div>
+  </a>
+  <a class="item-link" href="../../../polls/?id=s2-p2-mes-rojo">
+    <div class="num">2</div>
+    <div class="info"><div class="titulo">Poll #2<span class="badge-tipo">Opción única</span></div><div class="pregunta">¿En qué mes está más cerca del rojo tu flujo?</div></div>
+    <div class="flecha">→</div>
+  </a>
+  <a class="item-link" href="../../../polls/?id=s2-p3-flujo-juntas">
+    <div class="num">3</div>
+    <div class="info"><div class="titulo">Poll #3<span class="badge-tipo">Opción única</span></div><div class="pregunta">¿Tu cooperativa presenta flujo proyectado en juntas?</div></div>
+    <div class="flecha">→</div>
+  </a>
+  <a class="item-link" href="../../../polls/?id=s2-p4-indicador-flujo">
+    <div class="num">4</div>
+    <div class="info"><div class="titulo">Poll #4<span class="badge-tipo">Opción única</span></div><div class="pregunta">Un solo indicador de flujo mensual: ¿cuál?</div></div>
+    <div class="flecha">→</div>
+  </a>
+  <a class="item-link destacada" href="../../../polls/?id=s2-p5-pulso">
+    <div class="num">5</div>
+    <div class="info"><div class="titulo">Poll #5 · pulso<span class="badge-tipo cloud">Wordcloud</span></div><div class="pregunta">En una palabra, ¿qué te llevas hoy?</div></div>
+    <div class="flecha">→</div>
+  </a>
+</section>
+
+<section class="panel" id="panel-herramienta">
+  <div class="grande">
+    <h2>Mi película del mes</h2>
+    <p>Proyecta 12 meses de caja, P&amp;L y las 4 parejas (devengado vs cobrado, gasto vs pago, utilidad vs disponible, recurrente vs extraordinario).</p>
+    <a href="../herramientas/mi-pelicula-del-mes/">Abrir herramienta</a>
+  </div>
+</section>
+
+<section class="panel" id="panel-evaluacion">
+  <div class="grande">
+    <h2>Evaluación de la Sesión 2</h2>
+    <p>~13 preguntas · ~3 minutos · Anónimo opcional.</p>
+    <a href="https://forms.gle/ZQtXx8SGroivW8WQ8" target="_blank" rel="noopener">Abrir evaluación</a>
+  </div>
+</section>
+
+<section class="panel" id="panel-material">
+  <div class="grande">
+    <h2>Material para llevarte</h2>
+    <p>Resumen, "foto miente; película no", checklist de las 4 preguntas para junta y micro-tarea para Sesión 3.</p>
+    <a href="../material-participante.md">Ver material</a>
+  </div>
+</section>
+
+<footer class="pie">
+  Mercantil Servicios de Inversión · Curso para dirigentes de cooperativas financieras · Sesión 2
+</footer>
+
+<script>
+  document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.classList.remove("activa"));
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("activo"));
+    t.classList.add("activa");
+    document.getElementById("panel-" + t.dataset.panel).classList.add("activo");
+  }));
+</script>
+</body>
+</html>

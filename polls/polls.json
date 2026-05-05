@@ -1,0 +1,249 @@
+{
+  "version": "1.0",
+  "polls": {
+    "s1-p1-paraiso": {
+      "sesion": 1,
+      "orden": 1,
+      "titulo": "Sesión 1 · Poll #1",
+      "pregunta": "¿Cómo puede una cooperativa que ganó B/. 420,000 en el año no tener con qué pagar la nómina de diciembre?",
+      "tipo": "single",
+      "opciones": [
+        "Mala administración del gerente",
+        "Fraude",
+        "Todo el dinero está en cartera de crédito que no se cobra",
+        "Un balance sano no garantiza caja",
+        "Todas las anteriores pueden ser"
+      ]
+    },
+    "s1-p2-patrimonio": {
+      "sesion": 1,
+      "orden": 2,
+      "titulo": "Sesión 1 · Poll #2",
+      "pregunta": "Tu patrimonio (de la herramienta), ¿es...?",
+      "tipo": "single",
+      "opciones": [
+        "Mayor de lo que pensaba",
+        "Menor de lo que pensaba",
+        "Lo que esperaba"
+      ]
+    },
+    "s1-p3-indicador": {
+      "sesion": 1,
+      "orden": 3,
+      "titulo": "Sesión 1 · Poll #3",
+      "pregunta": "¿Cuál de los 3 indicadores te cuesta más seguir en tu cooperativa?",
+      "tipo": "single",
+      "opciones": [
+        "Nivel de endeudamiento",
+        "Capacidad de generar patrimonio",
+        "Dependencia de ingresos",
+        "No sigo ninguno hoy"
+      ]
+    },
+    "s1-p4-numero": {
+      "sesion": 1,
+      "orden": 4,
+      "titulo": "Sesión 1 · Poll #4",
+      "pregunta": "Un solo número del balance para mostrar en asamblea anual: ¿cuál?",
+      "tipo": "single",
+      "opciones": [
+        "Utilidad del año",
+        "Patrimonio total",
+        "Crecimiento de activos",
+        "Mora >30 días"
+      ]
+    },
+    "s1-p5-pulso": {
+      "sesion": 1,
+      "orden": 5,
+      "titulo": "Sesión 1 · Poll #5 — pulso",
+      "pregunta": "En una palabra, ¿cómo te vas de esta sesión?",
+      "tipo": "wordcloud"
+    },
+
+    "s2-p1-60dias": {
+      "sesion": 2,
+      "orden": 1,
+      "titulo": "Sesión 2 · Poll #1",
+      "pregunta": "¿Cómo se ve en los números el momento 60 días antes de que una cooperativa quiebre?",
+      "tipo": "single",
+      "opciones": [
+        "La mora sube mucho de golpe",
+        "La utilidad se vuelve negativa",
+        "El saldo de caja empieza a moverse raro",
+        "No se ve — llega sin avisar",
+        "Todas las anteriores"
+      ]
+    },
+    "s2-p2-mes-rojo": {
+      "sesion": 2,
+      "orden": 2,
+      "titulo": "Sesión 2 · Poll #2",
+      "pregunta": "Tu flujo proyectado, ¿en qué mes está más cerca del rojo?",
+      "tipo": "single",
+      "opciones": [
+        "Enero",
+        "Julio",
+        "Diciembre",
+        "Ninguno en rojo",
+        "Más de uno"
+      ]
+    },
+    "s2-p3-flujo-juntas": {
+      "sesion": 2,
+      "orden": 3,
+      "titulo": "Sesión 2 · Poll #3",
+      "pregunta": "¿Tu cooperativa presenta hoy un flujo de caja proyectado en las juntas?",
+      "tipo": "single",
+      "opciones": [
+        "Sí, mensual",
+        "Sí, anual",
+        "No, solo el pasado",
+        "No sé"
+      ]
+    },
+    "s2-p4-indicador-flujo": {
+      "sesion": 2,
+      "orden": 4,
+      "titulo": "Sesión 2 · Poll #4",
+      "pregunta": "Si pidieras a tu gerencia UN solo indicador de flujo mensual que hoy no recibes, ¿cuál sería?",
+      "tipo": "single",
+      "opciones": [
+        "Saldo de caja al cierre del mes",
+        "Cobertura de liquidez (caja + líquidos / depósitos exigibles <90d)",
+        "Flujo neto del mes (entradas − salidas)",
+        "Proyección a 3 meses"
+      ]
+    },
+    "s2-p5-pulso": {
+      "sesion": 2,
+      "orden": 5,
+      "titulo": "Sesión 2 · Poll #5 — pulso",
+      "pregunta": "En una palabra, ¿qué te llevas hoy?",
+      "tipo": "wordcloud"
+    },
+
+    "s3-p1-pregunta-asesor": {
+      "sesion": 3,
+      "orden": 1,
+      "titulo": "Sesión 3 · Poll #1",
+      "pregunta": "Si tuvieras que invertir B/. 100,000 mañana y solo puedes hacer UNA pregunta antes, ¿cuál?",
+      "tipo": "single",
+      "opciones": [
+        "¿Cuánto rinde?",
+        "¿Cuánto tiempo lo necesito bloqueado?",
+        "¿Cuál es el riesgo de perder?",
+        "¿Cómo lo saco si lo necesito antes?",
+        "¿Cómo cobra comisión el asesor?"
+      ]
+    },
+    "s3-p2-misma-gaveta": {
+      "sesion": 3,
+      "orden": 2,
+      "titulo": "Sesión 3 · Poll #2",
+      "pregunta": "¿Cuántos de tus productos quedaron en la misma gaveta?",
+      "tipo": "single",
+      "opciones": [
+        "Todos en la misma",
+        "Casi todos en la misma",
+        "Repartidos en 2",
+        "Repartidos en 3+",
+        "No traje productos"
+      ]
+    },
+    "s3-p3-mismatch": {
+      "sesion": 3,
+      "orden": 3,
+      "titulo": "Sesión 3 · Poll #3",
+      "pregunta": "Después de ver las 4 gavetas, ¿qué mismatch reconoces en tu cooperativa?",
+      "tipo": "single",
+      "opciones": [
+        "Gaveta 2 inflada",
+        "Gaveta 4 vacía",
+        "Plata de cajón 1/2 en productos de cajón 3",
+        "No veo mismatches",
+        "Necesito pensarlo más"
+      ]
+    },
+    "s3-p4-mas-riesgosa": {
+      "sesion": 3,
+      "orden": 4,
+      "titulo": "Sesión 3 · Poll #4",
+      "pregunta": "¿Cuál de estas frases es MÁS riesgosa?",
+      "tipo": "single",
+      "opciones": [
+        "Metí plata en un fondo porque mi cuñado dice que rinde bien",
+        "Compré este bono porque mi horizonte es 3 años y paga 5.5%",
+        "Tengo DPFs cada trimestre para mi reserva de liquidez",
+        "Invertí en una acción porque vi un video que dice que va a subir"
+      ]
+    },
+    "s3-p5-pulso": {
+      "sesion": 3,
+      "orden": 5,
+      "titulo": "Sesión 3 · Poll #5 — pulso",
+      "pregunta": "En una palabra, ¿qué te llevas hoy?",
+      "tipo": "wordcloud"
+    },
+
+    "s4-p1-antes-firmar": {
+      "sesion": 4,
+      "orden": 1,
+      "titulo": "Sesión 4 · Poll #1",
+      "pregunta": "Un asesor te ofrece B/. 500,000 al 9% anual. Antes de decir sí, ¿qué haces? (marca todas)",
+      "tipo": "multiple",
+      "opciones": [
+        "Negociar la tasa",
+        "Preguntar las comisiones ocultas",
+        "Modelar el impacto en el flujo",
+        "Preguntar el plazo de amortización",
+        "Comparar con al menos otra oferta"
+      ]
+    },
+    "s4-p2-flujo-calza": {
+      "sesion": 4,
+      "orden": 2,
+      "titulo": "Sesión 4 · Poll #2",
+      "pregunta": "La inversión produce retorno desde año 3 (B/. 200k anuales). ¿Qué opción calza mejor?",
+      "tipo": "single",
+      "opciones": [
+        "Opción A (7 años)",
+        "Opción B (3 años)",
+        "Una combinación"
+      ]
+    },
+    "s4-p3-senal-oida": {
+      "sesion": 4,
+      "orden": 3,
+      "titulo": "Sesión 4 · Poll #3",
+      "pregunta": "De las 3 señales de alerta, ¿cuál has oído literalmente en una oferta real?",
+      "tipo": "single",
+      "opciones": [
+        "\"No te preocupes por la tasa, mira la cuota\"",
+        "\"Esto es solo hasta que crucemos el año\"",
+        "\"Todos nuestros clientes lo hacen\"",
+        "Ninguna de estas"
+      ]
+    },
+    "s4-p4-esfuerzo-unido": {
+      "sesion": 4,
+      "orden": 4,
+      "titulo": "Sesión 4 · Poll #4",
+      "pregunta": "¿Qué recomiendas para Esfuerzo Unido?",
+      "tipo": "single",
+      "opciones": [
+        "Opción A — usar liquidez",
+        "Opción B — crédito bancario 7 años",
+        "Opción C — emisión 3 años",
+        "Una combinación B+C"
+      ]
+    },
+    "s4-p5-pulso": {
+      "sesion": 4,
+      "orden": 5,
+      "titulo": "Sesión 4 · Poll #5 — pulso final",
+      "pregunta": "En una palabra, ¿cómo te vas del curso?",
+      "tipo": "wordcloud"
+    }
+  }
+}

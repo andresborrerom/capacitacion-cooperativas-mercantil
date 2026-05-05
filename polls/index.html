@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Poll · Mercantil SI</title>
+<link rel="stylesheet" href="../assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { background: var(--color-fondo-sutil); font-family: "Inter", sans-serif; }
+  .poll-card {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.3rem;
+    margin: 1.5rem auto;
+    max-width: 580px;
+    box-shadow: var(--shadow-1);
+  }
+  .poll-card .titulo {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-acento, #F47B20);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .poll-card .pregunta {
+    font-size: 1.18rem;
+    color: var(--color-primario-oscuro);
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 1.2rem;
+  }
+  .opcion {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    background: var(--color-fondo-sutil);
+    border: 2px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.55rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .opcion:hover { border-color: var(--color-primario); }
+  .opcion.seleccionada {
+    border-color: var(--color-primario);
+    background: var(--color-primario-claro);
+  }
+  .opcion .marca {
+    flex: 0 0 22px;
+    height: 22px;
+    border: 2px solid var(--color-texto-sutil);
+    border-radius: 50%;
+    margin-top: 2px;
+    position: relative;
+  }
+  .opcion.tipo-multi .marca { border-radius: 5px; }
+  .opcion.seleccionada .marca {
+    border-color: var(--color-primario);
+    background: var(--color-primario);
+  }
+  .opcion.seleccionada .marca::after {
+    content: "✓";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .opcion .texto { flex: 1; font-size: 0.96rem; color: var(--color-texto); line-height: 1.4; }
+  .opcion .letra { font-weight: 700; color: var(--color-primario); margin-right: 0.3em; }
+
+  .input-palabra {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1.15rem;
+    text-align: center;
+    border: 2px solid var(--color-borde);
+    border-radius: 10px;
+    background: var(--color-fondo-sutil);
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--color-primario-oscuro);
+  }
+  .input-palabra:focus { border-color: var(--color-primario); outline: 0; background: #fff; }
+  .pista-palabra { font-size: 0.85rem; color: var(--color-texto-sutil); text-align: center; margin: 0.5rem 0 0; }
+
+  .acciones-poll {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-direction: column;
+  }
+  .acciones-poll button {
+    width: 100%;
+    padding: 0.95rem;
+    font-size: 1rem;
+  }
+
+  .estado-confirmado {
+    background: var(--color-positivo, #2E7D55);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .estado-error {
+    background: var(--color-alerta);
+    color: #fff;
+    text-align: center;
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  .estado-cargando {
+    text-align: center;
+    color: var(--color-texto-sutil);
+    padding: 2rem;
+  }
+
+  .resultados {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--color-borde);
+  }
+  .resultados h4 { margin: 0 0 0.7rem; font-size: 0.9rem; color: var(--color-texto-sutil); text-transform: uppercase; letter-spacing: 0.06em; }
+  .barra-resultado {
+    margin-bottom: 0.5rem;
+  }
+  .barra-resultado .etiqueta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+  }
+  .barra-resultado .barra {
+    background: var(--color-fondo-sutil);
+    border-radius: 6px;
+    height: 18px;
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+  }
+  .barra-resultado .relleno {
+    background: var(--color-primario);
+    height: 100%;
+    border-radius: 0;
+    transition: width 0.4s;
+  }
+  .palabras-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+  .palabras-list span {
+    background: var(--color-primario-claro);
+    color: var(--color-primario-oscuro);
+    padding: 0.3em 0.7em;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div>
+    <div class="marca">Polls del curso</div>
+    <div class="subtitulo">Mercantil Servicios de Inversión</div>
+  </div>
+</header>
+
+<div class="contenedor">
+  <div id="contenido">
+    <div class="estado-cargando">Cargando…</div>
+  </div>
+</div>
+
+<footer class="pie">
+  Mercantil Servicios de Inversión · Curso para dirigentes de cooperativas financieras
+</footer>
+
+<script src="config.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const POLL_ID = params.get("id");
+  const contenido = document.getElementById("contenido");
+  let pollData = null;
+  let seleccion = null; // string para single/wordcloud, array para multiple
+
+  async function init() {
+    if (!POLL_ID) {
+      contenido.innerHTML = `<div class="callout warn">Falta el parámetro <code>?id=POLL_ID</code> en la URL.</div>`;
+      return;
+    }
+    try {
+      const cfg = await fetch("polls.json").then(r => r.json());
+      pollData = cfg.polls[POLL_ID];
+      if (!pollData) throw new Error("Poll desconocido: " + POLL_ID);
+    } catch (err) {
+      contenido.innerHTML = `<div class="estado-error">No se pudo cargar el poll. ${err.message}</div>`;
+      return;
+    }
+
+    if (yaVoto(POLL_ID)) {
+      mostrarConfirmacion();
+      cargarResultados();
+    } else {
+      pintarFormulario();
+    }
+  }
+
+  function yaVoto(id) {
+    return localStorage.getItem("voto-" + id) !== null;
+  }
+
+  function pintarFormulario() {
+    let html = `
+      <div class="poll-card">
+        <div class="titulo">${esc(pollData.titulo)}</div>
+        <div class="pregunta">${esc(pollData.pregunta)}</div>
+    `;
+
+    if (pollData.tipo === "wordcloud") {
+      html += `
+        <input class="input-palabra" id="entrada-palabra" type="text" maxlength="40" placeholder="Tu palabra…" autocomplete="off">
+        <p class="pista-palabra">Una palabra. Máx 40 caracteres.</p>
+        <div class="acciones-poll">
+          <button class="primary" onclick="enviar()">Enviar</button>
+        </div>
+      `;
+    } else {
+      const letras = ["a", "b", "c", "d", "e", "f", "g"];
+      const cls = pollData.tipo === "multiple" ? "tipo-multi" : "tipo-uno";
+      pollData.opciones.forEach((op, i) => {
+        html += `
+          <div class="opcion ${cls}" data-idx="${i}" onclick="elegir(${i})">
+            <div class="marca"></div>
+            <div class="texto"><span class="letra">${letras[i]}.</span>${esc(op)}</div>
+          </div>
+        `;
+      });
+      html += `
+        <div class="acciones-poll">
+          <button class="primary" id="btn-enviar" onclick="enviar()" disabled>Enviar</button>
+        </div>
+      `;
+      seleccion = pollData.tipo === "multiple" ? [] : null;
+    }
+
+    html += `</div>`;
+    contenido.innerHTML = html;
+  }
+
+  function elegir(idx) {
+    if (pollData.tipo === "multiple") {
+      const i = seleccion.indexOf(idx);
+      if (i >= 0) seleccion.splice(i, 1);
+      else seleccion.push(idx);
+      document.querySelectorAll(".opcion").forEach((el, j) => {
+        el.classList.toggle("seleccionada", seleccion.includes(j));
+      });
+      document.getElementById("btn-enviar").disabled = seleccion.length === 0;
+    } else {
+      seleccion = idx;
+      document.querySelectorAll(".opcion").forEach((el, j) => {
+        el.classList.toggle("seleccionada", j === idx);
+      });
+      document.getElementById("btn-enviar").disabled = false;
+    }
+  }
+
+  async function enviar() {
+    let payload;
+    if (pollData.tipo === "wordcloud") {
+      const palabra = document.getElementById("entrada-palabra").value.trim();
+      if (!palabra) { alert("Escribe una palabra."); return; }
+      payload = { word: palabra.toLowerCase() };
+    } else if (pollData.tipo === "multiple") {
+      if (!seleccion || seleccion.length === 0) { alert("Selecciona al menos una opción."); return; }
+      payload = { choices: seleccion };
+    } else {
+      if (seleccion === null) { alert("Selecciona una opción."); return; }
+      payload = { choice: seleccion };
+    }
+
+    if (!POLLS_API_URL || POLLS_API_URL.includes("PEGAR_AQUI")) {
+      contenido.innerHTML = `
+        <div class="estado-error">
+          El sistema de polls no está conectado todavía.<br>
+          El facilitador debe configurar la URL del backend.
+        </div>
+      `;
+      return;
+    }
+
+    contenido.innerHTML = `<div class="estado-cargando">Enviando…</div>`;
+
+    try {
+      const res = await fetch(POLLS_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ action: "vote", poll: POLL_ID, payload })
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Error desconocido");
+      localStorage.setItem("voto-" + POLL_ID, JSON.stringify({ payload, ts: Date.now() }));
+      mostrarConfirmacion();
+      cargarResultados();
+    } catch (err) {
+      contenido.innerHTML = `
+        <div class="estado-error">No se pudo enviar el voto. ${esc(err.message)}</div>
+        <div class="acciones-poll"><button class="primary" onclick="init()">Reintentar</button></div>
+      `;
+    }
+  }
+
+  function mostrarConfirmacion() {
+    contenido.innerHTML = `
+      <div class="poll-card">
+        <div class="titulo">${esc(pollData.titulo)}</div>
+        <div class="pregunta">${esc(pollData.pregunta)}</div>
+        <div class="estado-confirmado">¡Voto enviado! Gracias.</div>
+        <div id="resultados-area"></div>
+      </div>
+    `;
+  }
+
+  async function cargarResultados() {
+    const area = document.getElementById("resultados-area");
+    if (!area) return;
+    if (!POLLS_API_URL || POLLS_API_URL.includes("PEGAR_AQUI")) return;
+    try {
+      const res = await fetch(POLLS_API_URL + "?action=results&poll=" + encodeURIComponent(POLL_ID));
+      const data = await res.json();
+      if (!data.ok) return;
+      pintarResultados(area, data);
+    } catch (e) { /* silencioso */ }
+  }
+
+  function pintarResultados(area, data) {
+    if (pollData.tipo === "wordcloud") {
+      const top = (data.words || []).slice(0, 30);
+      if (top.length === 0) {
+        area.innerHTML = `<div class="resultados"><h4>Resultados en vivo</h4><p style="color: var(--color-texto-sutil); font-size: 0.9rem;">Aún no hay respuestas.</p></div>`;
+        return;
+      }
+      area.innerHTML = `
+        <div class="resultados">
+          <h4>Resultados en vivo · ${data.total || top.length} palabras</h4>
+          <div class="palabras-list">
+            ${top.map(w => `<span style="font-size: ${Math.min(1.4, 0.85 + (w.count / top[0].count) * 0.6)}rem;">${esc(w.word)}${w.count > 1 ? ' ·'+w.count : ''}</span>`).join("")}
+          </div>
+        </div>
+      `;
+    } else {
+      const total = data.total || 0;
+      const counts = data.counts || [];
+      const letras = ["a", "b", "c", "d", "e", "f", "g"];
+      let bars = "";
+      pollData.opciones.forEach((op, i) => {
+        const c = counts[i] || 0;
+        const pct = total > 0 ? Math.round(c * 100 / total) : 0;
+        bars += `
+          <div class="barra-resultado">
+            <div class="etiqueta"><span><strong>${letras[i]}.</strong> ${esc(op)}</span><span>${c} · ${pct}%</span></div>
+            <div class="barra"><div class="relleno" style="width: ${pct}%;"></div></div>
+          </div>
+        `;
+      });
+      area.innerHTML = `<div class="resultados"><h4>Resultados en vivo · ${total} ${total === 1 ? "voto" : "votos"}</h4>${bars}</div>`;
+    }
+  }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  init();
+</script>
+</body>
+</html>
