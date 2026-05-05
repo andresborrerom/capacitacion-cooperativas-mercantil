@@ -27,6 +27,51 @@
   .campo-ancho label { margin: 0; font-weight: 500; color: var(--color-texto); font-size: 0.95rem; }
   .campo-ancho input { text-align: right; max-width: 180px; font-variant-numeric: tabular-nums; }
 
+  .grid-recurrentes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  @media (min-width: 700px) { .grid-recurrentes { grid-template-columns: 1fr 1fr; } }
+  .campo-recurrente {
+    background: var(--color-fondo-sutil);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.8rem;
+  }
+  .campo-recurrente label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0.3rem;
+  }
+  .campo-recurrente .pareja-tag {
+    display: inline-block;
+    background: var(--color-primario-claro);
+    color: var(--color-primario-oscuro);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1em 0.5em;
+    border-radius: 10px;
+    margin-left: 0.3em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .campo-recurrente .pista-corta {
+    font-size: 0.78rem;
+    color: var(--color-texto-sutil);
+    margin: 0.2em 0 0.4em;
+  }
+  .campo-recurrente input {
+    width: 100%;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .btn-aplicar {
+    margin-top: 0.7rem;
+    width: 100%;
+  }
+
   /* Tabla de meses */
   .tabla-meses {
     width: 100%;
@@ -42,7 +87,7 @@
     font-weight: 600;
     padding: 0.55rem 0.35rem;
     text-transform: uppercase;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.04em;
     text-align: center;
   }
@@ -80,6 +125,8 @@
   }
   .tabla-meses td.calc.neg { color: #fff; background: var(--color-alerta); }
   .tabla-meses td.calc.amarillo { background: #FBEFD0; color: #704500; }
+  .tabla-meses td.calc.pl { background: #E8F5EF; color: #1F5C3F; }
+  .tabla-meses td.calc.pl.neg { background: #FBE9E8; color: var(--color-alerta); }
 
   /* Wrapper scrollable para móvil */
   .tabla-wrap { overflow-x: auto; margin: 0 -1rem; padding: 0 1rem; }
@@ -93,11 +140,26 @@
     box-shadow: var(--shadow-1);
     margin-bottom: var(--space-3);
   }
-  .grafica-wrap h3 { margin: 0 0 0.8rem 0; font-size: 1.1rem; }
+  .grafica-wrap h3 { margin: 0 0 0.4rem 0; font-size: 1.05rem; }
+  .grafica-wrap .pista { font-size: 0.82rem; color: var(--color-texto-sutil); margin: 0 0 0.6rem 0; }
   svg.grafica {
     width: 100%;
-    height: 260px;
+    height: 280px;
     display: block;
+  }
+  .leyenda {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    margin-top: 0.5rem;
+  }
+  .leyenda span { display: inline-flex; align-items: center; gap: 0.4em; }
+  .leyenda .swatch {
+    display: inline-block;
+    width: 14px;
+    height: 3px;
+    border-radius: 2px;
   }
 
   .kpis {
@@ -106,7 +168,8 @@
     gap: 0.7rem;
     margin-bottom: var(--space-3);
   }
-  @media (min-width: 600px) { .kpis { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 600px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .kpis { grid-template-columns: repeat(4, 1fr); } }
   .kpi-card {
     background: #fff;
     border: 1px solid var(--color-borde);
@@ -117,9 +180,89 @@
   .kpi-card.verde { border-left-color: var(--color-positivo); }
   .kpi-card.amarillo { border-left-color: var(--color-aviso); }
   .kpi-card.rojo { border-left-color: var(--color-alerta); }
-  .kpi-card .etiqueta { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-texto-sutil); font-weight: 600; }
-  .kpi-card .valor { font-size: 1.45rem; font-weight: 700; color: var(--color-primario-oscuro); font-variant-numeric: tabular-nums; line-height: 1.2; }
-  .kpi-card .pista { font-size: 0.78rem; color: var(--color-texto); margin-top: 0.2rem; }
+  .kpi-card .etiqueta { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-texto-sutil); font-weight: 600; }
+  .kpi-card .valor { font-size: 1.35rem; font-weight: 700; color: var(--color-primario-oscuro); font-variant-numeric: tabular-nums; line-height: 1.2; margin-top: 0.2em; }
+  .kpi-card .pista { font-size: 0.74rem; color: var(--color-texto); margin-top: 0.2rem; }
+
+  /* Las 4 parejas */
+  .parejas-vista {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-1);
+    margin-bottom: var(--space-3);
+  }
+  .parejas-vista > h3 { margin: 0 0 0.3rem 0; }
+  .parejas-vista > .pista { font-size: 0.88rem; color: var(--color-texto-sutil); margin-bottom: 1rem; }
+  .pareja-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  @media (min-width: 700px) { .pareja-grid { grid-template-columns: 1fr 1fr; } }
+  .pareja-card {
+    background: var(--color-fondo-sutil);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1rem;
+    border-left: 4px solid var(--color-primario);
+  }
+  .pareja-card.p2 { border-left-color: var(--color-acento, #F47B20); }
+  .pareja-card.p3 { border-left-color: var(--color-positivo); }
+  .pareja-card.p4 { border-left-color: #9C4EA3; }
+  .pareja-card h4 { margin: 0 0 0.3em; font-size: 0.95rem; color: var(--color-primario-oscuro); }
+  .pareja-card p { font-size: 0.82rem; color: var(--color-texto); margin: 0 0 0.6em; line-height: 1.45; }
+  .barras-comparacion {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+  }
+  .barra-row { display: flex; align-items: center; gap: 0.5rem; }
+  .barra-row .etiqueta {
+    flex: 0 0 110px;
+    font-size: 0.78rem;
+    color: var(--color-texto);
+    font-weight: 600;
+  }
+  .barra-row .barra {
+    flex: 1;
+    background: #fff;
+    border-radius: 6px;
+    height: 14px;
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    position: relative;
+  }
+  .barra-row .barra .relleno {
+    height: 100%;
+    background: var(--color-primario);
+    border-radius: 0;
+  }
+  .barra-row.devengado .relleno { background: #5B7FBF; }
+  .barra-row.cobrado .relleno { background: var(--color-primario); }
+  .barra-row.gasto-pl .relleno { background: #C76740; }
+  .barra-row.pago-caja .relleno { background: var(--color-acento, #F47B20); }
+  .barra-row.recurrente .relleno { background: var(--color-positivo); }
+  .barra-row.extraordinario .relleno { background: var(--color-alerta); }
+  .barra-row .valor {
+    flex: 0 0 92px;
+    font-size: 0.78rem;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--color-primario-oscuro);
+  }
+  .pareja-card .brecha {
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    background: #fff;
+    border-radius: 6px;
+    padding: 0.4em 0.6em;
+    border-left: 3px solid var(--color-acento, #F47B20);
+    color: var(--color-texto);
+  }
+  .pareja-card .brecha strong { color: var(--color-primario-oscuro); }
 
   .acciones { display: flex; gap: 0.7rem; justify-content: flex-end; flex-wrap: wrap; margin-top: var(--space-3); }
   .privacidad { text-align: center; font-size: 0.82rem; color: var(--color-texto-sutil); padding: var(--space-3); }
@@ -143,7 +286,7 @@
 <div class="contenedor">
 
   <div class="callout info" style="margin-bottom: var(--space-4);">
-    Completa las filas de los próximos 12 meses. La herramienta suma, proyecta saldo acumulado y te avisa cuándo se pone en rojo. Los datos se quedan en tu celular.
+    Llena los recurrentes una sola vez (se aplican a los 12 meses) y registra los movimientos extraordinarios mes a mes. La herramienta te muestra cuándo la caja se acerca al rojo. Los datos se quedan en tu celular.
   </div>
 
   <!-- ========== PANEL PERSONAL ========== -->
@@ -159,8 +302,26 @@
     </div>
 
     <div class="seccion">
+      <h3>Recurrentes mensuales</h3>
+      <p class="pista">Una sola vez. Se aplican a los 12 meses; puedes ajustar cada mes después.</p>
+      <div class="grid-recurrentes">
+        <div class="campo-recurrente">
+          <label for="p-ing-rec">Ingreso recurrente mensual (B/.)</label>
+          <p class="pista-corta">Salario, ingreso fijo del mes.</p>
+          <input type="number" id="p-ing-rec" min="0" step="50" placeholder="0">
+        </div>
+        <div class="campo-recurrente">
+          <label for="p-egr-rec">Egreso recurrente mensual (B/.)</label>
+          <p class="pista-corta">Gastos típicos: vivienda, comida, servicios.</p>
+          <input type="number" id="p-egr-rec" min="0" step="50" placeholder="0">
+        </div>
+      </div>
+      <button class="primary btn-aplicar" onclick="aplicarRecurrentes('personal')">Aplicar a los 12 meses</button>
+    </div>
+
+    <div class="seccion">
       <h3>Tus próximos 12 meses</h3>
-      <p class="pista">Ingresos y egresos mes a mes. La última columna se calcula sola.</p>
+      <p class="pista">Las celdas se llenaron con los recurrentes. Ajusta cada mes si hay variación. Las extras (+/−) son movimientos puntuales (bono, vacaciones, gasto grande).</p>
       <div class="tabla-wrap">
         <table class="tabla-meses" id="tabla-personal">
           <thead><tr>
@@ -178,12 +339,12 @@
 
     <div class="grafica-wrap">
       <h3>Saldo acumulado mes a mes</h3>
-      <svg class="grafica" id="grafica-personal" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
+      <svg class="grafica" id="grafica-personal" viewBox="0 0 600 280" preserveAspectRatio="none"></svg>
     </div>
 
     <div class="kpis">
       <div class="kpi-card" id="p-kpi-minimo"><div class="etiqueta">Saldo mínimo del año</div><div class="valor">—</div><div class="pista">El mes más flaco.</div></div>
-      <div class="kpi-card" id="p-kpi-meses-rojos"><div class="etiqueta">Meses en rojo</div><div class="valor">—</div><div class="pista">Cuántos meses tu saldo entra en negativo.</div></div>
+      <div class="kpi-card" id="p-kpi-meses-rojos"><div class="etiqueta">Meses en rojo</div><div class="valor">—</div><div class="pista">Cuántos meses entras en negativo.</div></div>
       <div class="kpi-card" id="p-kpi-cambio"><div class="etiqueta">Fin vs. inicio</div><div class="valor">—</div><div class="pista">¿Terminas el año más rico, igual o más pobre?</div></div>
     </div>
 
@@ -199,7 +360,7 @@
 
     <div class="seccion">
       <h3>Caja inicial de la cooperativa</h3>
-      <p class="pista">Caja + inversiones líquidas al comienzo del año. Lo que tienen <strong>hoy</strong>.</p>
+      <p class="pista">Caja + inversiones líquidas al comienzo del año.</p>
       <div class="campo-ancho">
         <label for="c-saldo-inicial">Saldo inicial (B/.)</label>
         <input type="number" id="c-saldo-inicial" min="0" step="10000" placeholder="0">
@@ -207,17 +368,55 @@
     </div>
 
     <div class="seccion">
-      <h3>Los 12 meses de la cooperativa</h3>
-      <p class="pista">Ingresos recurrentes: intereses cobrados, comisiones. Egresos recurrentes: intereses a depositantes, salarios, operativos. Extra: aportes, aguinaldos, inversiones puntuales, retiros grandes.</p>
+      <h3>Recurrentes mensuales · vista P&amp;L y caja</h3>
+      <p class="pista">Estos 4 valores capturan las parejas <strong>1, 2 y 3</strong>. Se aplican a los 12 meses; puedes ajustar mes a mes después.</p>
+      <div class="grid-recurrentes">
+        <div class="campo-recurrente">
+          <label for="c-ing-cobrado">
+            Ingreso COBRADO mensual <span class="pareja-tag">P1 caja</span>
+          </label>
+          <p class="pista-corta">Lo que entra a caja cada mes (intereses cobrados, comisiones).</p>
+          <input type="number" id="c-ing-cobrado" min="0" step="1000" placeholder="0">
+        </div>
+        <div class="campo-recurrente">
+          <label for="c-ing-deveng-extra">
+            Ingreso DEVENGADO adicional <span class="pareja-tag">P1 P&amp;L</span>
+          </label>
+          <p class="pista-corta">Intereses generados pero no cobrados (mora, prórrogas). Suma al P&amp;L, no a la caja.</p>
+          <input type="number" id="c-ing-deveng-extra" min="0" step="500" placeholder="0">
+        </div>
+        <div class="campo-recurrente">
+          <label for="c-egr-pagado">
+            Egreso PAGADO mensual <span class="pareja-tag">P2 caja</span>
+          </label>
+          <p class="pista-corta">Lo que sale de caja: salarios, intereses pagados, opex.</p>
+          <input type="number" id="c-egr-pagado" min="0" step="1000" placeholder="0">
+        </div>
+        <div class="campo-recurrente">
+          <label for="c-provision">
+            Provisión / depreciación <span class="pareja-tag">P2 P&amp;L</span>
+          </label>
+          <p class="pista-corta">Gasto contable que NO sale de caja. Suma al gasto P&amp;L.</p>
+          <input type="number" id="c-provision" min="0" step="500" placeholder="0">
+        </div>
+      </div>
+      <button class="primary btn-aplicar" onclick="aplicarRecurrentes('cooperativa')">Aplicar a los 12 meses</button>
+    </div>
+
+    <div class="seccion">
+      <h3>Extraordinarios mes a mes</h3>
+      <p class="pista">Los recurrentes ya están aplicados. Aquí registras los movimientos puntuales de caja: aguinaldo, retiros concentrados, aportes, inversiones, pago de pólizas. La herramienta calcula saldo de caja, P&amp;L del mes y P&amp;L acumulado.</p>
       <div class="tabla-wrap">
         <table class="tabla-meses" id="tabla-cooperativa">
           <thead><tr>
             <th>Mes</th>
-            <th>Ingresos recurrentes</th>
-            <th>Egresos recurrentes</th>
+            <th>Cobrado</th>
+            <th>Pagado</th>
             <th>Extra (+)</th>
             <th>Extra (−)</th>
-            <th>Saldo acumulado</th>
+            <th>Saldo caja</th>
+            <th>P&amp;L mes</th>
+            <th>P&amp;L acum</th>
           </tr></thead>
           <tbody></tbody>
         </table>
@@ -225,14 +424,101 @@
     </div>
 
     <div class="grafica-wrap">
-      <h3>Saldo acumulado — la película del año</h3>
-      <svg class="grafica" id="grafica-cooperativa" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
+      <h3>P&amp;L acumulado vs. Caja acumulada — la divergencia</h3>
+      <p class="pista">Pareja 3 en una imagen: la utilidad sube mientras la caja se contrae.</p>
+      <svg class="grafica" id="grafica-cooperativa" viewBox="0 0 600 280" preserveAspectRatio="none"></svg>
+      <div class="leyenda">
+        <span><span class="swatch" style="background:#003DA5;"></span> Caja acumulada</span>
+        <span><span class="swatch" style="background:#2E7D55;"></span> P&amp;L acumulado</span>
+      </div>
     </div>
 
     <div class="kpis">
-      <div class="kpi-card" id="c-kpi-minimo"><div class="etiqueta">Saldo mínimo del año</div><div class="valor">—</div><div class="pista">El mes más flaco.</div></div>
-      <div class="kpi-card" id="c-kpi-meses-rojos"><div class="etiqueta">Meses en rojo</div><div class="valor">—</div><div class="pista">Meses de caja negativa.</div></div>
-      <div class="kpi-card" id="c-kpi-volatilidad"><div class="etiqueta">Volatilidad</div><div class="valor">—</div><div class="pista">Rango pico-valle del año. Cuánto oscila.</div></div>
+      <div class="kpi-card" id="c-kpi-minimo"><div class="etiqueta">Saldo mínimo del año</div><div class="valor">—</div><div class="pista">Pareja 4 — el mes más flaco.</div></div>
+      <div class="kpi-card" id="c-kpi-brecha-cobro"><div class="etiqueta">Brecha devengado vs cobrado (año)</div><div class="valor">—</div><div class="pista">Pareja 1 — lo que generaste vs lo que entró.</div></div>
+      <div class="kpi-card" id="c-kpi-brecha-gasto"><div class="etiqueta">Brecha gasto P&amp;L vs pago caja (año)</div><div class="valor">—</div><div class="pista">Pareja 2 — provisiones y depreciaciones.</div></div>
+      <div class="kpi-card" id="c-kpi-pl-vs-caja"><div class="etiqueta">Utilidad anual vs cambio caja</div><div class="valor">—</div><div class="pista">Pareja 3 — la divergencia clave.</div></div>
+    </div>
+
+    <!-- LAS 4 PAREJAS EN ESTE CASO -->
+    <div class="parejas-vista">
+      <h3>Las 4 parejas en este caso</h3>
+      <p class="pista">Visualización de cada brecha con tus números.</p>
+      <div class="pareja-grid">
+
+        <div class="pareja-card p1">
+          <h4>Pareja 1 · Ingreso ≠ cobro</h4>
+          <p>Lo que ganaste en libros (intereses devengados) vs. lo que efectivamente entró a caja.</p>
+          <div class="barras-comparacion">
+            <div class="barra-row devengado">
+              <span class="etiqueta">Devengado</span>
+              <span class="barra"><span class="relleno" id="bar-devengado" style="width: 0%;"></span></span>
+              <span class="valor" id="val-devengado">—</span>
+            </div>
+            <div class="barra-row cobrado">
+              <span class="etiqueta">Cobrado</span>
+              <span class="barra"><span class="relleno" id="bar-cobrado" style="width: 0%;"></span></span>
+              <span class="valor" id="val-cobrado">—</span>
+            </div>
+          </div>
+          <div class="brecha">Brecha anual: <strong id="brecha-p1">—</strong>. Esto es la <em>mora + prórrogas</em>. Está en libros pero no paga el aguinaldo.</div>
+        </div>
+
+        <div class="pareja-card p2">
+          <h4>Pareja 2 · Gasto ≠ pago</h4>
+          <p>Lo que el P&amp;L registra como gasto vs. lo que efectivamente desembolsa la caja.</p>
+          <div class="barras-comparacion">
+            <div class="barra-row gasto-pl">
+              <span class="etiqueta">Gasto P&amp;L</span>
+              <span class="barra"><span class="relleno" id="bar-gasto-pl" style="width: 0%;"></span></span>
+              <span class="valor" id="val-gasto-pl">—</span>
+            </div>
+            <div class="barra-row pago-caja">
+              <span class="etiqueta">Pago caja</span>
+              <span class="barra"><span class="relleno" id="bar-pago-caja" style="width: 0%;"></span></span>
+              <span class="valor" id="val-pago-caja">—</span>
+            </div>
+          </div>
+          <div class="brecha">Brecha anual: <strong id="brecha-p2">—</strong>. <em>Provisiones y depreciaciones</em> — gasto contable que no toca la caja.</div>
+        </div>
+
+        <div class="pareja-card p3">
+          <h4>Pareja 3 · Utilidad ≠ disponible</h4>
+          <p>El P&amp;L cierra positivo, pero la caja se contrae. El año "ganador" puede ser el año sin liquidez.</p>
+          <div class="barras-comparacion">
+            <div class="barra-row">
+              <span class="etiqueta">Utilidad año</span>
+              <span class="barra"><span class="relleno" id="bar-util" style="width: 0%; background: #2E7D55;"></span></span>
+              <span class="valor" id="val-util">—</span>
+            </div>
+            <div class="barra-row">
+              <span class="etiqueta">Cambio caja</span>
+              <span class="barra"><span class="relleno" id="bar-caja-delta" style="width: 0%; background: #003DA5;"></span></span>
+              <span class="valor" id="val-caja-delta">—</span>
+            </div>
+          </div>
+          <div class="brecha">La cooperativa puede sentir que tuvo "buen año" en P&amp;L mientras entra a Q4 sin liquidez. <strong id="brecha-p3">—</strong>.</div>
+        </div>
+
+        <div class="pareja-card p4">
+          <h4>Pareja 4 · Recurrente ≠ extraordinario</h4>
+          <p>El recurrente sostiene; el extraordinario decide. Modelar solo lo recurrente esconde la primera crisis.</p>
+          <div class="barras-comparacion">
+            <div class="barra-row recurrente">
+              <span class="etiqueta">Flujo recurrente</span>
+              <span class="barra"><span class="relleno" id="bar-recurrente" style="width: 0%;"></span></span>
+              <span class="valor" id="val-recurrente">—</span>
+            </div>
+            <div class="barra-row extraordinario">
+              <span class="etiqueta">Extras netos</span>
+              <span class="barra"><span class="relleno" id="bar-extras" style="width: 0%;"></span></span>
+              <span class="valor" id="val-extras">—</span>
+            </div>
+          </div>
+          <div class="brecha">El año del recurrente solo: <strong id="brecha-p4-rec">—</strong>. Con extras: <strong id="brecha-p4-real">—</strong>.</div>
+        </div>
+
+      </div>
     </div>
 
     <div class="acciones">
@@ -258,31 +544,71 @@
   function crearFilas(modo) {
     const tbody = document.querySelector("#tabla-" + modo + " tbody");
     tbody.innerHTML = "";
-    MESES.forEach((m, i) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${m}</td>
-        <td><input type="number" data-mes="${i}" data-tipo="ing" step="50" placeholder="0"></td>
-        <td><input type="number" data-mes="${i}" data-tipo="egr" step="50" placeholder="0"></td>
-        <td><input type="number" data-mes="${i}" data-tipo="extrap" step="50" placeholder="0"></td>
-        <td><input type="number" data-mes="${i}" data-tipo="extran" step="50" placeholder="0"></td>
-        <td class="calc" data-mes="${i}">—</td>
-      `;
-      tbody.appendChild(tr);
-    });
+    if (modo === "personal") {
+      MESES.forEach((m, i) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${m}</td>
+          <td><input type="number" data-mes="${i}" data-tipo="ing" step="50" placeholder="0"></td>
+          <td><input type="number" data-mes="${i}" data-tipo="egr" step="50" placeholder="0"></td>
+          <td><input type="number" data-mes="${i}" data-tipo="extrap" step="50" placeholder="0"></td>
+          <td><input type="number" data-mes="${i}" data-tipo="extran" step="50" placeholder="0"></td>
+          <td class="calc" data-tipo="saldo" data-mes="${i}">—</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    } else {
+      MESES.forEach((m, i) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${m}</td>
+          <td><input type="number" data-mes="${i}" data-tipo="cobrado" step="500" placeholder="0"></td>
+          <td><input type="number" data-mes="${i}" data-tipo="pagado" step="500" placeholder="0"></td>
+          <td><input type="number" data-mes="${i}" data-tipo="extrap" step="500" placeholder="0"></td>
+          <td><input type="number" data-mes="${i}" data-tipo="extran" step="500" placeholder="0"></td>
+          <td class="calc" data-tipo="saldo" data-mes="${i}">—</td>
+          <td class="calc pl" data-tipo="plMes" data-mes="${i}">—</td>
+          <td class="calc pl" data-tipo="plAcum" data-mes="${i}">—</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
     tbody.querySelectorAll("input").forEach(inp => inp.addEventListener("input", () => recalc(modo)));
   }
 
   function prefijo(modo) { return modo === "personal" ? "p-" : "c-"; }
 
-  function recalc(modo) {
-    const saldo0 = parseFloat(document.getElementById(prefijo(modo) + "saldo-inicial").value) || 0;
+  function aplicarRecurrentes(modo) {
     const tbody = document.querySelector("#tabla-" + modo + " tbody");
+    if (modo === "personal") {
+      const ing = parseFloat(document.getElementById("p-ing-rec").value) || 0;
+      const egr = parseFloat(document.getElementById("p-egr-rec").value) || 0;
+      for (let i = 0; i < 12; i++) {
+        tbody.rows[i].querySelector('[data-tipo="ing"]').value = ing || "";
+        tbody.rows[i].querySelector('[data-tipo="egr"]').value = egr || "";
+      }
+    } else {
+      const cob = parseFloat(document.getElementById("c-ing-cobrado").value) || 0;
+      const pag = parseFloat(document.getElementById("c-egr-pagado").value) || 0;
+      for (let i = 0; i < 12; i++) {
+        tbody.rows[i].querySelector('[data-tipo="cobrado"]').value = cob || "";
+        tbody.rows[i].querySelector('[data-tipo="pagado"]').value = pag || "";
+      }
+    }
+    recalc(modo);
+  }
+
+  function recalc(modo) {
+    if (modo === "personal") return recalcPersonal();
+    return recalcCooperativa();
+  }
+
+  function recalcPersonal() {
+    const saldo0 = parseFloat(document.getElementById("p-saldo-inicial").value) || 0;
+    const tbody = document.querySelector("#tabla-personal tbody");
     let saldo = saldo0;
     const serie = [saldo0];
-    let mesesRojos = 0;
-    let minimo = saldo0;
-    let maximo = saldo0;
+    let mesesRojos = 0, minimo = saldo0, maximo = saldo0;
 
     for (let i = 0; i < 12; i++) {
       const fila = tbody.rows[i];
@@ -290,47 +616,156 @@
       const egr = parseFloat(fila.querySelector('[data-tipo="egr"]').value) || 0;
       const extP = parseFloat(fila.querySelector('[data-tipo="extrap"]').value) || 0;
       const extN = parseFloat(fila.querySelector('[data-tipo="extran"]').value) || 0;
-      const flujo = ing + extP - egr - extN;
-      saldo += flujo;
+      saldo += ing + extP - egr - extN;
       serie.push(saldo);
       if (saldo < 0) mesesRojos++;
       if (saldo < minimo) minimo = saldo;
       if (saldo > maximo) maximo = saldo;
-      const celda = fila.querySelector(".calc");
+      const celda = fila.querySelector('[data-tipo="saldo"]');
       celda.textContent = Fmt.moneda(saldo);
       celda.className = "calc";
       if (saldo < 0) celda.classList.add("neg");
       else if (saldo < Math.max(maximo * 0.15, 500)) celda.classList.add("amarillo");
     }
 
-    // KPIs
-    const pre = prefijo(modo);
-    const kpiMin = document.getElementById(pre + "kpi-minimo");
+    const kpiMin = document.getElementById("p-kpi-minimo");
     kpiMin.querySelector(".valor").textContent = Fmt.moneda(minimo);
     kpiMin.className = "kpi-card " + (minimo < 0 ? "rojo" : minimo < Math.max(maximo * 0.15, 500) ? "amarillo" : "verde");
 
-    const kpiRojos = document.getElementById(pre + "kpi-meses-rojos");
+    const kpiRojos = document.getElementById("p-kpi-meses-rojos");
     kpiRojos.querySelector(".valor").textContent = mesesRojos;
     kpiRojos.className = "kpi-card " + (mesesRojos === 0 ? "verde" : mesesRojos <= 2 ? "amarillo" : "rojo");
 
-    if (modo === "personal") {
-      const cambio = saldo - saldo0;
-      const kpiCam = document.getElementById("p-kpi-cambio");
-      kpiCam.querySelector(".valor").textContent = (cambio >= 0 ? "+" : "") + Fmt.moneda(cambio);
-      kpiCam.className = "kpi-card " + (cambio >= saldo0 * 0.05 ? "verde" : cambio >= 0 ? "amarillo" : "rojo");
-    } else {
-      const vol = maximo - minimo;
-      const kpiVol = document.getElementById("c-kpi-volatilidad");
-      kpiVol.querySelector(".valor").textContent = Fmt.moneda(vol);
-      kpiVol.className = "kpi-card " + (vol > Math.abs(maximo) * 0.6 ? "rojo" : vol > Math.abs(maximo) * 0.3 ? "amarillo" : "verde");
-    }
+    const cambio = saldo - saldo0;
+    const kpiCam = document.getElementById("p-kpi-cambio");
+    kpiCam.querySelector(".valor").textContent = (cambio >= 0 ? "+" : "") + Fmt.moneda(cambio);
+    kpiCam.className = "kpi-card " + (cambio >= saldo0 * 0.05 ? "verde" : cambio >= 0 ? "amarillo" : "rojo");
 
-    dibujarGrafica(modo, serie);
+    dibujarGraficaSimple("personal", serie);
   }
 
-  function dibujarGrafica(modo, serie) {
+  function recalcCooperativa() {
+    const saldo0 = parseFloat(document.getElementById("c-saldo-inicial").value) || 0;
+    const devengExtra = parseFloat(document.getElementById("c-ing-deveng-extra").value) || 0;
+    const provision = parseFloat(document.getElementById("c-provision").value) || 0;
+    const tbody = document.querySelector("#tabla-cooperativa tbody");
+
+    let saldo = saldo0;
+    const serieCaja = [saldo0];
+    const seriePL = [0];
+    let plAcum = 0;
+    let mesesRojos = 0, minimo = saldo0, maximo = saldo0;
+
+    let totalCobrado = 0, totalDevengado = 0;
+    let totalPagado = 0, totalGastoPL = 0;
+    let recurrenteNeto = 0, extrasNeto = 0;
+
+    for (let i = 0; i < 12; i++) {
+      const fila = tbody.rows[i];
+      const cobrado = parseFloat(fila.querySelector('[data-tipo="cobrado"]').value) || 0;
+      const pagado = parseFloat(fila.querySelector('[data-tipo="pagado"]').value) || 0;
+      const extP = parseFloat(fila.querySelector('[data-tipo="extrap"]').value) || 0;
+      const extN = parseFloat(fila.querySelector('[data-tipo="extran"]').value) || 0;
+
+      // Caja
+      saldo += cobrado + extP - pagado - extN;
+      serieCaja.push(saldo);
+      if (saldo < 0) mesesRojos++;
+      if (saldo < minimo) minimo = saldo;
+      if (saldo > maximo) maximo = saldo;
+
+      // P&L (sólo recurrentes — extras de caja no afectan P&L en este modelo)
+      const ingPL = cobrado + devengExtra;
+      const gastoPL = pagado + provision;
+      const plMes = ingPL - gastoPL;
+      plAcum += plMes;
+      seriePL.push(plAcum);
+
+      totalCobrado += cobrado;
+      totalDevengado += ingPL;
+      totalPagado += pagado;
+      totalGastoPL += gastoPL;
+      recurrenteNeto += (cobrado - pagado);
+      extrasNeto += (extP - extN);
+
+      // Pintar celdas
+      const cSaldo = fila.querySelector('[data-tipo="saldo"]');
+      cSaldo.textContent = Fmt.moneda(saldo);
+      cSaldo.className = "calc";
+      if (saldo < 0) cSaldo.classList.add("neg");
+      else if (saldo < Math.max(maximo * 0.15, 500)) cSaldo.classList.add("amarillo");
+
+      const cPlMes = fila.querySelector('[data-tipo="plMes"]');
+      cPlMes.textContent = (plMes >= 0 ? "+" : "") + Fmt.moneda(plMes);
+      cPlMes.className = "calc pl" + (plMes < 0 ? " neg" : "");
+
+      const cPlAcum = fila.querySelector('[data-tipo="plAcum"]');
+      cPlAcum.textContent = (plAcum >= 0 ? "+" : "") + Fmt.moneda(plAcum);
+      cPlAcum.className = "calc pl" + (plAcum < 0 ? " neg" : "");
+    }
+
+    // KPIs
+    const kpiMin = document.getElementById("c-kpi-minimo");
+    kpiMin.querySelector(".valor").textContent = Fmt.moneda(minimo);
+    kpiMin.className = "kpi-card " + (minimo < 0 ? "rojo" : minimo < Math.max(maximo * 0.15, 500) ? "amarillo" : "verde");
+
+    const brechaCobro = totalDevengado - totalCobrado;
+    const kpiBC = document.getElementById("c-kpi-brecha-cobro");
+    kpiBC.querySelector(".valor").textContent = Fmt.moneda(brechaCobro);
+    kpiBC.className = "kpi-card " + (brechaCobro > totalCobrado * 0.1 ? "rojo" : brechaCobro > 0 ? "amarillo" : "verde");
+
+    const brechaGasto = totalGastoPL - totalPagado;
+    const kpiBG = document.getElementById("c-kpi-brecha-gasto");
+    kpiBG.querySelector(".valor").textContent = Fmt.moneda(brechaGasto);
+    kpiBG.className = "kpi-card amarillo";
+
+    const utilAnual = plAcum;
+    const cambioCaja = saldo - saldo0;
+    const kpiPLC = document.getElementById("c-kpi-pl-vs-caja");
+    const div = utilAnual - cambioCaja;
+    kpiPLC.querySelector(".valor").textContent =
+      (utilAnual >= 0 ? "+" : "") + Fmt.moneda(utilAnual) + " · " +
+      (cambioCaja >= 0 ? "+" : "") + Fmt.moneda(cambioCaja);
+    kpiPLC.className = "kpi-card " + (utilAnual > 0 && cambioCaja < 0 ? "rojo" : "amarillo");
+
+    // Las 4 parejas
+    const maxPareja1 = Math.max(totalDevengado, totalCobrado, 1);
+    document.getElementById("bar-devengado").style.width = (totalDevengado / maxPareja1 * 100) + "%";
+    document.getElementById("bar-cobrado").style.width = (totalCobrado / maxPareja1 * 100) + "%";
+    document.getElementById("val-devengado").textContent = Fmt.moneda(totalDevengado);
+    document.getElementById("val-cobrado").textContent = Fmt.moneda(totalCobrado);
+    document.getElementById("brecha-p1").textContent = Fmt.moneda(brechaCobro);
+
+    const maxPareja2 = Math.max(totalGastoPL, totalPagado, 1);
+    document.getElementById("bar-gasto-pl").style.width = (totalGastoPL / maxPareja2 * 100) + "%";
+    document.getElementById("bar-pago-caja").style.width = (totalPagado / maxPareja2 * 100) + "%";
+    document.getElementById("val-gasto-pl").textContent = Fmt.moneda(totalGastoPL);
+    document.getElementById("val-pago-caja").textContent = Fmt.moneda(totalPagado);
+    document.getElementById("brecha-p2").textContent = Fmt.moneda(brechaGasto);
+
+    const absMaxP3 = Math.max(Math.abs(utilAnual), Math.abs(cambioCaja), 1);
+    document.getElementById("bar-util").style.width = (Math.abs(utilAnual) / absMaxP3 * 100) + "%";
+    document.getElementById("bar-caja-delta").style.width = (Math.abs(cambioCaja) / absMaxP3 * 100) + "%";
+    document.getElementById("val-util").textContent = (utilAnual >= 0 ? "+" : "") + Fmt.moneda(utilAnual);
+    document.getElementById("val-caja-delta").textContent = (cambioCaja >= 0 ? "+" : "") + Fmt.moneda(cambioCaja);
+    const divergencia = utilAnual - cambioCaja;
+    document.getElementById("brecha-p3").textContent =
+      "Divergencia P&L − caja: " + (divergencia >= 0 ? "+" : "") + Fmt.moneda(divergencia);
+
+    const absMaxP4 = Math.max(Math.abs(recurrenteNeto), Math.abs(extrasNeto), 1);
+    document.getElementById("bar-recurrente").style.width = (Math.abs(recurrenteNeto) / absMaxP4 * 100) + "%";
+    document.getElementById("bar-extras").style.width = (Math.abs(extrasNeto) / absMaxP4 * 100) + "%";
+    document.getElementById("val-recurrente").textContent = (recurrenteNeto >= 0 ? "+" : "") + Fmt.moneda(recurrenteNeto);
+    document.getElementById("val-extras").textContent = (extrasNeto >= 0 ? "+" : "") + Fmt.moneda(extrasNeto);
+    document.getElementById("brecha-p4-rec").textContent = (recurrenteNeto >= 0 ? "+" : "") + Fmt.moneda(recurrenteNeto);
+    document.getElementById("brecha-p4-real").textContent = ((recurrenteNeto + extrasNeto) >= 0 ? "+" : "") + Fmt.moneda(recurrenteNeto + extrasNeto);
+
+    dibujarGraficaCoop(serieCaja, seriePL);
+  }
+
+  function dibujarGraficaSimple(modo, serie) {
     const svg = document.getElementById("grafica-" + modo);
-    const W = 600, H = 260, padL = 50, padR = 15, padT = 15, padB = 30;
+    const W = 600, H = 280, padL = 60, padR = 30, padT = 20, padB = 40;
     const ancho = W - padL - padR;
     const alto = H - padT - padB;
     const n = serie.length;
@@ -340,102 +775,135 @@
 
     const x = i => padL + (i / (n - 1)) * ancho;
     const y = v => padT + alto - ((v - minVal) / rango) * alto;
-
     const y0 = y(0);
 
-    let svgContent = "";
-    // Fondo
-    svgContent += `<rect x="${padL}" y="${padT}" width="${ancho}" height="${alto}" fill="#F5F7FA" rx="4"/>`;
-    // Zona negativa
+    let s = "";
+    s += `<rect x="${padL}" y="${padT}" width="${ancho}" height="${alto}" fill="#F5F7FA" rx="4"/>`;
     if (minVal < 0) {
-      svgContent += `<rect x="${padL}" y="${y0}" width="${ancho}" height="${alto + padT - y0}" fill="#FBE9E8" opacity="0.7"/>`;
+      s += `<rect x="${padL}" y="${y0}" width="${ancho}" height="${padT + alto - y0}" fill="#FBE9E8" opacity="0.7"/>`;
     }
-    // Eje cero
-    svgContent += `<line x1="${padL}" x2="${W - padR}" y1="${y0}" y2="${y0}" stroke="#B4312E" stroke-width="1.5" stroke-dasharray="4 3"/>`;
-    // Labels eje y
-    svgContent += `<text x="${padL - 6}" y="${y(maxVal) + 4}" text-anchor="end" font-size="10" fill="#5A6375" font-family="Inter">${Fmt.moneda(maxVal)}</text>`;
-    svgContent += `<text x="${padL - 6}" y="${y0 + 4}" text-anchor="end" font-size="10" fill="#B4312E" font-family="Inter">0</text>`;
+    s += `<line x1="${padL}" x2="${W - padR}" y1="${y0}" y2="${y0}" stroke="#B4312E" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+    s += `<text x="${padL - 6}" y="${y(maxVal) + 4}" text-anchor="end" font-size="10" fill="#5A6375" font-family="Inter">${Fmt.moneda(maxVal)}</text>`;
+    s += `<text x="${padL - 6}" y="${y0 + 4}" text-anchor="end" font-size="10" fill="#B4312E" font-family="Inter">0</text>`;
     if (minVal < 0) {
-      svgContent += `<text x="${padL - 6}" y="${y(minVal) + 4}" text-anchor="end" font-size="10" fill="#B4312E" font-family="Inter">${Fmt.moneda(minVal)}</text>`;
+      s += `<text x="${padL - 6}" y="${y(minVal) + 4}" text-anchor="end" font-size="10" fill="#B4312E" font-family="Inter">${Fmt.moneda(minVal)}</text>`;
     }
-    // Línea de la serie
+
     let pathD = "";
-    for (let i = 0; i < n; i++) {
-      pathD += (i === 0 ? "M " : "L ") + x(i) + " " + y(serie[i]) + " ";
-    }
-    // Área bajo la curva
+    for (let i = 0; i < n; i++) pathD += (i === 0 ? "M " : "L ") + x(i) + " " + y(serie[i]) + " ";
     let areaD = pathD + " L " + x(n - 1) + " " + y0 + " L " + x(0) + " " + y0 + " Z";
-    svgContent += `<path d="${areaD}" fill="#003DA5" fill-opacity="0.08"/>`;
-    svgContent += `<path d="${pathD}" fill="none" stroke="#003DA5" stroke-width="2.5" stroke-linejoin="round"/>`;
-    // Puntos
+    s += `<path d="${areaD}" fill="#003DA5" fill-opacity="0.08"/>`;
+    s += `<path d="${pathD}" fill="none" stroke="#003DA5" stroke-width="2.5" stroke-linejoin="round"/>`;
     for (let i = 0; i < n; i++) {
       const color = serie[i] < 0 ? "#B4312E" : "#003DA5";
-      svgContent += `<circle cx="${x(i)}" cy="${y(serie[i])}" r="3.5" fill="${color}"/>`;
+      s += `<circle cx="${x(i)}" cy="${y(serie[i])}" r="3.5" fill="${color}"/>`;
     }
-    // Labels eje x
+
     const etiquetas = ["Ini", ...MESES];
     for (let i = 0; i < n; i++) {
-      if (i % 2 === 0 || i === n - 1) {
-        svgContent += `<text x="${x(i)}" y="${H - padB + 15}" text-anchor="middle" font-size="10" fill="#5A6375" font-family="Inter">${etiquetas[i]}</text>`;
-      }
+      s += `<text x="${x(i)}" y="${H - padB + 16}" text-anchor="middle" font-size="9" fill="#5A6375" font-family="Inter">${etiquetas[i]}</text>`;
     }
-    svg.innerHTML = svgContent;
+    svg.innerHTML = s;
+  }
+
+  function dibujarGraficaCoop(serieCaja, seriePL) {
+    const svg = document.getElementById("grafica-cooperativa");
+    const W = 600, H = 280, padL = 60, padR = 30, padT = 20, padB = 40;
+    const ancho = W - padL - padR;
+    const alto = H - padT - padB;
+    const n = serieCaja.length;
+
+    const allVals = serieCaja.concat(seriePL);
+    const maxVal = Math.max(...allVals, 0);
+    const minVal = Math.min(...allVals, 0);
+    const rango = maxVal - minVal || 1;
+
+    const x = i => padL + (i / (n - 1)) * ancho;
+    const y = v => padT + alto - ((v - minVal) / rango) * alto;
+    const y0 = y(0);
+
+    let s = "";
+    s += `<rect x="${padL}" y="${padT}" width="${ancho}" height="${alto}" fill="#F5F7FA" rx="4"/>`;
+    s += `<line x1="${padL}" x2="${W - padR}" y1="${y0}" y2="${y0}" stroke="#5A6375" stroke-width="1" stroke-dasharray="4 3"/>`;
+    s += `<text x="${padL - 6}" y="${y(maxVal) + 4}" text-anchor="end" font-size="10" fill="#5A6375" font-family="Inter">${Fmt.moneda(maxVal)}</text>`;
+    s += `<text x="${padL - 6}" y="${y0 + 4}" text-anchor="end" font-size="10" fill="#5A6375" font-family="Inter">0</text>`;
+    if (minVal < 0) {
+      s += `<text x="${padL - 6}" y="${y(minVal) + 4}" text-anchor="end" font-size="10" fill="#B4312E" font-family="Inter">${Fmt.moneda(minVal)}</text>`;
+    }
+
+    // Caja (azul)
+    let pathCaja = "";
+    for (let i = 0; i < n; i++) pathCaja += (i === 0 ? "M " : "L ") + x(i) + " " + y(serieCaja[i]) + " ";
+    s += `<path d="${pathCaja}" fill="none" stroke="#003DA5" stroke-width="2.5" stroke-linejoin="round"/>`;
+    for (let i = 0; i < n; i++) {
+      s += `<circle cx="${x(i)}" cy="${y(serieCaja[i])}" r="3" fill="#003DA5"/>`;
+    }
+
+    // P&L (verde)
+    let pathPL = "";
+    for (let i = 0; i < n; i++) pathPL += (i === 0 ? "M " : "L ") + x(i) + " " + y(seriePL[i]) + " ";
+    s += `<path d="${pathPL}" fill="none" stroke="#2E7D55" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6 3"/>`;
+    for (let i = 0; i < n; i++) {
+      s += `<circle cx="${x(i)}" cy="${y(seriePL[i])}" r="3" fill="#2E7D55"/>`;
+    }
+
+    const etiquetas = ["Ini", ...MESES];
+    for (let i = 0; i < n; i++) {
+      s += `<text x="${x(i)}" y="${H - padB + 16}" text-anchor="middle" font-size="9" fill="#5A6375" font-family="Inter">${etiquetas[i]}</text>`;
+    }
+    svg.innerHTML = s;
   }
 
   function cargarPresetPersonal() {
     document.getElementById("p-saldo-inicial").value = 3500;
-    const ingresos = Array(12).fill(2200);
-    const gastos = Array(12).fill(1800);
-    const extrasMas = Array(12).fill(0); extrasMas[5] = 1200; // bono mitad de año
-    const extrasMenos = Array(12).fill(0); extrasMenos[0] = 400; extrasMenos[11] = 900;
-    llenarTabla("personal", { ingresos, gastos, extrasMas, extrasMenos });
+    document.getElementById("p-ing-rec").value = 2200;
+    document.getElementById("p-egr-rec").value = 1800;
+    aplicarRecurrentes("personal");
+    const tbody = document.querySelector("#tabla-personal tbody");
+    tbody.rows[5].querySelector('[data-tipo="extrap"]').value = 1200; // bono mitad de año
+    tbody.rows[0].querySelector('[data-tipo="extran"]').value = 400;
+    tbody.rows[11].querySelector('[data-tipo="extran"]').value = 900;
     recalc("personal");
   }
 
   function cargarPresetCooperativa() {
     // Caso El Paraíso, año previo a la crisis
     document.getElementById("c-saldo-inicial").value = 500000;
-    const ingresos = Array(12).fill(180000); // intereses cobrados mensual
-    const gastos = Array(12).fill(148000);   // intereses pagados + opex + provisiones
-    const extrasMas = Array(12).fill(0);
-    const extrasMenos = Array(12).fill(0);
-    // Dec: aguinaldo + renovación pólizas
-    extrasMenos[11] = 165000;
-    // Ene: inicio clases, caída neta en cobranza por créditos nuevos
-    extrasMenos[0] = 75000;
-    // May: aportes anuales asociados
-    extrasMas[4] = 45000;
-    // Jul: XIII mes
-    extrasMenos[6] = 65000;
-    // Oct-Nov: rumores y retiros anticipados
-    extrasMenos[9] = 95000;
-    extrasMenos[10] = 140000;
-    llenarTabla("cooperativa", { ingresos, gastos, extrasMas, extrasMenos });
+    document.getElementById("c-ing-cobrado").value = 180000;       // entra a caja
+    document.getElementById("c-ing-deveng-extra").value = 9000;    // intereses generados pero no cobrados (mora)
+    document.getElementById("c-egr-pagado").value = 148000;        // sale de caja
+    document.getElementById("c-provision").value = 25000;          // provisión + depreciación (no caja)
+    aplicarRecurrentes("cooperativa");
+    const tbody = document.querySelector("#tabla-cooperativa tbody");
+    tbody.rows[11].querySelector('[data-tipo="extran"]').value = 165000; // Dic aguinaldo + pólizas
+    tbody.rows[0].querySelector('[data-tipo="extran"]').value = 75000;   // Ene inicio clases
+    tbody.rows[4].querySelector('[data-tipo="extrap"]').value = 45000;   // May aportes anuales
+    tbody.rows[6].querySelector('[data-tipo="extran"]').value = 65000;   // Jul XIII
+    tbody.rows[9].querySelector('[data-tipo="extran"]').value = 95000;   // Oct retiros
+    tbody.rows[10].querySelector('[data-tipo="extran"]').value = 140000; // Nov retiros
     recalc("cooperativa");
   }
 
-  function llenarTabla(modo, datos) {
-    const tbody = document.querySelector("#tabla-" + modo + " tbody");
-    for (let i = 0; i < 12; i++) {
-      const fila = tbody.rows[i];
-      fila.querySelector('[data-tipo="ing"]').value = datos.ingresos[i] || "";
-      fila.querySelector('[data-tipo="egr"]').value = datos.gastos[i] || "";
-      fila.querySelector('[data-tipo="extrap"]').value = datos.extrasMas[i] || "";
-      fila.querySelector('[data-tipo="extran"]').value = datos.extrasMenos[i] || "";
-    }
-  }
-
   function snapshot(modo) {
-    const data = { saldoInicial: document.getElementById(prefijo(modo) + "saldo-inicial").value, filas: [] };
+    const data = {
+      saldoInicial: document.getElementById(prefijo(modo) + "saldo-inicial").value,
+      filas: []
+    };
+    if (modo === "personal") {
+      data.ingRec = document.getElementById("p-ing-rec").value;
+      data.egrRec = document.getElementById("p-egr-rec").value;
+    } else {
+      data.cobrado = document.getElementById("c-ing-cobrado").value;
+      data.devengExtra = document.getElementById("c-ing-deveng-extra").value;
+      data.pagado = document.getElementById("c-egr-pagado").value;
+      data.provision = document.getElementById("c-provision").value;
+    }
     const tbody = document.querySelector("#tabla-" + modo + " tbody");
     for (let i = 0; i < 12; i++) {
       const fila = tbody.rows[i];
-      data.filas.push({
-        ing: fila.querySelector('[data-tipo="ing"]').value,
-        egr: fila.querySelector('[data-tipo="egr"]').value,
-        extrap: fila.querySelector('[data-tipo="extrap"]').value,
-        extran: fila.querySelector('[data-tipo="extran"]').value
-      });
+      const obj = {};
+      fila.querySelectorAll("input").forEach(inp => obj[inp.dataset.tipo] = inp.value);
+      data.filas.push(obj);
     }
     return data;
   }
@@ -443,18 +911,37 @@
   function restore(modo, data) {
     if (!data) return;
     document.getElementById(prefijo(modo) + "saldo-inicial").value = data.saldoInicial || "";
+    if (modo === "personal") {
+      if (data.ingRec !== undefined) document.getElementById("p-ing-rec").value = data.ingRec;
+      if (data.egrRec !== undefined) document.getElementById("p-egr-rec").value = data.egrRec;
+    } else {
+      if (data.cobrado !== undefined) document.getElementById("c-ing-cobrado").value = data.cobrado;
+      if (data.devengExtra !== undefined) document.getElementById("c-ing-deveng-extra").value = data.devengExtra;
+      if (data.pagado !== undefined) document.getElementById("c-egr-pagado").value = data.pagado;
+      if (data.provision !== undefined) document.getElementById("c-provision").value = data.provision;
+    }
     const tbody = document.querySelector("#tabla-" + modo + " tbody");
     for (let i = 0; i < 12 && i < data.filas.length; i++) {
       const fila = tbody.rows[i];
-      fila.querySelector('[data-tipo="ing"]').value = data.filas[i].ing || "";
-      fila.querySelector('[data-tipo="egr"]').value = data.filas[i].egr || "";
-      fila.querySelector('[data-tipo="extrap"]').value = data.filas[i].extrap || "";
-      fila.querySelector('[data-tipo="extran"]').value = data.filas[i].extran || "";
+      const f = data.filas[i];
+      Object.keys(f).forEach(key => {
+        const inp = fila.querySelector('[data-tipo="' + key + '"]');
+        if (inp) inp.value = f[key] || "";
+      });
     }
   }
 
   function limpiar(modo) {
     document.getElementById(prefijo(modo) + "saldo-inicial").value = "";
+    if (modo === "personal") {
+      document.getElementById("p-ing-rec").value = "";
+      document.getElementById("p-egr-rec").value = "";
+    } else {
+      document.getElementById("c-ing-cobrado").value = "";
+      document.getElementById("c-ing-deveng-extra").value = "";
+      document.getElementById("c-egr-pagado").value = "";
+      document.getElementById("c-provision").value = "";
+    }
     const tbody = document.querySelector("#tabla-" + modo + " tbody");
     tbody.querySelectorAll("input").forEach(i => i.value = "");
     Store.borrar("pelicula-" + modo);
@@ -485,8 +972,10 @@
   // Init
   crearFilas("personal");
   crearFilas("cooperativa");
-  document.getElementById("p-saldo-inicial").addEventListener("input", () => recalc("personal"));
-  document.getElementById("c-saldo-inicial").addEventListener("input", () => recalc("cooperativa"));
+  ["p-saldo-inicial", "p-ing-rec", "p-egr-rec"].forEach(id =>
+    document.getElementById(id).addEventListener("input", () => recalc("personal")));
+  ["c-saldo-inicial", "c-ing-cobrado", "c-ing-deveng-extra", "c-egr-pagado", "c-provision"].forEach(id =>
+    document.getElementById(id).addEventListener("input", () => recalc("cooperativa")));
   restore("personal", Store.leer("pelicula-personal"));
   restore("cooperativa", Store.leer("pelicula-cooperativa"));
   recalc("personal");

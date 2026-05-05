@@ -19,10 +19,11 @@
 ## Bloque 0 — Apertura (0:00–0:05 · 5 min)
 
 **Voz:** facilitador principal.
+**Slides:** 1 (portada) → 2 (Poll #1 con opciones).
 
-- [0:00] Bienvenida. Reconocer que es la última sesión.
+- [0:00] **[Slide 1 · Portada]** Bienvenida. Reconocer que es la última sesión.
   > *"La última vez nos vemos en este curso. Hoy cerramos."*
-- [0:01] Pregunta disparadora:
+- [0:01] **[Slide 2 · Pregunta disparadora]**
   > **"Si un asesor te ofrece B/. 500,000 al 9% anual para tu cooperativa, ¿qué haces antes de decir sí?"**
 - [0:02] **[POLL #1]** — marca todas las que harías:
   - (a) Negociar la tasa.
@@ -37,10 +38,11 @@
 ## Bloque 1 — Caso "dos ofertas, una cooperativa" (0:05–0:15 · 10 min)
 
 **Voz:** co-facilitador abre · facilitador principal cierra.
+**Slides:** 3 (banner "Dos ofertas") → 4 (tabla A vs B).
 
-- [0:05] Co-facilitador cuenta la situación:
+- [0:05] **[Slide 3 · Banner caso]** Co-facilitador cuenta la situación:
   > *"Cooperativa mediana, 22 años, quiere invertir B/. 1.5M en abrir una sucursal en un distrito vecino. Análisis dice que recuperará inversión en 7 años. Dos bancos le ofrecen crédito."*
-- [0:07] Slide con dos ofertas lado a lado:
+- [0:07] **[Slide 4 · Tabla A vs B]** Dos ofertas lado a lado:
 
 ### Oferta A (banco 1)
 - Tasa nominal: 8.5% anual
@@ -63,10 +65,11 @@
 ## Bloque 2 — Concepto pegajoso: "Tasa cuenta, plazo pesa" (0:15–0:30 · 15 min)
 
 **Voz:** facilitador principal.
+**Slides:** 5 (concepto "Tasa cuenta, plazo pesa") → 6 (3 cosas + TEA).
 
-- [0:15] Slide con el concepto grande:
+- [0:15] **[Slide 5 · Tasa cuenta, plazo pesa]** Concepto grande:
   > **"Tasa cuenta. Plazo pesa."**
-- [0:17] Desglose: **3 cosas que no son la tasa** pero cambian el costo real:
+- [0:17] **[Slide 6 · 3 cosas + TEA]** Desglose: **3 cosas que no son la tasa** pero cambian el costo real:
 
 ### 1. Comisiones
 - Apertura, manejo, seguros atados, comisiones mensuales.
@@ -92,13 +95,14 @@
 ## Bloque 3 — Herramienta en vivo: Costo real del crédito (0:30–0:50 · 20 min)
 
 **Voz:** facilitador principal guía · co-facilitador modera chat.
+**Slides:** 7 (banner herramienta) → 8 (QR) → 9 (tabla resultados comparador) → 10 (callout "B barata si...").
 
-- [0:30] Slide con QR + URL.
+- [0:30] **[Slide 7 → 8 · Banner + QR]** 1 min para escanear.
 - [0:31] *"Abre la herramienta y carga el ejemplo del curso. Vamos a desmontar las dos ofertas juntos."*
 - [0:33] Con botón "Cargar ejemplo del curso" (precargado con las ofertas del caso):
   - Oferta A: B/. 1.5M, 8.5%, 84 meses, 2% apertura, B/. 75 mensual.
   - Oferta B: B/. 1.5M, 5.5%, 36 meses, 1.33% costo emisión, sin mensual.
-- [0:36] Guiar lectura de resultados:
+- [0:36] **[Slide 9 · Resultados comparador]** Guiar lectura:
   - **Cuota mensual A:** B/. 23,800. Cuota mensual B: B/. 45,300.
   - **Costo total A:** ≈B/. 527,000. Costo total B: ≈B/. 150,000.
   - **Veredicto de la herramienta:** B es más barato en total.
@@ -108,7 +112,7 @@
   - (a) Opción A (7 años).
   - (b) Opción B (3 años).
   - (c) Una combinación.
-- [0:46] Análisis:
+- [0:46] **[Slide 10 · Callout "B barata si..."]** Análisis:
   > *"Opción B tiene costo bajo pero **termina en año 3** — justo cuando la inversión empieza a producir bien. Hay que refinanciarla. Riesgo de refinanciación = tasa futura desconocida. Opción A es más cara pero **calza con el horizonte de producción** de la inversión. **Plazo pesa.**"*
 - [0:49] Cierre del bloque:
   > *"Hace 15 minutos la mayoría elegía B por la tasa. ¿Cuántos siguen eligiendo B?"*
@@ -118,6 +122,9 @@
 ## Bloque 4 — Buen vs. mal endeudamiento (0:50–1:00 · 10 min)
 
 **Voz:** facilitador principal · co-facilitador aporta ejemplos.
+**Slides:** 11 (3 preguntas buen vs mal) → 12 (3 señales de alerta).
+
+- [0:50] **[Slide 11 · 3 preguntas]**
 
 ### 3 preguntas que distinguen uno del otro
 
@@ -133,7 +140,7 @@
    - **Bueno:** plan B que no destruye patrimonio.
    - **Malo:** una sola tormenta compromete todo.
 
-### 3 señales de alerta típicas
+### 3 señales de alerta típicas — **[Slide 12 · 3 señales]**
 
 - *"No te preocupes por la tasa, mira la cuota."* → plazo estirado escondiendo el costo.
 - *"Esto es solo hasta que crucemos el año."* → moviendo problema de caja a balance.
@@ -143,15 +150,21 @@
 
 ## Bloque 5 — Break activo (1:00–1:05 · 5 min)
 
-- **[POLL #3]:** *"De las 3 señales de alerta, ¿cuál has oído literalmente en una oferta real?"*
+**Voz:** co-facilitador.
+**Slide:** se reusa Slide 12 (señales) o banner break.
+
+- [1:00] Música instrumental por stream. Cámaras y micros desbloqueados.
+- [1:01] **[POLL #3]** *"De las 3 señales de alerta, ¿cuál has oído literalmente en una oferta real?"*
+- [1:04] Aviso a 1 minuto.
 
 ---
 
 ## Bloque 6 — Caso integrador (1:05–1:30 · 25 min)
 
 **Voz:** facilitador principal introduce · ambos guían · participantes resuelven en vivo.
+**Slides:** 13 (banner "Esfuerzo Unido") → 14 (datos) → 15 (3 opciones) → 16 (Poll #4).
 
-- [1:05] Slide con el caso:
+- [1:05] **[Slide 13 → 14 · Esfuerzo Unido + datos]** Caso:
   > **Esfuerzo Unido R.L.** — cooperativa 22 años, 2,800 asociados, activos B/. 28M, patrimonio B/. 3.6M, caja + líquido B/. 1.2M, utilidad año B/. 380k, mora 7%.
   >
   > Propuesta del gerente: **inversión de B/. 1.5M** en nueva sucursal. Estimación: +B/. 200k/año desde año 3.
@@ -163,11 +176,11 @@
   >
   > **¿Qué recomendarías y por qué?**
 
-- [1:08] Los participantes hacen el recorrido con las herramientas:
+- [1:08] **[Slide 15 · 3 opciones]** Los participantes hacen el recorrido con las herramientas:
   - **Abre Mi foto financiera** → ingresa los datos de Esfuerzo Unido. Ve adecuación, concentración.
   - **Abre Mi película del mes** → piensa en el efecto de cada opción en el flujo.
   - **Abre Costo real del crédito** → compara B y C.
-- [1:18] **[POLL #4]:** *"¿Qué recomiendas?"*
+- [1:18] **[Slide 16 · Poll #4]** *"¿Qué recomiendas?"*
   - (a) Opción A.
   - (b) Opción B.
   - (c) Opción C.
@@ -181,14 +194,15 @@
 ## Bloque 7 — Ritual de cierre del curso (1:30–1:50 · 20 min)
 
 **Voz:** facilitador principal.
+**Slides:** 17 (mapa 8 palancas todas) → 18 (checklist 7 señales) → 19 (frase cierre azul) → 20 (invitación + contacto).
 
-- [1:30] Slide con **mapa completo** de 8 palancas, todas marcadas como trabajadas.
+- [1:30] **[Slide 17 · Mapa 8 palancas todas]** Todas marcadas como trabajadas.
 - [1:31] Retrospectiva breve:
   > *"Sesión 1: llegaron mirando el balance con respeto sordo. Salieron con la regla de los tres cuadros.*
   > *Sesión 2: entendieron que foto miente; película no.*
   > *Sesión 3: abrieron las 4 gavetas.*
   > *Hoy: desmontaron la tasa. Y juntaron todo en un caso real."*
-- [1:34] Entregar el **checklist de cierre del curso** (7 señales del buen crédito):
+- [1:34] **[Slide 18 · Checklist 7 señales]** Entregar el **checklist de cierre del curso** (7 señales del buen crédito):
 
 ### 7 señales para distinguir una decisión de crédito bien hecha
 
@@ -200,10 +214,10 @@
 6. ¿Lo puedo explicar en 90 segundos a un asociado sin ocultar nada?
 7. Si esto fuera mi plata personal, ¿lo haría?
 
-- [1:40] **La frase de cierre del curso:**
+- [1:40] **[Slide 19 · Frase de cierre]**
   > **"La asesoría financiera no es para quien no sabe. Es para quien quiere tomar mejores decisiones."**
 
-- [1:43] **Invitación (sin pitch):**
+- [1:43] **[Slide 20 · Invitación + contacto]** Sin pitch:
   > *"Si alguna cooperativa aquí quiere explorar asesoría profesional en gestión de inversiones y flujo de caja, les dejo mi contacto en el chat. No hoy, no mañana — cuando lo sientan. Si prefieren con otra firma, también está bien. Ahora saben qué preguntar."*
 - [1:46] **Invitación a sesión de seguimiento opcional:**
   > *"En 2 semanas hacemos una sesión de preguntas abiertas por videollamada. Opcional, sin agenda fija. Para lo que les haya surgido al aplicar esto en sus cooperativas. Si les interesa, respondan 'sí' en la encuesta de cierre."*
@@ -213,11 +227,12 @@
 ## Bloque 8 — Cierre emocional + evaluación (1:50–2:00 · 10 min)
 
 **Voz:** facilitador principal.
+**Slides:** 21 (Poll #5 word cloud) → 22 (post-test QR) → 23 (Gracias).
 
-- [1:50] **[POLL #5]:** *"En una palabra, ¿cómo se van del curso?"* (muestra word cloud en vivo).
+- [1:50] **[Slide 21 · Poll #5 word cloud]** *"En una palabra, ¿cómo se van del curso?"* (muestra word cloud en vivo).
 - [1:52] Leer en voz alta 8-10 palabras del word cloud.
-- [1:54] **Post-test del curso.** Slide con QR. *"Un último pedido: 10 minutos para contarnos cómo fue. Las primeras 8 preguntas son las mismas del pre-test — así medimos cuánto movió el curso tu conocimiento. El resto es evaluación integral + NPS. Es anónimo opcional, y sinceramente, es nuestro insumo más valioso para mejorar la siguiente cohorte."* Pega en el chat: `https://forms.gle/juVNGrodnWJccfht9`.
-- [1:56] Agradecimiento genuino:
+- [1:54] **[Slide 22 · Post-test QR]** *"Un último pedido: 10 minutos para contarnos cómo fue. Las primeras 8 preguntas son las mismas del pre-test — así medimos cuánto movió el curso tu conocimiento. El resto es evaluación integral + NPS. Es anónimo opcional, y sinceramente, es nuestro insumo más valioso para mejorar la siguiente cohorte."* Pega en el chat: `https://forms.gle/juVNGrodnWJccfht9`.
+- [1:56] **[Slide 23 · Gracias]** Agradecimiento genuino:
   > *"Gracias por 8 horas de atención, de preguntas, de paciencia con lo que no supimos explicar bien. Este grupo particular nos enseñó cosas que se van a colar en las próximas cohortes. Gracias de verdad."*
 - [1:58] Cerrar exactamente en 2:00.
 

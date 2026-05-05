@@ -156,12 +156,28 @@
 
 <section>
   <div class="kicker">Lo que nadie vio a tiempo</div>
-  <h3>El saldo seguía positivo... hasta que los pagos de diciembre llegaron</h3>
-  <div class="tarjeta alerta">
-    <p style="font-size: 1em;">Diciembre cerró con <strong>B/. 389k</strong>. Depósitos exigibles a la vista: <strong>B/. 3.2M</strong>. Aguinaldo y proveedores: <strong>B/. 205k</strong>. Pago simultáneo de un solo depositante mediano = caja en rojo.</p>
+  <h3>Por qué B/. 389k de cierre <em>no alcanzaron</em></h3>
+  <div style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 1em; align-items: stretch; margin-top: 0.4em;">
+    <div class="tarjeta" style="background: #fff; border: 1px solid var(--m-borde); padding: 1em 1.1em;">
+      <div class="kicker" style="color: var(--m-primario);">La cuenta del 31 de diciembre</div>
+      <table style="width: 100%; font-size: 0.7em; margin-top: 0.4em;">
+        <tr><td>Saldo de caja al cierre</td><td class="num"><strong>B/. 389,000</strong></td></tr>
+        <tr><td>− Aguinaldo + XIII (pago inmediato)</td><td class="num">−120,000</td></tr>
+        <tr><td>− Proveedores con vencimiento en enero</td><td class="num">−85,000</td></tr>
+        <tr style="border-top: 2px solid var(--m-primario);"><td><strong>Disponible real</strong></td><td class="num"><strong>B/. 184,000</strong></td></tr>
+        <tr><td>Mínimo operativo (política interna)</td><td class="num">B/. 200,000</td></tr>
+        <tr class="peligro"><td><strong>Brecha antes de cualquier retiro</strong></td><td class="num"><strong>−B/. 16,000</strong></td></tr>
+      </table>
+    </div>
+    <div class="tarjeta alerta" style="padding: 1em 1.1em;">
+      <div class="kicker" style="color: var(--m-alerta);">Y entonces…</div>
+      <p style="font-size: 0.78em; margin: 0.3em 0;">Depósitos exigibles a la vista: <strong>B/. 3.2M</strong>.</p>
+      <p style="font-size: 0.78em; margin: 0.3em 0;">Cualquier retiro de un depositante mediano (B/. 50–100k) <strong>obliga a préstamo de emergencia</strong>.</p>
+      <p style="font-size: 0.78em; margin: 0.3em 0;"><em>El balance del 30 sep mostraba "todo bien". El indicador clave (cobertura) ya estaba cayendo.</em></p>
+    </div>
   </div>
-  <div class="callout-grande acento" style="margin-top: 0.8em;">
-    <em>"Lo importante no es que en diciembre faltó plata. Lo importante es que el indicador cambió en octubre — y nadie en la junta lo miraba. No porque fueran irresponsables. Porque nunca habíamos mirado la película, solo la foto del año."</em>
+  <div class="callout-grande acento" style="margin-top: 0.7em; font-size: 0.9em;">
+    <em>"Lo importante no es que en diciembre faltó plata. Lo importante es que el indicador cambió en octubre — y nadie en la junta lo miraba."</em>
   </div>
 </section>
 
@@ -315,6 +331,47 @@
   </ul>
 </section>
 
+<!-- PANEL MATERIAL POLL #4 -->
+<section>
+  <div class="kicker">Material para enriquecer el debate</div>
+  <h3 style="margin-top: 0.2em;">¿Qué dice realmente cada indicador?</h3>
+  <table style="font-size: 0.55em; margin-top: 0.4em;">
+    <thead><tr>
+      <th style="width: 14%;">Indicador</th>
+      <th>Para qué sirve</th>
+      <th>Cuándo es mejor</th>
+      <th>Sesgo / debilidad</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>(a) Saldo de caja</strong></td>
+        <td>Foto rápida de tesorería. Tendencia mes/mes.</td>
+        <td>Cooperativas pequeñas. Primer indicador a instalar.</td>
+        <td>Solo es foto. Esconde compromisos pendientes — 389k con 205k a pagar la próxima semana <em>engaña</em>.</td>
+      </tr>
+      <tr>
+        <td><strong>(b) Cobertura</strong></td>
+        <td>Mide si la caja aguanta una salida concentrada.</td>
+        <td>Cooperativas con mucho depósito a la vista. <em>El que faltó a El Paraíso.</em></td>
+        <td>Sensible a la definición del denominador — distintos auditores cuentan distinto.</td>
+      </tr>
+      <tr>
+        <td><strong>(c) Flujo neto</strong></td>
+        <td>Velocidad de drenado o llenado. Tendencia.</td>
+        <td>Cooperativas en crecimiento. Detecta si se quema caja.</td>
+        <td>Cero información sobre stock. Un mes negativo no es problema si el saldo aguanta.</td>
+      </tr>
+      <tr>
+        <td><strong>(d) Proyección 3M</strong></td>
+        <td>Anticipa antes de que pase. <strong>La película misma.</strong></td>
+        <td>Cooperativas profesionalizadas, con planeación.</td>
+        <td>Calidad depende de los supuestos. Si son flojos, el indicador <em>miente con autoridad</em>.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="nota-facilitador">Lectura del facilitador, no leer textual. Usar para responder defensas del chat.</div>
+</section>
+
 <section>
   <div class="callout-grande acento">
     <p>Las 4 son defendibles. <strong>Lo que no es defendible</strong> es no pedir ninguna. Una cooperativa que nunca proyecta su caja está manejando con los ojos solo en el retrovisor.</p>
@@ -340,19 +397,40 @@
 
 <section>
   <h3>Checklist para tu próxima junta</h3>
-  <ul class="checklist">
-    <li>¿Cómo se ve el saldo de caja proyectado a 90 días si no hacemos nada?</li>
-    <li>¿Cuánto de los depósitos son a la vista o a plazo &lt; 90 días?</li>
-    <li>¿Qué gastos extraordinarios tenemos agendados en los próximos 6 meses?</li>
-    <li>¿Cómo cambia la caja si la mora sube 2 puntos porcentuales?</li>
+  <ul class="checklist" style="font-size: 0.85em;">
+    <li>
+      <strong>¿Cómo se ve el saldo de caja proyectado a 90 días si no hacemos nada?</strong>
+      <div style="font-size: 0.78em; color: var(--m-texto-sutil); margin-top: 0.2em; font-style: italic;">Ej: hoy B/. 1.2M → en 90 días B/. 980k tras pagos planificados (XIII y proveedores Q4).</div>
+    </li>
+    <li>
+      <strong>¿Cuánto de los depósitos son a la vista o a plazo &lt; 90 días?</strong>
+      <div style="font-size: 0.78em; color: var(--m-texto-sutil); margin-top: 0.2em; font-style: italic;">Ej: B/. 8M total · B/. 3.2M exigibles &lt;90d (40%) → cobertura actual 38%.</div>
+    </li>
+    <li>
+      <strong>¿Qué gastos extraordinarios tenemos agendados en los próximos 6 meses?</strong>
+      <div style="font-size: 0.78em; color: var(--m-texto-sutil); margin-top: 0.2em; font-style: italic;">Ej: aguinaldo 120k · pólizas 35k · auditoría 18k · mantenimiento sucursal 25k = 198k concentrados Nov-Dic.</div>
+    </li>
+    <li>
+      <strong>¿Cómo cambia la caja si la mora sube 2 puntos porcentuales?</strong>
+      <div style="font-size: 0.78em; color: var(--m-texto-sutil); margin-top: 0.2em; font-style: italic;">Ej: cartera 25M × 2pp = 500k menos cobranza/año · 42k menos por mes en caja.</div>
+    </li>
   </ul>
 </section>
 
 <section>
-  <div class="tarjeta acento" style="padding: 2em;">
+  <div class="tarjeta acento" style="padding: 1.8em;">
     <div class="kicker">Micro-tarea hasta la Sesión 3</div>
     <h2 style="margin-top: 0.3em;">Lista 2-3 productos donde tu cooperativa (o tú) tiene plata hoy.</h2>
-    <p style="font-size: 1em; margin-top: 0.5em;">Nombre · entidad · plazo aproximado. Sin montos si no deseas.</p>
+    <p style="font-size: 0.95em; margin-top: 0.5em;"><strong>Nombre · entidad · plazo aproximado.</strong> Sin montos si no deseas.</p>
+    <div style="background: #fff; border-radius: 8px; padding: 0.9em 1.1em; margin-top: 1em; font-size: 0.78em;">
+      <strong style="color: var(--m-primario-oscuro);">¿Por qué pedimos la entidad?</strong>
+      <ul style="margin: 0.4em 0 0 1em; line-height: 1.5;">
+        <li><strong>Concentración:</strong> tres DPF en el mismo banco no son la misma diversificación que tres DPF en tres bancos.</li>
+        <li><strong>Calidad crediticia:</strong> no todos los emisores tienen el mismo perfil de riesgo.</li>
+        <li><strong>Diversificación efectiva:</strong> en cuántas canastas viven los huevos.</li>
+      </ul>
+      <p style="margin: 0.5em 0 0 0; font-style: italic; color: var(--m-texto-sutil);">En Sesión 3 abrimos esa palanca (palanca 7).</p>
+    </div>
   </div>
 </section>
 

@@ -28,10 +28,11 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 ## Bloque 0 — Apertura (0:00–0:05 · 5 min)
 
 **Voz:** facilitador principal.
+**Slides:** 1 (portada) → 2 (Poll #1).
 
-- [0:00] Bienvenida. Conectar con Sesiones 1 y 2:
+- [0:00] **[Slide 1 · Portada]** Bienvenida. Conectar con Sesiones 1 y 2:
   > *"Ya leemos foto y película. Hoy abrimos la caja de herramientas."*
-- [0:02] Pregunta disparadora:
+- [0:02] **[Slide 2 · Pregunta disparadora]**
   > **"Si tuvieras que invertir B/. 100,000 de tu cooperativa mañana y solo puedes hacer UNA pregunta antes, ¿cuál sería?"**
 - [0:03] **[POLL #1]**:
   - (a) ¿Cuánto rinde?
@@ -46,12 +47,13 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 ## Bloque 1 — Caso "la inversión del excedente" (0:05–0:15 · 10 min)
 
 **Voz:** co-facilitador abre · facilitador principal cierra.
+**Slides:** 3 (banner caso) → 4 (tabla costo del mismatch).
 
-- [0:05] Co-facilitador cuenta el caso, anonimizado:
+- [0:05] **[Slide 3 · Banner caso]** Co-facilitador cuenta el caso, anonimizado:
   > *"Hace tres años asesoré a una cooperativa que había colocado B/. 1M de 'excedente' en un depósito a plazo a 5 años al 5.2%. Todos contentos. Diez meses después se les presentó una oportunidad — adquirir un edificio para abrir sucursal nueva, plazo de decisión: 60 días. La única plata líquida disponible era ese DPF. Rompieron el plazo. Pagaron la penalización, perdieron los 10 meses de interés acumulado y aún así tuvieron que tomar un crédito puente para completar la compra."*
 - [0:09] Facilitador extrae la lección:
   > *"No fue un mal producto. Fue el producto correcto para la gaveta equivocada."*
-- [0:12] Slide con el desglose en **tres componentes** — muy importante para cerrar la lógica:
+- [0:12] **[Slide 4 · Costo del mismatch]** Desglose en **tres componentes** — muy importante para cerrar la lógica:
   - **Penalización** por romper DPF (2% sobre B/. 1M) = **−B/. 20k**.
   - **Intereses devengados perdidos** (10 meses × 5.2% ÷ 12 × B/. 1M) ≈ **−B/. 43k**.
   - **Sobrecosto del crédito puente** necesario para completar la compra (≈ B/. 500k al 9% × 24 meses, frente al 5.2% que dejó de ganar el capital retirado) ≈ **−B/. 47k**.
@@ -64,9 +66,12 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 ## Bloque 2 — Concepto pegajoso: Las 4 gavetas (0:15–0:30 · 15 min)
 
 **Voz:** facilitador principal.
+**Slides:** 5 (concepto "4 gavetas") → 6 (los 4 cajones detallados) → 7 (acento técnico ALM).
 
-- [0:15] Slide con 4 cajones dibujados:
+- [0:15] **[Slide 5 · Las 4 gavetas]** Concepto:
   > **"Imagínense cuatro cajones en su escritorio de la cooperativa. Cada uno tiene plata. Cada uno tiene un propósito. Si se confunden de cajón, pagan caro."**
+
+- [0:17] **[Slide 6 · Los 4 cajones]** Recorrer los 4 con ejemplos:
 
 ### Cajón 1 — Operación diaria (0-30 días)
 - Plata que hay que usar este mes.
@@ -92,7 +97,7 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 - **Productos típicos:** portafolios diversificados, bonos largos, fondos balanceados.
 - **Error típico:** tenerla en cajón 2 — costo de oportunidad enorme durante años.
 
-- [0:28] **Acento técnico opcional:**
+- [0:28] **[Slide 7 · Acento técnico ALM]** Opcional:
   > *En lenguaje profesional: ALM por plazos. Cada cooperativa tiene su curva de pasivos (cuándo tienen que devolver plata a asociados) y debería tener su curva de activos (cuándo pueden recuperar la plata invertida). El asset-liability matching evita ventas forzadas como la del caso.*
 
 ---
@@ -100,10 +105,11 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 ## Bloque 3 — Herramienta en vivo: Mi caja de herramientas (0:30–0:45 · 15 min)
 
 **Voz:** facilitador principal guía · co-facilitador modera chat.
+**Slides:** 8 (banner herramienta) → 9 (QR herramienta).
 
-- [0:30] Slide con QR. 1 min para escanear.
+- [0:30] **[Slide 8 → 9 · Banner + QR]** 1 min para escanear.
 - [0:31] Guía del ingreso:
-  > *"Ingresen los 2-3 productos que trajeron de tarea. Si no los trajeron, hagan uno aproximado. Nombre, plazo en meses, monto aproximado si desean."*
+  > *"Ingresen los 2-3 productos que trajeron de tarea. Si no los trajeron, hagan uno aproximado. **Nombre, entidad, plazo en meses, monto aproximado** si desean."*
 - [0:36] La herramienta clasifica cada producto en la gaveta. Revisar en pantalla con el caso que tiene **tu cooperativa** (genérica).
 - [0:38] **[POLL #2]:** *"¿Cuántos de tus productos quedaron todos en la misma gaveta?"*
 - [0:40] Introducir la sección de "necesidades": plata operativa mensual, colchón de liquidez deseado, plata para inversión, capital estratégico.
@@ -116,8 +122,9 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 ## Bloque 4 — Las 4 dimensiones del producto (0:45–1:00 · 15 min)
 
 **Voz:** facilitador principal · co-facilitador con ejemplos.
+**Slides:** 10 (4 perillas).
 
-- [0:45] Slide: 4 perillas que todo producto tiene.
+- [0:45] **[Slide 10 · 4 perillas]** Las 4 dimensiones que todo producto tiene.
 
 ### Las 4 perillas
 
@@ -140,25 +147,31 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 
 ## Bloque 5 — Break activo (1:00–1:05 · 5 min)
 
-- **[POLL #3] activo:** *"Después de ver las 4 gavetas, ¿qué mismatch reconoces en tu cooperativa?"*
+**Voz:** co-facilitador.
+**Slide:** banner break (a definir si se añade slide dedicado, o reusar el banner de transición).
+
+- [1:00] Música instrumental por stream. Cámaras y micros desbloqueados.
+- [1:01] **[POLL #3] activo durante el break:** *"Después de ver las 4 gavetas, ¿qué mismatch reconoces en tu cooperativa?"*
   - (a) Gaveta 2 inflada.
   - (b) Gaveta 4 vacía.
   - (c) Plata de cajón 1/2 en productos de cajón 3.
   - (d) No veo mismatches.
   - (e) Necesito pensarlo más.
+- [1:04] Aviso a 1 minuto.
 
 ---
 
 ## Bloque 6 — Ahorro, inversión, especulación (1:05–1:25 · 20 min)
 
 **Voz:** co-facilitador modera · facilitador principal sintetiza.
+**Slides:** 11 (3 palabras: ahorrar / invertir / especular) → 12 (Poll #4) → 13 (Palanca 7 · La entidad importa).
 
-- [1:05] Slide: 3 palabras que parecen sinónimos y no lo son.
+- [1:05] **[Slide 11 · 3 palabras]** Ahorrar / Invertir / Especular — 3 palabras que parecen sinónimos y no lo son.
 - [1:07] Definiciones aplicadas:
   - **Ahorrar** = guardar plata con propósito de **no tocar** en un horizonte definido. Bajo riesgo. Cajones 1-2.
   - **Invertir** = poner plata a trabajar con **tesis** y **criterio de salida**. Riesgo definido y aceptado. Cajones 3-4.
   - **Especular** = apostar al precio sin tesis. Legítimo si lo sabes; peligroso si te lo disfrazan de inversión.
-- [1:12] **[POLL #4]:** *"¿Cuál de estas frases es más riesgosa?"*
+- [1:12] **[Slide 12 · Poll #4]** *"¿Cuál de estas frases es más riesgosa?"*
   - (a) "Metí plata en un fondo porque mi cuñado dice que rinde bien."
   - (b) "Compré este bono porque mi horizonte es 3 años y paga 5.5%."
   - (c) "Tengo DPFs cada trimestre para mi reserva de liquidez."
@@ -166,14 +179,17 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 - [1:16] Respuesta y discusión:
   > *"(a) y (d) son especulación disfrazada. Ninguna tiene tesis — solo tiene una fuente. (b) y (c) son inversión y ahorro respectivamente. La palabra que usan los de (a) y (d) suele ser 'invertir'. Pero no lo es."*
 - [1:20] Intervenir 2-3 personas del chat.
+- [1:22] **[Slide 13 · Palanca 7 · La entidad]** Cerrar el bloque conectando con la micro-tarea de S2:
+  > *"Cuando les pedimos la entidad en la tarea, no era dato burocrático. Era la palanca 7 — concentración. Tres DPF al 5.5% en el mismo banco no son la misma diversificación que tres en tres bancos distintos. Regla práctica: ningún emisor debería concentrar más del 20-25% de las inversiones líquidas. Si lo hace, no es decisión — es inercia."*
 
 ---
 
 ## Bloque 7 — Las 5 preguntas al asesor (1:25–1:40 · 15 min)
 
 **Voz:** facilitador principal.
+**Slides:** 14 (banner "Las 5 preguntas") → 15 (lista 5 preguntas).
 
-- [1:25] Slide: *"Estas 5 preguntas distinguen una asesoría profesional de una venta disfrazada. Úsalas con quien sea. Incluyéndonos."*
+- [1:25] **[Slide 14 → 15 · Las 5 preguntas]** *"Estas 5 preguntas distinguen una asesoría profesional de una venta disfrazada. Úsalas con quien sea. Incluyéndonos."*
 
 ### Las 5 preguntas
 
@@ -196,16 +212,17 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 ## Bloque 8 — Cierre: checklist + micro-tarea + puente (1:40–2:00 · 20 min)
 
 **Voz:** facilitador principal.
+**Slides:** 16 (mapa 8 palancas) → 17 (micro-tarea) → 18 (banner próxima sesión "Tasa cuenta, plazo pesa") → 19 (evaluación QR) → 20 (gracias).
 
-- [1:40] Mapa 8 palancas: marcar **1, 2 cerradas**; **3 cerrada** (cerrada en Sesión 1); **4 cerrada hoy**; **5 en progreso**; **7 abierta hoy**; **8 abierta hoy**.
+- [1:40] **[Slide 16 · Mapa 8 palancas]** Marcar **1, 2 cerradas**; **3 cerrada** (Sesión 1); **4 cerrada hoy**; **5 en progreso**; **7 abierta hoy**; **8 abierta hoy**.
 - [1:42] Entregar checklist de 5 preguntas (pantalla + chat + correo).
-- [1:45] **Micro-tarea para Sesión 4:**
+- [1:45] **[Slide 17 · Micro-tarea]** Para Sesión 4:
   > *"Lista 2-3 instrumentos de crédito: uno que tu cooperativa usa, otro que le hayan ofrecido recientemente, o uno que hayas pedido tú personalmente. Nombre, tasa, plazo. Los vamos a desmontar la próxima sesión."*
-- [1:48] **Puente a Sesión 4:**
+- [1:48] **[Slide 18 · Banner próxima sesión]** Puente:
   > *"Hoy vimos dónde poner la plata. La próxima, dónde conseguirla. Cerramos el curso con financiamiento: cómo distinguir una buena deuda de una mala — y por qué la tasa no manda sola."*
-- [1:52] **[POLL #5]:** *"En una palabra, ¿qué te llevas hoy?"*
-- [1:54] **Evaluación de la sesión.** Slide con QR. *"Mismo flujo: 4 minutos de evaluación, anónimo opcional. Lo pego en el chat."* Pega en chat: `https://forms.gle/wiz2Vs4uCHa5T8ZW8`.
-- [1:56] Palabra clave de cierre:
+- [1:52] **[POLL #5]** *"En una palabra, ¿qué te llevas hoy?"* (wordcloud).
+- [1:54] **[Slide 19 · Evaluación QR]** *"Mismo flujo: 4 minutos de evaluación, anónimo opcional. Lo pego en el chat."* Pega en chat: `https://forms.gle/wiz2Vs4uCHa5T8ZW8`.
+- [1:56] **[Slide 20 · Gracias]** Palabra clave de cierre:
   > *"Si esta sesión te ayuda a pedir mejor asesoría a alguien —aunque no sea a nosotros— hicimos nuestro trabajo. Mercantil SI está al final del curso si quieres conversar."*
 - [1:58] Cerrar en 2:00.
 
