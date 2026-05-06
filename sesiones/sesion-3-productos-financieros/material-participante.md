@@ -27,7 +27,7 @@ sesion: 3
 | **1** | 0-30 días | Operación diaria | Cuenta corriente, ahorro líquida | Buscarle rendimiento |
 | **2** | 1-6 meses | Colchón de liquidez | DPF corto, fondos de liquidez | Tenerla en gaveta 3 o 4 |
 | **3** | 6m-5 años | Inversión a plazo | DPF medio, bonos, fondos | Tocarla antes de tiempo |
-| **4** | 5+ años | Estratégico / largo | Portafolios diversificados | Mantenerla en gaveta 2 |
+| **4** | 5+ años | Legado, retiro, reservas institucionales | Portafolios diversificados, fondos balanceados | Mantenerla en gaveta 2 |
 
 ---
 
@@ -46,11 +46,25 @@ sesion: 3
 
 | Palabra | Qué es | Riesgo principal |
 |---|---|---|
-| **Ahorrar** | Guardar plata con propósito de no tocar. | Bajo rendimiento. |
+| **Ahorrar** | Plata que sí espero usar — la guardo lista para tocarla en el corto plazo. | Bajo rendimiento. |
 | **Invertir** | Poner plata a trabajar con tesis y criterio de salida. | Volatilidad; riesgo definido y aceptado. |
-| **Especular** | Apostar al precio sin tesis. | Pérdida total posible. |
+| **Especular** | Apostar al precio sin tesis. *Nunca con plata que cumple un objetivo primario.* | Pérdida total posible. |
 
-No es malo especular **si sabes que lo estás haciendo**. Es peligroso cuando te lo disfrazan de inversión.
+> **Yate vs. universidad.** Saber especular es saber **con cuánto** puedo hacerlo: con un sobrante, no con lo que financia un objetivo base. Si te va bien con la apuesta, compras el yate de la cooperativa; pero **NO arriesgas la universidad de los hijos de los asociados** en eso. La especulación no debe formar parte de los objetivos primarios.
+
+---
+
+## Caso especial · Gaveta 4 (largo plazo)
+
+Si la Gaveta 4 va a un fondo de inversión, **el fondo mismo tiene que estar bien diversificado**. No estar invertido en un solo bono de una misma entidad. Lo que sí cuida la plata de décadas:
+
+- **Diversificación real** — muchos emisores, sectores, plazos.
+- **Cálculo a fondo de los riesgos** a los que está expuesto.
+- **Rango de retorno declarado y sustentado**, escenarios distintos.
+
+Si el fondo no cumple esos tres puntos, la plata estratégica está pagando comisión por nada — el riesgo es el mismo que un DPF concentrado, sin la liquidez.
+
+> **Pregunta al asesor del fondo:** ¿cuántos emisores distintos? ¿concentración máxima por emisor? ¿qué riesgos miden y cómo? ¿cuál es el rango de retorno esperado en distintos escenarios?
 
 ---
 
@@ -60,22 +74,21 @@ Accesible en línea. Te permite:
 
 - Listar los productos donde tienes/la cooperativa tiene plata hoy.
 - Clasificarlos automáticamente en las 4 gavetas por plazo.
-- Declarar necesidades por gaveta.
+- Declarar necesidades por gaveta (1-3) y **meta estratégica** para Gaveta 4.
 - Ver alertas de mismatch (gaveta en exceso, gaveta crítica, concentración).
 
 ---
 
 ## Checklist imprimible
 
-### 5 preguntas al asesor antes de contratar cualquier producto financiero
+### 4 preguntas al asesor antes de contratar cualquier producto financiero
 
-- [ ] **1.** ¿Cómo te pagan a ti por venderme este producto?
+- [ ] **1.** ¿Cómo comisionas y qué costos directos o indirectos puedo tener?
 - [ ] **2.** Si en 6 meses necesito la plata, ¿qué pasa exactamente?
 - [ ] **3.** ¿Cuál es el peor escenario realista para esto?
-- [ ] **4.** ¿Qué producto NO me recomendarías hoy y por qué?
-- [ ] **5.** ¿Dónde están las comisiones que no son obvias en el folleto?
+- [ ] **4.** ¿Qué producto de lo que ofreces, NO me recomendarías y por qué?
 
-*Un asesor profesional responde las 5 sin incomodarse. Un vendedor se pone nervioso en la primera y elude la cuarta.*
+*Un asesor profesional responde las 4 sin incomodarse. Un vendedor evade la primera y se pone nervioso en la cuarta.*
 
 ---
 

@@ -37,7 +37,25 @@ sesion: 2
 
 1. **Antes del aguinaldo (nov-dic).** Pagos concentrados: XIII, aguinaldo, renovaciones. Si la cobranza del tercer trimestre fue débil, diciembre truena.
 2. **Inicio de clases (ene-feb).** Préstamos simultáneos de asociados. La cartera crece, la caja se drena.
-3. **Retiros concentrados (imprevisibles).** Rumores, crisis sectoriales. El asegurado no es evitar el evento — es **tener cobertura de liquidez**.
+3. **Retiros concentrados (imprevisibles).** Rumores, crisis sectoriales.
+
+---
+
+## La pregunta que faltó hacer · Política Mínimo Operativo
+
+> **"¿Tengo suficiente para responder ante una eventual salida inesperada de caja?"**
+
+Esa es la pregunta que marca el verdadero rojo. El verdadero rojo lo marcan dos cosas: una **proyección faltante** y la ausencia de una **política de riesgo escrita**.
+
+**Política mínimo operativo:** un piso de caja líquida que la cooperativa se compromete a mantener — pase lo que pase — para responder ante salidas inesperadas. Suele expresarse como:
+
+- monto absoluto (B/. 200k);
+- meses de operación (3-6 meses);
+- % de depósitos exigibles (15-25%).
+
+**Riesgo de liquidez:** es el riesgo de **no tener efectivo disponible cuando un asociado lo pida**, aunque la cooperativa sea solvente en el balance. Se materializa por retiros concentrados, pagos extraordinarios, mora súbita o desfase entre cobros y pagos. **Solvencia ≠ liquidez.**
+
+> Si la cooperativa no tiene política mínimo operativo escrita, la decisión de cuánta caja mantener queda en cabeza del que firme — y en una emergencia, eso es exactamente lo que no quieres que pase.
 
 ---
 
