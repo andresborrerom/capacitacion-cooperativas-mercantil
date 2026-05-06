@@ -601,3 +601,49 @@ Construido para funcionar tanto en modalidad presencial como vía Teams. Resulta
 ### Memoria actualizada
 - N/A esta iteración (las decisiones siguen vigentes).
 
+---
+
+## 2026-05-06 — Cierre de sesión · v1.2 desplegada y operativa
+
+### Lo que cerró el usuario en esta sesión
+
+**Sistema de polls — operativo end-to-end:**
+- Apps Script desplegado por el usuario en su cuenta `andres.borrerom@gmail.com`. URL pegada en `polls/config.js` (commit `7979af0`). Token admin: `mercantil-2026`.
+- Probado: votó desde celular, recibió en Sheet, vista facilitador renderiza barras y wordcloud en vivo. ✅
+- Vista facilitador con selector funciona para saltar entre los 20 polls durante la sesión.
+
+**QR únicos por sesión:**
+- Generados los 4 PNGs (`landing-sesion-N.png`) directamente vía PowerShell + `api.qrserver.com` a 1000×1000 (commit `5d12ea6`, mejorado a 1000 en `5517071`).
+- Contenedor en slides ampliado de 340px → **500px** con borde de 6px (commit `5517071`). Usuario reporta que ahora se escanea bien desde lejos.
+
+**Material para llevar HTML formateado:**
+- 4 archivos `material-participante.html` por sesión con marca Mercantil, tablas, blockquotes, checklists imprimibles, hero degradado.
+- Botón **📥 Descargar PDF** que dispara `window.print()` con CSS `@media print` optimizado (A4, page-breaks evitados, colores preservados).
+- Landings ya apuntan al `.html` (los `.md` originales se conservan como fuente).
+
+**Guion S2 enriquecido para El Paraíso (commit `2908089`):**
+- Tabla de inputs precargados con mapeo a parejas.
+- Tabla de resultados clave: saldo final 389k, cambio caja −111k, utilidad +192k, **divergencia 303k**.
+- Sensibilidad #1: bajar cobrado 180→165 → caja y utilidad caen 180k cada una (la mora pega a ambos).
+- Sensibilidad #2: subir provisiones 25→50 → utilidad −300k, caja sin moverse (provisión es contable, no caja).
+
+### Pendientes que quedan al cierre
+
+1. **BUG sin resolver:** la gráfica de "Mi película del mes" muestra título sobrepuesto a Enero. Aplicado fix v1.2 (sin viewBox/preserveAspectRatio, clientWidth real, redibujo en resize/tab change), pero usuario reporta que persiste tras hard-refresh. Iba a enviar screenshot pero la sesión se cerró antes. **Pendiente diagnosticar con la imagen en próxima sesión.**
+
+2. **Comentario S1 pendiente:** el usuario dijo en el primer mensaje de esta sesión que iba a enviar un comentario específico para S1 (aparte del QR único que sí se aplicó). No llegó.
+
+3. **`indice.html` raíz:** sigue apuntando a slides/herramientas/material por separado. Pendiente actualizar para enlazar también las landings y la vista facilitador de polls. Usuario aprobó el cambio en concepto pero no se ejecutó.
+
+### Estado del repo
+- Working tree limpio.
+- Branch `main` al día con `origin/main` en `2908089`.
+- 6 commits añadidos en esta sesión: `3ce378d` → `2908089`.
+- Cada landing tiene su QR PNG en `slides/qr/landing-sesion-N.png`.
+
+### Memoria actualizada en esta sesión
+- `project_capacitacion_cooperativas.md`: estado v1.2 + pendientes.
+- `reference_curso_urls.md`: landings, materiales HTML, comando PowerShell para QR.
+- `reference_polls_sistema.md` **(nueva)**: URL Apps Script, token, IDs de polls, mantenimiento.
+- `MEMORY.md`: índice actualizado.
+
