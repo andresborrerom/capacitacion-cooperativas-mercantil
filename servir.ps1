@@ -7,8 +7,13 @@
 
 Set-Location -Path $PSScriptRoot
 
-$puerto = 8000
-$url = "http://localhost:$puerto/"
+# Probamos puertos en orden hasta encontrar uno libre. Esto evita conflictos
+# con URL ACLs huérfanos (si arrancaste el servidor antes y por algún motivo
+# Windows reservó el puerto 8000 sin liberarlo). No requiere admin.
+$puertosACandidatos = @(8000, 8001, 8002, 8080, 8888, 9000)
+$http = $null
+$puerto = $null
+$url = $null
 
 Write-Host ""
 Write-Host "========================================================" -ForegroundColor Cyan
@@ -16,28 +21,47 @@ Write-Host "  Servidor del curso - Mercantil Asset & Wealth Management" -Foregro
 Write-Host "========================================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Carpeta: $(Get-Location)" -ForegroundColor Gray
-Write-Host "URL:     $url" -ForegroundColor Green
-Write-Host ""
-Write-Host "Se abrira automaticamente: $($url)indice.html" -ForegroundColor Yellow
-Write-Host "Para detener el servidor: Ctrl+C en esta ventana." -ForegroundColor Gray
 Write-Host ""
 
-$http = [System.Net.HttpListener]::new()
-try {
-    $http.Prefixes.Add($url)
-    $http.Start()
-} catch {
-    Write-Host "Error al iniciar: $_" -ForegroundColor Red
+foreach ($p in $puertosACandidatos) {
+    $tryUrl = "http://localhost:$p/"
+    $tryHttp = [System.Net.HttpListener]::new()
+    try {
+        $tryHttp.Prefixes.Add($tryUrl)
+        $tryHttp.Start()
+        # Funcionó!
+        $http = $tryHttp
+        $puerto = $p
+        $url = $tryUrl
+        Write-Host "Puerto $p libre. Servidor iniciado." -ForegroundColor Green
+        break
+    } catch {
+        Write-Host "Puerto $p ocupado, probando siguiente..." -ForegroundColor DarkYellow
+        try { $tryHttp.Close() } catch {}
+    }
+}
+
+if (-not $http) {
     Write-Host ""
-    Write-Host "Posibles causas:" -ForegroundColor Yellow
-    Write-Host "  - El puerto $puerto esta ocupado. Cierra otras apps y reintenta." -ForegroundColor White
-    Write-Host "  - Windows bloqueo el puerto. Ejecuta en PowerShell como admin:" -ForegroundColor White
-    Write-Host "    netsh http add urlacl url=$url user=Everyone" -ForegroundColor White
+    Write-Host "Error: ningun puerto disponible en $($puertosACandidatos -join ', ')" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Posibles soluciones:" -ForegroundColor Yellow
+    Write-Host "  - Reinicia Windows (libera URL ACLs huerfanos)." -ForegroundColor White
+    Write-Host "  - O ejecuta en PowerShell COMO ADMINISTRADOR:" -ForegroundColor White
+    Write-Host "    netsh http delete urlacl url=http://localhost:8000/" -ForegroundColor White
+    Write-Host "  - O agrega mas puertos a `$puertosACandidatos en servir.ps1." -ForegroundColor White
     Write-Host ""
     Write-Host "Presiona cualquier tecla para salir..." -ForegroundColor Gray
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
+
+Write-Host ""
+Write-Host "URL:     $url" -ForegroundColor Green
+Write-Host ""
+Write-Host "Se abrira automaticamente: $($url)indice.html" -ForegroundColor Yellow
+Write-Host "Para detener el servidor: Ctrl+C en esta ventana." -ForegroundColor Gray
+Write-Host ""
 
 Start-Process "$($url)indice.html"
 
