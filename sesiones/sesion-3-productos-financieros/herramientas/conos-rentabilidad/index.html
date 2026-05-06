@@ -486,25 +486,21 @@
     const seriesA = state.a.visible ? generarSerie(state.modo, state.capital, state.a.mu, state.a.sigma, T, N) : null;
     const seriesB = state.b.visible ? generarSerie(state.modo, state.capital, state.b.mu, state.b.sigma, T, N) : null;
 
-    // Domain Y — incluir todas las bandas P5..P95 de los activos visibles
+    // Domain Y — el zoom puro: yMin = P5 más bajo, yMax = P95 más alto entre
+    // las series visibles, en este horizonte. Sin anclar a 0 ni al capital
+    // aportado — eso es lo que hace que la diferencia entre horizonte corto
+    // (cono enorme) y largo (cono ordenado) sea visualmente brutal.
     let yMin = Infinity, yMax = -Infinity;
     function consider(arr) { if (!arr) return; for (let i = 0; i <= N; i++) { if (arr[i] < yMin) yMin = arr[i]; if (arr[i] > yMax) yMax = arr[i]; } }
     if (seriesA) { consider(seriesA.p05); consider(seriesA.p95); }
     if (seriesB) { consider(seriesB.p05); consider(seriesB.p95); }
-    if (state.modo === 'capital') {
-      // Anclar: incluir capital inicial y línea de "capital aportado neto" (constante=V0)
-      if (state.capital < yMin) yMin = state.capital;
-      if (state.capital > yMax) yMax = state.capital;
-      yMin = Math.min(yMin, 0);
-    } else {
-      // CAGR: incluir 0 (referencia)
-      yMin = Math.min(yMin, 0);
-      yMax = Math.max(yMax, 0);
-    }
     if (!isFinite(yMin) || !isFinite(yMax)) { yMin = 0; yMax = 1; }
-    if (yMax === yMin) { yMax = yMin + 1; }
+    if (yMax === yMin) { yMax = yMin + Math.max(Math.abs(yMin) * 0.01, 1); }
     const yPad = (yMax - yMin) * 0.06;
     yMin -= yPad; yMax += yPad;
+    // En modo capital, no permitir eje Y negativo (sin apalancamiento, capital
+    // ≥ 0). En CAGR sí, las pérdidas anualizadas son legítimas.
+    if (state.modo === 'capital' && yMin < 0) yMin = 0;
 
     const x = i => PAD.left + (i / N) * innerW;
     const y = v => PAD.top + innerH * (1 - (v - yMin) / (yMax - yMin));
