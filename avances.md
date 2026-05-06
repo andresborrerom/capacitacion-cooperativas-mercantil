@@ -698,3 +698,89 @@ Construido para funcionar tanto en modalidad presencial como vía Teams. Resulta
 ### Memoria actualizada
 - `project_capacitacion_cooperativas.md`: cambios v1.3 detallados, decisión MAWM aplicada, PIPELINE registrado.
 
+---
+
+## 2026-05-06 — Iteración v1.3 (parte 2 + 3) · Sincronización + Conos + bug fixes
+
+### Cierre de pendientes del checkpoint anterior
+
+**(3) Sincronizar materiales-participante S2/S3** (commit `3e5cd46`):
+- S2 .md y .html: agregada sección "La pregunta que faltó hacer · Política Mínimo Operativo" con definición del riesgo de liquidez. Quitada la coletilla del seguro en momento 3.
+- S3 .md y .html: definición de Ahorrar corregida ("plata que sí espero usar"), Especular con yate vs. universidad, nuevo bloque "Caso especial Gaveta 4", checklist 5 preguntas → 4 preguntas, cajón 4 sin "décadas".
+
+**(5) `indice.html` actualizado** (commit `3e5cd46`):
+- Cada sesión lista los entregables operativos (landing, slides, herramienta, material-participante.html) ARRIBA y los .md fuente ABAJO.
+- Nuevo grupo "Polls (sistema en vivo)" con vista facilitador, vista participante e instrucciones.
+- Home con cards de las 4 landings y de las herramientas + sección "Operación durante la sesión".
+
+**(4) Dominio mercantilsi.com.pa**: confirmado por el usuario que NO se cambia. Se usa solo como referencia de marca/formato; no es visible al cliente final. Decisión documentada.
+
+### PIPELINE ejecutado: Conos de rentabilidad — herramienta nueva
+
+Inspirada en el FanChart del proyecto `mercantil-planner` del usuario (React + Recharts + bootstrap histórico). Adaptada al stack del curso (HTML + vanilla JS + SVG, autocontenida).
+
+**Iteración v0.1** (commit `545c933`): primera versión con S&P 500 (μ=10%, σ=17%) vs Treasury 1Y (μ=4.5%, σ=1.5%) como activos default. Modelo log-normal cerrado (GBM): `V_t,α = V_0 · exp((μ − σ²/2)·t + σ·√t · z_α)`. 3 bandas anidadas P5-P95 / P10-P90 / P25-P75 + mediana sólida (mismo patrón visual que `SvgFanChart.tsx` del planner). Toggle Capital (B/.) ↔ CAGR (%). Sin Monte Carlo, sin aportes — capital colocado al inicio.
+
+**Iteración v0.2** (commit `71695b5`): granularidad mensual (slider 1-360 meses) + chips de snap (1m / 3m / 6m / 1a / 3a / 5a / 10a / 30a). Display formatea inteligente: "6 meses", "1 año 3 meses", "10 años". Eje X adaptativo (meses si ≤24m, años si más).
+
+**Iteración v0.3** (commit `e55c453`): eje Y zoom puro a P5/P95 del horizonte visible. Sin anclar a 0 ni al capital aportado. Cap defensivo en modo capital (no permite Y negativo). El contraste entre horizonte corto (cono brutal) y largo (cono ordenado) ahora es brutalmente legible.
+
+**Iteración v0.4** (commit `ac050be`): quitada la escala visual debajo del slider — era engañosa porque distribuía "1m · 6m · 1a · 5a · 10a · 30a" uniformemente con flex pero los valores no son uniformes (el "6m" visual caía en mes ~73). Los chips de snap son la guía honesta. Alternativa contemplada (no implementada): slider logarítmico transparente.
+
+### Integración del Conos en S3 (commits `52d90c2` y `220a92f`)
+
+- **Slide 10 nuevo** insertado después del QR de Mi caja de herramientas, ANTES de "4 perillas". Título: *"El horizonte ordena el riesgo"*. QR + 3 cards de lectura (corto/medio/largo plazo) + frase ancla *"El horizonte es la palanca que separa ahorro de inversión"*. Botón naranja "▶ Abrir herramienta (presentador)" para acceso de un click.
+- **Renumeración del guion S3** en cascada: 4 perillas 10→11, break 11→12, ..., gracias 22→23. Sub-bloque dedicado "Cierre del bloque · Conos de rentabilidad" (0:43-0:46) con demo en vivo de 3 movimientos del slider: S&P 500 a 3m CAGR (cono enorme) → S&P 500 a 30a CAGR (cono ordenado) → T-Bill 1Y a 1a CAGR (línea recta).
+- **Bloque 3** ahora 16 min (era 15), **Bloque 4** reducido a 14 min (era 15) robando 1 min al cojín de las 4 perillas. Total sigue cerrando en 2 horas.
+- **Landing S3** (pestaña Herramienta): ahora muestra DOS cards (Mi caja de herramientas + Conos de rentabilidad).
+- **Material participante S3** (md+html): nueva sección "Herramientas permanentes" con descripción de los Conos + 3 lecturas pedagógicas + frase ancla.
+- **QR específico** generado en `slides/qr/conos-rentabilidad.png` (1000×1000).
+- `indice.html`: card "Conos de rentabilidad" en home; entrada en sección S3 como herramienta 2.
+
+### (6) Bug Mi película del mes — RESUELTO (commit `ad840ab`)
+
+**Diagnóstico:** el `<thead>` de la tabla "Extraordinarios mes a mes" tenía `position: sticky; top: 52px;` para mantener los headers visibles al scrollear. PERO la `<table>` está dentro de `<div class="tabla-wrap">` con `overflow-x: auto` (para scroll horizontal en móvil), lo cual crea un nuevo contexto de scroll. El thead se quedaba flotando dentro de ese contexto y **tapaba la primera fila** del tbody. Por eso el usuario veía "Feb" como primera fila — Ene estaba tapada.
+
+**Fix:**
+1. Quitar el `position: sticky` del thead. La tabla cabe en pantalla, no era necesario.
+2. **Mejora UX adicional:** agregada nueva fila **"Inicio"** al principio del tbody que muestra el saldo inicial. Estilo diferenciado (fondo naranja claro). No editable. Refactor: helper `filaMes(tbody, i)` reemplaza todos los `tbody.rows[i]` para saltar la fila Inicio. Aplicado a ambos modos (personal y cooperativa) y mantiene compatibilidad de `snapshot`/`restore` de localStorage.
+
+### Servidor local — fixes de robustez
+
+**Bug 1 — directorios devolvían 404** (commit `3d5dd02`): el script PowerShell solo aceptaba archivos (`Test-Path -PathType Leaf`). Cuando un link apuntaba a una carpeta (`/polls/`, `/herramientas/conos-rentabilidad/`), devolvía 404. GitHub Pages funcionaba bien (resuelve directorios automático), localhost no. Fix: si la URL apunta a Container, buscar `index.html` adentro y servirlo.
+
+**Bug 2 — URL ACL huérfano bloqueaba el puerto 8000** (commit `56b5092`): tras varios reinicios del servidor, Windows quedó con un URL ACL reservado a "System" (PID 4, kernel) que no se podía liberar sin admin. Fix: el script ahora prueba puertos en orden 8000 → 8001 → 8002 → 8080 → 8888 → 9000 y arranca en el primero disponible. Sin admin. Sin reinicio. Robusto.
+
+### Estado del curso al cierre
+
+- **v1.3 desplegada y operativa** en GitHub Pages.
+- **Conos de rentabilidad integrado** en S3 (slide + guion + landing + material).
+- **5 herramientas interactivas** del curso (era 4): Mi foto financiera, Mi película del mes, Mi caja de herramientas, **Conos de rentabilidad** (nueva), Costo real del crédito.
+- **Bug histórico de la gráfica película del mes** — RESUELTO (era el thead, no la gráfica como se sospechaba).
+- **Servidor local robusto** ante URL ACLs huérfanos y directorios.
+- **Working tree limpio**, todo pushed a `origin/main`.
+
+### Pendiente para próxima sesión
+
+- (Sin pendientes urgentes.)
+- Si surgiera: comentario S1 que el usuario mencionó hace varias sesiones (no llegó a entregarlo).
+- Posible mejora: slider logarítmico en Conos si el usuario lo pide tras usar la herramienta en vivo.
+- Posible mejora: iframe del cono dentro del slide reveal (descartado por riesgos visuales y de scroll).
+
+### Commits añadidos en esta iteración (cronológico)
+
+- `8286ebf` — v1.3 (parte 1): revisión S2/S3 + QR al inicio + rename MAWM + reset polls robusto
+- `3e5cd46` — v1.3 (parte 2): sincronizar materiales S2/S3 + indice navegador
+- `545c933` — herramienta nueva (draft): Conos de rentabilidad S&P 500 vs Treasury 1Y
+- `71695b5` — conos: granularidad mensual + chips de snap
+- `e55c453` — conos: eje Y zoom puro a P5/P95 del horizonte
+- `52d90c2` — S3: integrar Conos como cierre del Bloque 3
+- `ad840ab` — fix S2 herramienta: thead ya no tapa Ene + nueva fila "Inicio"
+- `220a92f` — S3 slide Conos: link directo "Abrir herramienta" para presentador
+- `3d5dd02` — servir.ps1: resolver directorios a su index.html (fix 404 local)
+- `ac050be` — conos-rentabilidad: quitar escala visual engañosa del slider
+- `56b5092` — servir.ps1: probar puertos alternativos si 8000 está bloqueado
+
+### Memoria actualizada en esta iteración
+- `project_capacitacion_cooperativas.md`: estado v1.3 completo + 5 herramientas + Conos integrado + servidor robusto.
+
