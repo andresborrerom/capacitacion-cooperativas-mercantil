@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conos de rentabilidad · S&amp;P 500 vs Treasury 1Y · Sesión 3</title>
+<link rel="stylesheet" href="../../../../assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { background: var(--color-fondo-sutil); }
+  .layout { max-width: 1100px; margin: 0 auto; padding: var(--space-3); }
+
+  .controles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    margin-bottom: var(--space-3);
+  }
+  @media (min-width: 720px) {
+    .controles { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .grupo-control {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: 0.9rem 1rem;
+    box-shadow: var(--shadow-1);
+  }
+  .grupo-control h4 {
+    margin: 0 0 0.6rem;
+    color: var(--color-primario-oscuro);
+    font-size: 0.95rem;
+  }
+  .grupo-control h4 .swatch {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    margin-right: 0.5em;
+    vertical-align: 0.05em;
+  }
+  .par-input {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.4rem;
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+  .par-input label {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--color-texto-sutil);
+  }
+  .par-input input[type="number"] {
+    text-align: right;
+    max-width: 110px;
+    font-variant-numeric: tabular-nums;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.92rem;
+  }
+  .grupo-control .preset {
+    margin-top: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--color-texto-sutil);
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+  .preset button {
+    background: var(--color-fondo-sutil);
+    color: var(--color-primario);
+    border: 1px solid var(--color-borde);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.78rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .preset button:hover { background: var(--color-primario-claro); }
+
+  .visible-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--color-texto);
+    margin-bottom: 0.4rem;
+    user-select: none;
+  }
+  .visible-toggle input { width: auto; }
+
+  /* Slider horizonte horizontal con eje */
+  .horizonte-bloque {
+    margin: 0.3rem 0 0.6rem;
+  }
+  .horizonte-bloque .horizonte-valor {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.3rem;
+  }
+  .horizonte-bloque .horizonte-valor strong {
+    font-size: 1.4rem;
+    color: var(--color-primario-oscuro);
+    font-variant-numeric: tabular-nums;
+  }
+  .horizonte-bloque input[type="range"] {
+    width: 100%;
+    accent-color: var(--color-acento);
+  }
+  .horizonte-bloque .escala {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--color-texto-sutil);
+    margin-top: 0.1rem;
+  }
+
+  /* Modos */
+  .modos {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .modos button {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .modos button.activo {
+    background: var(--color-primario);
+    color: #fff;
+    border-color: var(--color-primario);
+  }
+
+  /* Chart */
+  .chart-wrap {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: 0.9rem 1rem 1.1rem;
+    box-shadow: var(--shadow-1);
+    margin-bottom: var(--space-3);
+  }
+  .chart-wrap .titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .chart-wrap .titulo h3 { margin: 0; font-size: 1.05rem; }
+  .chart-wrap .titulo .leyenda {
+    font-size: 0.78rem;
+    color: var(--color-texto-sutil);
+  }
+  svg.fan {
+    width: 100%;
+    height: 380px;
+    display: block;
+    background: #fff;
+    user-select: none;
+  }
+
+  /* Resumen al final del horizonte */
+  .resumen {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+  @media (min-width: 600px) {
+    .resumen { grid-template-columns: 1fr 1fr; }
+  }
+  .resumen-card {
+    background: var(--color-fondo-sutil);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.9rem;
+    border-left: 4px solid var(--color-primario);
+    font-size: 0.88rem;
+  }
+  .resumen-card.b { border-left-color: var(--color-acento); }
+  .resumen-card h5 {
+    margin: 0 0 0.3rem;
+    color: var(--color-primario-oscuro);
+    font-size: 0.92rem;
+  }
+  .resumen-card .pcts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .resumen-card .pcts .pct {
+    background: #fff;
+    border-radius: 4px;
+    padding: 0.3rem 0.4rem;
+    text-align: center;
+  }
+  .resumen-card .pcts .pct .et {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-texto-sutil);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .resumen-card .pcts .pct .vl {
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+  }
+
+  /* Mensaje pedagógico */
+  .pedagogico {
+    background: var(--color-acento-claro);
+    border-left: 5px solid var(--color-acento);
+    padding: 1rem 1.2rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin-bottom: var(--space-3);
+  }
+  .pedagogico h4 { margin: 0 0 0.3rem; color: var(--color-primario-oscuro); }
+  .pedagogico p { margin: 0.3rem 0; font-size: 0.92rem; }
+
+  .footnote {
+    font-size: 0.78rem;
+    color: var(--color-texto-sutil);
+    margin-top: 0.3rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div>
+    <div class="marca">Conos de rentabilidad</div>
+    <div class="subtitulo">S&amp;P 500 vs. Treasury 1Y · Mercantil Asset &amp; Wealth Management · Sesión 3</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <div class="callout info" style="margin-bottom: var(--space-3); font-size: 0.92rem;">
+    Mueve el <strong>horizonte</strong> y mira qué pasa con las bandas. <em>Pista:</em> el eje Y se autoescala — la idea es que veas cómo cambia la <strong>forma</strong> del cono, no su tamaño absoluto.
+  </div>
+
+  <!-- ====== CONTROLES ====== -->
+  <div class="controles">
+
+    <!-- Activo A: S&P 500 -->
+    <div class="grupo-control">
+      <h4><span class="swatch" style="background: #003DA5;"></span>Activo A</h4>
+      <div class="par-input">
+        <label for="a-mu">Retorno esperado μ (% anual)</label>
+        <input type="number" id="a-mu" step="0.1" min="-5" max="30" value="10">
+      </div>
+      <div class="par-input">
+        <label for="a-sigma">Volatilidad σ (% anual)</label>
+        <input type="number" id="a-sigma" step="0.1" min="0" max="50" value="17">
+      </div>
+      <div class="preset">
+        <span style="align-self:center;">Presets:</span>
+        <button onclick="aplicarPreset('a', 10, 17, 'S&P 500')">S&amp;P 500</button>
+        <button onclick="aplicarPreset('a', 7.5, 10, '60/40')">60/40</button>
+        <button onclick="aplicarPreset('a', 5, 8, 'Treasury 10Y')">Treasury 10Y</button>
+      </div>
+      <label class="visible-toggle" style="margin-top: 0.5rem;">
+        <input type="checkbox" id="a-visible" checked>
+        Mostrar Activo A
+      </label>
+    </div>
+
+    <!-- Horizonte y modo -->
+    <div class="grupo-control" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <h4>Horizonte</h4>
+        <div class="horizonte-bloque">
+          <div class="horizonte-valor">
+            <span style="font-size: 0.82rem; color: var(--color-texto-sutil);">años</span>
+            <strong id="horizonte-valor">10</strong>
+          </div>
+          <input type="range" id="horizonte" min="1" max="30" step="1" value="10">
+          <div class="escala">
+            <span>1a</span><span>5a</span><span>10a</span><span>20a</span><span>30a</span>
+          </div>
+        </div>
+
+        <div class="par-input">
+          <label for="capital-inicial">Capital inicial (B/.)</label>
+          <input type="number" id="capital-inicial" step="1000" min="0" value="10000">
+        </div>
+      </div>
+
+      <div>
+        <label style="margin-top: 0.3rem; font-size: 0.82rem;">Vista</label>
+        <div class="modos" id="modos">
+          <button class="activo" data-modo="capital">Capital (B/.)</button>
+          <button data-modo="cagr">% anualizado</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activo B: Treasury 1Y -->
+    <div class="grupo-control">
+      <h4><span class="swatch" style="background: #F47B20;"></span>Activo B</h4>
+      <div class="par-input">
+        <label for="b-mu">Retorno esperado μ (% anual)</label>
+        <input type="number" id="b-mu" step="0.1" min="-5" max="30" value="4.5">
+      </div>
+      <div class="par-input">
+        <label for="b-sigma">Volatilidad σ (% anual)</label>
+        <input type="number" id="b-sigma" step="0.1" min="0" max="50" value="1.5">
+      </div>
+      <div class="preset">
+        <span style="align-self:center;">Presets:</span>
+        <button onclick="aplicarPreset('b', 4.5, 1.5, 'T-Bill 1Y')">T-Bill 1Y</button>
+        <button onclick="aplicarPreset('b', 6, 7, 'Bono IG')">Bono IG</button>
+        <button onclick="aplicarPreset('b', 3, 1, 'DPF 6m')">DPF 6m</button>
+      </div>
+      <label class="visible-toggle" style="margin-top: 0.5rem;">
+        <input type="checkbox" id="b-visible" checked>
+        Mostrar Activo B
+      </label>
+    </div>
+
+  </div>
+
+  <!-- ====== CHART ====== -->
+  <div class="chart-wrap">
+    <div class="titulo">
+      <h3 id="chart-titulo">Capital proyectado · 10 años</h3>
+      <div class="leyenda" id="leyenda"></div>
+    </div>
+    <svg class="fan" id="fan"></svg>
+
+    <div class="resumen" id="resumen"></div>
+  </div>
+
+  <!-- ====== MENSAJE PEDAGÓGICO ====== -->
+  <div class="pedagogico">
+    <h4>Lo que cuenta el cono</h4>
+    <p><strong>Vista capital:</strong> a más años, las bandas <em>se abren</em>. Los buenos años son cada vez más buenos y los malos cada vez más malos en términos absolutos.</p>
+    <p><strong>Vista % anualizado:</strong> a más años, las bandas <em>se cierran</em>. La varianza del promedio cae como σ²/t. El retorno se ordena hacia μ.</p>
+    <p><strong>Por qué importa para la Gaveta 4:</strong> la plata que NO se toca por años puede tolerar más volatilidad porque el promedio se ordena. Es lo que paga el riesgo.</p>
+  </div>
+
+  <div class="tecnico">
+    <p><strong>Modelo:</strong> log-normal cerrado (GBM). Para t en años:
+       <code>V<sub>t,α</sub> = V<sub>0</sub> · exp((μ − σ²/2)·t + σ·√t · z<sub>α</sub>)</code>.
+       Sin aportes ni reinversión de cupones — es un capital colocado al inicio.
+       Los percentiles z<sub>α</sub>: P5=−1.645, P10=−1.282, P25=−0.674, P50=0, P75=+0.674, P90=+1.282, P95=+1.645.</p>
+    <p class="footnote">Presets son ilustrativos basados en rangos históricos nominales: S&amp;P 500 (1928–2024) ~10%/17%; Treasury 1Y ~4–5%/1–2%; bono IG corporativo ~6%/7%; mix 60/40 ~7.5%/10%. No son cotizaciones de productos específicos.</p>
+  </div>
+
+</div>
+
+<footer class="pie">
+  Mercantil Asset &amp; Wealth Management · Curso para dirigentes de cooperativas financieras · Sesión 3 · Caja de herramientas
+</footer>
+
+<script>
+  // -------------------------------------------------------------------------
+  // Z-scores para los percentiles que dibujamos.
+  // -------------------------------------------------------------------------
+  const Z = {
+    p05: -1.6449, p10: -1.2816, p25: -0.6745,
+    p50:  0,
+    p75:  0.6745, p90:  1.2816, p95:  1.6449,
+  };
+
+  // Estado
+  const state = {
+    capital: 10000,
+    horizonte: 10,        // años
+    modo: 'capital',      // 'capital' | 'cagr'
+    a: { mu: 10, sigma: 17, visible: true, color: '#003DA5', nombre: 'Activo A' },
+    b: { mu:  4.5, sigma: 1.5, visible: true, color: '#F47B20', nombre: 'Activo B' },
+  };
+
+  // -------------------------------------------------------------------------
+  // Cálculo de percentiles bajo GBM (log-normal cerrado)
+  // V_t,α = V_0 · exp((μ − σ²/2)·t + σ·√t · z_α)
+  // CAGR_t,α = (V_t,α / V_0)^(1/t) − 1 = exp((μ − σ²/2) + σ·z_α/√t) − 1
+  //
+  // Nota: μ y σ se reciben en % anuales. Convertimos a decimal.
+  // t en años (puede ser fraccional). Para t=0 retornamos el valor inicial sin riesgo.
+  // -------------------------------------------------------------------------
+  function percentilCapital(V0, muPct, sigmaPct, t, z) {
+    if (t <= 0) return V0;
+    const mu = muPct / 100;
+    const sigma = sigmaPct / 100;
+    const drift = (mu - 0.5 * sigma * sigma) * t;
+    const diff  = sigma * Math.sqrt(t) * z;
+    return V0 * Math.exp(drift + diff);
+  }
+
+  function percentilCagr(muPct, sigmaPct, t, z) {
+    if (t <= 0) return muPct / 100; // límite cuando t→0: solo importa drift
+    const mu = muPct / 100;
+    const sigma = sigmaPct / 100;
+    const drift = mu - 0.5 * sigma * sigma;
+    const diff  = sigma * z / Math.sqrt(t);
+    return Math.exp(drift + diff) - 1;
+  }
+
+  /**
+   * Genera la serie de un activo (μ, σ) en N puntos a lo largo de [0, T].
+   * Devuelve { p05, p10, p25, p50, p75, p90, p95 }, cada uno un Float64Array
+   * de longitud N+1 (incluye t=0 y t=T).
+   *
+   * El modo 'capital' devuelve B/. del capital. El modo 'cagr' devuelve la
+   * fracción decimal del CAGR (ej. 0.087 = 8.7% anualizado).
+   */
+  function generarSerie(modo, V0, muPct, sigmaPct, T, N) {
+    const out = {};
+    for (const k of Object.keys(Z)) out[k] = new Float64Array(N + 1);
+    for (let i = 0; i <= N; i++) {
+      const t = (i / N) * T;
+      for (const k of Object.keys(Z)) {
+        const z = Z[k];
+        out[k][i] = (modo === 'capital')
+          ? percentilCapital(V0, muPct, sigmaPct, t, z)
+          : percentilCagr(muPct, sigmaPct, t, z);
+      }
+    }
+    return out;
+  }
+
+  // -------------------------------------------------------------------------
+  // Render del SVG
+  // -------------------------------------------------------------------------
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const PAD = { top: 18, right: 16, bottom: 32, left: 70 };
+
+  function fmtMoneda(v) {
+    if (!isFinite(v)) return '—';
+    const abs = Math.abs(v);
+    if (abs >= 1e6) return 'B/. ' + (v / 1e6).toFixed(2) + 'M';
+    if (abs >= 1e3) return 'B/. ' + (v / 1e3).toFixed(1) + 'K';
+    return 'B/. ' + Math.round(v).toLocaleString();
+  }
+  function fmtPct(v) {
+    if (!isFinite(v)) return '—';
+    return (v * 100).toFixed(1) + '%';
+  }
+
+  function dibujar() {
+    const svg = document.getElementById('fan');
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const W = svg.clientWidth || svg.parentElement.clientWidth || 800;
+    const H = svg.clientHeight || 380;
+    svg.setAttribute('width', W);
+    svg.setAttribute('height', H);
+    const innerW = W - PAD.left - PAD.right;
+    const innerH = H - PAD.top - PAD.bottom;
+
+    const T = state.horizonte;
+    // Resolución: más puntos para horizontes largos (curvatura mayor)
+    const N = Math.max(40, Math.min(200, T * 12));
+
+    const seriesA = state.a.visible ? generarSerie(state.modo, state.capital, state.a.mu, state.a.sigma, T, N) : null;
+    const seriesB = state.b.visible ? generarSerie(state.modo, state.capital, state.b.mu, state.b.sigma, T, N) : null;
+
+    // Domain Y — incluir todas las bandas P5..P95 de los activos visibles
+    let yMin = Infinity, yMax = -Infinity;
+    function consider(arr) { if (!arr) return; for (let i = 0; i <= N; i++) { if (arr[i] < yMin) yMin = arr[i]; if (arr[i] > yMax) yMax = arr[i]; } }
+    if (seriesA) { consider(seriesA.p05); consider(seriesA.p95); }
+    if (seriesB) { consider(seriesB.p05); consider(seriesB.p95); }
+    if (state.modo === 'capital') {
+      // Anclar: incluir capital inicial y línea de "capital aportado neto" (constante=V0)
+      if (state.capital < yMin) yMin = state.capital;
+      if (state.capital > yMax) yMax = state.capital;
+      yMin = Math.min(yMin, 0);
+    } else {
+      // CAGR: incluir 0 (referencia)
+      yMin = Math.min(yMin, 0);
+      yMax = Math.max(yMax, 0);
+    }
+    if (!isFinite(yMin) || !isFinite(yMax)) { yMin = 0; yMax = 1; }
+    if (yMax === yMin) { yMax = yMin + 1; }
+    const yPad = (yMax - yMin) * 0.06;
+    yMin -= yPad; yMax += yPad;
+
+    const x = i => PAD.left + (i / N) * innerW;
+    const y = v => PAD.top + innerH * (1 - (v - yMin) / (yMax - yMin));
+
+    // ----- Background grid + ejes -----
+    const yTicks = niceTicks(yMin, yMax, 5);
+    for (const yt of yTicks) {
+      const yy = y(yt);
+      const ln = document.createElementNS(SVG_NS, 'line');
+      ln.setAttribute('x1', PAD.left); ln.setAttribute('x2', W - PAD.right);
+      ln.setAttribute('y1', yy); ln.setAttribute('y2', yy);
+      ln.setAttribute('stroke', '#E2E6EE'); ln.setAttribute('stroke-width', '1');
+      svg.appendChild(ln);
+      const tx = document.createElementNS(SVG_NS, 'text');
+      tx.setAttribute('x', PAD.left - 6); tx.setAttribute('y', yy + 3);
+      tx.setAttribute('text-anchor', 'end');
+      tx.setAttribute('font-size', '10'); tx.setAttribute('fill', '#5A6375');
+      tx.setAttribute('font-family', 'Inter');
+      tx.textContent = (state.modo === 'capital') ? fmtMoneda(yt) : fmtPct(yt);
+      svg.appendChild(tx);
+    }
+
+    // Línea cero / capital aportado
+    const refValue = state.modo === 'capital' ? state.capital : 0;
+    if (refValue >= yMin && refValue <= yMax) {
+      const yy = y(refValue);
+      const ref = document.createElementNS(SVG_NS, 'line');
+      ref.setAttribute('x1', PAD.left); ref.setAttribute('x2', W - PAD.right);
+      ref.setAttribute('y1', yy); ref.setAttribute('y2', yy);
+      ref.setAttribute('stroke', state.modo === 'capital' ? '#5A6375' : '#B4312E');
+      ref.setAttribute('stroke-width', '1');
+      ref.setAttribute('stroke-dasharray', '5 4');
+      ref.setAttribute('opacity', '0.7');
+      svg.appendChild(ref);
+      const lab = document.createElementNS(SVG_NS, 'text');
+      lab.setAttribute('x', W - PAD.right - 4); lab.setAttribute('y', yy - 4);
+      lab.setAttribute('text-anchor', 'end');
+      lab.setAttribute('font-size', '9.5'); lab.setAttribute('fill', '#5A6375');
+      lab.setAttribute('font-family', 'Inter');
+      lab.textContent = state.modo === 'capital' ? 'Capital aportado' : '0%';
+      svg.appendChild(lab);
+    }
+
+    // Ticks X (años)
+    const xTicks = xTicksForHorizon(T);
+    for (const xt of xTicks) {
+      const i = (xt / T) * N;
+      const xx = x(i);
+      const ln = document.createElementNS(SVG_NS, 'line');
+      ln.setAttribute('x1', xx); ln.setAttribute('x2', xx);
+      ln.setAttribute('y1', H - PAD.bottom); ln.setAttribute('y2', H - PAD.bottom + 4);
+      ln.setAttribute('stroke', '#5A6375'); ln.setAttribute('stroke-width', '1');
+      svg.appendChild(ln);
+      const tx = document.createElementNS(SVG_NS, 'text');
+      tx.setAttribute('x', xx); tx.setAttribute('y', H - PAD.bottom + 16);
+      tx.setAttribute('text-anchor', 'middle');
+      tx.setAttribute('font-size', '10'); tx.setAttribute('fill', '#5A6375');
+      tx.setAttribute('font-family', 'Inter');
+      tx.textContent = xt + 'a';
+      svg.appendChild(tx);
+    }
+    // Eje X label
+    const xlab = document.createElementNS(SVG_NS, 'text');
+    xlab.setAttribute('x', PAD.left + innerW / 2);
+    xlab.setAttribute('y', H - 6);
+    xlab.setAttribute('text-anchor', 'middle');
+    xlab.setAttribute('font-size', '10'); xlab.setAttribute('fill', '#5A6375');
+    xlab.setAttribute('font-family', 'Inter');
+    xlab.textContent = 'Años';
+    svg.appendChild(xlab);
+
+    // ----- Bandas + medianas (B abajo, A encima — A azul navy es la "estrella") -----
+    if (seriesB) dibujarActivo(svg, seriesB, state.b.color, x, y, N);
+    if (seriesA) dibujarActivo(svg, seriesA, state.a.color, x, y, N);
+
+    // Update title + leyenda + resumen
+    document.getElementById('chart-titulo').textContent =
+      (state.modo === 'capital' ? 'Capital proyectado · ' : 'Retorno anualizado · ') + T + ' años';
+    actualizarLeyenda(seriesA, seriesB);
+    actualizarResumen(seriesA, seriesB);
+  }
+
+  function dibujarActivo(svg, S, color, x, y, N) {
+    // 3 bandas anidadas (de fuera a dentro): P5-P95 (12% opacity), P10-P90 (18%), P25-P75 (28%)
+    polygonoBand(svg, S.p05, S.p95, color, 0.12, x, y, N);
+    polygonoBand(svg, S.p10, S.p90, color, 0.20, x, y, N);
+    polygonoBand(svg, S.p25, S.p75, color, 0.30, x, y, N);
+
+    // Mediana
+    const path = polylinePath(S.p50, x, y, N);
+    const ln = document.createElementNS(SVG_NS, 'path');
+    ln.setAttribute('d', path);
+    ln.setAttribute('stroke', color);
+    ln.setAttribute('stroke-width', '2');
+    ln.setAttribute('fill', 'none');
+    ln.setAttribute('stroke-linejoin', 'round');
+    svg.appendChild(ln);
+  }
+
+  function polygonoBand(svg, lo, hi, color, opacity, x, y, N) {
+    let pts = '';
+    for (let i = 0; i <= N; i++) pts += x(i) + ',' + y(hi[i]) + ' ';
+    for (let i = N; i >= 0; i--) pts += x(i) + ',' + y(lo[i]) + ' ';
+    const poly = document.createElementNS(SVG_NS, 'polygon');
+    poly.setAttribute('points', pts.trim());
+    poly.setAttribute('fill', color);
+    poly.setAttribute('fill-opacity', opacity);
+    poly.setAttribute('stroke', 'none');
+    svg.appendChild(poly);
+  }
+
+  function polylinePath(arr, x, y, N) {
+    let p = 'M ' + x(0) + ' ' + y(arr[0]);
+    for (let i = 1; i <= N; i++) p += ' L ' + x(i) + ' ' + y(arr[i]);
+    return p;
+  }
+
+  function niceTicks(min, max, count) {
+    const range = max - min;
+    if (range <= 0) return [min];
+    const rough = range / count;
+    const mag = Math.pow(10, Math.floor(Math.log10(rough)));
+    const norm = rough / mag;
+    let step;
+    if (norm < 1.5) step = 1 * mag;
+    else if (norm < 3) step = 2 * mag;
+    else if (norm < 7) step = 5 * mag;
+    else step = 10 * mag;
+    const start = Math.ceil(min / step) * step;
+    const out = [];
+    for (let v = start; v <= max + step * 0.001; v += step) out.push(v);
+    return out;
+  }
+
+  function xTicksForHorizon(T) {
+    if (T <= 5) return rango(0, T, 1);
+    if (T <= 10) return rango(0, T, 2);
+    if (T <= 20) return rango(0, T, 5);
+    return rango(0, T, 10);
+  }
+  function rango(a, b, step) {
+    const out = [];
+    for (let v = a; v <= b + 1e-9; v += step) out.push(v);
+    if (out[out.length - 1] !== b) out.push(b);
+    return out;
+  }
+
+  // Leyenda y resumen
+  function actualizarLeyenda(seriesA, seriesB) {
+    const el = document.getElementById('leyenda');
+    const partes = [];
+    if (seriesA) partes.push('<span style="display:inline-block; width:10px; height:10px; background:'+state.a.color+'; opacity:0.5; margin-right:4px;"></span>P5–P95 / P10–P90 / P25–P75 + mediana');
+    el.innerHTML = partes.join(' · ');
+  }
+
+  function actualizarResumen(seriesA, seriesB) {
+    const el = document.getElementById('resumen');
+    el.innerHTML = '';
+    if (seriesA) el.appendChild(cardResumen('a', seriesA));
+    if (seriesB) el.appendChild(cardResumen('b', seriesB));
+  }
+  function cardResumen(key, S) {
+    const cfg = state[key];
+    const idx = S.p50.length - 1; // último punto = horizonte
+    const fmt = state.modo === 'capital' ? fmtMoneda : fmtPct;
+    const card = document.createElement('div');
+    card.className = 'resumen-card' + (key === 'b' ? ' b' : '');
+    card.innerHTML = `
+      <h5><span style="display:inline-block;width:8px;height:8px;background:${cfg.color};border-radius:2px;margin-right:6px;vertical-align:1px;"></span>
+        ${cfg.nombre} · μ=${cfg.mu}% · σ=${cfg.sigma}% · al año ${state.horizonte}</h5>
+      <div class="pcts">
+        <div class="pct"><span class="et">P10 (malo)</span><span class="vl">${fmt(S.p10[idx])}</span></div>
+        <div class="pct"><span class="et">Mediana</span><span class="vl">${fmt(S.p50[idx])}</span></div>
+        <div class="pct"><span class="et">P90 (bueno)</span><span class="vl">${fmt(S.p90[idx])}</span></div>
+      </div>
+    `;
+    return card;
+  }
+
+  // -------------------------------------------------------------------------
+  // Bindings
+  // -------------------------------------------------------------------------
+  function setHorizonte(v) {
+    state.horizonte = +v;
+    document.getElementById('horizonte-valor').textContent = state.horizonte;
+    dibujar();
+  }
+  function setModo(m) {
+    state.modo = m;
+    document.querySelectorAll('#modos button').forEach(b => b.classList.toggle('activo', b.dataset.modo === m));
+    dibujar();
+  }
+  function setCapital(v) { state.capital = Math.max(0, +v) || 0; dibujar(); }
+  function setActivo(key, prop, v) { state[key][prop] = (typeof v === 'number') ? v : (+v || 0); dibujar(); }
+  function setVisible(key, v) { state[key].visible = !!v; dibujar(); }
+
+  function aplicarPreset(key, mu, sigma, nombre) {
+    state[key].mu = mu;
+    state[key].sigma = sigma;
+    state[key].nombre = nombre;
+    document.getElementById(key + '-mu').value = mu;
+    document.getElementById(key + '-sigma').value = sigma;
+    dibujar();
+  }
+
+  document.getElementById('horizonte').addEventListener('input', e => setHorizonte(e.target.value));
+  document.getElementById('capital-inicial').addEventListener('input', e => setCapital(e.target.value));
+  document.getElementById('a-mu').addEventListener('input', e => setActivo('a', 'mu', e.target.value));
+  document.getElementById('a-sigma').addEventListener('input', e => setActivo('a', 'sigma', e.target.value));
+  document.getElementById('b-mu').addEventListener('input', e => setActivo('b', 'mu', e.target.value));
+  document.getElementById('b-sigma').addEventListener('input', e => setActivo('b', 'sigma', e.target.value));
+  document.getElementById('a-visible').addEventListener('change', e => setVisible('a', e.target.checked));
+  document.getElementById('b-visible').addEventListener('change', e => setVisible('b', e.target.checked));
+  document.querySelectorAll('#modos button').forEach(b => b.addEventListener('click', () => setModo(b.dataset.modo)));
+
+  let resizeT;
+  window.addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(dibujar, 100); });
+
+  // Inicializar nombres
+  state.a.nombre = 'S&P 500';
+  state.b.nombre = 'Treasury 1Y';
+
+  // Primera renderizada
+  dibujar();
+  // Re-render después de fonts/layout estable
+  requestAnimationFrame(dibujar);
+</script>
+</body>
+</html>
