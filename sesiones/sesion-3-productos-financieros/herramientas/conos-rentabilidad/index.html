@@ -284,9 +284,11 @@
             <strong id="horizonte-valor">10 años</strong>
           </div>
           <input type="range" id="horizonte" min="1" max="360" step="1" value="120">
-          <div class="escala">
-            <span>1m</span><span>6m</span><span>1a</span><span>5a</span><span>10a</span><span>30a</span>
-          </div>
+          <!-- Escala visual quitada a propósito: el slider es lineal en meses
+               (1-360), y una escala con "1m · 6m · 1a · 5a · 10a · 30a"
+               distribuida uniformemente con flex era engañosa — el "6m" visual
+               en realidad caía cerca del mes 73 (~6 años). Los chips de snap
+               de abajo son la guía honesta: dan al valor exacto al clic. -->
           <div class="preset" style="margin-top: 0.4rem;">
             <span style="align-self:center;">Saltar a:</span>
             <button onclick="setHorizonteMeses(1)">1m</button>
