@@ -280,16 +280,27 @@
         <h4>Horizonte</h4>
         <div class="horizonte-bloque">
           <div class="horizonte-valor">
-            <span style="font-size: 0.82rem; color: var(--color-texto-sutil);">años</span>
-            <strong id="horizonte-valor">10</strong>
+            <span style="font-size: 0.82rem; color: var(--color-texto-sutil);">tiempo</span>
+            <strong id="horizonte-valor">10 años</strong>
           </div>
-          <input type="range" id="horizonte" min="1" max="30" step="1" value="10">
+          <input type="range" id="horizonte" min="1" max="360" step="1" value="120">
           <div class="escala">
-            <span>1a</span><span>5a</span><span>10a</span><span>20a</span><span>30a</span>
+            <span>1m</span><span>6m</span><span>1a</span><span>5a</span><span>10a</span><span>30a</span>
+          </div>
+          <div class="preset" style="margin-top: 0.4rem;">
+            <span style="align-self:center;">Saltar a:</span>
+            <button onclick="setHorizonteMeses(1)">1m</button>
+            <button onclick="setHorizonteMeses(3)">3m</button>
+            <button onclick="setHorizonteMeses(6)">6m</button>
+            <button onclick="setHorizonteMeses(12)">1a</button>
+            <button onclick="setHorizonteMeses(36)">3a</button>
+            <button onclick="setHorizonteMeses(60)">5a</button>
+            <button onclick="setHorizonteMeses(120)">10a</button>
+            <button onclick="setHorizonteMeses(360)">30a</button>
           </div>
         </div>
 
-        <div class="par-input">
+        <div class="par-input" style="margin-top: 0.6rem;">
           <label for="capital-inicial">Capital inicial (B/.)</label>
           <input type="number" id="capital-inicial" step="1000" min="0" value="10000">
         </div>
@@ -375,11 +386,20 @@
   // Estado
   const state = {
     capital: 10000,
-    horizonte: 10,        // años
+    horizonteMeses: 120,  // meses (1..360). 120m = 10 años.
     modo: 'capital',      // 'capital' | 'cagr'
     a: { mu: 10, sigma: 17, visible: true, color: '#003DA5', nombre: 'Activo A' },
     b: { mu:  4.5, sigma: 1.5, visible: true, color: '#F47B20', nombre: 'Activo B' },
   };
+
+  // Formato compacto: "6 meses", "1 año", "1 año 6 meses", "10 años".
+  function fmtHorizonte(meses) {
+    if (meses < 12) return meses + (meses === 1 ? ' mes' : ' meses');
+    const años = Math.floor(meses / 12);
+    const rem = meses - años * 12;
+    if (rem === 0) return años + (años === 1 ? ' año' : ' años');
+    return años + (años === 1 ? ' año ' : ' años ') + rem + (rem === 1 ? ' mes' : ' meses');
+  }
 
   // -------------------------------------------------------------------------
   // Cálculo de percentiles bajo GBM (log-normal cerrado)
@@ -458,9 +478,10 @@
     const innerW = W - PAD.left - PAD.right;
     const innerH = H - PAD.top - PAD.bottom;
 
-    const T = state.horizonte;
-    // Resolución: más puntos para horizontes largos (curvatura mayor)
-    const N = Math.max(40, Math.min(200, T * 12));
+    const T = state.horizonteMeses / 12; // años (puede ser fraccional)
+    // Resolución: al menos 40 puntos, idealmente 1 punto por mes para horizontes
+    // largos. Con horizontes muy cortos también queremos 40+ puntos para curva suave.
+    const N = Math.max(40, Math.min(360, state.horizonteMeses));
 
     const seriesA = state.a.visible ? generarSerie(state.modo, state.capital, state.a.mu, state.a.sigma, T, N) : null;
     const seriesB = state.b.visible ? generarSerie(state.modo, state.capital, state.b.mu, state.b.sigma, T, N) : null;
@@ -527,11 +548,10 @@
       svg.appendChild(lab);
     }
 
-    // Ticks X (años)
-    const xTicks = xTicksForHorizon(T);
+    // Ticks X — meses si T<2 años, años si más.
+    const xTicks = xTicksForHorizon(state.horizonteMeses); // [{ frac: 0..1, label }]
     for (const xt of xTicks) {
-      const i = (xt / T) * N;
-      const xx = x(i);
+      const xx = PAD.left + xt.frac * innerW;
       const ln = document.createElementNS(SVG_NS, 'line');
       ln.setAttribute('x1', xx); ln.setAttribute('x2', xx);
       ln.setAttribute('y1', H - PAD.bottom); ln.setAttribute('y2', H - PAD.bottom + 4);
@@ -542,7 +562,7 @@
       tx.setAttribute('text-anchor', 'middle');
       tx.setAttribute('font-size', '10'); tx.setAttribute('fill', '#5A6375');
       tx.setAttribute('font-family', 'Inter');
-      tx.textContent = xt + 'a';
+      tx.textContent = xt.label;
       svg.appendChild(tx);
     }
     // Eje X label
@@ -552,7 +572,7 @@
     xlab.setAttribute('text-anchor', 'middle');
     xlab.setAttribute('font-size', '10'); xlab.setAttribute('fill', '#5A6375');
     xlab.setAttribute('font-family', 'Inter');
-    xlab.textContent = 'Años';
+    xlab.textContent = (state.horizonteMeses < 24) ? 'Meses' : 'Años';
     svg.appendChild(xlab);
 
     // ----- Bandas + medianas (B abajo, A encima — A azul navy es la "estrella") -----
@@ -561,7 +581,7 @@
 
     // Update title + leyenda + resumen
     document.getElementById('chart-titulo').textContent =
-      (state.modo === 'capital' ? 'Capital proyectado · ' : 'Retorno anualizado · ') + T + ' años';
+      (state.modo === 'capital' ? 'Capital proyectado · ' : 'Retorno anualizado · ') + fmtHorizonte(state.horizonteMeses);
     actualizarLeyenda(seriesA, seriesB);
     actualizarResumen(seriesA, seriesB);
   }
@@ -618,16 +638,36 @@
     return out;
   }
 
-  function xTicksForHorizon(T) {
-    if (T <= 5) return rango(0, T, 1);
-    if (T <= 10) return rango(0, T, 2);
-    if (T <= 20) return rango(0, T, 5);
-    return rango(0, T, 10);
-  }
-  function rango(a, b, step) {
+  /**
+   * Ticks del eje X para un horizonte dado en meses. Devuelve [{ frac, label }],
+   * donde frac es la posición relativa (0..1) y label es texto a mostrar.
+   * Estrategia: si horizonte < 24 meses, ticks por meses (con paso adaptativo).
+   * Si horizonte >= 24 meses, ticks por años.
+   */
+  function xTicksForHorizon(meses) {
     const out = [];
-    for (let v = a; v <= b + 1e-9; v += step) out.push(v);
-    if (out[out.length - 1] !== b) out.push(b);
+    if (meses <= 12) {
+      // Ticks cada mes hasta 12, etiquetando a un paso razonable
+      const step = meses <= 6 ? 1 : 2;
+      for (let m = 0; m <= meses; m += step) {
+        out.push({ frac: m / meses, label: m + 'm' });
+      }
+      if (out[out.length - 1].frac !== 1) out.push({ frac: 1, label: meses + 'm' });
+    } else if (meses <= 24) {
+      // Mezcla: 0, 3m, 6m, 9m, 12m, ..., hasta el final
+      for (let m = 0; m <= meses; m += 3) {
+        out.push({ frac: m / meses, label: m + 'm' });
+      }
+      if (out[out.length - 1].frac !== 1) out.push({ frac: 1, label: meses + 'm' });
+    } else {
+      // En años. Paso según tamaño.
+      const T = meses / 12;
+      const stepY = T <= 5 ? 1 : T <= 10 ? 2 : T <= 20 ? 5 : 10;
+      for (let y = 0; y <= T + 1e-9; y += stepY) {
+        out.push({ frac: y / T, label: y + 'a' });
+      }
+      if (out[out.length - 1].frac < 1 - 1e-9) out.push({ frac: 1, label: T.toFixed(T < 10 ? 1 : 0) + 'a' });
+    }
     return out;
   }
 
@@ -653,7 +693,7 @@
     card.className = 'resumen-card' + (key === 'b' ? ' b' : '');
     card.innerHTML = `
       <h5><span style="display:inline-block;width:8px;height:8px;background:${cfg.color};border-radius:2px;margin-right:6px;vertical-align:1px;"></span>
-        ${cfg.nombre} · μ=${cfg.mu}% · σ=${cfg.sigma}% · al año ${state.horizonte}</h5>
+        ${cfg.nombre} · μ=${cfg.mu}% · σ=${cfg.sigma}% · a ${fmtHorizonte(state.horizonteMeses)}</h5>
       <div class="pcts">
         <div class="pct"><span class="et">P10 (malo)</span><span class="vl">${fmt(S.p10[idx])}</span></div>
         <div class="pct"><span class="et">Mediana</span><span class="vl">${fmt(S.p50[idx])}</span></div>
@@ -666,9 +706,10 @@
   // -------------------------------------------------------------------------
   // Bindings
   // -------------------------------------------------------------------------
-  function setHorizonte(v) {
-    state.horizonte = +v;
-    document.getElementById('horizonte-valor').textContent = state.horizonte;
+  function setHorizonteMeses(v) {
+    state.horizonteMeses = Math.max(1, Math.min(360, Math.round(+v)));
+    document.getElementById('horizonte').value = state.horizonteMeses;
+    document.getElementById('horizonte-valor').textContent = fmtHorizonte(state.horizonteMeses);
     dibujar();
   }
   function setModo(m) {
@@ -689,7 +730,7 @@
     dibujar();
   }
 
-  document.getElementById('horizonte').addEventListener('input', e => setHorizonte(e.target.value));
+  document.getElementById('horizonte').addEventListener('input', e => setHorizonteMeses(e.target.value));
   document.getElementById('capital-inicial').addEventListener('input', e => setCapital(e.target.value));
   document.getElementById('a-mu').addEventListener('input', e => setActivo('a', 'mu', e.target.value));
   document.getElementById('a-sigma').addEventListener('input', e => setActivo('a', 'sigma', e.target.value));
