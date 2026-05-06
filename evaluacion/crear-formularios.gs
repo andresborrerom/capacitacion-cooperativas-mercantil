@@ -1,6 +1,6 @@
 // ============================================================
 // CREAR TODAS LAS EVALUACIONES DEL CURSO
-// Curso finanzas para dirigentes cooperativos · Mercantil SI
+// Curso finanzas para dirigentes cooperativos · Mercantil Asset & Wealth Management
 // ============================================================
 //
 // QUÉ HACE ESTE SCRIPT
@@ -126,7 +126,7 @@ var FORMULARIOS = [
   {
     id: 'pre-test',
     titulo: 'Pre-test · Finanzas para dirigentes cooperativos',
-    descripcion: 'Mercantil Servicios de Inversión · Antes de la Sesión 1.\n\nEste cuestionario nos ayuda a calibrar el curso a tu conocimiento actual. No es un examen — es un diagnóstico. Responder con honestidad te beneficia directamente.\n\nTiempo estimado: 10 minutos.',
+    descripcion: 'Mercantil Asset & Wealth Management · Antes de la Sesión 1.\n\nEste cuestionario nos ayuda a calibrar el curso a tu conocimiento actual. No es un examen — es un diagnóstico. Responder con honestidad te beneficia directamente.\n\nTiempo estimado: 10 minutos.',
     preguntas: [
       {t: 'section', titulo: 'Parte A · Conocimiento base',
        help: 'No te preocupes si algo no sabes; justo eso vamos a trabajar en el curso.'},

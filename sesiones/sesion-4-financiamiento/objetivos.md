@@ -49,7 +49,7 @@ Esta es la última sesión. Debe reconectar con el arco completo:
 
 1. Mapa de palancas: **las 8 se muestran completas**, todas marcadas como trabajadas.
 2. Retrospectiva breve: *"Empezaron mirando la foto con respeto. Van saliendo leyendo la película con criterio."*
-3. Frase de cierre de Mercantil SI:
+3. Frase de cierre de Mercantil Asset & Wealth Management:
    > *"La asesoría financiera no es para quien no sabe. Es para quien quiere tomar mejores decisiones."*
 4. Contacto para quienes quieran explorar asesoría profesional.
 5. Invitación al seguimiento post-curso (sesión de preguntas opcional en 2 semanas).

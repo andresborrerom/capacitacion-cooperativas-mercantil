@@ -2,7 +2,7 @@
 title: "Guía de referencia · Sesión 4 · Cierre del curso"
 subtitle: "Cómo conseguir recursos — endeudarse bien vs. mal"
 curso: "Finanzas para dirigentes de cooperativas financieras"
-institucion: "Mercantil Servicios de Inversión"
+institucion: "Mercantil Asset & Wealth Management"
 sesion: 4
 ---
 
@@ -126,6 +126,6 @@ Si prefieres con otra firma, también está bien. Ahora sabes qué preguntar.
 
 ---
 
-*Mercantil Servicios de Inversión · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 4 · Cierre*
+*Mercantil Asset & Wealth Management · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 4 · Cierre*
 
 **Gracias.**

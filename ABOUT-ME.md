@@ -1,7 +1,7 @@
 # ABOUT-ME.md — Perfil del usuario y mandato estratégico
 
 ## Afiliación
-**Mercantil Servicios de Inversión** (Panamá) — mercantilsi.com.pa.
+**Mercantil Asset & Wealth Management** (Panamá) — mercantilsi.com.pa.
 
 ## Rol profesional
 Trabajo en **Wealth Management** (gestión patrimonial). Construyo portafolios de inversión con foco técnico en:
@@ -13,7 +13,7 @@ Trabajo en **Wealth Management** (gestión patrimonial). Construyo portafolios d
 - **Gestión de liquidez** — evitar ventas forzadas y ejecuciones con pérdida temprana grave.
 
 ## Meta estratégica de esta capacitación
-Posicionar a Mercantil SI ante **las cooperativas financieras panameñas** (cooperativas de ahorro y crédito) como una **alternativa seria y profesional** para:
+Posicionar a Mercantil Asset & Wealth Management ante **las cooperativas financieras panameñas** (cooperativas de ahorro y crédito) como una **alternativa seria y profesional** para:
 
 1. Gestión de sus **inversiones** (excedentes, reservas de liquidez, fondos de previsión).
 2. Optimización del manejo de su **flujo de caja**.

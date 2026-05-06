@@ -19,7 +19,7 @@ polls/
 ### 1. Crear el Google Sheet
 
 1. Abre <https://sheets.google.com/> con la cuenta `andres.borrerom@gmail.com`.
-2. Crea una hoja nueva — nombre sugerido: `Polls Mercantil SI Cooperativas 2026`.
+2. Crea una hoja nueva — nombre sugerido: `Polls Mercantil Asset & Wealth Management Cooperativas 2026`.
 3. Copia el **ID del sheet** desde la URL: `https://docs.google.com/spreadsheets/d/`**`<ID-aquí>`**`/edit`.
 
 ### 2. Crear el proyecto Apps Script
@@ -87,6 +87,18 @@ Se acceden desde la **landing por sesión** (QR único) — no se comparten dire
 3. Tras suficientes votos, comenta resultados.
 
 **Reset:** si haces pruebas previas, antes de la sesión real abre la vista facilitador → botón rojo `Reset` para borrar votos de prueba. (Requiere token.)
+
+### Si el botón Reset falla en vivo
+
+El primer POST a Apps Script tras un periodo idle puede tardar (cold-start) y devolver error. La vista facilitador ya **reintenta automáticamente una vez** tras 1 segundo. Si aun así falla:
+
+1. **Volver a hacer click en Reset.** Suele funcionar al segundo intento (síntoma de cold-start, no del código).
+2. **Plan B en vivo — borrar a mano en el Sheet:**
+   - Abre el Google Sheet del backend (el que tiene el `SHEET_ID` configurado en `apps-script/Code.gs`).
+   - Ve al tab que coincide con el ID del poll (ej. `s2-p3-flujo-juntas`).
+   - Selecciona las filas de datos (de la fila 2 hacia abajo) y `Delete row`.
+   - El header (fila 1) se queda. Listo, votos borrados.
+3. **Plan C — seguir sin reset:** si no urge el reset, los votos viejos no impiden votar; solo se suman al total. Avisa al chat: *"los resultados que verán incluyen votos de prueba; el patrón a leer es el % relativo, no el conteo absoluto."*
 
 ## Catálogo de polls
 

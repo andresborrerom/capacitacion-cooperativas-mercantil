@@ -11,7 +11,7 @@
 | **4. Buen vs. mal endeudamiento** | 15 min | 3 preguntas de criterio + 3 señales de alerta típicas. |
 | **5. Break** | 5 min | Poll: *"¿Cuál señal de alerta reconocerías ahora que no antes?"* |
 | **6. Caso integrador** | 25 min | Caso que combina las 8 palancas del curso. Resolución guiada con herramienta. |
-| **7. Ritual de cierre** | 20 min | Mapa completo de 8 palancas + retrospectiva + frase de Mercantil SI + contacto + invitación a sesión de seguimiento. |
+| **7. Ritual de cierre** | 20 min | Mapa completo de 8 palancas + retrospectiva + frase de Mercantil Asset & Wealth Management + contacto + invitación a sesión de seguimiento. |
 | **8. Cierre emocional + NPS** | 5 min | *"En una palabra, ¿cómo se van del curso?"* Encuesta NPS final. Gracias. |
 
 ## Herramienta interactiva: "Costo real del crédito"

@@ -51,21 +51,21 @@ Ver sección "Supuestos pendientes de confirmar" en `INSTRUCCIONES.md`.
 1. **Tipo de cooperativa:** cooperativas financieras (ahorro y crédito). Audiencia: gerentes generales, gerentes financieros, juntas directivas. Incluye profesionales de otras áreas (médicos, etc.) en cargos fiduciarios.
 2. **Formato:** virtual, 100 personas por sesión.
 3. **Hosting:** elegido por Claude — **GitHub Pages**. URL estable, QR en slides.
-4. **Marca:** Mercantil Servicios de Inversión (mercantilsi.com.pa). Paleta azul `#003DA5` + naranja `#F47B20`.
+4. **Marca:** Mercantil Asset & Wealth Management (mercantilsi.com.pa). Paleta azul `#003DA5` + naranja `#F47B20`.
 5. **Timeline:** evento en mayo de 2026. **Primera versión muy buena esta semana.**
 
 ### Implicaciones absorbidas
 - **Audiencia es alta dirigencia**, no cooperativista de a pie → arquetipos rehechos (Dra. Vega / Lic. Mendoza / Ing. Álvarez).
 - **Doble capa de profundidad** (accesible + acento técnico opcional) para respetar tanto al no-financiero como al con trayectoria.
 - **Virtual × 100** → micro-interacciones cada 7-10 min; herramientas individuales por celular; QR sobre slide; chat + polls como dinámica principal.
-- **Apuesta estratégica más alta:** esta audiencia decide sobre excedentes/reservas de cooperativa. Mercantil SI es opción real para ellos, no tema futuro.
+- **Apuesta estratégica más alta:** esta audiencia decide sobre excedentes/reservas de cooperativa. Mercantil Asset & Wealth Management es opción real para ellos, no tema futuro.
 
 ### Hecho en este checkpoint
 - [x] `INSTRUCCIONES.md` reescrito con supuestos resueltos, formato virtual, timeline, marca.
-- [x] `ABOUT-ME.md` actualizado con afiliación Mercantil SI y audiencia real.
+- [x] `ABOUT-ME.md` actualizado con afiliación Mercantil Asset & Wealth Management y audiencia real.
 - [x] `diseno/01-audiencia.md` reescrito completamente con perfil real y arquetipos actualizados.
 - [x] `diseno/04-stack-tecnico.md` cerrado: reveal.js + vanilla JS + GitHub Pages + paleta Mercantil.
-- [x] `assets/css/base.css` reescrito con paleta Mercantil SI, componentes corporativos + soporte "acento técnico".
+- [x] `assets/css/base.css` reescrito con paleta Mercantil Asset & Wealth Management, componentes corporativos + soporte "acento técnico".
 - [x] 2 subagentes lanzados en background: benchmarks y contexto Panamá.
 - [x] Tareas creadas en el tracker (9).
 
@@ -84,7 +84,7 @@ Ver sección "Supuestos pendientes de confirmar" en `INSTRUCCIONES.md`.
 ### Pendientes para futuros checkpoints
 - Validar arquetipos Vega / Mendoza / Álvarez.
 - Elegir metáfora madre (cuando Claude proponga).
-- Confirmar tipografía oficial de Mercantil SI (por ahora Inter).
+- Confirmar tipografía oficial de Mercantil Asset & Wealth Management (por ahora Inter).
 - Definir repo GitHub concreto y acceso para despliegue.
 
 ---
@@ -103,7 +103,7 @@ Ver sección "Supuestos pendientes de confirmar" en `INSTRUCCIONES.md`.
 - [x] `objetivos.md` — 5 objetivos SMART + criterios de éxito medibles.
 - [x] `previo.md` — lectura anticipadora 10 min para PDF previo.
 - [x] `guion.md` — guion completo con tiempos minuto-a-minuto, 8 bloques de 120 min, co-facilitación alternada cada ≤7 min, 5 polls, contingencias.
-- [x] `herramientas/mi-foto-financiera/index.html` — herramienta interactiva autocontenida con dos modos (personal + cooperativa), semáforos, localStorage, mobile-first, paleta Mercantil SI.
+- [x] `herramientas/mi-foto-financiera/index.html` — herramienta interactiva autocontenida con dos modos (personal + cooperativa), semáforos, localStorage, mobile-first, paleta Mercantil Asset & Wealth Management.
 - [x] `material-participante.md` — guía de referencia post-sesión + checklist imprimible de 5 preguntas.
 - [x] `evaluacion.md` — pre-test corto (5 preguntas conocimiento + aplicada + Likert + NPS + abiertas).
 
@@ -117,7 +117,7 @@ Ver sección "Supuestos pendientes de confirmar" en `INSTRUCCIONES.md`.
 ### Decisiones pendientes de usuario (no bloqueantes hasta aquí)
 1. **Metáfora madre:** recomendación = tablero+GPS. Confirmar o cambiar.
 2. **Arquetipos:** Dra. Vega / Lic. Mendoza / Ing. Álvarez. Confirmar o aterrizar con nombres más representativos.
-3. **Tipografía Mercantil oficial:** por ahora Inter. Si Mercantil SI usa otra, proveerla.
+3. **Tipografía Mercantil oficial:** por ahora Inter. Si Mercantil Asset & Wealth Management usa otra, proveerla.
 4. **Repo GitHub** concreto y acceso para despliegue.
 5. **Co-facilitador:** ¿lo tienes identificado? El guion asume un perfil práctico/cooperativo que complementa al técnico del usuario.
 
@@ -126,7 +126,7 @@ Ver sección "Supuestos pendientes de confirmar" en `INSTRUCCIONES.md`.
 ## 2026-04-21 — Día 1, checkpoint 4 (bloque autónomo 2 completado)
 
 ### Sesión 1 al 100% de primera versión
-- [x] `slides/index.html` — reveal.js completo, 27 slides, paleta Mercantil SI, placeholder de QR.
+- [x] `slides/index.html` — reveal.js completo, 27 slides, paleta Mercantil Asset & Wealth Management, placeholder de QR.
 - [x] `datos/el-paraiso.md` — ficha formal del caso con balance, P&L, indicadores derivados, moraleja.
 
 ### Sesiones 2, 3, 4 esqueletadas
@@ -159,7 +159,7 @@ Ver sección "Supuestos pendientes de confirmar" en `INSTRUCCIONES.md`.
 - **Validación de arquetipos** Vega/Mendoza/Álvarez.
 - **Co-facilitador:** si no hay, reescribo guiones a voz única.
 - **Repo GitHub + URL real** para generar QR definitivos y actualizar placeholders en slides.
-- **Tipografía oficial Mercantil SI** si existe una distinta a Inter.
+- **Tipografía oficial Mercantil Asset & Wealth Management** si existe una distinta a Inter.
 - **Uso de casos reales** (anonimizados) en lugar de los ficticios (El Paraíso, Esfuerzo Unido).
 
 ---
@@ -218,7 +218,7 @@ Ver sección "Supuestos pendientes de confirmar" en `INSTRUCCIONES.md`.
 - [x] `guion.md` — minuto-a-minuto con caso de dos ofertas, caso integrador Esfuerzo Unido, ritual de cierre con mapa completo de 8 palancas y frase final.
 - [x] `material-participante.md` — la más completa, incluye tabla resumen de las 8 palancas + inventario de las 4 herramientas permanentes del curso.
 - [x] `evaluacion.md` — 8 preguntas específicas + integración con post-test transversal.
-- [x] `slides/index.html` — reveal.js ~22 slides con comparador de ofertas, amortización, 7 señales de buena decisión, mapa completo de palancas, frase de cierre de Mercantil SI.
+- [x] `slides/index.html` — reveal.js ~22 slides con comparador de ofertas, amortización, 7 señales de buena decisión, mapa completo de palancas, frase de cierre de Mercantil Asset & Wealth Management.
 
 ### Estado final del proyecto
 
@@ -249,7 +249,7 @@ Ver sección "Supuestos pendientes de confirmar" en `INSTRUCCIONES.md`.
 - Validación arquetipos.
 - Co-facilitador (guiones asumen dos voces).
 - Repo GitHub + URL real → generar QR definitivos → reemplazar placeholders en 4 archivos de slides.
-- Si hay tipografía oficial Mercantil SI distinta a Inter, reemplazar en base.css.
+- Si hay tipografía oficial Mercantil Asset & Wealth Management distinta a Inter, reemplazar en base.css.
 - Reemplazar casos ficticios por reales anonimizados si el usuario los tiene.
 
 **Iteraciones posibles (no bloqueantes):**
@@ -395,7 +395,7 @@ Archivos en `C:\Users\pocho\.claude\projects\...\memory\`:
 - `reference_curso_urls.md` (todas las URLs)
 - `feedback_entorno_windows.md` (herramientas disponibles/no disponibles en la máquina del usuario)
 - `feedback_modo_trabajo.md` (autonomía con checkpoints)
-- `user_role.md` (perfil Mercantil SI / wealth management)
+- `user_role.md` (perfil Mercantil Asset & Wealth Management / wealth management)
 
 ### Comandos útiles para la próxima sesión
 ```bash
@@ -517,7 +517,7 @@ Tras el push y activación de Pages, en 1-2 minutos las URLs deberían responder
 - **Co-facilitación:** dos perfiles — uno con conocimiento cooperativo, otro con conocimiento CFA.
 - **Casos El Paraíso / Esfuerzo Unido:** mantenerlos como ficticios, mejorar marcado ilustrativo.
 - **Plataforma:** Teams nativo por ahora; revisar polls cuando se pruebe.
-- **Nombre Mercantil SI:** mantener por ahora (no renombrar a Mercantil Asset & Wealth Management aún).
+- **Nombre Mercantil Asset & Wealth Management:** mantener por ahora (no renombrar a Mercantil Asset & Wealth Management aún).
 
 ### Operativos cerrados
 - **Ensayo técnico hecho** — salió bien.
@@ -646,4 +646,55 @@ Construido para funcionar tanto en modalidad presencial como vía Teams. Resulta
 - `reference_curso_urls.md`: landings, materiales HTML, comando PowerShell para QR.
 - `reference_polls_sistema.md` **(nueva)**: URL Apps Script, token, IDs de polls, mantenimiento.
 - `MEMORY.md`: índice actualizado.
+
+---
+
+## 2026-05-06 — Iteración v1.3 · Revisión S2/S3 con el usuario
+
+### Comentarios recibidos del usuario y resueltos
+
+**Transversal a todas las sesiones:**
+1. **QR al inicio de cada sesión.** Antes estaba en el slide de introducción de la herramienta; ahora la sesión arranca con un poll, así que el QR debe estar visible desde antes. Aplicado: slide grande del QR insertado entre portada y primer poll en S1, S2, S3, S4. El slide del QR original (en bloque herramienta) se reemplazó por una referencia liviana a la pestaña Herramienta del mismo QR.
+2. **Reset de polls que falló y luego funcionó.** Diagnóstico: cold-start de Apps Script en el primer POST tras inactividad. Aplicado: `resetear()` ahora reintenta automáticamente una vez tras 1 segundo; si vuelve a fallar, el alert apunta al **Plan B** (borrar a mano en el Google Sheet). Documentado en `polls/INSTRUCCIONES.md` con 3 planes (reintentar / Sheet manual / seguir sin reset).
+3. **Rename Mercantil SI → Mercantil Asset & Wealth Management.** Aplicado en TODAS las superficies del repo (53 archivos, 137 ocurrencias). En HTML escapado como `&amp;` para validez. Reverso de la decisión previa: ahora MAWM es quien lleva la iniciativa del curso.
+
+**Sesión 2:**
+4. **Slide 3 momentos · momento 3:** quitada la frase "El asegurado no es evitar el evento; es tener cobertura". Resto igual.
+5. **Slide tabla flujo:** agregada pregunta puente al final — *"¿Tengo suficiente para responder ante una eventual salida inesperada de caja?"* — con explicación de que el verdadero rojo lo marcan dos cosas: proyección faltante + política de riesgo.
+6. **Slide nuevo "Política Mínimo Operativo + riesgo de liquidez"** insertado después de "Cuenta del 31 dic". Define qué es la política (piso de caja líquida) y qué es el riesgo de liquidez (no tener efectivo cuando un asociado lo pida — solvencia ≠ liquidez).
+7. **Slide indicadores · cobertura:** dejado solo "Sensible a la definición del denominador". (Quitada la coletilla "distintos auditores cuentan distinto".)
+
+**Sesión 3:**
+8. **Slide 3 caso · preámbulo en guion:** *"La inversión, como concepto, ya se conocía. Lo que sistemáticamente se minimizó son los elementos de liquidez. La idea de los cajones es lo que evita el accidente."* Lo dice el facilitador antes del caso del DPF roto.
+9. **Slide 4 Costo del mismatch · matemáticas corregidas.** Antes el sobrecosto del crédito puente decía "500k al 9% × 24 meses ≈ 47k", lo cual no cierra (24m al 9% sobre 500k = 90k brutos; el diferencial 9%-5.2% × 500k × 2 = 38k). Ahora: 500k al 9% × 12 meses = 45k. Total: 20+43+45 = **108k ≈ 11% del principal**. Coherente.
+10. **Slide 6 4 cajones · Gaveta 4:** quitada la palabra "décadas" del propósito. Queda "legado, retiro, reservas institucionales".
+11. **Herramienta caja-herramientas:**
+    - Ejemplo "Cargar ejemplo cooperativa" recalibrado para que sea **cumplible** (productos = necesidades = B/. 1.83M). Muestra el mismatch clásico: exceso en G1 y G3, déficit en G2 y G4.
+    - Plazo de los DPFs ajustado para que caigan en la gaveta intuitiva (DPF a 30 días caía en G1 por la regla `plazo<=1`; cambiado a 90/180 días para que estén claramente en G2).
+    - **Gaveta 4 ahora muestra "Meta" en lugar de "Necesidad"** (es objetivo institucional de largo plazo, no necesidad operativa actual). Label en formulario: *"Gaveta 4 · Meta estratégica · capital de largo plazo (5+ años)"*.
+12. **Slide 11 nuevo · Break + Poll #3.** Faltaba el slide de break que sí tienen las otras sesiones. Insertado entre "4 dimensiones" (slide 10) y "3 palabras" (era 11, ahora 12). Renumeración aplicada en guion.
+13. **Slide 11 (ahora 12) · 3 palabras:**
+    - **Ahorrar:** corregida la definición — antes decía "Guardar plata para no tocar"; el usuario hizo notar que ahorrar SÍ es plata que se espera tocar (en corto plazo). Cambiado a *"Plata que sí espero usar — la guardo lista para tocarla en el corto plazo"*.
+    - **Especular:** agregado el ejemplo **yate vs. universidad**. Especular no debe ser parte de los objetivos primarios. Se especula con un sobrante; si te va bien compras el yate; pero NO se arriesga la universidad de los hijos de los asociados en eso.
+14. **Slide 15 nuevo · Caso especial Gaveta 4.** Insertado después de "Palanca 7 · Concentración". Si la Gaveta 4 va a un fondo, el fondo mismo TIENE que estar bien diversificado (no concentrado en un solo bono de una entidad), tener cálculo a fondo de los riesgos a los que está expuesto, y un rango de retorno declarado. Pregunta clave al asesor del fondo: ¿cuántos emisores distintos? ¿concentración máxima? ¿qué riesgos miden?
+15. **Slide 15 (ahora 17) · Las 5 preguntas → Las 4 preguntas.**
+    - **Pregunta 1+5 unidas:** *"¿Cómo comisionas y qué costos directos o indirectos puedo tener?"* — junta alineación de incentivos con costos ocultos.
+    - **Pregunta 4 cambiada:** *"¿Qué producto de lo que ofreces, NO me recomendarías y por qué?"* (antes solo "qué producto NO me recomendarías"). Complementa el término "evadir" usado contra el vendedor: un asesor profesional sí nombra productos de su propia oferta como inadecuados.
+
+### En PIPELINE (no implementado, lo monta el usuario en la próxima sesión)
+
+- **S3 · Slide adicional Conos de Rentabilidad para Gaveta 4** — perfil superior dependiendo del plazo. El usuario quiere montarlo junto con Claude como cierre del riesgo-retorno de gavetas y horizonte. Va después del slide del fondo bien diversificado.
+
+### Lo que NO se hizo (intencional)
+
+- No se cambió el dominio `mercantilsi.com.pa` que aparece en `ABOUT-ME.md`, `avances.md` (entrada de día 1), e `INSTRUCCIONES.md`. El usuario no mencionó cambio de dominio, solo de marca. **Pendiente confirmar** si MAWM tiene dominio nuevo.
+- No se actualizó `material-participante.md` ni `material-participante.html` con los cambios pedagógicos de S2/S3 (las nuevas definiciones de Ahorrar/Especular, política mínimo operativo, las 4 preguntas en lugar de 5, etc.). Se hizo el rename de marca pero no la sincronización de contenido. **Pendiente** revisar si los materiales de participante también deben reflejar estos cambios.
+- No se renumeraron los QR PNGs ni las landings (no requieren cambios).
+
+### Estado del repo
+- Working tree con cambios sin commitear (53 archivos modificados por el rename, 4 slides + 2 guiones + 1 herramienta + 1 facilitador.html + 1 INSTRUCCIONES con cambios estructurales).
+- Listo para commitear cuando el usuario diga.
+
+### Memoria actualizada
+- `project_capacitacion_cooperativas.md`: cambios v1.3 detallados, decisión MAWM aplicada, PIPELINE registrado.
 

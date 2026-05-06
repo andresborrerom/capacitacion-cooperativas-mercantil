@@ -2,7 +2,7 @@
 title: "Guía de referencia · Sesión 1"
 subtitle: "Estados financieros sin miedo"
 curso: "Finanzas para dirigentes de cooperativas financieras"
-institucion: "Mercantil Servicios de Inversión"
+institucion: "Mercantil Asset & Wealth Management"
 sesion: 1
 ---
 
@@ -99,4 +99,4 @@ Hoy aprendimos a leer la **foto**. La próxima sesión vamos a ver la **películ
 
 ---
 
-*Mercantil Servicios de Inversión · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 1*
+*Mercantil Asset & Wealth Management · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 1*

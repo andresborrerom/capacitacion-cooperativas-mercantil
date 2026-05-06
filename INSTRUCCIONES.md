@@ -49,13 +49,13 @@ Para cada una de las 4 sesiones:
 - **Entre checkpoints:** Claude avanza sin pedir OK constantemente.
 - **Sí pedir OK** cuando:
   - Una decisión cambia el **arco del curso** (no solo un detalle).
-  - Se entra a un tema donde faltan **datos del usuario** (cifras reales, ejemplos personales, productos específicos de Mercantil SI).
+  - Se entra a un tema donde faltan **datos del usuario** (cifras reales, ejemplos personales, productos específicos de Mercantil Asset & Wealth Management).
   - Una **duda bloquea** el trabajo.
 - **Actualizar `INSTRUCCIONES.md`** cuando Claude descubra algo clave que debe preservarse en sesiones futuras.
 - **Actualizar `avances.md`** al completar cada unidad de trabajo significativa.
 
 ## Marca (confirmada 2026-04-21)
-- **Empresa del usuario:** Mercantil Servicios de Inversión (mercantilsi.com.pa).
+- **Empresa del usuario:** Mercantil Asset & Wealth Management (mercantilsi.com.pa).
 - **Paleta:** azul corporativo `#003DA5` + naranja `#F47B20` del logo. Fondo blanco.
 - **Tipografía:** sans-serif corporativa. Default de trabajo: Inter (Google Fonts) hasta confirmar tipo de marca oficial.
 - **Aplicar con sobriedad.** Es curso educativo, no folleto publicitario. Marca presente en portadas y pie; contenido no debe parecer pitch.

@@ -2,7 +2,7 @@
 title: "Antes de la Sesión 4 — Cómo conseguir recursos: endeudarse bien vs. mal"
 subtitle: "Lectura previa · 10 minutos · Cierre del curso"
 curso: "Finanzas para dirigentes de cooperativas financieras"
-institucion: "Mercantil Servicios de Inversión"
+institucion: "Mercantil Asset & Wealth Management"
 sesion: 4
 ---
 
@@ -111,4 +111,4 @@ Nos vemos el jueves — la última vez.
 
 ---
 
-*Mercantil Servicios de Inversión · Curso de finanzas para dirigentes cooperativos*
+*Mercantil Asset & Wealth Management · Curso de finanzas para dirigentes cooperativos*

@@ -46,7 +46,7 @@ Se integra con el **post-test transversal** (`evaluacion/post-test.md`) aplicado
 - [ ] La tasa nominal.
 - [ ] El costo total del crédito.
 - [ ] El calce entre plazo del crédito y horizonte de producción de la inversión. ✅
-- [ ] Mercantil SI lo recomienda.
+- [ ] Mercantil Asset & Wealth Management lo recomienda.
 
 ## Parte C — Integración del curso (abierta)
 

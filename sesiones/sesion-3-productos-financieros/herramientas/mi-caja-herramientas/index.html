@@ -129,7 +129,7 @@
 <header class="barra">
   <div>
     <div class="marca">Mi caja de herramientas</div>
-    <div class="subtitulo">Las 4 gavetas del dinero · Mercantil SI · Sesión 3</div>
+    <div class="subtitulo">Las 4 gavetas del dinero · Mercantil Asset &amp; Wealth Management · Sesión 3</div>
   </div>
 </header>
 
@@ -179,7 +179,7 @@
       <input type="number" id="n-inversion" min="0" step="5000" placeholder="0">
     </div>
     <div class="campo">
-      <label for="n-estrategico">Gaveta 4 · Capital estratégico / largo plazo (5+ años)</label>
+      <label for="n-estrategico">Gaveta 4 · Meta estratégica · capital de largo plazo (5+ años)</label>
       <input type="number" id="n-estrategico" min="0" step="5000" placeholder="0">
     </div>
   </section>
@@ -216,7 +216,7 @@
       <div class="plazo">5+ años · estratégico</div>
       <div class="monto" id="m-g4">B/. 0</div>
       <div class="items" id="it-g4">0 productos</div>
-      <div class="necesidad" id="n-g4">Necesidad: —</div>
+      <div class="necesidad" id="n-g4">Meta: —</div>
     </div>
   </div>
 
@@ -234,7 +234,7 @@
 </div>
 
 <footer class="pie">
-  Mercantil Servicios de Inversión · Curso para dirigentes de cooperativas financieras · Sesión 3
+  Mercantil Asset &amp; Wealth Management · Curso para dirigentes de cooperativas financieras · Sesión 3
 </footer>
 
 <script src="../../../../assets/js/shared.js"></script>
@@ -320,7 +320,8 @@
       document.getElementById("m-g" + g).textContent = Fmt.moneda(totalPorGaveta[g]);
       document.getElementById("it-g" + g).textContent = countPorGaveta[g] + " producto" + (countPorGaveta[g] !== 1 ? "s" : "");
       const nec = necesidades[g];
-      document.getElementById("n-g" + g).textContent = nec > 0 ? "Necesidad: " + Fmt.moneda(nec) : "Necesidad: no indicada";
+      const labelNec = (g === 4) ? "Meta" : "Necesidad";
+      document.getElementById("n-g" + g).textContent = nec > 0 ? labelNec + ": " + Fmt.moneda(nec) : labelNec + ": no indicada";
 
       const estadoEl = document.getElementById("est-" + g);
       if (nec === 0) {
@@ -373,20 +374,22 @@
   function cargarEjemplo() {
     productos = [];
     idCounter = 0;
+    // Total productos: 1,830k. Total metas/necesidades: 1,830k → cumplible reasignando.
     const ejs = [
       ["Caja y bancos", 180000, 0, 0.5],
-      ["DPF Banistmo a 30 días", 200000, 1, 2.8],
-      ["DPF Banco Nacional a 90 días", 150000, 3, 3.2],
+      ["DPF Banistmo a 90 días", 200000, 3, 2.8],
+      ["DPF Banco Nacional a 180 días", 150000, 6, 3.2],
       ["DPF Cooperativa X a 3 años", 600000, 36, 4.5],
       ["Bono corporativo a 5 años", 400000, 60, 5.2],
       ["Fondo de inversión balanceado", 300000, 72, null]
     ];
     ejs.forEach(([n, m, pl, r]) => agregarProducto(n, m, pl, r));
-    // necesidades de cooperativa mediana
-    document.getElementById("n-operacion").value = 150000;
-    document.getElementById("n-liquidez").value = 600000;
-    document.getElementById("n-inversion").value = 500000;
-    document.getElementById("n-estrategico").value = 800000;
+    // Cooperativa mediana — necesidades/meta calibradas para que el TOTAL coincida con productos.
+    // Muestra exceso en G1 y G3, déficit en G2 y G4 — el mismatch clásico.
+    document.getElementById("n-operacion").value = 150000;     // G1
+    document.getElementById("n-liquidez").value = 480000;      // G2 (~3 meses operación)
+    document.getElementById("n-inversion").value = 400000;     // G3
+    document.getElementById("n-estrategico").value = 800000;   // G4 (meta de largo plazo)
     recalcular();
   }
 

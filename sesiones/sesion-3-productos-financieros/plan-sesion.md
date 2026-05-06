@@ -44,9 +44,9 @@ Clasificar productos financieros en gavetas, detectar mismatches.
 
 ## Riesgo editorial
 Esta es **la sesión más sensible al pitch**. Protocolo:
-- Si aparece pregunta sobre productos de Mercantil SI → *"Hoy venimos a marco, no a catálogo. Contacto al final."*
+- Si aparece pregunta sobre productos de Mercantil Asset & Wealth Management → *"Hoy venimos a marco, no a catálogo. Contacto al final."*
 - En ejemplos, mencionar varias entidades, no una. Bancos locales, casas de valores, cooperativas grandes como emisores de certificados.
-- No mostrar ningún producto de Mercantil SI en slides.
+- No mostrar ningún producto de Mercantil Asset & Wealth Management en slides.
 
 ## Evaluación (borrador)
 - Pregunta de clasificación: 4 productos → 4 gavetas.

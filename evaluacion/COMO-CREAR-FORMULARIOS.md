@@ -14,7 +14,7 @@ Este proceso crea 6 Google Forms de una sola corrida:
 ### 1. Abre Google Apps Script
 Ve a → **`https://script.google.com/home`**
 
-Entra con la cuenta de Google donde quieres que queden los formularios (recomendado: tu cuenta corporativa de Mercantil SI, no una personal).
+Entra con la cuenta de Google donde quieres que queden los formularios (recomendado: tu cuenta corporativa de Mercantil Asset & Wealth Management, no una personal).
 
 ### 2. Crea un proyecto nuevo
 - Click en el botón **"+ New project"** arriba a la izquierda.

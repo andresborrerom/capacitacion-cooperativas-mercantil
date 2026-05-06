@@ -12,7 +12,7 @@ $url = "http://localhost:$puerto/"
 
 Write-Host ""
 Write-Host "========================================================" -ForegroundColor Cyan
-Write-Host "  Servidor del curso - Mercantil SI" -ForegroundColor Cyan
+Write-Host "  Servidor del curso - Mercantil Asset & Wealth Management" -ForegroundColor Cyan
 Write-Host "========================================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Carpeta: $(Get-Location)" -ForegroundColor Gray

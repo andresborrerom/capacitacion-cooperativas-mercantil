@@ -2,7 +2,7 @@
 title: "Guía de referencia · Sesión 2"
 subtitle: "El flujo de caja: el verdadero termómetro"
 curso: "Finanzas para dirigentes de cooperativas financieras"
-institucion: "Mercantil Servicios de Inversión"
+institucion: "Mercantil Asset & Wealth Management"
 sesion: 2
 ---
 
@@ -75,7 +75,7 @@ Lista **2-3 productos donde tu cooperativa (o tú personalmente) tiene plata hoy
 
 - **El "stress test" de flujo:** modelar 3 escenarios (base, pesimista, optimista) para los próximos 12 meses. Los bancos regulados lo hacen formalmente; las cooperativas pueden empezar simple.
 - **Indicadores de cobranza:** "índice de cumplimiento" (cobrado / facturado). Si bajó 5 pp en un trimestre, el flujo viene comprimido.
-- **Gap de liquidez por plazos:** activos cobrables a 30 días vs. pasivos exigibles a 30 días. Si el gap es negativo, hay riesgo de refinanciación. Mercantil SI construye estos modelos para cooperativas asesoradas.
+- **Gap de liquidez por plazos:** activos cobrables a 30 días vs. pasivos exigibles a 30 días. Si el gap es negativo, hay riesgo de refinanciación. Mercantil Asset & Wealth Management construye estos modelos para cooperativas asesoradas.
 
 ---
 
@@ -87,4 +87,4 @@ Trae tu lista de productos — la usaremos.
 
 ---
 
-*Mercantil Servicios de Inversión · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 2*
+*Mercantil Asset & Wealth Management · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 2*

@@ -2,7 +2,7 @@
 title: "Instructivo del facilitador"
 subtitle: "Guía paso a paso para dictar el curso"
 curso: "Finanzas para dirigentes de cooperativas financieras"
-institucion: "Mercantil Servicios de Inversión"
+institucion: "Mercantil Asset & Wealth Management"
 version: "1.0"
 fecha: "2026-04-21"
 ---
@@ -72,7 +72,7 @@ fecha: "2026-04-21"
 - Mensaje corto (3-4 líneas).
 
 **Mensaje sugerido:**
-> "Hola [nombre]. En adjunto va la lectura previa a la Sesión N. Son 10 min de lectura. La sesión te rinde más si llegas con esto leído. Nos vemos el [día], [hora]. — [tu nombre], Mercantil SI."
+> "Hola [nombre]. En adjunto va la lectura previa a la Sesión N. Son 10 min de lectura. La sesión te rinde más si llegas con esto leído. Nos vemos el [día], [hora]. — [tu nombre], Mercantil Asset & Wealth Management."
 
 ### 1 día antes
 - Recordatorio corto + enlace de reunión.
@@ -236,7 +236,7 @@ El ensayo técnico (capítulo 9) se hace una semana antes. Este capítulo cubre 
 **Duración:** 120 min. **Concepto:** *Las 4 gavetas del dinero.* **Herramienta:** Mi caja de herramientas. **Caso:** DPF de 5 años roto al año.
 
 ### Protocolo anti-pitch (reglas)
-1. **No mencionar productos específicos de Mercantil SI** ni en slides ni en voz.
+1. **No mencionar productos específicos de Mercantil Asset & Wealth Management** ni en slides ni en voz.
 2. **Ejemplos con múltiples entidades** — nunca una sola.
 3. Si preguntan por productos/tarifas Mercantil: *"Hoy venimos a marco, no a catálogo. Contacto al final si tu caso amerita."* Y sigues.
 4. Cierre: *"Si esta sesión te ayuda a pedir mejor asesoría a alguien —aunque no sea a nosotros— hicimos nuestro trabajo."*
@@ -444,4 +444,4 @@ Y si algo sale mal, te cuentas el chiste contigo mismo, lo anotas para la próxi
 
 ---
 
-*Instructivo del facilitador · v1.0 · 2026-04-21 · Mercantil Servicios de Inversión*
+*Instructivo del facilitador · v1.0 · 2026-04-21 · Mercantil Asset & Wealth Management*

@@ -24,7 +24,7 @@ Cada concepto debe entregarse en **dos capas**:
 - **Capa técnica opcional** — un recuadro o diapositiva "para el que quiera ir más lejos", con el nombre técnico del concepto, una relación formal, o el criterio profesional detrás. Esto:
   - Respeta al directivo con formación financiera (no se aburre).
   - Invita al no-financiero a crecer (pero no lo obliga).
-  - Demuestra que detrás de lo simple hay rigor (refuerza posicionamiento de Mercantil SI).
+  - Demuestra que detrás de lo simple hay rigor (refuerza posicionamiento de Mercantil Asset & Wealth Management).
 
 ## Arquetipos (actualizados para audiencia real)
 

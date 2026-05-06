@@ -8,9 +8,9 @@
 
 ## Protocolo anti-pitch (leer antes de empezar)
 
-Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercantil SI. Reglas:
+Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercantil Asset & Wealth Management. Reglas:
 
-1. **No mencionar productos específicos de Mercantil SI** en slides ni en voz.
+1. **No mencionar productos específicos de Mercantil Asset & Wealth Management** en slides ni en voz.
 2. **Ejemplos con múltiples entidades** (no una). Bancos, casas de valores, cooperativas grandes — varias.
 3. **Si alguien pregunta por productos o tarifas Mercantil:** *"Hoy venimos a marco, no a catálogo. Contacto al final si tu caso amerita conversación."* Y volver.
 4. **Cerrar la sesión con la frase:** *"Si esta sesión te ayuda a pedirle mejores asesoría a alguien — aunque no sea a nosotros — hicimos nuestro trabajo."*
@@ -49,17 +49,20 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 **Voz:** co-facilitador abre · facilitador principal cierra.
 **Slides:** 3 (banner caso) → 4 (tabla costo del mismatch).
 
-- [0:05] **[Slide 3 · Banner caso]** Co-facilitador cuenta el caso, anonimizado:
+- [0:05] **[Slide 3 · Banner caso]** **Preámbulo del facilitador** antes de soltar el caso (30 segundos):
+  > *"En las dos primeras sesiones leímos foto y película — el balance, el flujo, los indicadores. **La inversión, como concepto, ya se conocía.** Lo que sistemáticamente se minimizó en estas cooperativas son los elementos de liquidez. La idea de los cajones — separar plata por horizonte y propósito — es lo que evita el accidente del que vamos a hablar."*
+
+  Co-facilitador cuenta el caso, anonimizado:
   > *"Hace tres años asesoré a una cooperativa que había colocado B/. 1M de 'excedente' en un depósito a plazo a 5 años al 5.2%. Todos contentos. Diez meses después se les presentó una oportunidad — adquirir un edificio para abrir sucursal nueva, plazo de decisión: 60 días. La única plata líquida disponible era ese DPF. Rompieron el plazo. Pagaron la penalización, perdieron los 10 meses de interés acumulado y aún así tuvieron que tomar un crédito puente para completar la compra."*
 - [0:09] Facilitador extrae la lección:
   > *"No fue un mal producto. Fue el producto correcto para la gaveta equivocada."*
 - [0:12] **[Slide 4 · Costo del mismatch]** Desglose en **tres componentes** — muy importante para cerrar la lógica:
   - **Penalización** por romper DPF (2% sobre B/. 1M) = **−B/. 20k**.
   - **Intereses devengados perdidos** (10 meses × 5.2% ÷ 12 × B/. 1M) ≈ **−B/. 43k**.
-  - **Sobrecosto del crédito puente** necesario para completar la compra (≈ B/. 500k al 9% × 24 meses, frente al 5.2% que dejó de ganar el capital retirado) ≈ **−B/. 47k**.
-  - **Pérdida económica total ≈ B/. 110k · 11% del principal.**
+  - **Sobrecosto del crédito puente** (B/. 500k al 9% × 12 meses para cubrir el faltante de la compra del edificio) ≈ **−B/. 45k**.
+  - **Pérdida económica total ≈ B/. 108k · ~11% del principal.**
   - Frase literal: *"El DPF es un buen producto. En la gaveta correcta hubiera sido excelente. En la equivocada costó 11%."*
-  - Notas operativas para el facilitador: los B/. 500k y 24 meses son supuestos razonables para cerrar la aritmética; si un participante pregunta por los detalles, decir *"cifras construidas con rangos SBP para préstamos comerciales"*. Evitar debate técnico que distraiga del punto pedagógico (un mismo producto, mal encasillado, genera tres costos).
+  - Notas operativas para el facilitador: los B/. 500k y 12 meses son supuestos razonables para cerrar la aritmética; si un participante pregunta por los detalles, decir *"cifras construidas con rangos SBP para préstamos comerciales"*. Evitar debate técnico que distraiga del punto pedagógico (un mismo producto, mal encasillado, genera tres costos).
 
 ---
 
@@ -92,7 +95,7 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 - **Error típico:** invertir plata del cajón 1 o 2 buscando "algo mejor".
 
 ### Cajón 4 — Estratégico / largo (5+ años)
-- Décadas.
+- Plata que no toca por años.
 - **Propósito:** legado, retiro, reservas institucionales.
 - **Productos típicos:** portafolios diversificados, bonos largos, fondos balanceados.
 - **Error típico:** tenerla en cajón 2 — costo de oportunidad enorme durante años.
@@ -112,7 +115,7 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
   > *"Ingresen los 2-3 productos que trajeron de tarea. Si no los trajeron, hagan uno aproximado. **Nombre, entidad, plazo en meses, monto aproximado** si desean."*
 - [0:36] La herramienta clasifica cada producto en la gaveta. Revisar en pantalla con el caso que tiene **tu cooperativa** (genérica).
 - [0:38] **[POLL #2]:** *"¿Cuántos de tus productos quedaron todos en la misma gaveta?"*
-- [0:40] Introducir la sección de "necesidades": plata operativa mensual, colchón de liquidez deseado, plata para inversión, capital estratégico.
+- [0:40] Introducir la sección de necesidades y meta estratégica: plata operativa mensual, colchón de liquidez deseado, plata para inversión, y **meta estratégica** (Gaveta 4 — capital de largo plazo, no es "necesidad" actual sino objetivo institucional).
 - [0:43] Ver los semáforos por gaveta. Leer 2-3 alertas del chat.
 - [0:45] Cierre del bloque:
   > *"Lo más común que verán: gaveta 2 llena de más, gaveta 4 vacía. No es casualidad — es pudor a comprometer plata a largo plazo. Cuesta."*
@@ -141,16 +144,19 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
   - Fondo balanceado: rentabilidad variable, riesgo medio, liquidez diaria con valoración del día, plazo recomendado largo. **Gaveta 3 o 4.**
 
 - [0:58] Acento técnico opcional:
-  > *Añadir una quinta dimensión: **calidad del emisor**. Dos bonos al mismo plazo y tasa pueden tener comportamientos muy distintos según el rating crediticio. Mercantil SI construye portafolios precisamente en esa curaduría.*
+  > *Añadir una quinta dimensión: **calidad del emisor**. Dos bonos al mismo plazo y tasa pueden tener comportamientos muy distintos según el rating crediticio. Mercantil Asset & Wealth Management construye portafolios precisamente en esa curaduría.*
 
 ---
 
 ## Bloque 5 — Break activo (1:00–1:05 · 5 min)
 
 **Voz:** co-facilitador.
-**Slide:** banner break (a definir si se añade slide dedicado, o reusar el banner de transición).
+**Slide:** 11 (break azul · contador regresivo).
 
-- [1:00] Música instrumental por stream. Cámaras y micros desbloqueados.
+- [1:00] **[Slide 11 · Break]** Al aire con **contador regresivo de 5:00 visible**.
+- [1:00] Co-facilitador anuncia el break con voz cálida:
+  > *"5 minutos. Estírense, hidrátense. Si quieren saludarse en chat o abrir cámara, este es el momento."*
+- [1:01] Música instrumental por stream. Cámaras y micros desbloqueados.
 - [1:01] **[POLL #3] activo durante el break:** *"Después de ver las 4 gavetas, ¿qué mismatch reconoces en tu cooperativa?"*
   - (a) Gaveta 2 inflada.
   - (b) Gaveta 4 vacía.
@@ -164,14 +170,16 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 ## Bloque 6 — Ahorro, inversión, especulación (1:05–1:25 · 20 min)
 
 **Voz:** co-facilitador modera · facilitador principal sintetiza.
-**Slides:** 11 (3 palabras: ahorrar / invertir / especular) → 12 (Poll #4) → 13 (Palanca 7 · La entidad importa).
+**Slides:** 12 (3 palabras: ahorrar / invertir / especular) → 13 (Poll #4) → 14 (Palanca 7 · La entidad importa) → 15 (Caso especial · Gaveta 4 fondo bien diversificado).
 
-- [1:05] **[Slide 11 · 3 palabras]** Ahorrar / Invertir / Especular — 3 palabras que parecen sinónimos y no lo son.
+- [1:05] **[Slide 12 · 3 palabras]** Ahorrar / Invertir / Especular — 3 palabras que parecen sinónimos y no lo son.
 - [1:07] Definiciones aplicadas:
-  - **Ahorrar** = guardar plata con propósito de **no tocar** en un horizonte definido. Bajo riesgo. Cajones 1-2.
+  - **Ahorrar** = plata que sí espero usar — la guardo lista para **tocarla en el corto plazo** cuando haga falta. Bajo riesgo. Cajones 1-2.
   - **Invertir** = poner plata a trabajar con **tesis** y **criterio de salida**. Riesgo definido y aceptado. Cajones 3-4.
-  - **Especular** = apostar al precio sin tesis. Legítimo si lo sabes; peligroso si te lo disfrazan de inversión.
-- [1:12] **[Slide 12 · Poll #4]** *"¿Cuál de estas frases es más riesgosa?"*
+  - **Especular** = apostar al precio sin tesis. Legítimo si lo sabes; peligroso si te lo disfrazan de inversión. **Nunca con plata que cumple un objetivo primario.**
+- [1:09] **Yate vs. universidad** (sostener 30 segundos en este punto, viene la idea más importante del bloque):
+  > *"Saber especular es saber **con cuánto** puedo hacerlo: con un sobrante, no con lo que financia un objetivo base. Si te va bien con la apuesta, compras el yate de la cooperativa; pero NO arriesgas la universidad de los hijos de los asociados en eso. La especulación no debe formar parte de los objetivos primarios — y eso es lo que la separa de la inversión."*
+- [1:12] **[Slide 13 · Poll #4]** *"¿Cuál de estas frases es más riesgosa?"*
   - (a) "Metí plata en un fondo porque mi cuñado dice que rinde bien."
   - (b) "Compré este bono porque mi horizonte es 3 años y paga 5.5%."
   - (c) "Tengo DPFs cada trimestre para mi reserva de liquidez."
@@ -179,51 +187,51 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 - [1:16] Respuesta y discusión:
   > *"(a) y (d) son especulación disfrazada. Ninguna tiene tesis — solo tiene una fuente. (b) y (c) son inversión y ahorro respectivamente. La palabra que usan los de (a) y (d) suele ser 'invertir'. Pero no lo es."*
 - [1:20] Intervenir 2-3 personas del chat.
-- [1:22] **[Slide 13 · Palanca 7 · La entidad]** Cerrar el bloque conectando con la micro-tarea de S2:
+- [1:22] **[Slide 14 · Palanca 7 · La entidad]** Cerrar el bloque conectando con la micro-tarea de S2:
   > *"Cuando les pedimos la entidad en la tarea, no era dato burocrático. Era la palanca 7 — concentración. Tres DPF al 5.5% en el mismo banco no son la misma diversificación que tres en tres bancos distintos. Regla práctica: ningún emisor debería concentrar más del 20-25% de las inversiones líquidas. Si lo hace, no es decisión — es inercia."*
+- [1:24] **[Slide 15 · Caso especial Gaveta 4]** Anclar el principio para la plata de largo plazo:
+  > *"Si la Gaveta 4 — la plata de décadas — la metemos en un fondo, ese fondo TIENE que estar bien diversificado. No estar en un solo bono de una misma entidad. Es CLAVE que el fondo tenga **diversificación real**, **un cálculo a fondo de todos los riesgos** a los que está expuesto, y un **rango de retorno** que vaya con lo que buscamos. Si el fondo no cumple eso, la plata estratégica está pagando comisión por nada — el riesgo es el mismo que un DPF concentrado, sin la liquidez."*
 
 ---
 
-## Bloque 7 — Las 5 preguntas al asesor (1:25–1:40 · 15 min)
+## Bloque 7 — Las 4 preguntas al asesor (1:25–1:40 · 15 min)
 
 **Voz:** facilitador principal.
-**Slides:** 14 (banner "Las 5 preguntas") → 15 (lista 5 preguntas).
+**Slides:** 16 (banner "Las 4 preguntas") → 17 (lista 4 preguntas).
 
-- [1:25] **[Slide 14 → 15 · Las 5 preguntas]** *"Estas 5 preguntas distinguen una asesoría profesional de una venta disfrazada. Úsalas con quien sea. Incluyéndonos."*
+- [1:25] **[Slide 16 → 17 · Las 4 preguntas]** *"Estas 4 preguntas distinguen una asesoría profesional de una venta disfrazada. Úsalas con quien sea. Incluyéndonos."*
 
-### Las 5 preguntas
+### Las 4 preguntas
 
-1. **"¿Cómo te pagan a ti por venderme este producto?"**
-   - Alineación de incentivos. Si le pagan comisión por esta venta específica, tiene conflicto — legítimo, pero tiene.
+1. **"¿Cómo comisionas y qué costos directos o indirectos puedo tener?"**
+   - Alineación de incentivos + costos ocultos en una sola pregunta. Si le pagan comisión por esta venta específica, tiene conflicto — legítimo, pero tiene. Y obliga a poner sobre la mesa los costos que no son obvios en el folleto.
 2. **"Si en 6 meses necesito la plata, ¿qué pasa exactamente?"**
    - Liquidez real. Le obliga a explicar penalizaciones, mercado secundario, volatilidad.
 3. **"¿Cuál es el peor escenario realista para esto?"**
    - Risk framing. Un buen asesor da un escenario concreto; un vendedor elude la pregunta.
-4. **"¿Qué producto NO me recomendarías hoy y por qué?"**
-   - Honestidad. Si no puede nombrar uno, no hay honestidad.
-5. **"¿Dónde están las comisiones que no son obvias en el folleto?"**
-   - Costos ocultos. Buen asesor te las señala antes de que preguntes.
+4. **"¿Qué producto de lo que ofreces, NO me recomendarías y por qué?"**
+   - Honestidad. Si no puede nombrar uno, no hay honestidad. Esta pregunta complementa el término "evadir": un vendedor evade nombrar productos de su propia oferta como inadecuados; un asesor profesional sí los nombra.
 
 - [1:36] **Acento técnico opcional:**
-  > *Sexta pregunta para públicos sofisticados: "¿Cuál es la curva de rendimiento esperada vs. el benchmark del sector para este plazo?" Quien no puede responder no hizo análisis, hizo colocación.*
+  > *Quinta pregunta para públicos sofisticados: "¿Cuál es la curva de rendimiento esperada vs. el benchmark del sector para este plazo?" Quien no puede responder no hizo análisis, hizo colocación.*
 
 ---
 
 ## Bloque 8 — Cierre: checklist + micro-tarea + puente (1:40–2:00 · 20 min)
 
 **Voz:** facilitador principal.
-**Slides:** 16 (mapa 8 palancas) → 17 (micro-tarea) → 18 (banner próxima sesión "Tasa cuenta, plazo pesa") → 19 (evaluación QR) → 20 (gracias).
+**Slides:** 18 (mapa 8 palancas) → 19 (micro-tarea) → 20 (banner próxima sesión "Tasa cuenta, plazo pesa") → 21 (evaluación QR) → 22 (gracias).
 
-- [1:40] **[Slide 16 · Mapa 8 palancas]** Marcar **1, 2 cerradas**; **3 cerrada** (Sesión 1); **4 cerrada hoy**; **5 en progreso**; **7 abierta hoy**; **8 abierta hoy**.
-- [1:42] Entregar checklist de 5 preguntas (pantalla + chat + correo).
-- [1:45] **[Slide 17 · Micro-tarea]** Para Sesión 4:
+- [1:40] **[Slide 18 · Mapa 8 palancas]** Marcar **1, 2 cerradas**; **3 cerrada** (Sesión 1); **4 cerrada hoy**; **5 en progreso**; **7 abierta hoy**; **8 abierta hoy**.
+- [1:42] Entregar checklist de 4 preguntas (pantalla + chat + correo).
+- [1:45] **[Slide 19 · Micro-tarea]** Para Sesión 4:
   > *"Lista 2-3 instrumentos de crédito: uno que tu cooperativa usa, otro que le hayan ofrecido recientemente, o uno que hayas pedido tú personalmente. Nombre, tasa, plazo. Los vamos a desmontar la próxima sesión."*
-- [1:48] **[Slide 18 · Banner próxima sesión]** Puente:
+- [1:48] **[Slide 20 · Banner próxima sesión]** Puente:
   > *"Hoy vimos dónde poner la plata. La próxima, dónde conseguirla. Cerramos el curso con financiamiento: cómo distinguir una buena deuda de una mala — y por qué la tasa no manda sola."*
 - [1:52] **[POLL #5]** *"En una palabra, ¿qué te llevas hoy?"* (wordcloud).
-- [1:54] **[Slide 19 · Evaluación QR]** *"Mismo flujo: 4 minutos de evaluación, anónimo opcional. Lo pego en el chat."* Pega en chat: `https://forms.gle/wiz2Vs4uCHa5T8ZW8`.
-- [1:56] **[Slide 20 · Gracias]** Palabra clave de cierre:
-  > *"Si esta sesión te ayuda a pedir mejor asesoría a alguien —aunque no sea a nosotros— hicimos nuestro trabajo. Mercantil SI está al final del curso si quieres conversar."*
+- [1:54] **[Slide 21 · Evaluación QR]** *"Mismo flujo: 4 minutos de evaluación, anónimo opcional. Lo pego en el chat."* Pega en chat: `https://forms.gle/wiz2Vs4uCHa5T8ZW8`.
+- [1:56] **[Slide 22 · Gracias]** Palabra clave de cierre:
+  > *"Si esta sesión te ayuda a pedir mejor asesoría a alguien —aunque no sea a nosotros— hicimos nuestro trabajo. Mercantil Asset & Wealth Management está al final del curso si quieres conversar."*
 - [1:58] Cerrar en 2:00.
 
 ## Contingencias

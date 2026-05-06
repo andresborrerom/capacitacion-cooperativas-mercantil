@@ -12,7 +12,7 @@
 - [ ] Polls pre-configurados (5).
 - [ ] Caso integrador (Esfuerzo Unido) listo.
 - [ ] Post-test + feedback NPS preparados para lanzar al cierre.
-- [ ] Contacto de Mercantil SI listo para compartir al final (para quien lo pida).
+- [ ] Contacto de Mercantil Asset & Wealth Management listo para compartir al final (para quien lo pida).
 
 ---
 

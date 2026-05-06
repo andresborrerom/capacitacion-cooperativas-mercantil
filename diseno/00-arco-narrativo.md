@@ -68,7 +68,7 @@ El participante sale entendiendo que:
 2. **Tiene herramientas concretas** para preguntar mejor a su gerencia y a sus asesores.
 3. **Hay criterios claros** que distinguen asesoría profesional de improvisación — y entiende el valor de la primera.
 
-El pitch de Mercantil SI nunca se dice. Pero al final del curso, el participante **sabe qué preguntarle a un asesor**, y cuando lo haga, Mercantil SI responderá bien. Esa es la estrategia.
+El pitch de Mercantil Asset & Wealth Management nunca se dice. Pero al final del curso, el participante **sabe qué preguntarle a un asesor**, y cuando lo haga, Mercantil Asset & Wealth Management responderá bien. Esa es la estrategia.
 
 ## Micro-contacto inter-sesión (principio destilado de Duolingo + IDEO U)
 

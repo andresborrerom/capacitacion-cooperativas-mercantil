@@ -1,5 +1,5 @@
 /**
- * Backend de polls del curso · Mercantil SI
+ * Backend de polls del curso · Mercantil Asset & Wealth Management
  *
  * Despliegue:
  *   1. Crear un Google Sheet nuevo (vacío). Anotar su ID (de la URL del sheet).

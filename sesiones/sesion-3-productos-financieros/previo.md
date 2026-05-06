@@ -2,7 +2,7 @@
 title: "Antes de la Sesión 3 — Productos financieros: herramientas, no milagros"
 subtitle: "Lectura previa · 10 minutos"
 curso: "Finanzas para dirigentes de cooperativas financieras"
-institucion: "Mercantil Servicios de Inversión"
+institucion: "Mercantil Asset & Wealth Management"
 sesion: 3
 ---
 
@@ -93,4 +93,4 @@ Nos vemos el jueves.
 
 ---
 
-*Mercantil Servicios de Inversión · Curso de finanzas para dirigentes cooperativos*
+*Mercantil Asset & Wealth Management · Curso de finanzas para dirigentes cooperativos*

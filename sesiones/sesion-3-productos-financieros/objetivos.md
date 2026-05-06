@@ -46,11 +46,11 @@ Al terminar la sesión, el participante es capaz de:
 - ≥ 50% reporta que "ahora sabe qué preguntar a un asesor".
 
 ## Lo que esta sesión NO busca
-- NO convertirse en pitch de Mercantil SI. El nombre se menciona como empresa del facilitador, no como producto a vender.
+- NO convertirse en pitch de Mercantil Asset & Wealth Management. El nombre se menciona como empresa del facilitador, no como producto a vender.
 - NO enseñar a construir un portafolio (eso es trabajo profesional; lo que damos es el marco para **interrogar** un portafolio propuesto).
 - NO cubrir derivados, cripto, o productos estructurados.
 - NO dar recomendaciones específicas de inversión a participantes individuales.
 
 ## Protocolo anti-pitch
-- Si alguien pregunta por productos o tarifas específicas de Mercantil SI, el facilitador responde: *"Hoy venimos a explicar el marco. Si te interesa conversar sobre tu caso específico, te dejo contacto al final."* y vuelve al tema.
+- Si alguien pregunta por productos o tarifas específicas de Mercantil Asset & Wealth Management, el facilitador responde: *"Hoy venimos a explicar el marco. Si te interesa conversar sobre tu caso específico, te dejo contacto al final."* y vuelve al tema.
 - Las **casas de valores**, **bancos** y **cooperativas** que aparezcan como ejemplo se mencionan **sin favoritismo**. Varios nombres, no uno.

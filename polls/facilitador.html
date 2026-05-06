@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vista facilitador · Polls · Mercantil SI</title>
+<title>Vista facilitador · Polls · Mercantil Asset &amp; Wealth Management</title>
 <link rel="stylesheet" href="../assets/css/base.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -287,7 +287,7 @@
       <div class="top-bar">
         <div class="marca">
           Vista facilitador
-          <div class="sub">Mercantil SI · resultados en vivo</div>
+          <div class="sub">Mercantil Asset &amp; Wealth Management · resultados en vivo</div>
         </div>
         <div class="controles">
           <span id="estado-conex" class="estado-conex">conectando…</span>
@@ -386,7 +386,8 @@
 
   async function resetear() {
     if (!confirm(`¿Reset del poll "${pollActual.titulo}"? Esta acción borra todos los votos.`)) return;
-    try {
+
+    async function intentarReset() {
       const res = await fetch(POLLS_API_URL, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -394,9 +395,27 @@
       });
       const data = await res.json();
       if (!data.ok) throw new Error(data.error || "Reset falló");
+      return data;
+    }
+
+    // Reintento automático: el primer POST a Apps Script tras inactividad puede
+    // hacer cold-start y devolver error transitorio. Reintentamos una vez antes de mostrar fallo.
+    try {
+      await intentarReset();
       cargarResultados();
-    } catch (e) {
-      alert("No se pudo resetear: " + e.message);
+    } catch (e1) {
+      console.warn("Reset intento 1 falló:", e1.message, "— reintentando en 1s…");
+      await new Promise(r => setTimeout(r, 1000));
+      try {
+        await intentarReset();
+        cargarResultados();
+      } catch (e2) {
+        alert(
+          "No se pudo resetear: " + e2.message +
+          "\n\nPlan B en vivo: abre el Google Sheet del backend y borra las filas " +
+          "del tab '" + pollActual.id + "' a mano. Los participantes pueden seguir votando."
+        );
+      }
     }
   }
 

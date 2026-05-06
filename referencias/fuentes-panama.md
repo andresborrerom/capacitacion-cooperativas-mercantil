@@ -114,7 +114,7 @@ La SMV mantiene listados públicos de:
 - **Emisores con valores registrados** — https://supervalores.gob.pa/listado-de-emisores-con-valores-registrados/
 - Administradores de inversión, asesores, custodios.
 
-Ejemplos de casas de valores activas relevantes (listado no exhaustivo, verificar vigencia en la SMV): **BG Valores S.A.** (Banco General), **BAC Valores (Panamá) S.A.**, **Citivalores S.A.**, **Global Valores S.A.**, **Mercantil Servicios de Inversión S.A.**, **BICSA Capital S.A.**, **Metro Asset Management S.A.**, **MMG Bank / MMG Valores**, **Multisecurities Inc.**, **Prival Securities**, **BCT Securities S.A.**.
+Ejemplos de casas de valores activas relevantes (listado no exhaustivo, verificar vigencia en la SMV): **BG Valores S.A.** (Banco General), **BAC Valores (Panamá) S.A.**, **Citivalores S.A.**, **Global Valores S.A.**, **Mercantil Asset & Wealth Management S.A.**, **BICSA Capital S.A.**, **Metro Asset Management S.A.**, **MMG Bank / MMG Valores**, **Multisecurities Inc.**, **Prival Securities**, **BCT Securities S.A.**.
 
 ### 3.3 Productos de inversión regulados
 

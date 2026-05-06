@@ -32,7 +32,7 @@
 - `assets/css/base.css` — paleta, tipografía, componentes comunes (card, callout, botón, tabla, semáforo).
 - `assets/js/shared.js` — helpers (formato de moneda, porcentajes, localStorage).
 
-## Paleta Mercantil Servicios de Inversión (confirmada 2026-04-21)
+## Paleta Mercantil Asset & Wealth Management (confirmada 2026-04-21)
 
 ```
 --color-primario:        #003DA5   /* azul Mercantil */
@@ -58,7 +58,7 @@ Tipografía:
 --font-mono:    "JetBrains Mono", ui-monospace, monospace
 ```
 
-Decisión: **mismo stack tipográfico** para cuerpo y títulos (solo cambia peso). Corporativo, limpio, fácil de leer en Zoom. Si el usuario nos provee la tipografía oficial de Mercantil SI en checkpoint futuro, se reemplaza sin impacto en layouts.
+Decisión: **mismo stack tipográfico** para cuerpo y títulos (solo cambia peso). Corporativo, limpio, fácil de leer en Zoom. Si el usuario nos provee la tipografía oficial de Mercantil Asset & Wealth Management en checkpoint futuro, se reemplaza sin impacto en layouts.
 
 ## Hosting (confirmado 2026-04-21)
 

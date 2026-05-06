@@ -2,7 +2,7 @@
 title: "Guía de referencia · Sesión 3"
 subtitle: "Productos financieros: herramientas, no milagros"
 curso: "Finanzas para dirigentes de cooperativas financieras"
-institucion: "Mercantil Servicios de Inversión"
+institucion: "Mercantil Asset & Wealth Management"
 sesion: 3
 ---
 
@@ -87,7 +87,7 @@ Lista **2-3 instrumentos de crédito**: uno que tu cooperativa use como deudora,
 
 ## Para ir un paso más allá (opcional)
 
-- **ALM (Asset-Liability Management):** el marco formal que maneja el calce de plazos de activos y pasivos. El caso del DPF roto es un ejemplo clásico de ALM deficiente. Mercantil SI trabaja ALM sistemáticamente en portafolios de cooperativas asesoradas.
+- **ALM (Asset-Liability Management):** el marco formal que maneja el calce de plazos de activos y pasivos. El caso del DPF roto es un ejemplo clásico de ALM deficiente. Mercantil Asset & Wealth Management trabaja ALM sistemáticamente en portafolios de cooperativas asesoradas.
 - **Rating de emisores:** mismo producto, mismo plazo, distinto emisor = distinto riesgo. Preguntar siempre por el rating (si no lo tiene, preguntar por qué).
 - **Curvas de rendimiento y benchmark:** comparar un producto ofrecido contra la curva de rendimientos del mercado para ese plazo y riesgo. Diferencias grandes merecen explicación — o a favor o en contra.
 
@@ -101,4 +101,4 @@ Trae tu lista de créditos para desmontarlos.
 
 ---
 
-*Mercantil Servicios de Inversión · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 3*
+*Mercantil Asset & Wealth Management · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 3*

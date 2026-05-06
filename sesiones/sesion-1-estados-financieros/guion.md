@@ -40,7 +40,7 @@
 **Quién habla:** co-facilitador (práctica) abre · facilitador principal (técnico) cierra.
 
 - [0:05] [SLIDE 4 · portada oscura del caso] Co-facilitador presenta a la junta (Dra. Ana Vega · Lic. Raúl Mendoza · Ing. Marcos Álvarez — leer del slide, 15 segundos) y luego cuenta el caso en primera persona, **desde la voz del Lic. Mendoza**, ~2 min:
-  > *"Soy Raúl Mendoza, gerente general de El Paraíso. El año pasado cerramos el mejor ejercicio de nuestra historia: B/. 420k de utilidad. La Dra. Vega y yo lo anunciamos con orgullo en la asamblea. Tres meses después, yo mismo tuve que llamar a otra cooperativa para pedir prestado el aguinaldo. Cuando el asesor externo —Mercantil SI— nos sentó a explicarnos, quedamos en silencio. Todos habíamos firmado los estados sin ver lo que había que ver. Álvarez, que es ingeniero, preguntó al final: '¿por qué nadie nos enseñó a leer esto antes?'. Por eso estamos aquí."*
+  > *"Soy Raúl Mendoza, gerente general de El Paraíso. El año pasado cerramos el mejor ejercicio de nuestra historia: B/. 420k de utilidad. La Dra. Vega y yo lo anunciamos con orgullo en la asamblea. Tres meses después, yo mismo tuve que llamar a otra cooperativa para pedir prestado el aguinaldo. Cuando el asesor externo —Mercantil Asset & Wealth Management— nos sentó a explicarnos, quedamos en silencio. Todos habíamos firmado los estados sin ver lo que había que ver. Álvarez, que es ingeniero, preguntó al final: '¿por qué nadie nos enseñó a leer esto antes?'. Por eso estamos aquí."*
 - [0:07] [SLIDES 5 y 6] Mostrar **balance** (SLIDE 5) y **estado de resultados** (SLIDE 6) de El Paraíso.
 - [0:09] [SLIDE 7 · cálculos intermedios] Pausar en los 3 cálculos derivados (adecuación 15%, concentración 87%, cobertura 6.3%). Señalar que *de las mismas tablas* salen estas cuentas.
 - [0:10] [SLIDE 8] Facilitador señala en la slide:
@@ -117,7 +117,7 @@ Repetir la frase del día 2 veces (una en [0:26], otra al cerrar el acento técn
   - En cooperativas: concentración de cartera por sector, por tipo de asociado, por producto.
   - Si el 60% de la cartera está con empleados de una sola institución y esa institución reduce personal, la cooperativa tiene un problema.
 - [0:58] [SLIDE 23] **Acento técnico opcional:**
-  > *Estos tres indicadores son la base. Para profundización real se usan ROA, ROE, eficiencia operativa, margen financiero, índices de cobertura de mora. IPACOOP publica benchmarks sectoriales. Mercantil SI entrega informes comparativos a cooperativas asesoradas.*
+  > *Estos tres indicadores son la base. Para profundización real se usan ROA, ROE, eficiencia operativa, margen financiero, índices de cobertura de mora. IPACOOP publica benchmarks sectoriales. Mercantil Asset & Wealth Management entrega informes comparativos a cooperativas asesoradas.*
 - [1:00] Frase de transición: *"Cinco minutos de descanso. Vuelvan con una pregunta en mente. La vamos a usar."*
 
 ---
@@ -189,7 +189,7 @@ Esta es la frase en la que vive, sin decirse explícitamente, el valor de un ase
   > *"Hoy instalamos los primeros relojes del tablero. La próxima sesión entra el GPS — vamos a ver la película y entender por qué El Paraíso no pudo pagar la nómina, y cómo reconocerlo en tu cooperativa antes de que pase."*
 - [1:53] **[POLL #5 — pulso de cierre]**: *"En una palabra, ¿cómo te vas de esta sesión?"* (palabra libre, muestra word cloud) — se queda en SLIDE 35.
 - [1:55] [SLIDE 36 · evaluación QR] **Evaluación de la sesión.** *"Antes de irse, les comparto un link por chat con ~12 preguntas de evaluación. Son 3 minutos, anónimo si quieren. Me permite calibrar la próxima sesión."* Pega en el chat el link: `https://forms.gle/d9cRDhnCdVG7dCfE6`. Deja el slide visible mientras hablas lo siguiente.
-- [1:56] [SLIDE 37 · Gracias] Agradecimiento. Nombres del equipo. *"Mercantil SI acompaña cooperativas en exactamente este tipo de decisiones. No les estamos vendiendo; les estamos acompañando para que pregunten mejor."*
+- [1:56] [SLIDE 37 · Gracias] Agradecimiento. Nombres del equipo. *"Mercantil Asset & Wealth Management acompaña cooperativas en exactamente este tipo de decisiones. No les estamos vendiendo; les estamos acompañando para que pregunten mejor."*
 - [1:58] *Cerrar exactamente en 2:00.* Si el debate se extendió, se recorta aquí.
 
 ---
