@@ -80,8 +80,6 @@
     font-size: 0.85rem;
   }
   .tabla-meses thead th {
-    position: sticky;
-    top: 52px;
     background: var(--color-primario);
     color: #fff;
     font-weight: 600;
@@ -90,6 +88,16 @@
     font-size: 0.68rem;
     letter-spacing: 0.04em;
     text-align: center;
+  }
+  .tabla-meses tr.fila-inicio td {
+    background: var(--color-acento-claro, #FDE9D7);
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+    padding: 0.45rem 0.3rem;
+  }
+  .tabla-meses tr.fila-inicio td:first-child {
+    background: var(--color-acento-claro, #FDE9D7);
+    color: var(--color-primario-oscuro);
   }
   .tabla-meses tbody td {
     padding: 0.25rem;
@@ -544,9 +552,38 @@
   function crearFilas(modo) {
     const tbody = document.querySelector("#tabla-" + modo + " tbody");
     tbody.innerHTML = "";
+
+    // Fila "Inicio" — saldo de partida, no editable. Va antes de Ene para que
+    // el usuario vea desde dónde arranca la película.
+    const trIni = document.createElement("tr");
+    trIni.className = "fila-inicio";
+    if (modo === "personal") {
+      trIni.innerHTML = `
+        <td>Inicio</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="calc" data-tipo="saldo-ini">—</td>
+      `;
+    } else {
+      trIni.innerHTML = `
+        <td>Inicio</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="calc" data-tipo="saldo-ini">—</td>
+        <td>—</td>
+        <td>—</td>
+      `;
+    }
+    tbody.appendChild(trIni);
+
     if (modo === "personal") {
       MESES.forEach((m, i) => {
         const tr = document.createElement("tr");
+        tr.className = "fila-mes";
         tr.innerHTML = `
           <td>${m}</td>
           <td><input type="number" data-mes="${i}" data-tipo="ing" step="50" placeholder="0"></td>
@@ -560,6 +597,7 @@
     } else {
       MESES.forEach((m, i) => {
         const tr = document.createElement("tr");
+        tr.className = "fila-mes";
         tr.innerHTML = `
           <td>${m}</td>
           <td><input type="number" data-mes="${i}" data-tipo="cobrado" step="500" placeholder="0"></td>
@@ -576,6 +614,13 @@
     tbody.querySelectorAll("input").forEach(inp => inp.addEventListener("input", () => recalc(modo)));
   }
 
+  /**
+   * Helper: obtiene la fila i-ésima de mes (0..11), saltando la fila "Inicio".
+   */
+  function filaMes(tbody, i) {
+    return tbody.querySelectorAll("tr.fila-mes")[i];
+  }
+
   function prefijo(modo) { return modo === "personal" ? "p-" : "c-"; }
 
   function aplicarRecurrentes(modo) {
@@ -584,15 +629,15 @@
       const ing = parseFloat(document.getElementById("p-ing-rec").value) || 0;
       const egr = parseFloat(document.getElementById("p-egr-rec").value) || 0;
       for (let i = 0; i < 12; i++) {
-        tbody.rows[i].querySelector('[data-tipo="ing"]').value = ing || "";
-        tbody.rows[i].querySelector('[data-tipo="egr"]').value = egr || "";
+        filaMes(tbody, i).querySelector('[data-tipo="ing"]').value = ing || "";
+        filaMes(tbody, i).querySelector('[data-tipo="egr"]').value = egr || "";
       }
     } else {
       const cob = parseFloat(document.getElementById("c-ing-cobrado").value) || 0;
       const pag = parseFloat(document.getElementById("c-egr-pagado").value) || 0;
       for (let i = 0; i < 12; i++) {
-        tbody.rows[i].querySelector('[data-tipo="cobrado"]').value = cob || "";
-        tbody.rows[i].querySelector('[data-tipo="pagado"]').value = pag || "";
+        filaMes(tbody, i).querySelector('[data-tipo="cobrado"]').value = cob || "";
+        filaMes(tbody, i).querySelector('[data-tipo="pagado"]').value = pag || "";
       }
     }
     recalc(modo);
@@ -606,12 +651,15 @@
   function recalcPersonal() {
     const saldo0 = parseFloat(document.getElementById("p-saldo-inicial").value) || 0;
     const tbody = document.querySelector("#tabla-personal tbody");
+    // Pintar fila Inicio
+    const celdaIni = tbody.querySelector('[data-tipo="saldo-ini"]');
+    if (celdaIni) celdaIni.textContent = Fmt.moneda(saldo0);
     let saldo = saldo0;
     const serie = [saldo0];
     let mesesRojos = 0, minimo = saldo0, maximo = saldo0;
 
     for (let i = 0; i < 12; i++) {
-      const fila = tbody.rows[i];
+      const fila = filaMes(tbody, i);
       const ing = parseFloat(fila.querySelector('[data-tipo="ing"]').value) || 0;
       const egr = parseFloat(fila.querySelector('[data-tipo="egr"]').value) || 0;
       const extP = parseFloat(fila.querySelector('[data-tipo="extrap"]').value) || 0;
@@ -650,6 +698,10 @@
     const provision = parseFloat(document.getElementById("c-provision").value) || 0;
     const tbody = document.querySelector("#tabla-cooperativa tbody");
 
+    // Pintar fila Inicio
+    const celdaIni = tbody.querySelector('[data-tipo="saldo-ini"]');
+    if (celdaIni) celdaIni.textContent = Fmt.moneda(saldo0);
+
     let saldo = saldo0;
     const serieCaja = [saldo0];
     const seriePL = [0];
@@ -661,7 +713,7 @@
     let recurrenteNeto = 0, extrasNeto = 0;
 
     for (let i = 0; i < 12; i++) {
-      const fila = tbody.rows[i];
+      const fila = filaMes(tbody, i);
       const cobrado = parseFloat(fila.querySelector('[data-tipo="cobrado"]').value) || 0;
       const pagado = parseFloat(fila.querySelector('[data-tipo="pagado"]').value) || 0;
       const extP = parseFloat(fila.querySelector('[data-tipo="extrap"]').value) || 0;
@@ -866,9 +918,9 @@
     document.getElementById("p-egr-rec").value = 1800;
     aplicarRecurrentes("personal");
     const tbody = document.querySelector("#tabla-personal tbody");
-    tbody.rows[5].querySelector('[data-tipo="extrap"]').value = 1200; // bono mitad de año
-    tbody.rows[0].querySelector('[data-tipo="extran"]').value = 400;
-    tbody.rows[11].querySelector('[data-tipo="extran"]').value = 900;
+    filaMes(tbody, 5).querySelector('[data-tipo="extrap"]').value = 1200; // bono mitad de año
+    filaMes(tbody, 0).querySelector('[data-tipo="extran"]').value = 400;
+    filaMes(tbody, 11).querySelector('[data-tipo="extran"]').value = 900;
     recalc("personal");
   }
 
@@ -881,12 +933,12 @@
     document.getElementById("c-provision").value = 25000;          // provisión + depreciación (no caja)
     aplicarRecurrentes("cooperativa");
     const tbody = document.querySelector("#tabla-cooperativa tbody");
-    tbody.rows[11].querySelector('[data-tipo="extran"]').value = 165000; // Dic aguinaldo + pólizas
-    tbody.rows[0].querySelector('[data-tipo="extran"]').value = 75000;   // Ene inicio clases
-    tbody.rows[4].querySelector('[data-tipo="extrap"]').value = 45000;   // May aportes anuales
-    tbody.rows[6].querySelector('[data-tipo="extran"]').value = 65000;   // Jul XIII
-    tbody.rows[9].querySelector('[data-tipo="extran"]').value = 95000;   // Oct retiros
-    tbody.rows[10].querySelector('[data-tipo="extran"]').value = 140000; // Nov retiros
+    filaMes(tbody, 11).querySelector('[data-tipo="extran"]').value = 165000; // Dic aguinaldo + pólizas
+    filaMes(tbody, 0).querySelector('[data-tipo="extran"]').value = 75000;   // Ene inicio clases
+    filaMes(tbody, 4).querySelector('[data-tipo="extrap"]').value = 45000;   // May aportes anuales
+    filaMes(tbody, 6).querySelector('[data-tipo="extran"]').value = 65000;   // Jul XIII
+    filaMes(tbody, 9).querySelector('[data-tipo="extran"]').value = 95000;   // Oct retiros
+    filaMes(tbody, 10).querySelector('[data-tipo="extran"]').value = 140000; // Nov retiros
     recalc("cooperativa");
   }
 
@@ -906,7 +958,7 @@
     }
     const tbody = document.querySelector("#tabla-" + modo + " tbody");
     for (let i = 0; i < 12; i++) {
-      const fila = tbody.rows[i];
+      const fila = filaMes(tbody, i);
       const obj = {};
       fila.querySelectorAll("input").forEach(inp => obj[inp.dataset.tipo] = inp.value);
       data.filas.push(obj);
@@ -928,7 +980,7 @@
     }
     const tbody = document.querySelector("#tabla-" + modo + " tbody");
     for (let i = 0; i < 12 && i < data.filas.length; i++) {
-      const fila = tbody.rows[i];
+      const fila = filaMes(tbody, i);
       const f = data.filas[i];
       Object.keys(f).forEach(key => {
         const inp = fila.querySelector('[data-tipo="' + key + '"]');
