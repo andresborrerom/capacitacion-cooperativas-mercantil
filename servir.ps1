@@ -81,6 +81,17 @@ try {
                 continue
             }
 
+            # Si la URL apunta a un directorio (ej. /sesiones/.../conos-rentabilidad/),
+            # resolver a su index.html interno. Esto replica el comportamiento de
+            # GitHub Pages, Apache, nginx, etc. Sin esto, el servidor 404'eaba en
+            # cualquier link que terminara en "/" o apuntara a una carpeta.
+            if (Test-Path $filePath -PathType Container) {
+                $candidate = Join-Path $filePath "index.html"
+                if (Test-Path $candidate -PathType Leaf) {
+                    $filePath = $candidate
+                }
+            }
+
             if (Test-Path $filePath -PathType Leaf) {
                 $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
                 $mime = $mimeTypes[$ext]
