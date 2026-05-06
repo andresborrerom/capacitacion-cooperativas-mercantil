@@ -119,10 +119,54 @@ En diciembre la caja todavía muestra B/. 389,000 — pero los depósitos exigib
   - Extras típicos (aguinaldo en diciembre, vacaciones, etc.).
 - [0:37] **[Slide 12 · Poll #2]** *"Tu flujo proyectado, ¿en qué mes está más cerca del rojo?"*
   Opciones: (a) Enero. (b) Julio. (c) Diciembre. (d) Ninguno en rojo. (e) Más de uno.
-- [0:40] Comentar resultados. *"Los meses problemáticos no son aleatorios — son patrón."*
-- [0:42] Cambio a **modo cooperativa**: click en "Cargar caso El Paraíso".
-- [0:43] Todos ven el flujo proyectado. Señalar Oct-Nov.
-- [0:45] *"Esto es lo que debería llegar cada mes a la junta. No solo el P&L."*
+- [0:39] Comentar resultados. *"Los meses problemáticos no son aleatorios — son patrón."*
+
+### Cambio a modo cooperativa · El Paraíso (0:40–0:45)
+
+- [0:40] *"Ahora cambien a la pestaña **Modo cooperativa** y aprieten **Cargar caso El Paraíso**. La herramienta se llena sola con el caso del año previo a la crisis."*
+
+- [0:41] **Narrar los inputs precargados** (proyectarlos en pantalla):
+  > *"Miren lo que cargamos. Estos son los 4 inputs recurrentes mensuales que capturan las parejas 1, 2 y 3 que vimos arriba:"*
+
+  | Input | Valor mensual | Pareja |
+  |---|---|---|
+  | Saldo inicial | B/. 500,000 | — |
+  | Ingreso COBRADO (entra a caja) | B/. 180,000 | P1 caja |
+  | Ingreso DEVENGADO adicional (no entra a caja) | B/. 9,000 | P1 P&L (mora) |
+  | Egreso PAGADO (sale de caja) | B/. 148,000 | P2 caja |
+  | Provisión / depreciación (no sale) | B/. 25,000 | P2 P&L |
+
+  > *"Y estos extraordinarios mes a mes: aportes de mayo (+45k), XIII de julio (−65k), inicio de clases en enero (−75k), aguinaldo de diciembre (−165k), y la sorpresa: retiros concentrados Oct (−95k) y Nov (−140k)."*
+
+- [0:42] **Resultados clave a leer en voz alta** (todos los ven en sus celulares):
+
+  | Indicador | Valor anual | Lectura |
+  |---|---|---|
+  | Saldo final caja | **B/. 389,000** | El año "cierra positivo". Engaña. |
+  | Cambio de caja | **−B/. 111,000** | La caja se contrajo. |
+  | Utilidad P&L anual | **+B/. 192,000** | Pero el P&L dice que ganamos. |
+  | Mes mínimo de caja | **Dic** | Y al cierre, ya no aguanta otro evento. |
+
+  > *"Pareja 3 en vivo: la cooperativa siente que tuvo buen año (+192k de utilidad) mientras la caja se contrajo 111k. **Divergencia de 303k.** Eso es lo que faltó ver a tiempo."*
+
+- [0:43] **Sensibilidad #1 · Cambiar el cobrado** (hacer el cambio en pantalla):
+  > *"Bajemos el cobrado de 180k a 165k — simulamos que la mora subió 8 puntos."*
+
+  Cambia: **utilidad anual baja 180k** (de +192 a +12, casi 0). **Caja anual cae 180k más** (de −111 a −291). **Saldo final Dic queda en B/. 209k.**
+
+  > *"La mora afecta caja Y utilidad por igual — porque el cobro determina los dos."*
+
+  *Devuélvelo a 180k antes de seguir.*
+
+- [0:44] **Sensibilidad #2 · Cambiar las provisiones** (efecto opuesto, y revelador):
+  > *"Ahora subamos provisiones de 25k a 50k. Es un ajuste contable habitual al cierre."*
+
+  Cambia: **utilidad anual cae 300k** (de +192 a −108). **Caja NO se mueve un dólar.** Saldo final caja sigue en 389k.
+
+  > *"Pareja 2 en vivo: el P&L se desploma. La caja queda igual. Por eso la utilidad sin contexto miente."*
+
+- [0:45] **Cierre del bloque:**
+  > *"Esto es lo que debería llegar cada mes a la junta. No solo el P&L. La película — caja, utilidad y la divergencia entre las dos — es el verdadero termómetro."*
 
 ---
 

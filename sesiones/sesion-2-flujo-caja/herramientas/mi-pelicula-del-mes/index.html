@@ -339,7 +339,7 @@
 
     <div class="grafica-wrap">
       <h3>Saldo acumulado mes a mes</h3>
-      <svg class="grafica" id="grafica-personal" viewBox="0 0 600 280" preserveAspectRatio="none"></svg>
+      <svg class="grafica" id="grafica-personal"></svg>
     </div>
 
     <div class="kpis">
@@ -426,7 +426,7 @@
     <div class="grafica-wrap">
       <h3>P&amp;L acumulado vs. Caja acumulada — la divergencia</h3>
       <p class="pista">Pareja 3 en una imagen: la utilidad sube mientras la caja se contrae.</p>
-      <svg class="grafica" id="grafica-cooperativa" viewBox="0 0 600 280" preserveAspectRatio="none"></svg>
+      <svg class="grafica" id="grafica-cooperativa"></svg>
       <div class="leyenda">
         <span><span class="swatch" style="background:#003DA5;"></span> Caja acumulada</span>
         <span><span class="swatch" style="background:#2E7D55;"></span> P&amp;L acumulado</span>
@@ -765,7 +765,10 @@
 
   function dibujarGraficaSimple(modo, serie) {
     const svg = document.getElementById("grafica-" + modo);
-    const W = 600, H = 280, padL = 60, padR = 30, padT = 20, padB = 40;
+    const W = Math.max(svg.clientWidth || 0, 320) || 800;
+    const H = 280, padL = 75, padR = 25, padT = 25, padB = 38;
+    svg.setAttribute("width", W);
+    svg.setAttribute("height", H);
     const ancho = W - padL - padR;
     const alto = H - padT - padB;
     const n = serie.length;
@@ -808,7 +811,10 @@
 
   function dibujarGraficaCoop(serieCaja, seriePL) {
     const svg = document.getElementById("grafica-cooperativa");
-    const W = 600, H = 280, padL = 60, padR = 30, padT = 20, padB = 40;
+    const W = Math.max(svg.clientWidth || 0, 320) || 800;
+    const H = 280, padL = 75, padR = 25, padT = 25, padB = 38;
+    svg.setAttribute("width", W);
+    svg.setAttribute("height", H);
     const ancho = W - padL - padR;
     const alto = H - padT - padB;
     const n = serieCaja.length;
@@ -961,13 +967,22 @@
     setTimeout(() => div.remove(), 1800);
   }
 
-  // Tabs
+  // Tabs — al cambiar, redibujar la gráfica del nuevo panel
+  // (porque su SVG estaba en display:none y clientWidth era 0)
   document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach(x => x.classList.remove("activa"));
     document.querySelectorAll(".panel").forEach(p => p.classList.remove("activo"));
     t.classList.add("activa");
     document.getElementById("panel-" + t.dataset.panel).classList.add("activo");
+    requestAnimationFrame(() => recalc(t.dataset.panel));
   }));
+
+  // Resize → redibujar ambas gráficas con el ancho real nuevo
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { recalc("personal"); recalc("cooperativa"); }, 120);
+  });
 
   // Init
   crearFilas("personal");
@@ -980,6 +995,8 @@
   restore("cooperativa", Store.leer("pelicula-cooperativa"));
   recalc("personal");
   recalc("cooperativa");
+  // Re-render tras layout estable (fonts, etc.)
+  requestAnimationFrame(() => { recalc("personal"); recalc("cooperativa"); });
 </script>
 </body>
 </html>
