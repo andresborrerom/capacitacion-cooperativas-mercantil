@@ -68,7 +68,9 @@ Si el fondo no cumple esos tres puntos, la plata estratégica está pagando comi
 
 ---
 
-## Herramienta permanente: "Mi caja de herramientas"
+## Herramientas permanentes
+
+### "Mi caja de herramientas"
 
 Accesible en línea. Te permite:
 
@@ -76,6 +78,21 @@ Accesible en línea. Te permite:
 - Clasificarlos automáticamente en las 4 gavetas por plazo.
 - Declarar necesidades por gaveta (1-3) y **meta estratégica** para Gaveta 4.
 - Ver alertas de mismatch (gaveta en exceso, gaveta crítica, concentración).
+
+### "Conos de rentabilidad" — el horizonte ordena el riesgo
+
+Compara dos activos (por defecto **S&P 500** vs **Treasury 1Y**) bajo distintos horizontes. Mueve el slider del horizonte (de 1 mes a 30 años) y observa:
+
+- **Vista capital (B/.):** el cono se *abre* con el tiempo — los buenos años son cada vez más buenos y los malos cada vez más malos en términos absolutos.
+- **Vista % anualizado:** el cono se *cierra* con el tiempo — la varianza del promedio cae como σ²/t.
+
+> **Frase ancla:** *"El horizonte es la palanca que separa ahorro de inversión."*
+
+**Lecturas pedagógicas en cada extremo:**
+
+- **Plazo corto (1-12 meses):** el cono anualizado puede ir de −40% a +80%. Plata que necesitas pronto NO debe estar acá. Gavetas 1-2.
+- **Plazo medio (3-7 años):** el cono empieza a ordenarse. Riesgo defendible si tienes tesis. Gaveta 3.
+- **Plazo largo (10-30 años):** el cono se cierra hacia μ. Ahorrar de más en gaveta 2 cuando la plata es de gaveta 4 = perder rentabilidad.
 
 ---
 
