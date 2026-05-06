@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Sesión 2 · Flujo de caja · Mercantil SI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5; --m-primario-oscuro: #002868; --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20; --m-acento-claro: #FDE9D7;
+    --m-fondo: #F5F7FA; --m-texto: #1A1A1A; --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE; --m-positivo: #2E7D55;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: "Inter", system-ui, sans-serif; color: var(--m-texto); background: var(--m-fondo); margin: 0; line-height: 1.6; font-size: 16px; }
+  .barra-acciones { position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--m-borde); padding: 0.7rem 1.2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .barra-acciones .marca { font-size: 0.78rem; color: var(--m-texto-sutil); font-weight: 600; }
+  .barra-acciones .marca strong { color: var(--m-primario); }
+  .btn-pdf { background: var(--m-acento); color: #fff; border: 0; padding: 0.55em 1.1em; border-radius: 8px; font-family: inherit; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4em; box-shadow: 0 2px 6px rgba(244, 123, 32, 0.3); }
+  .btn-pdf:hover { background: #d96a18; }
+  .btn-pdf:active { transform: translateY(1px); }
+  .hero { background: linear-gradient(135deg, var(--m-primario), var(--m-primario-oscuro)); color: #fff; padding: 2.5rem 1.5rem 2.8rem; text-align: center; }
+  .hero .kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--m-acento-claro); font-weight: 700; margin-bottom: 0.5rem; }
+  .hero h1 { font-size: 2.2rem; margin: 0; line-height: 1.2; font-weight: 800; }
+  .hero .subtitulo { font-size: 1.1rem; color: #B0BEDC; margin: 0.7rem 0 0; font-weight: 400; }
+  .hero .pista { font-size: 0.85rem; opacity: 0.85; margin-top: 1.3rem; font-style: italic; }
+  .documento { max-width: 780px; margin: 0 auto; background: #fff; padding: 2.3rem 2.2rem 2.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  @media (max-width: 600px) { .documento { padding: 1.5rem 1.2rem 2rem; border-radius: 0; } .hero { padding: 2rem 1.2rem; } .hero h1 { font-size: 1.7rem; } .hero .subtitulo { font-size: 0.95rem; } }
+  h2 { color: var(--m-primario-oscuro); margin: 2.2rem 0 0.6rem; font-size: 1.55rem; font-weight: 700; line-height: 1.25; border-bottom: 2px solid var(--m-primario-claro); padding-bottom: 0.3rem; }
+  h3 { color: var(--m-primario-oscuro); margin: 1.4rem 0 0.5rem; font-size: 1.15rem; font-weight: 700; }
+  p { margin: 0.5rem 0 0.9rem; }
+  strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+  blockquote { margin: 1rem 0; padding: 1rem 1.2rem; background: var(--m-primario-claro); border-left: 5px solid var(--m-primario); border-radius: 0 8px 8px 0; font-size: 1.05rem; color: var(--m-primario-oscuro); }
+  blockquote p { margin: 0; }
+  blockquote strong { color: var(--m-primario-oscuro); }
+  ul, ol { padding-left: 1.4rem; margin: 0.5rem 0 1rem; }
+  li { margin-bottom: 0.4rem; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0.8rem 0 1.3rem; font-size: 0.94rem; background: #fff; border: 1px solid var(--m-borde); border-radius: 8px; overflow: hidden; }
+  thead { background: var(--m-primario); color: #fff; }
+  thead th { padding: 0.7rem 0.85rem; font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; text-align: left; }
+  tbody td { padding: 0.65rem 0.85rem; border-top: 1px solid var(--m-borde); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--m-fondo); }
+  hr { border: 0; border-top: 1px solid var(--m-borde); margin: 2rem 0; }
+  .checklist-imprimible { background: var(--m-fondo); border: 2px dashed var(--m-acento); border-radius: 10px; padding: 1.3rem 1.5rem; margin: 1rem 0 1.5rem; }
+  .checklist-imprimible h3 { margin-top: 0; color: var(--m-acento); }
+  .checklist-imprimible ul { list-style: none; padding: 0; }
+  .checklist-imprimible li { padding: 0.55rem 0 0.55rem 2.2em; position: relative; border-bottom: 1px solid var(--m-borde); font-size: 0.96rem; }
+  .checklist-imprimible li:last-child { border-bottom: 0; }
+  .checklist-imprimible li::before { content: "☐"; position: absolute; left: 0.6em; top: 0.4em; color: var(--m-primario); font-size: 1.4em; font-weight: 700; }
+  .checklist-imprimible .nota { font-size: 0.85rem; color: var(--m-texto-sutil); margin-top: 0.7em; text-align: right; font-style: italic; }
+  .pie-doc { text-align: center; color: var(--m-texto-sutil); font-size: 0.85rem; padding: 2rem 1.2rem 3rem; font-style: italic; }
+  @media print {
+    @page { size: A4; margin: 1.5cm 1.8cm; }
+    body { background: #fff; font-size: 11pt; line-height: 1.45; }
+    .barra-acciones, .btn-pdf { display: none !important; }
+    .hero { background: #003DA5 !important; color: #fff !important; padding: 1.5cm 1cm !important; page-break-after: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .hero h1 { font-size: 22pt; }
+    .hero .subtitulo { font-size: 13pt; }
+    .documento { box-shadow: none; padding: 0.8cm 0; max-width: 100%; }
+    h2 { page-break-after: avoid; font-size: 15pt; }
+    h3 { page-break-after: avoid; font-size: 12pt; }
+    blockquote, table, .checklist-imprimible { page-break-inside: avoid; }
+    blockquote { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    table thead { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    a { color: var(--m-primario); text-decoration: none; }
+    .pie-doc { font-size: 9pt; padding: 1cm 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="barra-acciones">
+  <div class="marca"><strong>Mercantil SI</strong> · Sesión 2 · Material para llevar</div>
+  <button class="btn-pdf" onclick="window.print()">📥 Descargar PDF</button>
+</div>
+
+<header class="hero">
+  <div class="kicker">Sesión 2 · Curso Mercantil SI</div>
+  <h1>El flujo de caja</h1>
+  <p class="subtitulo">El verdadero termómetro financiero · Guía de referencia</p>
+  <p class="pista">Guárdala. Úsala. Usa la herramienta.</p>
+</header>
+
+<main class="documento">
+
+  <h2>La idea que no puede olvidar</h2>
+  <blockquote>
+    <p><strong>"Un balance sano es una invitación, no una garantía. La garantía está en la película."</strong></p>
+  </blockquote>
+
+  <h2>La frase del día</h2>
+  <blockquote>
+    <p><strong>"Foto miente; película no."</strong> El balance puede lucir impecable el 31 de diciembre y la cooperativa no tener con qué pagar en febrero. El flujo de caja es el termómetro que no se deja maquillar.</p>
+  </blockquote>
+
+  <h2>Las 4 parejas que ya sabes desarmar</h2>
+  <table>
+    <thead><tr><th>Pareja</th><th>Qué parecen</th><th>Qué son realmente</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ingreso ≠ cobro</strong></td><td>Dinero que llegó al banco.</td><td>El ingreso se registra cuando se genera; el cobro, cuando se recibe efectivamente. Mora y prórrogas separan a uno del otro.</td></tr>
+      <tr><td><strong>Gasto ≠ pago</strong></td><td>Dinero que salió del banco.</td><td>Un gasto puede ser contable sin salir de caja (provisiones, depreciación). Un pago puede salir sin haberse contabilizado como gasto del periodo (prepagos).</td></tr>
+      <tr><td><strong>Utilidad ≠ disponible</strong></td><td>"Si gané, tengo."</td><td>La utilidad es cálculo del periodo. El disponible es el saldo bancario hoy. Pueden moverse en direcciones contrarias.</td></tr>
+      <tr><td><strong>Recurrente ≠ extraordinario</strong></td><td>Todo es parte del flujo normal.</td><td>Cada mes hay flujos típicos y cada tanto hay flujos grandes. Modelar solo lo recurrente es como manejar mirando solo el espejo derecho.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Los 3 momentos del año en una cooperativa panameña</h2>
+  <ol>
+    <li><strong>Antes del aguinaldo (nov-dic).</strong> Pagos concentrados: XIII, aguinaldo, renovaciones. Si la cobranza del tercer trimestre fue débil, diciembre truena.</li>
+    <li><strong>Inicio de clases (ene-feb).</strong> Préstamos simultáneos de asociados. La cartera crece, la caja se drena.</li>
+    <li><strong>Retiros concentrados (imprevisibles).</strong> Rumores, crisis sectoriales. Lo que importa no es evitar el evento — es <strong>tener cobertura de liquidez</strong> para absorberlo sin romper.</li>
+  </ol>
+
+  <h2>Herramienta permanente: "Mi película del mes"</h2>
+  <p>Accesible en línea en cualquier momento. Dos modos:</p>
+  <ul>
+    <li><strong>Personal</strong> — tu flujo mensual a 12 meses. Detecta dónde aprieta.</li>
+    <li><strong>Cooperativa</strong> — con las 4 parejas visibles (devengado/cobrado, gasto P&amp;L/pago caja, utilidad/disponible, recurrente/extraordinario). Incluye preset del caso El Paraíso para aprender viendo.</li>
+  </ul>
+
+  <div class="checklist-imprimible">
+    <h3>Checklist · 4 preguntas sobre flujo antes de aprobar inversión en junta</h3>
+    <ul>
+      <li>¿Cómo se ve el saldo de caja proyectado a 90 días si no hacemos nada?</li>
+      <li>¿Cuánto de los depósitos de la cooperativa son a la vista o a plazo &lt; 90 días?</li>
+      <li>¿Qué gastos extraordinarios tenemos agendados en los próximos 6 meses?</li>
+      <li>¿Cómo cambia la caja si la mora sube 2 puntos porcentuales?</li>
+    </ul>
+    <div class="nota">Doblar. Guardar. Usar.</div>
+  </div>
+
+  <h2>Micro-tarea hasta la Sesión 3</h2>
+  <p>Lista <strong>2-3 productos donde tu cooperativa (o tú personalmente) tiene plata hoy</strong>. <strong>Nombre del producto + entidad + plazo aproximado.</strong> Sin montos si no deseas. La usaremos la próxima sesión.</p>
+  <p><strong>¿Por qué pedimos la entidad?</strong> Porque la concentración por contraparte, la calidad crediticia y la diversificación efectiva son palancas tan importantes como el producto mismo. Tres DPF al 5.5% en el mismo banco no son la misma diversificación que tres DPF al 5.5% en tres bancos distintos.</p>
+
+  <h2>Para ir un paso más allá (opcional)</h2>
+  <ul>
+    <li><strong>El "stress test" de flujo:</strong> modelar 3 escenarios (base, pesimista, optimista) para los próximos 12 meses. Los bancos regulados lo hacen formalmente; las cooperativas pueden empezar simple.</li>
+    <li><strong>Indicadores de cobranza:</strong> "índice de cumplimiento" (cobrado / facturado). Si bajó 5 pp en un trimestre, el flujo viene comprimido.</li>
+    <li><strong>Gap de liquidez por plazos:</strong> activos cobrables a 30 días vs. pasivos exigibles a 30 días. Si el gap es negativo, hay riesgo de refinanciación. Mercantil SI construye estos modelos para cooperativas asesoradas.</li>
+  </ul>
+
+  <h2>Lo que viene en la Sesión 3</h2>
+  <p>Ya leemos foto y película. La próxima sesión abrimos la <strong>caja de herramientas</strong>: qué productos financieros existen, para qué sirven, y cuáles son los errores más caros. Concepto pegajoso: <strong>"Las 4 gavetas del dinero"</strong>.</p>
+  <p>Trae tu lista de productos — la usaremos.</p>
+
+</main>
+
+<div class="pie-doc">
+  Mercantil Servicios de Inversión · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 2
+</div>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Sesión 1 · Estados financieros · Mercantil SI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5;
+    --m-primario-oscuro: #002868;
+    --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20;
+    --m-acento-claro: #FDE9D7;
+    --m-fondo: #F5F7FA;
+    --m-texto: #1A1A1A;
+    --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE;
+    --m-positivo: #2E7D55;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--m-texto);
+    background: var(--m-fondo);
+    margin: 0;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .barra-acciones {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--m-borde);
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .barra-acciones .marca {
+    font-size: 0.78rem;
+    color: var(--m-texto-sutil);
+    font-weight: 600;
+  }
+  .barra-acciones .marca strong { color: var(--m-primario); }
+  .btn-pdf {
+    background: var(--m-acento);
+    color: #fff;
+    border: 0;
+    padding: 0.55em 1.1em;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    box-shadow: 0 2px 6px rgba(244, 123, 32, 0.3);
+  }
+  .btn-pdf:hover { background: #d96a18; }
+  .btn-pdf:active { transform: translateY(1px); }
+
+  .hero {
+    background: linear-gradient(135deg, var(--m-primario), var(--m-primario-oscuro));
+    color: #fff;
+    padding: 2.5rem 1.5rem 2.8rem;
+    text-align: center;
+  }
+  .hero .kicker {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--m-acento-claro);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .hero .subtitulo {
+    font-size: 1.1rem;
+    color: #B0BEDC;
+    margin: 0.7rem 0 0;
+    font-weight: 400;
+  }
+  .hero .pista {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin-top: 1.3rem;
+    font-style: italic;
+  }
+
+  .documento {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2.3rem 2.2rem 2.5rem;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  @media (max-width: 600px) {
+    .documento { padding: 1.5rem 1.2rem 2rem; border-radius: 0; }
+    .hero { padding: 2rem 1.2rem; }
+    .hero h1 { font-size: 1.7rem; }
+    .hero .subtitulo { font-size: 0.95rem; }
+  }
+
+  h2 {
+    color: var(--m-primario-oscuro);
+    margin: 2.2rem 0 0.6rem;
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.25;
+    border-bottom: 2px solid var(--m-primario-claro);
+    padding-bottom: 0.3rem;
+  }
+  h3 {
+    color: var(--m-primario-oscuro);
+    margin: 1.4rem 0 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  p { margin: 0.5rem 0 0.9rem; }
+  strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+
+  blockquote {
+    margin: 1rem 0;
+    padding: 1rem 1.2rem;
+    background: var(--m-primario-claro);
+    border-left: 5px solid var(--m-primario);
+    border-radius: 0 8px 8px 0;
+    font-size: 1.05rem;
+    color: var(--m-primario-oscuro);
+  }
+  blockquote.acento {
+    background: var(--m-acento-claro);
+    border-left-color: var(--m-acento);
+  }
+  blockquote p { margin: 0; }
+  blockquote strong { color: var(--m-primario-oscuro); }
+
+  ul, ol { padding-left: 1.4rem; margin: 0.5rem 0 1rem; }
+  li { margin-bottom: 0.4rem; }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0.8rem 0 1.3rem;
+    font-size: 0.94rem;
+    background: #fff;
+    border: 1px solid var(--m-borde);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  thead { background: var(--m-primario); color: #fff; }
+  thead th {
+    padding: 0.7rem 0.85rem;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: left;
+  }
+  tbody td {
+    padding: 0.65rem 0.85rem;
+    border-top: 1px solid var(--m-borde);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--m-fondo); }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--m-borde);
+    margin: 2rem 0;
+  }
+
+  .checklist-imprimible {
+    background: var(--m-fondo);
+    border: 2px dashed var(--m-acento);
+    border-radius: 10px;
+    padding: 1.3rem 1.5rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .checklist-imprimible h3 {
+    margin-top: 0;
+    color: var(--m-acento);
+  }
+  .checklist-imprimible ul {
+    list-style: none;
+    padding: 0;
+  }
+  .checklist-imprimible li {
+    padding: 0.55rem 0 0.55rem 2.2em;
+    position: relative;
+    border-bottom: 1px solid var(--m-borde);
+    font-size: 0.96rem;
+  }
+  .checklist-imprimible li:last-child { border-bottom: 0; }
+  .checklist-imprimible li::before {
+    content: "☐";
+    position: absolute;
+    left: 0.6em;
+    top: 0.4em;
+    color: var(--m-primario);
+    font-size: 1.4em;
+    font-weight: 700;
+  }
+  .checklist-imprimible .nota {
+    font-size: 0.85rem;
+    color: var(--m-texto-sutil);
+    margin-top: 0.7em;
+    text-align: right;
+    font-style: italic;
+  }
+
+  .pie-doc {
+    text-align: center;
+    color: var(--m-texto-sutil);
+    font-size: 0.85rem;
+    padding: 2rem 1.2rem 3rem;
+    font-style: italic;
+  }
+
+  /* Print: oculta UI, hace PDF limpio */
+  @media print {
+    @page { size: A4; margin: 1.5cm 1.8cm; }
+    body { background: #fff; font-size: 11pt; line-height: 1.45; }
+    .barra-acciones, .btn-pdf { display: none !important; }
+    .hero {
+      background: #003DA5 !important;
+      color: #fff !important;
+      padding: 1.5cm 1cm !important;
+      page-break-after: avoid;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .hero h1 { font-size: 22pt; }
+    .hero .subtitulo { font-size: 13pt; }
+    .documento { box-shadow: none; padding: 0.8cm 0; max-width: 100%; }
+    h2 { page-break-after: avoid; font-size: 15pt; }
+    h3 { page-break-after: avoid; font-size: 12pt; }
+    blockquote, table, .checklist-imprimible { page-break-inside: avoid; }
+    blockquote { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    table thead { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    a { color: var(--m-primario); text-decoration: none; }
+    .pie-doc { font-size: 9pt; padding: 1cm 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="barra-acciones">
+  <div class="marca"><strong>Mercantil SI</strong> · Sesión 1 · Material para llevar</div>
+  <button class="btn-pdf" onclick="window.print()">📥 Descargar PDF</button>
+</div>
+
+<header class="hero">
+  <div class="kicker">Sesión 1 · Curso Mercantil SI</div>
+  <h1>Estados financieros sin miedo</h1>
+  <p class="subtitulo">Guía de referencia</p>
+  <p class="pista">Guárdala. Úsala. Compártela con tu junta.</p>
+</header>
+
+<main class="documento">
+
+  <h2>La idea que no puede olvidar</h2>
+  <blockquote>
+    <p><strong>La regla de los tres cuadros.</strong> Antes de votar un presupuesto en junta, cualquier directivo debe poder llenar tres cuadros en una servilleta: <strong>qué tiene, qué debe, qué es realmente suyo.</strong> Si los tres cuadros no están claros, la decisión está ciega.</p>
+  </blockquote>
+
+  <h2>Los tres cuadros, traducidos</h2>
+  <table>
+    <thead><tr><th>Cuadro</th><th>Nombre contable</th><th>Pregunta que responde</th></tr></thead>
+    <tbody>
+      <tr><td>1. ¿Qué tiene?</td><td><strong>Activo</strong></td><td>Todo lo que la cooperativa posee, a valor razonable.</td></tr>
+      <tr><td>2. ¿Qué debe?</td><td><strong>Pasivo</strong></td><td>Todo lo que la cooperativa le debe a terceros (depositantes incluidos).</td></tr>
+      <tr><td>3. ¿Qué es suyo?</td><td><strong>Patrimonio</strong></td><td>Activo menos pasivo. Lo que quedaría si se pagara todo lo que debe.</td></tr>
+    </tbody>
+  </table>
+  <p>Regla aritmética que siempre se cumple: <strong>Activo = Pasivo + Patrimonio.</strong> Si no cuadra, alguien está redondeando o alguien está mintiendo.</p>
+
+  <h2>Las tres confusiones que ya sabes desarmar</h2>
+  <ol>
+    <li><strong>Ingreso ≠ cobro.</strong> Lo que se facturó no es lo que entró al banco. La diferencia se llama cartera por cobrar; si crece sin control, se llama problema.</li>
+    <li><strong>Utilidad ≠ plata en banco.</strong> La utilidad es contable. El saldo es físico. Una cooperativa puede ser rentable y no tener con qué pagar nómina (como El Paraíso que vimos).</li>
+    <li><strong>Activo ≠ patrimonio.</strong> <em>Tener</em> no es <em>ser dueño</em>. Un activo de B/. 20M con B/. 17M de pasivo deja solo B/. 3M de propiedad real.</li>
+  </ol>
+
+  <h2>Los tres indicadores que deberían permitirte dormir en paz</h2>
+  <table>
+    <thead><tr><th>Indicador</th><th>Cómo se calcula</th><th>Qué te dice</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Adecuación de capital</strong></td><td>Patrimonio / Activo total</td><td>Qué tan propia es la cooperativa de sí misma. Colchón ante pérdidas.</td></tr>
+      <tr><td><strong>Concentración en cartera</strong></td><td>Cartera / Activo total</td><td>Qué tan expuesta está al riesgo de crédito. En cooperativas suele ser alta — eso exige buen manejo de liquidez.</td></tr>
+      <tr><td><strong>Cobertura de liquidez inmediata</strong></td><td>(Caja + inversiones líquidas) / Depósitos exigibles a 90 días o menos</td><td>Si el 20% de los depositantes viene mañana, ¿tenemos con qué?</td></tr>
+    </tbody>
+  </table>
+  <p>No son los únicos que existen. Son los tres que tú, como directivo, <strong>debes poder leer y cuestionar</strong> antes de aprobar presupuesto o balance.</p>
+
+  <div class="checklist-imprimible">
+    <h3>Checklist · 5 preguntas antes de aprobar el balance en junta</h3>
+    <ul>
+      <li>¿Cuál es el activo, el pasivo y el patrimonio? ¿La suma cuadra?</li>
+      <li>¿Cuánto del activo está en cartera de crédito vs. en caja/inversiones líquidas? ¿Por qué esa proporción?</li>
+      <li>¿Cuánto creció el patrimonio vs. cuánto crecieron los activos? ¿Estamos creciendo o endeudándonos?</li>
+      <li>¿Cuál es el indicador de mora y cómo se compara con el año anterior y con el sector?</li>
+      <li>Si mañana el 20% de los depositantes retira sus fondos, ¿tenemos con qué responder?</li>
+    </ul>
+    <div class="nota">Doblar, guardar en la cartera, llevar a la próxima junta.</div>
+  </div>
+
+  <h2>Herramienta permanente</h2>
+  <p><strong>Mi foto financiera</strong> queda disponible en línea. Funciona desde cualquier celular y <strong>no envía tus datos a ningún servidor</strong> — todo se queda en tu dispositivo.</p>
+  <ul>
+    <li><strong>Modo personal:</strong> usa la regla de los tres cuadros con tus propios números.</li>
+    <li><strong>Modo cooperativa:</strong> úsala en tu próxima reunión de junta, con los datos que te presenten.</li>
+  </ul>
+
+  <h2>Micro-tarea hasta la Sesión 2</h2>
+  <p><strong>Pide el último estado de resultados de tu cooperativa.</strong> No tienes que analizarlo. Solo tráelo al próximo encuentro. Lo vamos a abrir juntos.</p>
+  <p>Si tu cooperativa aún no te lo facilita con agilidad, esa ya es información útil: <em>¿por qué no es ágil? ¿Cuánto tiempo tarda?</em> La respuesta dice tanto como los números.</p>
+
+  <h2>Para ir un paso más allá (opcional)</h2>
+  <ul>
+    <li><strong>Marco regulatorio del sector:</strong> Ley 17 de 1997 (régimen especial de las cooperativas), Decreto Ejecutivo 137 de 2001 (reglamento). IPACOOP publica benchmarks sectoriales.</li>
+    <li><strong>Adecuación de capital como métrica formal:</strong> en cooperativas panameñas se mide como patrimonio/activo; IPACOOP vigila umbrales mínimos. Los bancos comerciales usan ratios Basilea — distintos, pero misma intención conceptual.</li>
+    <li><strong>Siguiente paso en estados financieros:</strong> aprender a leer el estado de flujos de efectivo (tema de Sesión 2) y las notas de los estados auditados (donde suele esconderse la información realmente relevante).</li>
+  </ul>
+
+  <h2>Lo que viene en la Sesión 2</h2>
+  <p>Hoy aprendimos a leer la <strong>foto</strong>. La próxima sesión vamos a ver la <strong>película</strong>: por qué alguien rentable puede quebrar y cómo reconocerlo antes de que pase. Trae el estado de resultados que te pedimos.</p>
+
+</main>
+
+<div class="pie-doc">
+  Mercantil Servicios de Inversión · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 1
+</div>
+
+</body>
+</html>

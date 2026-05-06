@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Sesión 4 · Financiamiento · Mercantil SI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5; --m-primario-oscuro: #002868; --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20; --m-acento-claro: #FDE9D7;
+    --m-fondo: #F5F7FA; --m-texto: #1A1A1A; --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE; --m-positivo: #2E7D55;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: "Inter", system-ui, sans-serif; color: var(--m-texto); background: var(--m-fondo); margin: 0; line-height: 1.6; font-size: 16px; }
+  .barra-acciones { position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--m-borde); padding: 0.7rem 1.2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .barra-acciones .marca { font-size: 0.78rem; color: var(--m-texto-sutil); font-weight: 600; }
+  .barra-acciones .marca strong { color: var(--m-primario); }
+  .btn-pdf { background: var(--m-acento); color: #fff; border: 0; padding: 0.55em 1.1em; border-radius: 8px; font-family: inherit; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4em; box-shadow: 0 2px 6px rgba(244, 123, 32, 0.3); }
+  .btn-pdf:hover { background: #d96a18; }
+  .btn-pdf:active { transform: translateY(1px); }
+  .hero { background: linear-gradient(135deg, var(--m-primario), var(--m-primario-oscuro)); color: #fff; padding: 2.5rem 1.5rem 2.8rem; text-align: center; }
+  .hero .kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--m-acento-claro); font-weight: 700; margin-bottom: 0.5rem; }
+  .hero h1 { font-size: 2.2rem; margin: 0; line-height: 1.2; font-weight: 800; }
+  .hero .subtitulo { font-size: 1.1rem; color: #B0BEDC; margin: 0.7rem 0 0; font-weight: 400; }
+  .hero .pista { font-size: 0.85rem; opacity: 0.85; margin-top: 1.3rem; font-style: italic; }
+  .documento { max-width: 780px; margin: 0 auto; background: #fff; padding: 2.3rem 2.2rem 2.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  @media (max-width: 600px) { .documento { padding: 1.5rem 1.2rem 2rem; border-radius: 0; } .hero { padding: 2rem 1.2rem; } .hero h1 { font-size: 1.7rem; } .hero .subtitulo { font-size: 0.95rem; } }
+  h2 { color: var(--m-primario-oscuro); margin: 2.2rem 0 0.6rem; font-size: 1.55rem; font-weight: 700; line-height: 1.25; border-bottom: 2px solid var(--m-primario-claro); padding-bottom: 0.3rem; }
+  h3 { color: var(--m-primario-oscuro); margin: 1.4rem 0 0.5rem; font-size: 1.15rem; font-weight: 700; }
+  p { margin: 0.5rem 0 0.9rem; }
+  strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+  blockquote { margin: 1rem 0; padding: 1rem 1.2rem; background: var(--m-primario-claro); border-left: 5px solid var(--m-primario); border-radius: 0 8px 8px 0; font-size: 1.05rem; color: var(--m-primario-oscuro); }
+  blockquote.acento { background: var(--m-acento-claro); border-left-color: var(--m-acento); }
+  blockquote p { margin: 0; }
+  blockquote strong { color: var(--m-primario-oscuro); }
+  ul, ol { padding-left: 1.4rem; margin: 0.5rem 0 1rem; }
+  li { margin-bottom: 0.4rem; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0.8rem 0 1.3rem; font-size: 0.92rem; background: #fff; border: 1px solid var(--m-borde); border-radius: 8px; overflow: hidden; }
+  thead { background: var(--m-primario); color: #fff; }
+  thead th { padding: 0.7rem 0.7rem; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; text-align: left; }
+  tbody td { padding: 0.6rem 0.7rem; border-top: 1px solid var(--m-borde); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--m-fondo); }
+  hr { border: 0; border-top: 1px solid var(--m-borde); margin: 2rem 0; }
+  .checklist-imprimible { background: var(--m-fondo); border: 2px dashed var(--m-acento); border-radius: 10px; padding: 1.3rem 1.5rem; margin: 1rem 0 1.5rem; }
+  .checklist-imprimible h3 { margin-top: 0; color: var(--m-acento); }
+  .checklist-imprimible ul { list-style: none; padding: 0; }
+  .checklist-imprimible li { padding: 0.55rem 0 0.55rem 2.2em; position: relative; border-bottom: 1px solid var(--m-borde); font-size: 0.96rem; }
+  .checklist-imprimible li:last-child { border-bottom: 0; }
+  .checklist-imprimible li::before { content: "☐"; position: absolute; left: 0.6em; top: 0.4em; color: var(--m-primario); font-size: 1.4em; font-weight: 700; }
+  .checklist-imprimible .nota { font-size: 0.85rem; color: var(--m-texto-sutil); margin-top: 0.7em; text-align: right; font-style: italic; }
+  .gracias-final { text-align: center; padding: 1.5rem; background: var(--m-primario-oscuro); color: #fff; border-radius: 10px; margin-top: 2rem; }
+  .gracias-final h3 { color: #fff; font-size: 1.5rem; margin: 0; }
+  .pie-doc { text-align: center; color: var(--m-texto-sutil); font-size: 0.85rem; padding: 2rem 1.2rem 3rem; font-style: italic; }
+  @media print {
+    @page { size: A4; margin: 1.5cm 1.8cm; }
+    body { background: #fff; font-size: 11pt; line-height: 1.45; }
+    .barra-acciones, .btn-pdf { display: none !important; }
+    .hero, .gracias-final { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .hero { background: #003DA5 !important; color: #fff !important; padding: 1.5cm 1cm !important; page-break-after: avoid; }
+    .hero h1 { font-size: 22pt; }
+    .hero .subtitulo { font-size: 13pt; }
+    .documento { box-shadow: none; padding: 0.8cm 0; max-width: 100%; }
+    h2 { page-break-after: avoid; font-size: 15pt; }
+    h3 { page-break-after: avoid; font-size: 12pt; }
+    blockquote, table, .checklist-imprimible { page-break-inside: avoid; }
+    blockquote { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    table thead { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    a { color: var(--m-primario); text-decoration: none; }
+    .pie-doc { font-size: 9pt; padding: 1cm 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="barra-acciones">
+  <div class="marca"><strong>Mercantil SI</strong> · Sesión 4 · Material para llevar · Cierre del curso</div>
+  <button class="btn-pdf" onclick="window.print()">📥 Descargar PDF</button>
+</div>
+
+<header class="hero">
+  <div class="kicker">Sesión 4 · Curso Mercantil SI · Cierre</div>
+  <h1>Conseguir recursos</h1>
+  <p class="subtitulo">Endeudarse bien vs. mal · Guía de referencia</p>
+  <p class="pista">La última. Guárdala con las otras tres — juntas forman tu caja de herramientas completa.</p>
+</header>
+
+<main class="documento">
+
+  <h2>La frase que cierra el curso</h2>
+  <blockquote>
+    <p><strong>"La asesoría financiera no es para quien no sabe. Es para quien quiere tomar mejores decisiones."</strong></p>
+  </blockquote>
+
+  <h2>El concepto de hoy</h2>
+  <blockquote>
+    <p><strong>"Tasa cuenta. Plazo pesa."</strong> La tasa llama la atención. El plazo es quien decide si la deuda te crece o te ahoga.</p>
+  </blockquote>
+
+  <h2>Los 5 mecanismos de financiamiento</h2>
+  <table>
+    <thead><tr><th>Mecanismo</th><th>Ventaja</th><th>Desventaja</th><th>Cuándo usar</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Crédito bancario</strong></td><td>Transparencia, plazos largos.</td><td>Requisitos, lento.</td><td>Inversiones grandes con horizonte claro.</td></tr>
+      <tr><td><strong>Tarjeta de crédito</strong></td><td>Flexibilidad corto plazo.</td><td>Tasa criminal (≈ 22% anual PA · fuente: SBP, oct-2025).</td><td>Emergencias del mes, nunca como financiamiento extendido.</td></tr>
+      <tr><td><strong>Crédito entre cooperativas</strong></td><td>Ágil, tasa razonable.</td><td>Concentra riesgo en la acreedora.</td><td>Necesidades de mediano plazo entre entidades del sector.</td></tr>
+      <tr><td><strong>Emisión de certificados / valores</strong></td><td>Plazos largos, tasa buena.</td><td>Costos fijos de emisión; requiere tamaño.</td><td>Cooperativas con capacidad de estructura.</td></tr>
+      <tr><td><strong>Capital propio / aportes</strong></td><td>No cobra interés.</td><td>Diluye, lento, tiene límites.</td><td>Fondeo estructural.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Las 3 cosas que no son la tasa (pero cambian el costo)</h2>
+  <ol>
+    <li><strong>Comisiones.</strong> Apertura, manejo, seguros atados.</li>
+    <li><strong>Plazo.</strong> Mismo préstamo a 3 años vs. 10 años: intereses totales pueden ser <strong>3x</strong> mayores.</li>
+    <li><strong>Comportamiento.</strong> Multas, intereses por mora, renegociaciones.</li>
+  </ol>
+  <p>El concepto que une todo: <strong>Tasa Efectiva Anual (TEA)</strong>. En Panamá, los bancos regulados están obligados a mostrarla. Siempre pedirla.</p>
+
+  <h2>Buen vs. mal endeudamiento — 3 preguntas</h2>
+  <table>
+    <thead><tr><th>Pregunta</th><th>Bueno</th><th>Malo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>¿Para qué pides la plata?</strong></td><td>Genera capacidad de pago (infraestructura, cartera productiva).</td><td>Cubre gastos corrientes sin plan.</td></tr>
+      <tr><td><strong>¿Hay calce entre lo que produce y lo que cuesta?</strong></td><td>Retorno &gt; costo, en el mismo horizonte.</td><td>Plazos descuadrados.</td></tr>
+      <tr><td><strong>¿Qué pasa si sale mal?</strong></td><td>Plan B que no destruye patrimonio.</td><td>Una tormenta lo compromete todo.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3 señales de alerta en una oferta</h2>
+  <ol>
+    <li><em>"No te preocupes por la tasa, mira la cuota."</em> → plazo estirado escondiendo costo.</li>
+    <li><em>"Esto es solo hasta que crucemos el año."</em> → moviendo problema de caja a balance.</li>
+    <li><em>"Todos nuestros clientes lo hacen."</em> → presión social sin argumento.</li>
+  </ol>
+
+  <h2>Herramienta permanente: "Costo real del crédito"</h2>
+  <p>Accesible en línea. Compara dos ofertas lado a lado. Calcula cuota, TEA, costo total, muestra amortización mes a mes con separación capital/interés. Te dice cuál conviene.</p>
+
+  <div class="checklist-imprimible">
+    <h3>Checklist · 7 señales de un buen crédito</h3>
+    <ul>
+      <li>¿Para qué pides la plata? ¿Genera capacidad de pago?</li>
+      <li>¿Cuál es el plazo de la plata vs. el plazo de lo que produce?</li>
+      <li>¿Ya vi la tasa efectiva, no solo la nominal?</li>
+      <li>¿Qué pasa si sale mal? ¿Hay plan B?</li>
+      <li>¿Cómo le pagan al asesor que me está ofreciendo esto?</li>
+      <li>¿Lo puedo explicar en 90 segundos a un asociado sin ocultar nada?</li>
+      <li>Si esto fuera mi plata personal, ¿lo haría?</li>
+    </ul>
+    <div class="nota">Antes de aprobar cualquier crédito grande en tu cooperativa — o para ti mismo.</div>
+  </div>
+
+  <h2>El mapa completo de las 8 palancas del curso</h2>
+  <table>
+    <thead><tr><th>#</th><th>Palanca</th><th>Sesión donde se cerró</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Foto vs. película</td><td>1 + 2</td></tr>
+      <tr><td>2</td><td>Utilidad ≠ liquidez</td><td>1 + 2</td></tr>
+      <tr><td>3</td><td>Activos ≠ patrimonio</td><td>1</td></tr>
+      <tr><td>4</td><td>4 dimensiones del producto</td><td>3</td></tr>
+      <tr><td>5</td><td>Plazo manda tanto como tasa</td><td>3 + 4</td></tr>
+      <tr><td>6</td><td>Costo real ≠ tasa</td><td>4</td></tr>
+      <tr><td>7</td><td>Concentración mata</td><td>3 + 4</td></tr>
+      <tr><td>8</td><td>Asesoría = preguntas correctas</td><td>3 + 4 (transversal)</td></tr>
+    </tbody>
+  </table>
+  <p>Cada palanca es una pregunta que ahora sabes hacer. No te vuelve financiero — te vuelve un directivo que no se deja llevar.</p>
+
+  <h2>Tus 4 herramientas permanentes</h2>
+  <ol>
+    <li><strong>Mi foto financiera</strong> (Sesión 1) — balance y semáforos.</li>
+    <li><strong>Mi película del mes</strong> (Sesión 2) — flujo proyectado, las 4 parejas.</li>
+    <li><strong>Mi caja de herramientas</strong> (Sesión 3) — productos en gavetas.</li>
+    <li><strong>Costo real del crédito</strong> (Sesión 4) — comparador de ofertas.</li>
+  </ol>
+  <p>Úsalas. Compártelas con tu junta. Úsalas antes de cada decisión grande de tu cooperativa.</p>
+
+  <h2>Sesión de seguimiento opcional</h2>
+  <p>2 semanas después del curso: videollamada opcional de preguntas abiertas. Sin agenda fija. Para resolver dudas que surgieron al aplicar esto. Si te interesa, marca sí en la encuesta final.</p>
+
+  <h2>Contacto</h2>
+  <p>Si tu cooperativa está interesada en explorar asesoría profesional en gestión de inversiones y flujo de caja — o si simplemente quieres conversar sobre un caso específico — puedes escribirme directamente.</p>
+  <p><em>(Datos de contacto en el correo de cierre.)</em></p>
+  <p>Si prefieres con otra firma, también está bien. <strong>Ahora sabes qué preguntar.</strong></p>
+
+  <div class="gracias-final">
+    <h3>Gracias.</h3>
+  </div>
+
+</main>
+
+<div class="pie-doc">
+  Mercantil Servicios de Inversión · Curso de finanzas para dirigentes de cooperativas financieras · Sesión 4 · Cierre
+</div>
+
+</body>
+</html>
