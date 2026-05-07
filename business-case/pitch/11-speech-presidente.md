@@ -17,19 +17,26 @@
 
 **Slide 2:** "El argumento en 4 movimientos." — outline visible.
 
-## Bloque 1 · Posicionar el 1.4% como transparente · 2-3 min
+## Bloque 1 · Posicionar el 1.4% en el benchmark global · 3 min
 
-> *"Hicimos benchmark riguroso de 22 instituciones de wealth management en Panamá: MMG, BG-BlackRock, Prival, GenAsset, PKB, Singular, Credicorp, Banistmo, BAC, Multibank, Tower, y otras. [Mostrar tabla.] Te voy a contar qué encontramos."*
->
-> *"De las 22, ninguna — ninguna — publica su fee de gestión discrecional como porcentaje de AUM. Todas dicen 'consulta directa con el asesor'. La única comparación apples-to-apples disponible públicamente es con el Fondo General de Inversiones de Banco General: 1.3125% all-in. Nosotros estamos en 1.4%. Diferencia de 7.5 puntos básicos."*
->
-> *"Lectura: no somos caros. Estamos prácticamente al nivel del único competidor que publica tarifa, y todos los demás operan con fee opaco. **Mercantil A&WM al 1.4% es el único transparente en un mercado que no lo es.** Esa transparencia es el primer diferenciador del pitch — incluso antes de hablar de servicio."*
+> *"Hicimos benchmark riguroso. Dos partes: Panamá y global. Te voy a contar las dos rápido."*
 
-**Slide 3:** Tabla de las 22 instituciones del benchmark (de [`benchmark/03-comisiones-mercado.md`](../benchmark/03-comisiones-mercado.md)). Visualmente clara: la mayoría con celdas "NP" (no público); Mercantil y BG con tarifa publicada.
+**Slide 3:** Tabla 22 instituciones panameñas — la mayoría con NP (no público).
 
-**Slide 4:** Frase ancla — *"22 competidores relevados. Solo 1 publica su tarifa además de nosotros. Diferencia de fee con ese único: 7.5 bps. No somos caros — somos transparentes."*
+> *"Parte uno, Panamá. Relevamos 22 instituciones de WM: MMG, BG-BlackRock, Prival, GenAsset, PKB, Singular, Credicorp, Banistmo, BAC, Multibank, Tower, y otras. **Ninguna — ninguna — publica su fee de gestión discrecional como porcentaje de AUM.** Todas dicen 'consulta directa con el asesor'. La única comparación pública disponible es con BG Fondo General: 1.3125% all-in. Nosotros 1.4%. Diferencia 7.5 puntos básicos. Trivial. Y somos los únicos publicables."*
 
-> **Tono:** confianza basada en datos. NO defensivo. Mostramos el hallazgo y dejamos que hable solo. El presidente recibe ese dato como activo comercial, no como problema.
+**Slide 4:** Tabla benchmark global — 7 puntos comparables con Mercantil destacado.
+
+> *"Parte dos, global. Para que no quede solo Panamá, fuimos al mercado mundial: ESMA Europa, ICI EE.UU., FCA UK, Morningstar, Cerulli, Kitces, McKinsey, PwC, ANBIMA Brasil. 15 fuentes verificables. Mira los comparables más relevantes:*
+> *— **All-in US típico**, advisor 1% más fund 0.5%, según Kitces y Morningstar 2024: **1.50%**. Estamos 10 bps debajo.*
+> *— **Brasil ANBIMA, fondos de Ações activos**, septiembre 2024: **1.54%**. Estamos 14 bps debajo.*
+> *— **UCITS renta variable activa retail Europa**, ICI/ESMA 2024: 1.11%. Aquí estamos 29 bps arriba — pero esa diferencia es exactamente el wrap institucional: governance, ALM, asesor dedicado, reporte mensual. Un UCITS retail europeo no entrega eso."*
+
+**Slide 5:** Frase ancla.
+
+> *"Lectura: el 1.4% no es caro. Está en el percentil 60-75 del rango global de gestión activa con asesor. Está específicamente debajo del benchmark US y debajo del Brasil RV. Y en Panamá somos los únicos publicables. **No estamos defendiendo una tarifa. Estamos cobrando precio institucional global con transparencia local.** Ese es el primer movimiento. Pasemos al segundo."*
+
+> **Tono:** confianza basada en datos verificables de 15 fuentes externas. NO defensivo. Decimos un hecho de mercado global, no una opinión.
 
 ## Bloque 2 · Reformular la pregunta · 2-3 min
 

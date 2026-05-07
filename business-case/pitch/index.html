@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Pitch al Presidente · Cooperativas Panamá · Mercantil A&amp;WM</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5;
+    --m-primario-oscuro: #002868;
+    --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20;
+    --m-acento-claro: #FDE9D7;
+    --m-fondo: #FFFFFF;
+    --m-fondo-sutil: #F5F7FA;
+    --m-texto: #1A1A1A;
+    --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE;
+    --m-positivo: #2E7D55;
+    --m-alerta: #B4312E;
+    --m-aviso: #B78A00;
+  }
+  .reveal { font-family: "Inter", system-ui, sans-serif; color: var(--m-texto); font-size: 26px; }
+  .reveal .slides { text-align: left; }
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4 { font-family: "Inter", sans-serif; font-weight: 700; color: var(--m-primario-oscuro); text-transform: none; letter-spacing: -0.01em; line-height: 1.15; margin-top: 0; }
+  .reveal h1 { font-size: 2.0em; }
+  .reveal h2 { font-size: 1.5em; }
+  .reveal h3 { font-size: 1.15em; }
+  .reveal p, .reveal li { line-height: 1.5; }
+  .reveal strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  .reveal em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+
+  /* Portada y banners */
+  .portada { background: linear-gradient(135deg, var(--m-primario) 0%, var(--m-primario-oscuro) 100%); color: #fff !important; padding: 2em 1.5em; height: 100%; }
+  .portada h1, .portada h2 { color: #fff; }
+  .portada .kicker { color: var(--m-acento-claro); font-weight: 600; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.12em; }
+  .portada .marca { position: absolute; top: 1em; right: 1em; font-size: 0.55em; opacity: 0.9; font-weight: 600; }
+
+  .kicker { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.12em; color: var(--m-acento); font-weight: 700; margin-bottom: 0.3em; }
+
+  /* Tarjetas */
+  .tarjeta { background: var(--m-fondo-sutil); border: 1px solid var(--m-borde); border-radius: 12px; padding: 0.9em 1.1em; }
+  .tarjeta.acento { border-left: 6px solid var(--m-acento); }
+  .tarjeta.primario { border-left: 6px solid var(--m-primario); }
+  .tarjeta.alerta { border-left: 6px solid var(--m-alerta); background: #FBE9E8; }
+  .tarjeta.positivo { border-left: 6px solid var(--m-positivo); background: #E8F5EF; }
+
+  /* Tablas */
+  .reveal table { font-size: 0.6em; margin: 0.4em 0; }
+  .reveal table th { background: var(--m-primario-claro); color: var(--m-primario-oscuro); font-weight: 700; font-size: 0.85em; text-transform: uppercase; padding: 0.5em 0.6em; border-bottom: 2px solid var(--m-primario); }
+  .reveal table td { padding: 0.4em 0.6em; border-bottom: 1px solid var(--m-borde); }
+  .reveal table td.num, .reveal table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .reveal table tr.destacado td { background: var(--m-acento-claro); font-weight: 700; }
+  .reveal table tr.destacado2 td { background: var(--m-primario-claro); font-weight: 600; }
+  .reveal table tr.np td:not(:first-child) { color: var(--m-texto-sutil); font-style: italic; }
+
+  /* Callouts */
+  .callout-grande { background: var(--m-primario-claro); border-left: 8px solid var(--m-primario); padding: 1em 1.4em; border-radius: 0 12px 12px 0; margin: 0.7em 0; font-size: 0.95em; }
+  .callout-grande.acento { background: var(--m-acento-claro); border-left-color: var(--m-acento); }
+  .callout-grande.positivo { background: #E8F5EF; border-left-color: var(--m-positivo); }
+  .callout-grande.alerta { background: #FBE9E8; border-left-color: var(--m-alerta); }
+
+  /* Layouts */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7em; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5em; }
+
+  /* Movimientos del argumento */
+  .movimientos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7em; margin: 1em 0; }
+  .mov { background: #fff; border: 2px solid var(--m-primario-claro); border-radius: 12px; padding: 0.9em; position: relative; }
+  .mov .num { display: inline-block; width: 1.8em; height: 1.8em; line-height: 1.8em; background: var(--m-primario); color: #fff; border-radius: 50%; text-align: center; font-weight: 700; font-size: 0.9em; }
+  .mov h4 { margin: 0.4em 0 0.2em; color: var(--m-primario-oscuro); font-size: 0.95em; }
+  .mov p { margin: 0; font-size: 0.7em; color: var(--m-texto-sutil); line-height: 1.4; }
+
+  /* Servicios */
+  .servicios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7em; }
+  .servicio { background: #fff; border-radius: 12px; padding: 0.9em; border: 2px solid var(--m-borde); border-top: 6px solid var(--m-primario); }
+  .servicio.b { border-top-color: var(--m-acento); }
+  .servicio.c { border-top-color: var(--m-positivo); }
+  .servicio h4 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 0.95em; }
+  .servicio .gaveta-tag { display: inline-block; background: var(--m-primario-claro); color: var(--m-primario-oscuro); font-size: 0.6em; font-weight: 700; padding: 0.15em 0.55em; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4em; }
+  .servicio .promesa { font-size: 0.78em; color: var(--m-texto); font-style: italic; margin: 0.3em 0 0.5em; }
+  .servicio ul { margin: 0; padding-left: 1.1em; font-size: 0.7em; color: var(--m-texto-sutil); }
+  .servicio.b .gaveta-tag { background: var(--m-acento-claro); color: var(--m-acento); }
+  .servicio.c .gaveta-tag { background: #E8F5EF; color: var(--m-positivo); }
+
+  /* Diagrama CFO virtual */
+  .flujo-cfo { display: flex; gap: 0.6em; align-items: stretch; }
+  .flujo-cfo .paso { flex: 1; background: #fff; border: 2px solid var(--m-borde); border-radius: 10px; padding: 0.7em; text-align: center; position: relative; }
+  .flujo-cfo .paso.activo { border-color: var(--m-primario); background: var(--m-primario-claro); }
+  .flujo-cfo .paso .ico { font-size: 1.6em; margin-bottom: 0.3em; }
+  .flujo-cfo .paso h5 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 0.85em; }
+  .flujo-cfo .paso p { font-size: 0.65em; color: var(--m-texto-sutil); margin: 0; line-height: 1.3; }
+  .flujo-cfo .flecha { display: flex; align-items: center; color: var(--m-acento); font-size: 1.5em; font-weight: 800; }
+
+  /* Curva margen */
+  .curva-margen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5em; margin: 0.6em 0; }
+  .curva-margen .punto { text-align: center; padding: 0.7em 0.4em; background: #fff; border-radius: 10px; border-top: 5px solid var(--m-primario); }
+  .curva-margen .punto.alto { border-top-color: var(--m-positivo); background: #E8F5EF; }
+  .curva-margen .punto h5 { margin: 0; font-size: 0.7em; color: var(--m-texto-sutil); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+  .curva-margen .punto .pct { font-size: 1.6em; font-weight: 800; color: var(--m-primario-oscuro); margin-top: 0.2em; }
+  .curva-margen .punto.alto .pct { color: var(--m-positivo); }
+
+  /* Moat */
+  .moat-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7em; }
+  .moat-col { background: var(--m-fondo-sutil); border-left: 5px solid var(--m-acento); padding: 0.9em; border-radius: 0 8px 8px 0; }
+  .moat-col h4 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 0.95em; }
+  .moat-col p { font-size: 0.72em; margin: 0.2em 0; color: var(--m-texto-sutil); line-height: 1.4; }
+  .moat-col .replica { display: inline-block; margin-top: 0.5em; font-size: 0.65em; background: var(--m-alerta); color: #fff; padding: 0.2em 0.55em; border-radius: 6px; font-weight: 600; }
+
+  /* Ask checkboxes */
+  .ask-list { list-style: none; padding: 0; }
+  .ask-list li { padding: 0.6em 0 0.6em 2em; position: relative; border-bottom: 1px solid var(--m-borde); font-size: 0.92em; }
+  .ask-list li::before { content: "☐"; position: absolute; left: 0.2em; color: var(--m-primario); font-size: 1.3em; font-weight: 700; }
+
+  /* Cierre */
+  .cierre-frase { font-size: 1.4em; line-height: 1.4; color: var(--m-primario-oscuro); font-weight: 700; }
+  .cierre-frase em { color: var(--m-acento); }
+
+  /* Footer slide */
+  .reveal .slide-number { color: var(--m-texto-sutil); background: transparent; font-family: "Inter", sans-serif; }
+  .nota-fuente { font-size: 0.5em; color: var(--m-texto-sutil); margin-top: 0.6em; font-style: italic; line-height: 1.4; }
+
+  /* Botón demo herramienta */
+  .btn-demo { display: inline-block; background: var(--m-acento); color: #fff; padding: 0.6em 1.2em; border-radius: 8px; font-weight: 700; font-size: 0.85em; text-decoration: none; }
+  .btn-demo:hover { filter: brightness(1.1); }
+
+  /* Anti-pattern: pequeño tag warning */
+  .tag-warn { display: inline-block; background: #FBE9E8; color: var(--m-alerta); padding: 0.15em 0.5em; border-radius: 6px; font-size: 0.65em; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ====================================================== -->
+<!-- S1 · PORTADA                                            -->
+<!-- ====================================================== -->
+<section class="portada" data-background-color="#003DA5">
+  <div class="marca">Mercantil Asset &amp; Wealth Management</div>
+  <div class="kicker">Pitch al Presidente · 2026</div>
+  <h1 style="margin-top: 1em; font-size: 2.4em;">Cooperativas financieras<br>panameñas</h1>
+  <h2 style="font-weight: 400; opacity: 0.92; margin-top: 0.6em;">Propuesta de entrada con servicio diferenciado</h2>
+  <p style="margin-top: 2.5em; opacity: 0.85; font-size: 0.85em;">15-20 min · Datos del benchmark global · Caso del curso · Economía del segmento</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S2 · ARGUMENTO EN 4 MOVIMIENTOS                          -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">El argumento</div>
+  <h2>4 movimientos hilados</h2>
+  <div class="movimientos">
+    <div class="mov">
+      <span class="num">1</span>
+      <h4>Posicionar el 1.4%</h4>
+      <p>Benchmark Panamá + global. Estamos dentro del rango global de WM con asesor.</p>
+    </div>
+    <div class="mov">
+      <span class="num">2</span>
+      <h4>Reformular la pregunta</h4>
+      <p>No es "fee vs fee". Es "costo total de gobernar plata fiduciaria".</p>
+    </div>
+    <div class="mov">
+      <span class="num">3</span>
+      <h4>La oferta</h4>
+      <p>3 servicios + CFO/CIO virtual. Lo que un competidor en Panamá NO ofrece.</p>
+    </div>
+    <div class="mov">
+      <span class="num">4</span>
+      <h4>La economía + ask</h4>
+      <p>Margen 75%+ con apalancamiento Claude. Piloto en septiembre 2026.</p>
+    </div>
+  </div>
+  <p style="font-size: 0.75em; color: var(--m-texto-sutil); margin-top: 1em;">El primero te va a sorprender — abre con datos del mercado global, no con defensa de la tarifa.</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S3 · BENCHMARK PANAMÁ — 22 INSTITUCIONES                 -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 1 · parte 1 · benchmark Panamá</div>
+  <h3>Relevamos 22 instituciones de WM en Panamá</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Institución</th>
+        <th>Tipo</th>
+        <th class="num">Fee % AUM</th>
+        <th>Custodia / mantenimiento</th>
+        <th>AUM mín.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="destacado">
+        <td><strong>Mercantil A&amp;WM</strong></td>
+        <td>Casa de valores</td>
+        <td class="num"><strong>1.4%</strong></td>
+        <td>Incluida</td>
+        <td>—</td>
+      </tr>
+      <tr class="destacado2">
+        <td><strong>BG Fondo General Inversiones</strong></td>
+        <td>Banco · alianza BlackRock</td>
+        <td class="num"><strong>1.3125%</strong></td>
+        <td>Incluida (0.0625%)</td>
+        <td>—</td>
+      </tr>
+      <tr class="np"><td>MMG Asset Management</td><td>Casa valores</td><td class="num">NP</td><td>NP</td><td>NP</td></tr>
+      <tr class="np"><td>Tower Securities</td><td>Casa valores</td><td class="num">NP</td><td>USD 150/año</td><td>USD 10k</td></tr>
+      <tr class="np"><td>BG Valores (gestión)</td><td>Casa valores</td><td class="num">NP</td><td>USD 214/año + 0.01%</td><td>USD 100k</td></tr>
+      <tr class="np"><td>GenAsset</td><td>Casa valores · AM</td><td class="num">NP</td><td>NP</td><td>NP</td></tr>
+      <tr class="np"><td>Multibank · Aurum</td><td>Banca privada</td><td class="num">NP</td><td>NP</td><td>NP</td></tr>
+      <tr class="np"><td>Prival Banca Privada</td><td>Banca privada</td><td class="num">NP</td><td>NP</td><td>NP</td></tr>
+      <tr class="np"><td>+ 14 instituciones más</td><td>varios</td><td class="num">NP</td><td>NP</td><td>NP</td></tr>
+    </tbody>
+  </table>
+  <div class="callout-grande acento" style="font-size: 0.8em;">
+    <strong>22 instituciones relevadas. 0 publican fee de gestión discrecional como % AUM.</strong> Solo BG Fondo General publica all-in (1.3125%) y nosotros (1.4%). Diferencia: <strong>+7.5 bps</strong>.
+  </div>
+  <p class="nota-fuente">Fuentes: webs oficiales + tarifarios SMV · benchmark llenado 2026-05-07 · ver `business-case/benchmark/03-comisiones-mercado.md` y `fuentes.md` para 22 fuentes citadas con URL.</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S4 · BENCHMARK GLOBAL — 7 PUNTOS COMPARABLES             -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 1 · parte 2 · benchmark global</div>
+  <h3>El 1.4% comparado contra el mercado mundial</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Comparable global</th>
+        <th>Año</th>
+        <th class="num">Fee</th>
+        <th class="num">vs. Mercantil 1.4%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Brasil ANBIMA · Fondos de Ações activa</strong></td><td>sep-2024</td><td class="num">1.54%</td><td class="num" style="color: var(--m-positivo); font-weight: 700;">−14 bps · más barato</td></tr>
+      <tr><td><strong>All-in US típico</strong> (advisor 1% + fund 0.5% · Kitces + Morningstar)</td><td>2024</td><td class="num">~1.50%</td><td class="num" style="color: var(--m-positivo); font-weight: 700;">−10 bps · más barato</td></tr>
+      <tr><td>ICI · US Bond fund · P90 (decil más caro)</td><td>2025</td><td class="num">1.55%</td><td class="num" style="color: var(--m-positivo); font-weight: 700;">−15 bps</td></tr>
+      <tr><td>Cerulli · Advisor fee USD 100k cliente</td><td>2024</td><td class="num">1.25%</td><td class="num">+15 bps (advisor solo)</td></tr>
+      <tr><td><strong>UCITS RV activa retail UE</strong> (asset-weighted · ICI/ESMA)</td><td>2024</td><td class="num">1.11%</td><td class="num">+29 bps (justifica wrap)</td></tr>
+      <tr><td>FCA UK · Active funds asset-weighted</td><td>2020</td><td class="num">0.89%</td><td class="num">+51 bps (excluye advisor)</td></tr>
+      <tr class="destacado2"><td><strong>BG Fondo General · Panamá</strong> (único local público)</td><td>2025</td><td class="num">1.3125%</td><td class="num">+7.5 bps</td></tr>
+    </tbody>
+  </table>
+  <div class="callout-grande positivo" style="font-size: 0.85em;">
+    <strong>Posicionamiento: percentil ~60-75 del rango global.</strong> Por debajo del all-in US (1.50%) y de Brasil RV (1.54%). Dentro del mercado, no marginal.
+  </div>
+  <p class="nota-fuente">Fuentes verificables: ESMA, ICI, FCA UK, Morningstar, Cerulli, Kitces, PwC, McKinsey, ANBIMA Brasil. 15 puntos comparables. Detalle en `business-case/benchmark/05-benchmark-global-wm-fees.md`.</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S5 · FRASE ANCLA MOVIMIENTO 1                            -->
+<!-- ====================================================== -->
+<section data-background-color="#003DA5">
+  <div style="color: #fff; padding: 2em 1.5em;">
+    <div class="kicker" style="color: var(--m-acento-claro);">Lectura del Movimiento 1</div>
+    <h1 style="color: #fff; font-size: 2.2em; margin-top: 0.4em;">El 1.4% no es caro.</h1>
+    <h2 style="color: #fff; font-weight: 400; margin-top: 0.6em; font-size: 1.4em;">Es <em style="color: var(--m-acento);">precio institucional global</em><br>con <em style="color: var(--m-acento);">transparencia local</em>.</h2>
+    <p style="opacity: 0.85; font-size: 0.9em; margin-top: 1.5em;">Por debajo del all-in US (1.50%) · por debajo de Brasil RV (1.54%) · 22 competidores panameños no publican tarifa.</p>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S6 · MOVIMIENTO 2 · LAS 4 OPCIONES DE GOBERNANZA         -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 2 · reformular la pregunta</div>
+  <h2>¿Cuánto cuesta gobernar plata fiduciaria de cooperativa?</h2>
+  <p style="font-size: 0.85em; color: var(--m-texto-sutil); margin-top: 0.3em;">Pregunta vieja: "¿qué fee cobra cada proveedor?" — Pregunta correcta: "¿cuál es el costo total de gobernanza?"</p>
+  <table style="font-size: 0.65em;">
+    <thead>
+      <tr>
+        <th>Opción</th>
+        <th>Quién decide</th>
+        <th class="num">Costo anual (cooperativa B/. 5M)</th>
+        <th>Riesgos clave</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hacerlo solos</strong></td>
+        <td>Comité voluntario sin formación</td>
+        <td class="num">B/. 0 directo · <span style="color: var(--m-alerta);">B/. 50-200k oportunidad</span></td>
+        <td>Mismatches, gaveta 4 vacía, concentración</td>
+      </tr>
+      <tr>
+        <td><strong>CFO interno</strong></td>
+        <td>CFO en planilla</td>
+        <td class="num">B/. 60-90k</td>
+        <td>Costo fijo; un solo cerebro</td>
+      </tr>
+      <tr>
+        <td><strong>Asesor part-time</strong></td>
+        <td>Asesor externo (3-5h/mes)</td>
+        <td class="num">B/. 30-50k</td>
+        <td>Compromiso bajo; sin vista del flujo</td>
+      </tr>
+      <tr class="destacado">
+        <td><strong>Mercantil A&amp;WM con CFO/CIO virtual</strong></td>
+        <td>Equipo profesional + motor</td>
+        <td class="num"><strong>B/. 70k (1.4%)</strong></td>
+        <td>Diversificación + governance + acceso institucional</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout-grande acento" style="font-size: 0.85em;">
+    <strong>Si la cooperativa hace gobernanza débil, paga el costo en otro lado:</strong> errores de asignación, gaveta 4 vacía 20 años, concentración por inercia. Ver caso siguiente.
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S7 · CASO DPF ROTO                                       -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 2 · evidencia del costo de gobernanza débil</div>
+  <h3>Caso del curso S3 · DPF roto (anonimizado)</h3>
+  <p style="font-size: 0.85em; color: var(--m-texto); margin: 0.3em 0 0.6em;">
+    Cooperativa coloca <strong>B/. 1M</strong> en DPF a 5 años al 5.2%. Mes 10: aparece oportunidad de comprar edificio (B/. 1.5M, plazo 60 días).
+    Rompen el DPF, pagan penalización, y aún así toman crédito puente.
+  </p>
+  <table style="font-size: 0.75em;">
+    <tbody>
+      <tr><td>Principal colocado</td><td class="num">B/. 1,000,000</td></tr>
+      <tr><td><strong>(1)</strong> Penalización ruptura DPF (2% × 1M)</td><td class="num" style="color: var(--m-alerta);">−B/. 20,000</td></tr>
+      <tr><td><strong>(2)</strong> Intereses devengados perdidos (10m × 5.2%/12 × 1M, banco no reconoce)</td><td class="num" style="color: var(--m-alerta);">−B/. 43,333</td></tr>
+      <tr><td><strong>(3)</strong> Crédito puente 60 días (1.5M × 9% × 60/360)</td><td class="num" style="color: var(--m-alerta);">−B/. 22,500</td></tr>
+      <tr style="background: #FBE9E8; font-weight: 700;"><td>Pérdida económica total</td><td class="num" style="color: var(--m-alerta);"><strong>≈ B/. 85,833 · ~8.6%</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="callout-grande acento" style="font-size: 0.88em;">
+    <em>"Un solo evento de gobernanza débil cubre <strong>más de un año</strong> de fee Mercantil. Y este es UN solo tipo de error."</em>
+  </div>
+  <p class="nota-fuente">Caso ilustrativo · supuestos: edificio B/. 1.5M, penalidad 2%, banco no reconoce intereses al ruptura prematura (estándar Panamá), crédito puente 9% (rango SBP) por 60 días — el plazo real del caso. Detalle número por número en S3 del curso.</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S8 · MOVIMIENTO 3 · LOS 3 SERVICIOS                      -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 3 · la oferta diferenciada</div>
+  <h2>Tres servicios profesionales</h2>
+  <div class="servicios">
+    <div class="servicio">
+      <span class="gaveta-tag">Gaveta 1-2</span>
+      <h4>A · Caja transaccional</h4>
+      <p class="promesa">"La plata que necesitas en cualquier momento, lista. Sin sorpresa de penalización."</p>
+      <ul>
+        <li>Fondo de liquidez T+1</li>
+        <li>DPF cortos rotativos</li>
+        <li>Política mínimo operativo escrita</li>
+        <li>Diversificación 3+ contrapartes</li>
+      </ul>
+    </div>
+    <div class="servicio b">
+      <span class="gaveta-tag">Gaveta 2-3</span>
+      <h4>B · ALM mediano plazo</h4>
+      <p class="promesa">"Tu colchón de 6-24 meses calzado con cobros previstos."</p>
+      <ul>
+        <li>Bonos cupón generoso IG</li>
+        <li>DPF plazos escalonados</li>
+        <li>Calce ALM real, stress tests</li>
+        <li>Calidad crediticia &lt;20% por emisor</li>
+      </ul>
+    </div>
+    <div class="servicio c">
+      <span class="gaveta-tag">Gaveta 4</span>
+      <h4>C · Inversión LP</h4>
+      <p class="promesa">"Plata de décadas en clases de activos a las que NO accedes sola."</p>
+      <ul>
+        <li>Fondos PE, equity global</li>
+        <li>Renta fija larga duración</li>
+        <li>Pooling para acceso institucional</li>
+        <li>Cálculo a fondo de riesgos</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout-grande" style="font-size: 0.85em; margin-top: 0.7em;">
+    <strong>Tres servicios. Un mismo cliente. Coordinados por un motor.</strong> El siguiente slide muestra cómo.
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S9 · CFO/CIO VIRTUAL · DIAGRAMA                          -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 3 · diferenciación dura</div>
+  <h2>CFO/CIO virtual — el motor</h2>
+  <div class="flujo-cfo">
+    <div class="paso">
+      <div class="ico">📄</div>
+      <h5>1. Cooperativa</h5>
+      <p>EE.FF. mensual + proyección de flujos + política de riesgo escrita</p>
+    </div>
+    <div class="flecha">→</div>
+    <div class="paso activo">
+      <div class="ico">⚙️</div>
+      <h5>2. Motor algorítmico</h5>
+      <p>Claude Code + experticia. Calcula G1-G2-G3-G4 óptimas, detecta mismatches, propone rebalanceo.</p>
+    </div>
+    <div class="flecha">→</div>
+    <div class="paso">
+      <div class="ico">✓</div>
+      <h5>3. PM senior</h5>
+      <p>Revisa, ajusta, firma decisión final</p>
+    </div>
+    <div class="flecha">→</div>
+    <div class="paso">
+      <div class="ico">📊</div>
+      <h5>4. Ejecución + reporte</h5>
+      <p>Trades a custodia · reporte trazable a junta directiva</p>
+    </div>
+  </div>
+  <div class="callout-grande acento" style="margin-top: 0.8em; font-size: 0.85em;">
+    <strong>Lo que un CFO interno haría a B/. 80k de salario, hecho por 1.4% AUM con motor matemático.</strong> El motor es asistente; la firma final es PM senior — regulatoriamente seguro.
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S10 · ACCESO A CLASES DE ACTIVOS                         -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 3 · diferenciación de producto</div>
+  <h3>Lo que NO consiguen yendo solas</h3>
+  <table style="font-size: 0.7em;">
+    <thead>
+      <tr><th>Clase de activo</th><th class="num">Si va sola</th><th class="num">Con Mercantil A&amp;WM</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cuenta corriente / ahorro</td><td class="num">✅</td><td class="num">✅</td></tr>
+      <tr><td>DPF (90d-5a)</td><td class="num">✅</td><td class="num">✅ plazos escalonados, emisores diversos</td></tr>
+      <tr><td>Bonos corporativos individuales</td><td class="num" style="color: var(--m-aviso);">⚠️ limitado</td><td class="num">✅</td></tr>
+      <tr><td>Fondos balanceados retail</td><td class="num">✅</td><td class="num">✅ con due diligence</td></tr>
+      <tr><td><strong>Fondos balanceados institucionales</strong></td><td class="num" style="color: var(--m-alerta); font-weight: 700;">❌</td><td class="num">✅ vía pooling</td></tr>
+      <tr><td><strong>Fondos de acciones US/Global</strong></td><td class="num" style="color: var(--m-alerta); font-weight: 700;">❌</td><td class="num">✅ vía pooling</td></tr>
+      <tr><td><strong>Fondos de capital privado</strong></td><td class="num" style="color: var(--m-alerta); font-weight: 700;">❌</td><td class="num">✅ vía pooling</td></tr>
+      <tr><td><strong>Renta fija larga duración (10+ años)</strong></td><td class="num" style="color: var(--m-alerta); font-weight: 700;">❌</td><td class="num">✅</td></tr>
+      <tr><td><strong>Estrategias factor / smart beta</strong></td><td class="num" style="color: var(--m-alerta); font-weight: 700;">❌</td><td class="num">✅ vía gestoras aliadas</td></tr>
+    </tbody>
+  </table>
+  <div class="callout-grande acento" style="font-size: 0.85em;">
+    <strong>5 de 10 clases de activos NO disponibles a quien va solo.</strong> Esa es la "diversificación a la que NO accederían si se van solas".
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S11 · DEMO CONOS                                         -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 3 · prueba pedagógica</div>
+  <h3>El curso ya enseña a las cooperativas POR QUÉ nos necesitan</h3>
+  <div class="grid-2" style="margin-top: 0.6em; gap: 1em;">
+    <div class="tarjeta alerta" style="padding: 0.8em;">
+      <div class="kicker" style="color: var(--m-alerta);">Cono CAGR · 3 meses</div>
+      <p style="font-size: 0.85em; margin: 0.4em 0;">P10 anualizado: <strong>−60%</strong></p>
+      <p style="font-size: 0.85em; margin: 0.4em 0;">P90 anualizado: <strong>+120%</strong></p>
+      <p style="font-size: 0.78em; color: var(--m-texto); margin-top: 0.5em; font-style: italic;">Plazo corto = caos. No inviertas plata que necesitas pronto.</p>
+    </div>
+    <div class="tarjeta positivo" style="padding: 0.8em;">
+      <div class="kicker" style="color: var(--m-positivo);">Cono CAGR · 30 años</div>
+      <p style="font-size: 0.85em; margin: 0.4em 0;">P10 anualizado: <strong>+6%</strong></p>
+      <p style="font-size: 0.85em; margin: 0.4em 0;">P90 anualizado: <strong>+14%</strong></p>
+      <p style="font-size: 0.78em; color: var(--m-texto); margin-top: 0.5em; font-style: italic;">Plazo largo = convergencia. El tiempo paga el riesgo.</p>
+    </div>
+  </div>
+  <div class="callout-grande acento" style="font-size: 0.95em; margin-top: 0.8em;">
+    <em>"El horizonte es la palanca que separa ahorro de inversión."</em>
+  </div>
+  <p style="text-align: center; margin-top: 1em;">
+    <a class="btn-demo" href="../../sesiones/sesion-3-productos-financieros/herramientas/conos-rentabilidad/" target="_blank" rel="noopener">▶ Demo en vivo · Conos de rentabilidad</a>
+  </p>
+  <p class="nota-fuente">Esta es la última herramienta del curso S3 que las cooperativas usan. Cuando entienden esto, llegan a nuestra mesa preparadas — leads calificados, no en frío.</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S12 · MOVIMIENTO 4 · CUÁNDO 1.4% ES BARATO              -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 4 · la economía para la cooperativa</div>
+  <h3>Costo total para cooperativa B/. 5M</h3>
+  <table style="font-size: 0.75em;">
+    <thead>
+      <tr>
+        <th>Costo anual</th>
+        <th class="num">Sin Mercantil</th>
+        <th class="num">Con Mercantil A&amp;WM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Fee de gestión</td><td class="num">B/. 0 (DPF directo)</td><td class="num">B/. 70k (1.4%)</td></tr>
+      <tr><td>CFO o asesor financiero</td><td class="num">B/. 30-90k</td><td class="num">Incluido</td></tr>
+      <tr><td>Auditoría + reporting institucional</td><td class="num">B/. 12-25k</td><td class="num">Incluido</td></tr>
+      <tr><td>Costo de oportunidad (mismatches, G4 vacía)</td><td class="num" style="color: var(--m-alerta);">B/. 50-200k</td><td class="num">Mitigado</td></tr>
+      <tr style="background: var(--m-primario-claro); font-weight: 700;">
+        <td>Total esperado</td>
+        <td class="num">B/. 92-315k</td>
+        <td class="num"><strong>B/. 70k</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout-grande positivo" style="font-size: 0.9em;">
+    <strong>Cooperativa que gobierna bien, paga MENOS con nosotros que sin nosotros.</strong> Ahorro entre B/. 22k y B/. 245k al año, con servicio igual o mejor.
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S13 · LA ECONOMÍA PARA MERCANTIL                         -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Movimiento 4 · la economía para Mercantil A&amp;WM</div>
+  <h3>Margen escalable con apalancamiento Claude Code</h3>
+  <p style="font-size: 0.82em; color: var(--m-texto-sutil); margin-top: 0.3em;">El motor se construye una vez. Costo marginal por cooperativa atendida es bajo. Margen escala con volumen.</p>
+  <div class="curva-margen">
+    <div class="punto"><h5>5 coops</h5><div class="pct">68%</div></div>
+    <div class="punto alto"><h5>10 coops</h5><div class="pct">73%</div></div>
+    <div class="punto alto"><h5>20 coops</h5><div class="pct">75%</div></div>
+    <div class="punto alto"><h5>50 coops</h5><div class="pct">77%</div></div>
+  </div>
+  <div class="grid-2" style="gap: 1em; margin-top: 0.7em;">
+    <div class="tarjeta primario" style="font-size: 0.8em;">
+      <strong>Inversión inicial:</strong> B/. 30k para construir el motor.
+      <br><strong>Recupera:</strong> con 1 cooperativa firmada (año 1).
+    </div>
+    <div class="tarjeta acento" style="font-size: 0.8em;">
+      <strong>Año 3 objetivo:</strong> 18-25 cooperativas activas.
+      <br><strong>Revenue:</strong> B/. 1.26M-1.75M con margen 75%.
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S14 · EL MOAT                                            -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">El moat — por qué un competidor no nos copia rápido</div>
+  <h2>Tres cosas que no se compran en el mercado</h2>
+  <div class="moat-cols">
+    <div class="moat-col">
+      <h4>1. El curso</h4>
+      <p>4 sesiones × 2h, 4 herramientas interactivas, slides, materiales, evaluación.</p>
+      <p>Construido y validado pedagógicamente.</p>
+      <span class="replica">~6 meses replicar</span>
+    </div>
+    <div class="moat-col">
+      <h4>2. El motor</h4>
+      <p>Combina experticia financiera + programación + matemática.</p>
+      <p>Apalancado con Claude Code: stack ligero, margen estructural alto.</p>
+      <span class="replica">~12 meses replicar</span>
+    </div>
+    <div class="moat-col">
+      <h4>3. El segmento</h4>
+      <p>Cooperativas que toman el curso entienden el problema y vienen calificadas.</p>
+      <p>El embudo es nuestro porque el contenido es nuestro.</p>
+      <span class="replica">indefinido</span>
+    </div>
+  </div>
+  <div class="callout-grande acento" style="margin-top: 0.7em; font-size: 0.88em;">
+    <strong>La ventana es ahora.</strong> Si otro competidor llega primero al segmento con curso + motor, perdemos la ventaja del moat de contenido.
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S15 · EL ASK                                             -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">El ask</div>
+  <h2>Tres aprobaciones concretas</h2>
+  <ul class="ask-list">
+    <li><strong>Aprobación piloto</strong> · 2-3 cooperativas iniciales (mercado objetivo: AUM B/. 3-15M, comité con curso completado). Arranque <strong>septiembre 2026</strong>.</li>
+    <li><strong>Presupuesto B/. 30k</strong> para construir el motor CFO/CIO virtual (Fase 4 técnica). Recupera con 1 cooperativa firmada en año 1.</li>
+    <li><strong>Mandato comercial</strong> sobre cooperativas que ya completan el curso de capacitación. ~30 cooperativas/cohorte, 2-3 cohortes/año.</li>
+  </ul>
+  <div class="grid-4" style="margin-top: 1em; gap: 0.6em;">
+    <div class="tarjeta primario" style="text-align: center; padding: 0.7em; font-size: 0.78em;"><strong>T0</strong><br><span style="color: var(--m-texto-sutil);">aprobación</span></div>
+    <div class="tarjeta primario" style="text-align: center; padding: 0.7em; font-size: 0.78em;"><strong>T+3m</strong><br><span style="color: var(--m-texto-sutil);">piloto firmado</span></div>
+    <div class="tarjeta primario" style="text-align: center; padding: 0.7em; font-size: 0.78em;"><strong>T+6m</strong><br><span style="color: var(--m-texto-sutil);">motor live</span></div>
+    <div class="tarjeta acento" style="text-align: center; padding: 0.7em; font-size: 0.78em;"><strong>T+24m</strong><br><span style="color: var(--m-texto-sutil);">18-25 coops activas</span></div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S16 · CIERRE                                             -->
+<!-- ====================================================== -->
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 2em 1.5em; text-align: center;">
+    <div class="kicker" style="color: var(--m-acento-claro);">El cierre</div>
+    <p class="cierre-frase" style="color: #fff; margin-top: 1em;">Tenemos una <em>ventana</em>.<br>La puerta es <em>el curso</em>.<br>La oferta es <em>la gobernanza</em>.<br>El moat es <em>el motor</em>.</p>
+    <h1 style="color: #fff; margin-top: 1.5em; font-size: 2.4em;">Lo que falta es <em style="color: var(--m-acento);">decisión</em>.</h1>
+    <p style="opacity: 0.85; font-size: 0.85em; margin-top: 2em;">Mercantil Asset &amp; Wealth Management · Cooperativas Panamá · Pitch al Presidente · 2026</p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    controls: true,
+    progress: true,
+    transition: 'fade',
+    backgroundTransition: 'fade',
+    width: 1280,
+    height: 800,
+    margin: 0.06,
+    center: false,
+  });
+</script>
+</body>
+</html>

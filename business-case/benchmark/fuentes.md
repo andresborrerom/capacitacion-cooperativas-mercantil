@@ -265,6 +265,145 @@
 
 ---
 
+## Fuentes globales / extra-Panamá (investigación 2026-05-07, archivo 05-benchmark-global-wm-fees.md)
+
+### Reguladores con publicación obligatoria (Tier 1)
+
+**[G1] ESMA · Market Report on Costs and Performance of EU Retail Investment Products 2024**
+- URL: https://www.esma.europa.eu/sites/default/files/2025-01/ESMA50-524821-3525_ESMA_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf
+- Press release: https://www.esma.europa.eu/press-news/esma-news/average-cost-retail-investment-products-declines-significant-differences
+- Fecha consulta: 2026-05-07
+- Confianza: alto (regulador UE)
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 1, 3
+- Notas: PDF binario no extraíble vía fetch automatizado. Cifras tomadas de press release + cobertura sectorial (CMS Law). Trends 2019–2023: RV -5%, RF -13%, mixtos estables.
+
+**[G2] ESMA · The Scale Factor: Impact of Size on EU Fund Cost Structures (feb-2025)**
+- URL: https://www.esma.europa.eu/sites/default/files/2025-02/ESMA50-524821-3575_The_scale_factor_Impact_of_size_on_EU_fund_cost_structures.pdf
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md (argumento "fondo pequeño paga más")
+- Notas: Total cost UCITS rango 0.5% (RF pasiva) a ~2.0% (RV activa). Average UCITS fund 10x más pequeño que US mutual fund average → economías de escala no exhaustadas en UE. PDF binario, datos de cobertura.
+
+**[G3] ESMA · Report on Total Costs of Investing in UCITS and AIFs (nov-2025)**
+- URL: https://www.esma.europa.eu/sites/default/files/2025-11/ESMA50-1949966494-3918_Report_on_total_costs_of_investing_in_UCITS_and_AIFs.pdf
+- Cobertura: https://cms.law/en/lux/news-information/newsflash-esma-reports-on-total-costs-of-investing-in-ucits-and-aifs
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 3
+- Notas: Distribución 48% del costo UCITS / 27% AIFs. Retail paga ~2x institucional. Sample EUR 7.2T UCITS + EUR 2.6T AIFs.
+
+**[G4] ESMA · Costs and Performance of EU Retail Investment Products 2025 (mar-2026)**
+- URL: https://www.esma.europa.eu/sites/default/files/2026-03/ESMA50-1949966494-4065_Market_Report_-_Costs_and_Performance_of_EU_Retail_Investment_Products.pdf
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: contexto general 05-benchmark-global-wm-fees.md
+- Notas: Reporte más reciente, complementa G1. PDF binario no extraíble.
+
+**[G5] FCA UK · Investment Management Data Annual Report 2020/21**
+- URL: https://www.fca.org.uk/data/investment-management-data-annual-report-2020-21
+- Fecha consulta: 2026-05-07
+- Confianza: alto (regulador UK)
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 4
+- Notas: UK active funds asset-weighted: 1.08% (2015) → 1.00% (2018) → 0.89% (2020). Pasivos: 0.29% → 0.25% → 0.15%.
+
+**[G6] FCA UK · Asset Management Market Study Final Report (jun-2017)**
+- URL: https://www.fca.org.uk/publication/market-studies/ms15-2-3.pdf
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 5
+- Notas: Active equity OCF 0.90%, pasivo 0.15% (datos 2015). Hallazgo metodológico: no hay correlación fee → performance bruta; correlación negativa fee → retorno neto.
+
+### Industria global (Tier 2)
+
+**[G7] Morningstar · 2024 Annual US Fund Fee Study**
+- URL: https://www.morningstar.com/lp/annual-us-fund-fee-study
+- Cobertura: https://www.morningstar.com/funds/4-fund-fee-trends-watch-2025
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 6
+- Notas: Asset-weighted average 0.34% (2024), -5.3% YoY. Active 0.59% (estable); pasivo 0.11%. Active US equity 0.60%.
+
+**[G8] ICI · Ongoing Charges for UCITS in the European Union, 2024 (dic-2025)**
+- URL: https://www.ici.org/files/2025/per31-10.pdf
+- News: https://www.ici.org/news-release/ucits-ongoing-charges-decline-across-eu
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md filas 1, 2
+- Notas: **DATO ESTRELLA: UCITS Equity asset-weighted 1.11% (2024) vs 1.18% (2023). RF 0.68% vs 0.66%.** Lanzamientos 2024 RV 0.76%; salidas 1.01%.
+
+**[G9] ICI · 2025 Investment Company Fact Book**
+- URL: https://www.icifactbook.org/pdf/2025-factbook.pdf
+- News release: https://www.ici.org/news-release/mutual-fund-and-etf-fees-remained-near-historic-lows-in-2025
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 7
+- Notas: Equity MF 0.40% (2025) asset-weighted; bond MF 0.36%. **Bond fund percentiles: P10 0.31%, mediana 0.70%, P90 1.55%, simple avg 0.81%.**
+
+**[G10] Kitces · Independent Financial Advisor Fees / Inside Information "Fees In Motion" 2024**
+- URL: https://www.kitces.com/blog/independent-financial-advisor-fees-comparison-typical-aum-wealth-management-fee/
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 8
+- Notas: Mediana 1.00% AUM en USD 1M; 62% advisors cobran ≥1% en USD 1M, 32% en USD 2M.
+
+**[G11] Cerulli Associates · US Advisor Metrics 2024**
+- URL: https://www.cerulli.com/reports/us-advisor-metrics-2024
+- Cobertura: https://www.thinkadvisor.com/2025/04/30/1--cerulli/
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 9
+- Notas: Schedule por AUM cliente: USD 100k = 1.25%, USD 10M = 0.67% (proyectado 2026). 77.6% industria fee-based en 2026.
+
+**[G12] PwC · Asset and Wealth Management Revolution 2025**
+- URL: https://www.pwc.com/gx/en/issues/transformation/asset-wealth-management/pwc-awm-revolution-2025.pdf
+- Cobertura: https://www.ipe.com/pwc-asset-management-costs-to-drop-20-by-2025/10027888.article
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 10
+- Notas: Mutual fund global asset-weighted mgmt fee proyectado 0.36% (2025), -20% vs. mediados 2010s. Active equity 0.44%; pasivos 0.12%.
+
+**[G13] McKinsey · Asset Management 2025: The Great Convergence**
+- URL: https://www.mckinsey.com/industries/financial-services/our-insights/asset-management-2025-the-great-convergence
+- Fecha consulta: 2026-05-07
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 11
+- Notas: AUM global jun-2025 USD 147T. Europa pasivos 13 bps, active equity 42 bps (2024).
+
+### Latam comparable (Tier 3)
+
+**[G14] ANBIMA · Estatísticas Fundos de Investimento (Brasil)**
+- URL: https://www.anbima.com.br/pt_br/informar/estatisticas/fundos-de-investimento/fundos-de-investimento.htm
+- Insight Economatica: https://insight.economatica.com/perfil-taxa-de-administracao-anbima/
+- Fecha consulta: 2026-05-07 (datos sep-2024)
+- Confianza: alto
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 12
+- Notas: **DATO LATAM ESTRELLA: RF 0.62%, Multimercado 0.95%, Ações 1.54% (sep-2024).**
+
+**[G15] AMIB · Asociación Mexicana de Instituciones Bursátiles**
+- URL: https://www.amib.com.mx/
+- Fecha consulta: 2026-05-07
+- Confianza: medio (rango sí publicado, promedio por tipo NP)
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 13
+- Notas: 636 fondos, AUM USD 210B (ene-2025). Comisiones rango 0.50%–2.00% AUM/año. Promedio detallado por tipo NP en agregado público.
+
+**[G16] CMF Chile · Portal Fondos Mutuos**
+- URL: https://www.cmfchile.cl/institucional/estadisticas/fm.comision_menu.php
+- Tabla Santander 2024: https://banco.santander.cl/uploads/000/051/557/8508b9fa-fc6e-4129-89c5-6a747ad4790e/original/Tabla_Anual_de_Costos_2024.pdf
+- Fecha consulta: 2026-05-07
+- Confianza: bajo (datos por fondo sí; agregado sectorial NP)
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 14
+- Notas: Promedio sectorial Chile NP en publicación oficial. Requiere descarga manual + cálculo.
+
+**[G17] Asofiduciarias · Colombia**
+- URL: https://www.asofiduciarias.org.co/
+- Cobertura: https://www.pulzo.com/economia/inversion-fiduciaria-colombia-aumento-activos-rentabilidad-2024-PP4318606
+- Fecha consulta: 2026-05-07
+- Confianza: bajo (datos AUM sí; comisión promedio NP)
+- Aplicado en: 05-benchmark-global-wm-fees.md fila 15
+- Notas: 214 FIC, COP 955B AUM (2024, +5.37% YoY). Promedio comisión NP en publicación.
+
+---
+
 ## Pendiente / lo que NO se logró extraer (gaps de la investigación)
 
 > Esto es lo que un siguiente esfuerzo (entrevistas, descarga manual + OCR, llamadas comerciales) debería resolver:

@@ -1,6 +1,9 @@
 # 12 · Presentación · Outline de slides
 
-> 15 slides de soporte visual al [`11-speech-presidente.md`](11-speech-presidente.md). Estilo: limpio, con tabla / gráfico por slide. Paleta Mercantil A&WM (azul `#003DA5` + naranja `#F47B20`).
+> **16 slides** de soporte visual al [`11-speech-presidente.md`](11-speech-presidente.md). Estilo: limpio, con tabla / gráfico por slide. Paleta Mercantil A&WM (azul `#003DA5` + naranja `#F47B20`).
+> **Versión 3 (2026-05-07):** ampliada de 15 a 16 slides para incluir el slide de benchmark global (S4). Movimiento 1 ahora ocupa 3 slides (S3, S4, S5).
+>
+> 🔗 **HTML construido:** `business-case/pitch/index.html` · live en GitHub Pages
 
 ## Lista de slides
 

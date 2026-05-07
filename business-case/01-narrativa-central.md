@@ -1,39 +1,51 @@
 # 01 · Narrativa central del pitch
 
-> **Versión 2 (2026-05-07):** reescrita con hallazgos del benchmark. El movimiento 1 cambia radicalmente. NO abrimos diciendo "somos caros" — abrimos diciendo "somos los únicos transparentes en un mercado que no lo es".
+> **Versión 3 (2026-05-07):** reescrita con benchmark global. El Movimiento 1 ahora tiene tres palancas: (i) Mercantil 1.4% está debajo del all-in US típico, (ii) está debajo del promedio Brasil RV activa, (iii) es transparente en mercado panameño opaco.
 
 ## El argumento en una frase
 
-> *"Mercantil A&WM al 1.4% AUM no es caro — es el único en el mercado WM panameño que publica su fee. Esa transparencia, sumada a una oferta integrada que ningún competidor ofrece (3 servicios + CFO/CIO virtual), hace que la cooperativa pague menos con nosotros que sin nosotros."*
+> *"Mercantil A&WM al 1.4% all-in no es caro — está dentro del rango global de gestión activa con asesor (1.0%-2.0% según ESMA, Cerulli, Kitces, ANBIMA), específicamente por debajo del all-in US típico (1.50%) y del promedio Brasil RV (1.54%), y es la única tarifa publicable en un mercado WM panameño donde 22 competidores relevados no publican fee."*
 
 ## Los 4 movimientos del argumento
 
-### Movimiento 1 — Posicionarnos como "el único transparente" (2-3 min del pitch)
+### Movimiento 1 — Posicionar 1.4% en el benchmark GLOBAL, no local (3 min del pitch)
 
 **Lo que el presidente espera oír:** "1.4% es competitivo, comparado con bancos X, Y, Z."
 
-**Lo que vamos a decirle:** *"1.4% es transparente. Y eso, en el mercado WM panameño, es prácticamente único."*
+**Lo que vamos a decirle:** *"1.4% es PRECIO INSTITUCIONAL DE MERCADO GLOBAL para gestión activa con asesor y governance. Y además, somos los únicos transparentes en Panamá."*
 
-#### El hallazgo central del benchmark
+#### El hallazgo del benchmark Panamá
 
-De **22 instituciones de wealth management relevadas** en Panamá (MMG, BG-BlackRock, Prival, GenAsset, PKB, Singular, Credicorp, Banistmo, BAC, Multibank, Tower, Insignia, etc.), **NINGUNA publica su fee de gestión discrecional como % AUM** en su web pública. La tarifa = "consulta directa con el asesor".
+De **22 instituciones de wealth management relevadas** (MMG, BG-BlackRock, Prival, GenAsset, PKB, Singular, Credicorp, Banistmo, BAC, Multibank, Tower, Insignia, etc.), **NINGUNA publica su fee de gestión discrecional como % AUM** en su web. Tarifa = "consulta directa".
 
-La **única comparación apples-to-apples disponible públicamente** en Panamá:
+La única comparación apples-to-apples disponible públicamente en Panamá: **BG Fondo General de Inversiones = 1.3125% all-in** (1.25% gestión + 0.0625% custodia). Mercantil 1.4% está **+7.5 bps**. Trivial.
 
-| Producto | Fee gestión | Custodia | All-in | Tipo |
-|---|---|---|---|---|
-| **Mercantil A&WM** | 1.4% | (incluido) | **1.4%** | Gestión discrecional, fee único transparente |
-| **Fondo General de Inversiones · Banco General** | 1.25% | 0.0625% | **1.3125%** | Fondo balanceado abierto |
+#### El hallazgo del benchmark global (15 puntos verificables)
 
-**Diferencia: +7.5 bps.** Trivial. NO somos caros.
+Las cifras de mercado global de wealth management:
 
-#### El argumento de la transparencia
+| Comparable global | Fee | Mercantil 1.4% vs. |
+|---|---|---|
+| **All-in US típico** (advisor 1% + fund 0.5%, Kitces + Morningstar) | **~1.50%** | **−10 bps (Mercantil más barato)** |
+| **Brasil ANBIMA — Fondos de Ações** (sep-2024) | **1.54%** | **−14 bps (Mercantil más barato)** |
+| **UCITS RV activa retail UE** (asset-weighted, ICI/ESMA 2024) | **1.11%** | +29 bps (justificable por wrap) |
+| Cerulli US Advisor fee USD 100k cliente | 1.25% | +15 bps (advisor solo, sin gestión) |
+| ESMA · UCITS retail rango total cost | 0.5%-2.0% | Dentro del rango |
+| ICI · US Bond fund P90 (decil más caro) | 1.55% | −15 bps |
+| **BG Fondo General Inversiones · Panamá** | **1.3125%** | +7.5 bps |
 
-> *"Los 22 competidores que relevamos no publican su fee. Una cooperativa que pregunta 'cuánto me cobras' a otro proveedor tiene que entrar a una conversación comercial sin precio en la mesa. Con nosotros, la conversación arranca con el precio sobre la mesa: 1.4% all-in. Eso, para un comité fiduciario que tiene que documentar decisiones a su junta directiva y a un auditor, es valor real."*
+**Posicionamiento de Mercantil 1.4%: percentil ~60-75 del rango global de gestión activa con asesor.** Dentro de mercado, no marginal. Y por debajo del benchmark más relevante (all-in US 1.50%).
 
-> *Razón pedagógica:* abrir con HALLAZGO objetivo del mercado, no con defensa de la tarifa. El presidente recibe un dato comprobable, no una opinión. Atención total para lo que sigue.
+#### El argumento sintetizado
 
-**Soporte:** [`benchmark/03-comisiones-mercado.md`](benchmark/03-comisiones-mercado.md) con tabla de 22 instituciones, [`08-cuando-1.4-es-caro.md`](modelo-economico/08-cuando-1.4-es-caro.md) con análisis del posicionamiento.
+> *"Hicimos benchmark riguroso con 15 fuentes globales — ESMA, ICI, FCA, Morningstar, Cerulli, Kitces, PwC, McKinsey, ANBIMA. La gestión activa con asesor en mercados profundos cobra estructuralmente entre 1.0% y 2.0% AUM. Nosotros estamos en 1.4%, debajo del all-in US típico (1.50%) y del promedio Brasil RV (1.54%). El benchmark más relevante — el comparable Latam grande con datos públicos — pone a Mercantil más barato. Y en Panamá, somos el único proveedor que publica su fee. Esa combinación no se vende como cara — se vende como mercado global con transparencia local."*
+
+> *Razón pedagógica:* abrir con datos verificables de 15 fuentes globales saca al presidente de la conversación local ("¿qué cobra Banistmo?") y la lleva al plano correcto ("¿está Mercantil dentro del rango global de wealth management institucional?"). La respuesta es sí.
+
+**Soporte:**
+- [`benchmark/03-comisiones-mercado.md`](benchmark/03-comisiones-mercado.md) — 22 instituciones panameñas
+- [`benchmark/05-benchmark-global-wm-fees.md`](benchmark/05-benchmark-global-wm-fees.md) — 15 fuentes globales
+- [`08-cuando-1.4-es-caro.md`](modelo-economico/08-cuando-1.4-es-caro.md) — análisis posicionamiento
 
 ### Movimiento 2 — Reformular la pregunta (3 min)
 
