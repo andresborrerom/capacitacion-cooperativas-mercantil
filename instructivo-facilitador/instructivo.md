@@ -233,7 +233,7 @@ El ensayo técnico (capítulo 9) se hace una semana antes. Este capítulo cubre 
 
 **Esta es la sesión más expuesta a parecer pitch. Lee el protocolo dos veces.**
 
-**Duración:** 120 min. **Concepto:** *Las 4 gavetas del dinero.* **Herramienta:** Mi caja de herramientas. **Caso:** DPF de 5 años roto al año.
+**Duración:** 120 min. **Concepto:** *Las 4 gavetas del dinero.* **Herramienta:** Mi caja de herramientas. **Caso:** DPF de 5 años roto en mes 10 (~8.6% pérdida en un solo evento).
 
 ### Protocolo anti-pitch (reglas)
 1. **No mencionar productos específicos de Mercantil Asset & Wealth Management** ni en slides ni en voz.

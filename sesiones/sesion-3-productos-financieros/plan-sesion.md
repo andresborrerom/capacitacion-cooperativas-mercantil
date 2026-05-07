@@ -5,7 +5,7 @@
 | Bloque | Duración | Qué pasa |
 |---|---|---|
 | **0. Apertura con pregunta incómoda** | 5 min | *"Si tuvieras que invertir B/. 100k de tu cooperativa mañana y solo puedes hacer una pregunta antes, ¿cuál sería?"* |
-| **1. Caso — la inversión del excedente** | 10 min | Cooperativa que colocó B/. 1M de "excedente" a 5 años, al año siguiente lo necesitó, perdió 11%. |
+| **1. Caso — la inversión del excedente** | 10 min | Cooperativa que colocó B/. 1M de "excedente" a 5 años, en mes 10 lo necesitó por una oportunidad de edificio, perdió ~8.6% en un solo evento (penalización + intereses devengados + crédito puente 60 días). |
 | **2. Concepto pegajoso — "Las 4 gavetas del dinero"** | 15 min | Mapa visual de las 4 gavetas. Productos típicos en cada una. |
 | **3. Herramienta en vivo #1 — Mi caja de herramientas** | 15 min | Cada participante ingresa sus productos actuales. La herramienta los clasifica y alerta mismatches. |
 | **4. Profundización — las 4 dimensiones del producto** | 15 min | Rentabilidad, riesgo, liquidez, plazo. Por qué no se optimizan las 4 a la vez. |

@@ -18,17 +18,20 @@
   4. La economía y el ask.
 - Visualmente: 4 cuadros conectados por flechas.
 
-### S3 · Tabla de comisiones del mercado AWM Panamá
-- Tabla 8-12 instituciones, columnas: institución / fee / AUM mínimo / servicios.
-- Mercantil A&WM en una fila destacada (color naranja).
-- Ranking por fee de menor a mayor — Mercantil aparece arriba (caro).
-- Caption: *"Promedio del mercado: X.X%. Nosotros: 1.4%."*
+### S3 · Tabla de comisiones del mercado WM Panamá
+- Tabla resumida de 22 instituciones relevadas, columnas: institución / tipo / fee % AUM / AUM mínimo / fuente.
+- **La mayoría de filas tienen "NP" (no público)** — visualmente impactante.
+- Mercantil A&WM en una fila destacada (color naranja) con su 1.4% explícito.
+- BG Fondo General destacado con su 1.3125%.
+- Resto: NP, NP, NP...
+- Caption: *"22 instituciones relevadas. 2 publican fee. Mercantil A&WM es una."*
 
 ### S4 · Frase ancla del bloque 1
 - Solo texto grande:
-- *"1.4% AUM es caro vs. comisiones puras."*
-- *"Esa no es la pregunta correcta."*
-- Bajada: *"Pasemos a la pregunta correcta."*
+- *"22 competidores relevados."*
+- *"Solo 1 publica su tarifa además de nosotros."*
+- *"Diferencia de fee: 7.5 bps."*
+- Bajada: *"No somos caros. Somos transparentes en un mercado que no lo es."*
 
 ### S5 · Las 4 opciones de gobernanza
 - Tabla:
@@ -43,11 +46,11 @@
 ### S6 · Caso DPF roto · costo de gobernanza débil
 - Visual: ilustración del caso del curso S3.
 - Cifras grandes:
-  - Penalización: B/. 20k
-  - Intereses perdidos: B/. 43k
-  - Crédito puente: B/. 45k
-  - **Pérdida total: B/. 108k = 11% del principal**
-- Caption: *"Un solo evento cubre 1.5 años de nuestro fee."*
+  - Penalización ruptura DPF: B/. 20,000
+  - Intereses devengados perdidos: B/. 43,333
+  - Crédito puente 60 días: B/. 22,500
+  - **Pérdida total: B/. 85,833 ≈ 8.6% del principal**
+- Caption: *"Un solo evento cubre más de un año de nuestro fee."*
 
 ### S7 · Los 3 servicios profesionales
 - 3 cuadros lado a lado:

@@ -1,61 +1,96 @@
-# 08 · Cuándo 1.4% AUM es caro
+# 08 · Posicionamiento del 1.4% en el mercado WM panameño
+
+> **Versión 2 (2026-05-07):** reescrito tras benchmark. El título original "Cuándo 1.4% es caro" partía del supuesto erróneo de que somos caros vs. mercado. El benchmark no soporta esa tesis. Renombramos al posicionamiento real.
 
 ## Tesis del archivo
 
-**1.4% AUM es caro si lo único que ofrecemos es administración pasiva de un portafolio.** Hay competencia con fee menor para ese servicio puro. Reconocer eso primero le da credibilidad al resto del argumento.
+**Mercantil A&WM al 1.4% AUM NO es caro vs. el mercado WM panameño.** Está prácticamente al nivel del único punto de comparación público (BG Fondo General 1.3125%, diferencia +7.5 bps), y el resto del mercado opera con tarifa OPACA — no se puede comparar porque ningún competidor publica su fee.
 
-## Comparación directa — fee puro vs. fee puro
+**El frame correcto es:** Mercantil es **el único transparente** en un mercado opaco.
 
-> *Cifras a validar con benchmark (ver `benchmark/03-comisiones-mercado.md`).*
+## Hallazgos clave del benchmark (relevados 2026-05-07)
 
-| Cooperativa B/. 5M | Si va sola con DPF | Si contrata gestión institucional | Si contrata Mercantil A&WM |
-|---|---|---|---|
-| Fee anual | B/. 0 | B/. 30-50k (0.6-1%) | **B/. 70k (1.4%)** |
-| Rendimiento bruto esperado portafolio balanceado | 4.5% (DPF mix) | 5.5% (gestión activa) | 6-8% (gestión + LP institucional) |
-| Rendimiento neto | 4.5% | 4.5-4.9% | 4.6-6.6% |
-| Diferencia neta vs. DPF directo | 0 | +0-0.4% | +0.1-2.1% |
+### Lo que se relevó
 
-**Lectura honesta:** si el competidor cobra 0.8% por gestión activa con rendimiento esperado similar, **somos más caros por puntos básicos** que pueden no justificarse solo con "gestión activa".
+22 instituciones de wealth management panameño:
 
-## Cuándo el competidor gana
+- Casas de valores y AM puras: MMG Asset Management, GenAsset (Geneva), Insignia FA, Singular WM, PKB Wealth Management, Tower Securities, Credicorp Capital Panamá, Prival Securities.
+- Bancos con división WM (incluidos con justificación): BG Valores (Banco General), BAC Private Banking, Banistmo Private Banking (cuando aplica), Multibank Aurum, Mercantil SI (referencia local del grupo).
+- Otros: Vista Capital, Geneva A&WM, Lafise, Aliada, Casa Real, etc.
 
-Mercantil A&WM **pierde** la decisión cuando la cooperativa:
+### Lo que se encontró
 
-1. Ya tiene un comité de inversión competente (raro, pero existe).
-2. Ya tiene CFO interno con experiencia institucional.
-3. Solo busca administración custodia + reporte trimestral, sin asesoría continua.
-4. Su AUM es lo suficientemente grande (>B/. 50M) para construir mesa interna.
-5. Negocia agresivamente fee con un banco que está dispuesto a quemar margen.
+| Categoría | Resultado |
+|---|---|
+| Instituciones que publican fee % AUM gestión discrecional | **0 de 22** |
+| Instituciones que publican custodia + mantenimiento | 4 (BG Valores, Tower, Mercantil SI, Multibank en PDF) |
+| Instituciones con AUM mínimo público | BG Valores USD 100k; Tower USD 10k; otros NP |
+| Único producto colectivo con fee all-in público | **Fondo General de Inversiones · BG · 1.3125%** |
 
-En esos casos el competidor con 0.8-1% AUM gana. **No queremos competir ahí.**
+### La única comparación válida apples-to-apples
 
-## Cuándo el competidor pierde
+| | Fondo General BG | Mercantil A&WM |
+|---|---|---|
+| Fee gestión | 1.25% | 1.4% (incluye custodia) |
+| Custodia | 0.0625% | (incluido) |
+| **All-in** | **1.3125%** | **1.4%** |
+| Servicio | Fondo balanceado abierto, gestión por equipo BG/BlackRock | Gestión discrecional + ALM por gavetas + CFO/CIO virtual |
+| Reporte | Estado de cuenta del fondo | Reporte institucional al comité de la cooperativa |
+| Asesor | Corredor de valores BG Valores | PM senior + motor algorítmico |
+| **Diferencia de fee** | **+7.5 bps a favor de BG** | |
 
-Mercantil A&WM **gana** cuando la cooperativa:
+**+7.5 bps no es "caro".** Es 0.075 puntos porcentuales — sobre B/. 5M es B/. 3,750/año. Trivial.
 
-1. Comité de inversión voluntario sin formación financiera profesional.
-2. Sin CFO interno o con CFO sin tiempo para gestión patrimonial.
-3. Tiene Gaveta 4 vacía y conciencia (post-curso) de que está dejando plata sobre la mesa.
-4. Quiere acceso a clases de activos que no consigue sola.
-5. AUM B/. 3-15M (rango óptimo del segmento — chico para mesa propia, grande para que el fee absoluto valga nuestro tiempo).
-6. Ha pasado por un evento de mismatch (DPF roto, problema de liquidez) y la junta quiere gobernanza más fuerte.
+## El argumento ganador frente a "1.4% es caro"
 
-**Nuestra estrategia es buscar específicamente este perfil.** El curso de capacitación es el filtro: cooperativas que toman el curso son las que ya están en el embudo correcto.
+### Si un director cuestiona: "El banco X ofrece 0.8% por gestión patrimonial."
 
-## La conclusión que el presidente debe oír primero
+**Respuesta:**
+> *"Pregúntele al banco X cómo llega al 0.8%. Si publica su tarifario, mándamelo y revisamos. Lo más probable es que sea custodia + comisiones por transacción + fees ocultos en operación. Eso es lo que en banca privada panameña se llama 'tarifario completo' — y en la práctica termina entre 1.5% y 2.5% all-in cuando sumas todo. Nosotros publicamos 1.4% incluyendo todo. El cliente paga lo que ve."*
 
-> *"Si nos comparamos como cobradores de fee, somos caros. La pregunta correcta es otra. Pasemos a la siguiente página."*
+### Si un director cuestiona: "Las cooperativas no van a pagar 1.4% si pueden pagar 0%."
 
-Este reconocimiento abre la puerta al argumento del [`09-cuando-1.4-es-barato.md`](09-cuando-1.4-es-barato.md), donde la comparación cambia de fee vs. fee a costo total de gobernanza vs. costo total de gobernanza.
+**Respuesta:**
+> *"El 0% es la cuenta de ahorro. La cuenta de ahorro rinde 0.5%. Un DPF rinde 5%. Un portafolio profesional puede rendir 6-8% pero requiere acceso institucional, governance, y ALM. Nuestro 1.4% se paga del rendimiento incremental + la reducción del costo de oportunidad por mala asignación. Las cooperativas que entiendan eso, contratan. Las que no, siguen con DPF — y nosotros no las queremos como cliente."*
+
+## El nuevo argumento del Movimiento 1 del pitch
+
+**Antes (versión 1):** *"1.4% es caro, reconozcámoslo, ahora hablemos del valor agregado."*
+
+**Ahora (versión 2):** *"1.4% es transparente. Es la única tarifa pública del mercado WM panameño. Los 22 competidores relevados no publican fee de gestión. Esa transparencia es el primer diferenciador antes de hablar de servicio."*
+
+> Esto **es más fuerte porque es honesto**. La narrativa anterior asumía que éramos caros sin datos. Los datos del benchmark muestran que NO lo somos vs. el único punto comparable, y que el resto del mercado simplemente no se compara.
+
+## Cuándo el competidor SÍ gana (sigue siendo verdad)
+
+Mercantil A&WM **no es para todas las cooperativas.** Pierde la decisión cuando:
+
+1. La cooperativa solo busca custodia + estado de cuenta. No le interesa gestión activa, governance, ni acceso institucional. → para esto un broker tradicional con USD 150-250 anuales (Tower, Mercantil SI brokerage) es más barato.
+2. La cooperativa ya tiene equipo institucional fuerte (CFO senior + comité técnico). → no necesita CFO/CIO virtual.
+3. La cooperativa es muy chica (AUM < B/. 1M). El fee absoluto no justifica el servicio.
+4. La cooperativa es muy grande (AUM > B/. 50M). Construye mesa propia.
+
+**Nuestro segmento óptimo:** cooperativas medianas (AUM B/. 3-15M) con comité voluntario de inversiones, sin CFO senior, que vienen del curso de capacitación entendiendo el problema.
+
+## Lo que el presidente debe poder decirle al directorio
+
+> *"Hicimos benchmark de 22 instituciones de WM en Panamá. Ninguna publica su fee. La única comparación apples-to-apples es el Fondo General de BG: 1.3125% vs. nuestro 1.4%. Estamos 7.5 puntos básicos arriba. No somos caros. Somos transparentes en un mercado que no lo es. Esa es la primera ventaja de venta antes de hablar de servicio."*
 
 ## Anti-pitch (qué NO decir)
 
-- ❌ "Nuestro fee es competitivo en el mercado." — Es una mentira si no es cierto. Y no lo es.
-- ❌ "Cobramos lo justo por la calidad." — Subjetivo, no convence.
-- ❌ "El fee se compensa con el rendimiento adicional." — Posible pero difícil de probar a priori, suena a promesa de banca.
+- ❌ "Nuestro fee es competitivo en el mercado." — Vacío, suena a defensa.
+- ❌ "Cobramos lo justo por la calidad." — Subjetivo.
+- ❌ "El fee se compensa con el rendimiento adicional." — Suena a promesa de banca, débil.
+- ❌ "1.4% es caro vs. comisiones puras." — La narrativa vieja. NO es lo que muestra el benchmark.
 
-## Pitch correcto
+## Pitch correcto (versión 2)
 
-- ✅ "1.4% AUM es alto vs. comisiones puras del mercado. Reconozcámoslo. Ahora hablemos de qué incluye que ningún competidor incluye."
+- ✅ "Relevamos 22 competidores. Ninguno publica su fee de gestión. Nosotros sí. Eso es el primer diferenciador."
+- ✅ "El único punto comparable es BG Fondo General a 1.3125%. Estamos 7.5 bps arriba. Trivial. Pero ofrecemos lo que BG no ofrece: governance institucional, ALM por gavetas, y CFO/CIO virtual."
+- ✅ "Nuestra tarifa publicable es ventaja comercial. Una cooperativa que tiene que justificar fee a su junta puede mostrar el contrato con el número claro. Con cualquier otro competidor, tiene que armar la cuenta sumando custodia + comisiones + fees ocultos."
 
-Eso es honesto, baja la guardia del audiencia, y abre el siguiente movimiento.
+## Soporte cuantitativo del argumento
+
+[`benchmark/03-comisiones-mercado.md`](../benchmark/03-comisiones-mercado.md) — tabla de 22 instituciones con fuentes citadas.
+
+[`benchmark/fuentes.md`](../benchmark/fuentes.md) — bibliografía del benchmark.

@@ -25,13 +25,15 @@
 
 ### Caso 1 — DPF roto (del curso S3)
 
-Cooperativa rompe DPF de B/. 1M a 5 años para comprar edificio:
-- Penalización: B/. 20k
-- Intereses devengados perdidos: B/. 43k
-- Sobrecosto crédito puente: B/. 45k
-- **Total: B/. 108k = 11% del principal**
+Cooperativa rompe DPF de B/. 1M a 5 años en mes 10 para comprar edificio (B/. 1.5M, plazo decisión 60 días):
+- Penalización ruptura DPF (2% × 1M): **B/. 20,000**
+- Intereses devengados perdidos (10m × 5.2%/12 × 1M, banco no reconoce al ruptura prematura): **B/. 43,333**
+- Crédito puente 60 días (1.5M × 9% × 60/360, plazo de transición hasta liquidar DPF): **B/. 22,500**
+- **Total: B/. 85,833 ≈ 8.6% del principal**
 
-Si esto pasa **una vez en 10 años**, costo amortizado = B/. 10.8k/año. Solo este tipo de error pagaría parte del fee.
+> El financiamiento permanente que necesite DESPUÉS para cubrir lo que el DPF roto no alcanzó (~B/. 520k) NO se cuenta — ese crédito hubiera existido con o sin mismatch.
+
+Si esto pasa **una vez en 10 años**, costo amortizado = B/. 8.6k/año. Solo este tipo de error pagaría parte del fee — y este es UN solo tipo de error.
 
 ### Caso 2 — Gaveta 4 vacía 20 años
 

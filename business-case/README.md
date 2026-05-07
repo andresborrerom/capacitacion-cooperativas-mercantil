@@ -56,7 +56,7 @@ Carpetas + `.md` esqueleto creados. Define qué hay que llenar.
 - Pago de 1.4% solo por administración: B/. 70k/año.
 - Costo de un CFO interno: B/. 60-90k/año (salario + cargas).
 - Costo de un comité de inversión part-time: B/. 30-50k/año.
-- Costo de oportunidad por mala asignación de gavetas (dato del curso S3: ejemplo del DPF roto = 11% del principal).
+- Costo de oportunidad por mala asignación de gavetas (dato del curso S3: ejemplo del DPF roto = ~8.6% del principal en un solo evento).
 
 ### Fase 3 · Pitch + Presentación (sesión activa contigo)
 

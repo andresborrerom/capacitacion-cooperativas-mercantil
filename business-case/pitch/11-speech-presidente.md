@@ -11,21 +11,25 @@
 
 ## Bloque 0 · Apertura · 1 min
 
-> *"Vine con una propuesta concreta sobre cooperativas financieras panameñas. La he estado preparando por [N] meses, y creo que tenemos una ventana de 6-12 meses para entrar a un segmento que nadie en Panamá está atendiendo bien. Te voy a dar el argumento en 4 movimientos. El primero te va a sorprender — voy a abrir reconociendo que nuestra comisión 1.4% es cara."*
+> *"Vine con una propuesta concreta sobre cooperativas financieras panameñas. La he estado preparando por [N] meses, y creo que tenemos una ventana de 6-12 meses para entrar a un segmento que nadie en Panamá está atendiendo bien. Te voy a dar el argumento en 4 movimientos. El primero te va a sorprender — voy a abrir con un hallazgo del benchmark del mercado WM panameño que cambia cómo deberíamos vender nuestro 1.4%."*
 
 **Slide 1:** Título + audiencia + ask en una línea.
 
 **Slide 2:** "El argumento en 4 movimientos." — outline visible.
 
-## Bloque 1 · Reconocer la objeción · 2-3 min
+## Bloque 1 · Posicionar el 1.4% como transparente · 2-3 min
 
-> *"Te muestro el benchmark del mercado AWM panameño. [Mostrar tabla.] Las opciones para gestión institucional están entre 0.6% y 1.5%. Nosotros con 1.4% estamos arriba de la media. Es un dato. Si nos comparamos como cobradores de fee, somos caros. La pregunta interesante es por qué eso debería ser irrelevante. Pasemos a la siguiente página."*
+> *"Hicimos benchmark riguroso de 22 instituciones de wealth management en Panamá: MMG, BG-BlackRock, Prival, GenAsset, PKB, Singular, Credicorp, Banistmo, BAC, Multibank, Tower, y otras. [Mostrar tabla.] Te voy a contar qué encontramos."*
+>
+> *"De las 22, ninguna — ninguna — publica su fee de gestión discrecional como porcentaje de AUM. Todas dicen 'consulta directa con el asesor'. La única comparación apples-to-apples disponible públicamente es con el Fondo General de Inversiones de Banco General: 1.3125% all-in. Nosotros estamos en 1.4%. Diferencia de 7.5 puntos básicos."*
+>
+> *"Lectura: no somos caros. Estamos prácticamente al nivel del único competidor que publica tarifa, y todos los demás operan con fee opaco. **Mercantil A&WM al 1.4% es el único transparente en un mercado que no lo es.** Esa transparencia es el primer diferenciador del pitch — incluso antes de hablar de servicio."*
 
-**Slide 3:** Tabla de comisiones del mercado (de [`benchmark/03-comisiones-mercado.md`](../benchmark/03-comisiones-mercado.md)).
+**Slide 3:** Tabla de las 22 instituciones del benchmark (de [`benchmark/03-comisiones-mercado.md`](../benchmark/03-comisiones-mercado.md)). Visualmente clara: la mayoría con celdas "NP" (no público); Mercantil y BG con tarifa publicada.
 
-**Slide 4:** Frase ancla: "1.4% es caro vs. comisiones puras. La pregunta no es esa."
+**Slide 4:** Frase ancla — *"22 competidores relevados. Solo 1 publica su tarifa además de nosotros. Diferencia de fee con ese único: 7.5 bps. No somos caros — somos transparentes."*
 
-> **Tono:** honestidad confiada. No defensivo. Estamos abriendo el espacio para el siguiente movimiento.
+> **Tono:** confianza basada en datos. NO defensivo. Mostramos el hallazgo y dejamos que hable solo. El presidente recibe ese dato como activo comercial, no como problema.
 
 ## Bloque 2 · Reformular la pregunta · 2-3 min
 
@@ -33,7 +37,7 @@
 
 **Slide 5:** Las 4 opciones de gobernanza con costos comparados.
 
-> *"Si la cooperativa no gobierna bien, paga el costo en otro lado: mismatches, errores de asignación, gaveta 4 vacía 20 años. En el curso que estamos dictando hay un caso clásico: cooperativa que rompió un DPF de B/. 1M y perdió 11% del principal — es decir, B/. 108k. Eso es más que un año entero de fee con nosotros."*
+> *"Si la cooperativa no gobierna bien, paga el costo en otro lado: mismatches, errores de asignación, gaveta 4 vacía 20 años. En el curso que estamos dictando hay un caso clásico: cooperativa que rompió un DPF de B/. 1M y perdió ~8.6% del principal en un solo evento — es decir, B/. 86k. Más que un año entero de fee con nosotros, por una sola decisión de mala asignación."*
 
 **Slide 6:** El caso DPF roto del curso S3 (visual rápido).
 
@@ -112,7 +116,7 @@
 ## Patterns ganadores
 
 - ✅ Reconocer la objeción primero — desarma.
-- ✅ Mostrar el caso del DPF roto (B/. 108k = 11%) — concreto, memorable.
+- ✅ Mostrar el caso del DPF roto (B/. 86k ≈ 8.6%) — concreto, memorable, defendible número por número.
 - ✅ Demostrar Conos en vivo — el presidente ve por qué el cliente entiende.
 - ✅ Tabla de costo total que vuelve obvia la comparación correcta.
 - ✅ Cerrar con la urgencia (ventana, primer movedor).

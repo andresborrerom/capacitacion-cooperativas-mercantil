@@ -1,20 +1,39 @@
 # 01 · Narrativa central del pitch
 
+> **Versión 2 (2026-05-07):** reescrita con hallazgos del benchmark. El movimiento 1 cambia radicalmente. NO abrimos diciendo "somos caros" — abrimos diciendo "somos los únicos transparentes en un mercado que no lo es".
+
 ## El argumento en una frase
 
-> *"1.4% AUM es caro si comparas comisiones; barato si comparas el costo total de gobernar bien la plata de una cooperativa con riesgo fiduciario."*
+> *"Mercantil A&WM al 1.4% AUM no es caro — es el único en el mercado WM panameño que publica su fee. Esa transparencia, sumada a una oferta integrada que ningún competidor ofrece (3 servicios + CFO/CIO virtual), hace que la cooperativa pague menos con nosotros que sin nosotros."*
 
 ## Los 4 movimientos del argumento
 
-### Movimiento 1 — Reconocer la objeción primero (3 min del pitch)
+### Movimiento 1 — Posicionarnos como "el único transparente" (2-3 min del pitch)
 
-**Lo que el presidente espera oír:** "1.4% es competitivo".
+**Lo que el presidente espera oír:** "1.4% es competitivo, comparado con bancos X, Y, Z."
 
-**Lo que vamos a decirle:** "1.4% es caro vs. comisiones puras del mercado panameño. Aquí está la tabla."
+**Lo que vamos a decirle:** *"1.4% es transparente. Y eso, en el mercado WM panameño, es prácticamente único."*
 
-> *Razón pedagógica:* abrir reconociendo la objeción rival baja la guardia del audiencia. El presidente espera defensa; recibe honestidad → atención total para lo que sigue.
+#### El hallazgo central del benchmark
 
-**Soporte:** [`benchmark/03-comisiones-mercado.md`](benchmark/03-comisiones-mercado.md) con tabla de comisiones AWM Panamá.
+De **22 instituciones de wealth management relevadas** en Panamá (MMG, BG-BlackRock, Prival, GenAsset, PKB, Singular, Credicorp, Banistmo, BAC, Multibank, Tower, Insignia, etc.), **NINGUNA publica su fee de gestión discrecional como % AUM** en su web pública. La tarifa = "consulta directa con el asesor".
+
+La **única comparación apples-to-apples disponible públicamente** en Panamá:
+
+| Producto | Fee gestión | Custodia | All-in | Tipo |
+|---|---|---|---|---|
+| **Mercantil A&WM** | 1.4% | (incluido) | **1.4%** | Gestión discrecional, fee único transparente |
+| **Fondo General de Inversiones · Banco General** | 1.25% | 0.0625% | **1.3125%** | Fondo balanceado abierto |
+
+**Diferencia: +7.5 bps.** Trivial. NO somos caros.
+
+#### El argumento de la transparencia
+
+> *"Los 22 competidores que relevamos no publican su fee. Una cooperativa que pregunta 'cuánto me cobras' a otro proveedor tiene que entrar a una conversación comercial sin precio en la mesa. Con nosotros, la conversación arranca con el precio sobre la mesa: 1.4% all-in. Eso, para un comité fiduciario que tiene que documentar decisiones a su junta directiva y a un auditor, es valor real."*
+
+> *Razón pedagógica:* abrir con HALLAZGO objetivo del mercado, no con defensa de la tarifa. El presidente recibe un dato comprobable, no una opinión. Atención total para lo que sigue.
+
+**Soporte:** [`benchmark/03-comisiones-mercado.md`](benchmark/03-comisiones-mercado.md) con tabla de 22 instituciones, [`08-cuando-1.4-es-caro.md`](modelo-economico/08-cuando-1.4-es-caro.md) con análisis del posicionamiento.
 
 ### Movimiento 2 — Reformular la pregunta (3 min)
 

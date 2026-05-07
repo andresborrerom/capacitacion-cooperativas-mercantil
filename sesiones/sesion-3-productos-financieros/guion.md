@@ -20,7 +20,7 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 - [ ] Herramienta "Mi caja de herramientas" desplegada, URL + QR listos.
 - [ ] Slides cargadas.
 - [ ] Polls pre-configurados (4).
-- [ ] Caso apertura listo: cooperativa que perdió 11% al romper DPF de 5 años (anonimizado).
+- [ ] Caso apertura listo: cooperativa que perdió ~8.6% al romper DPF de 5 años en mes 10 (anonimizado).
 - [ ] Co-facilitador con guion anti-pitch recordado.
 
 ---
@@ -57,12 +57,13 @@ Esta sesión habla de productos. El riesgo es convertirla en catálogo de Mercan
 - [0:09] Facilitador extrae la lección:
   > *"No fue un mal producto. Fue el producto correcto para la gaveta equivocada."*
 - [0:12] **[Slide 4 · Costo del mismatch]** Desglose en **tres componentes** — muy importante para cerrar la lógica:
-  - **Penalización** por romper DPF (2% sobre B/. 1M) = **−B/. 20k**.
-  - **Intereses devengados perdidos** (10 meses × 5.2% ÷ 12 × B/. 1M) ≈ **−B/. 43k**.
-  - **Sobrecosto del crédito puente** (B/. 500k al 9% × 12 meses para cubrir el faltante de la compra del edificio) ≈ **−B/. 45k**.
-  - **Pérdida económica total ≈ B/. 108k · ~11% del principal.**
-  - Frase literal: *"El DPF es un buen producto. En la gaveta correcta hubiera sido excelente. En la equivocada costó 11%."*
-  - Notas operativas para el facilitador: los B/. 500k y 12 meses son supuestos razonables para cerrar la aritmética; si un participante pregunta por los detalles, decir *"cifras construidas con rangos SBP para préstamos comerciales"*. Evitar debate técnico que distraiga del punto pedagógico (un mismo producto, mal encasillado, genera tres costos).
+  - **(1) Penalización** por romper DPF (2% sobre B/. 1M) = **−B/. 20,000**.
+  - **(2) Intereses devengados perdidos** (10 meses × 5.2% ÷ 12 × 1M = B/. 43,333). El banco panameño típicamente NO reconoce intereses devengados al ruptura prematura — es como un sueldo acumulado que pierdes si renuncias antes de fin de año. ≈ **−B/. 43,333**.
+  - **(3) Crédito puente 60 días** (B/. 1.5M × 9% × 60/360 = B/. 22,500). Asumiendo edificio cuesta ~B/. 1.5M y se requiere financiar el total durante los 60 días de plazo de decisión hasta liquidar el DPF y cerrar la compra. ≈ **−B/. 22,500**.
+  - **Pérdida económica total ≈ B/. 85,833 · ~8.6% del principal.**
+  - Frase literal: *"El DPF es un buen producto. En la gaveta correcta hubiera sido excelente. En la equivocada costó casi 9% del principal en un solo evento."*
+  - **Lo que NO se cuenta como mismatch:** el financiamiento permanente que la cooperativa necesite DESPUÉS para cubrir lo que el DPF roto no alcanzó (~B/. 520k de la diferencia entre 1.5M edificio y 980k recuperados del DPF). Ese crédito hubiera existido con o sin mismatch.
+  - Notas operativas para el facilitador: si un participante pregunta por los supuestos, decir *"costo del edificio 1.5M es supuesto razonable; tasa puente 9% es rango SBP para préstamos comerciales; los 60 días son lo que dice el caso"*. Evitar debate técnico — el punto pedagógico es que un mismo producto, mal encasillado por horizonte, genera tres costos paralelos en un solo evento.
 
 ---
 

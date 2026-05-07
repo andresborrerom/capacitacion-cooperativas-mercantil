@@ -38,7 +38,7 @@ Basado en las observaciones del curso de capacitación y conversaciones con diri
 
 ## Errores frecuentes documentados (del curso S3)
 
-1. **Mismatch de gavetas:** plata operativa atada en DPF largos. Caso clásico: cooperativa que rompió B/. 1M de DPF a 5 años para comprar edificio. Costo: 11% del principal (penalización + intereses devengados perdidos + crédito puente).
+1. **Mismatch de gavetas:** plata operativa atada en DPF largos. Caso clásico: cooperativa que rompió B/. 1M de DPF a 5 años para comprar edificio. Costo: ~8.6% del principal en un solo evento (penalización 2% + intereses devengados perdidos + crédito puente por los 60 días de transición).
 2. **Concentración por contraparte:** 3 DPF al 5.5% en el mismo banco no son la misma diversificación que 3 DPF al 5.5% en 3 bancos. El curso recomienda que ningún emisor concentre más del 20-25%.
 3. **Gaveta 4 vacía:** cooperativa con horizonte institucional de décadas que nunca asume riesgo. Costo de oportunidad acumulado de no estar en equity diversificado: enorme (ver Conos de rentabilidad S3).
 4. **Sin política mínimo operativo:** decisión de cuánta caja mantener queda en cabeza del que firme. En emergencia, mal lugar.
