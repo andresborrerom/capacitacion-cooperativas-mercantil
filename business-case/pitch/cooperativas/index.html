@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Mercantil A&amp;WM · Acompañamiento a tu cooperativa · Pitch al comité</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --m-primario: #003DA5;
+    --m-primario-oscuro: #002868;
+    --m-primario-claro: #E6EDF7;
+    --m-acento: #F47B20;
+    --m-acento-claro: #FDE9D7;
+    --m-fondo: #FFFFFF;
+    --m-fondo-sutil: #F5F7FA;
+    --m-texto: #1A1A1A;
+    --m-texto-sutil: #5A6375;
+    --m-borde: #E2E6EE;
+    --m-positivo: #2E7D55;
+    --m-alerta: #B4312E;
+    --m-aviso: #B78A00;
+  }
+  .reveal { font-family: "Inter", system-ui, sans-serif; color: var(--m-texto); font-size: 26px; }
+  .reveal .slides { text-align: left; }
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4 { font-family: "Inter", sans-serif; font-weight: 700; color: var(--m-primario-oscuro); text-transform: none; letter-spacing: -0.01em; line-height: 1.15; margin-top: 0; }
+  .reveal h1 { font-size: 2.0em; }
+  .reveal h2 { font-size: 1.5em; }
+  .reveal h3 { font-size: 1.15em; }
+  .reveal p, .reveal li { line-height: 1.5; }
+  .reveal strong { color: var(--m-primario-oscuro); font-weight: 700; }
+  .reveal em { color: var(--m-acento); font-style: normal; font-weight: 600; }
+
+  .portada { background: linear-gradient(135deg, var(--m-primario) 0%, var(--m-primario-oscuro) 100%); color: #fff !important; padding: 2em 1.5em; height: 100%; }
+  .portada h1, .portada h2 { color: #fff; }
+  .portada .kicker { color: var(--m-acento-claro); font-weight: 600; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.12em; }
+  .portada .marca { position: absolute; top: 1em; right: 1em; font-size: 0.55em; opacity: 0.9; font-weight: 600; }
+
+  .kicker { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.12em; color: var(--m-acento); font-weight: 700; margin-bottom: 0.3em; }
+
+  .tarjeta { background: var(--m-fondo-sutil); border: 1px solid var(--m-borde); border-radius: 12px; padding: 0.9em 1.1em; }
+  .tarjeta.acento { border-left: 6px solid var(--m-acento); }
+  .tarjeta.primario { border-left: 6px solid var(--m-primario); }
+  .tarjeta.alerta { border-left: 6px solid var(--m-alerta); background: #FBE9E8; }
+  .tarjeta.positivo { border-left: 6px solid var(--m-positivo); background: #E8F5EF; }
+
+  .reveal table { font-size: 0.65em; margin: 0.4em 0; }
+  .reveal table th { background: var(--m-primario-claro); color: var(--m-primario-oscuro); font-weight: 700; font-size: 0.85em; text-transform: uppercase; padding: 0.5em 0.6em; border-bottom: 2px solid var(--m-primario); }
+  .reveal table td { padding: 0.45em 0.6em; border-bottom: 1px solid var(--m-borde); }
+  .reveal table tr.destacado td { background: var(--m-acento-claro); font-weight: 700; }
+
+  .callout-grande { background: var(--m-primario-claro); border-left: 8px solid var(--m-primario); padding: 1em 1.4em; border-radius: 0 12px 12px 0; margin: 0.7em 0; font-size: 0.95em; }
+  .callout-grande.acento { background: var(--m-acento-claro); border-left-color: var(--m-acento); }
+  .callout-grande.positivo { background: #E8F5EF; border-left-color: var(--m-positivo); }
+  .callout-grande.alerta { background: #FBE9E8; border-left-color: var(--m-alerta); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7em; }
+
+  .gavetas-resumen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6em; }
+  .gaveta-mini { background: #fff; border-radius: 10px; padding: 0.7em; border: 2px solid var(--m-borde); border-top: 6px solid var(--m-primario); }
+  .gaveta-mini.g2 { border-top-color: var(--m-acento); }
+  .gaveta-mini.g3 { border-top-color: var(--m-positivo); }
+  .gaveta-mini.g4 { border-top-color: #9C4EA3; }
+  .gaveta-mini h4 { margin: 0 0 0.2em; font-size: 0.85em; color: var(--m-primario-oscuro); }
+  .gaveta-mini .plazo { font-size: 0.65em; color: var(--m-texto-sutil); text-transform: uppercase; font-weight: 600; letter-spacing: 0.04em; }
+  .gaveta-mini p { font-size: 0.7em; margin: 0.4em 0 0; line-height: 1.4; }
+
+  /* Servicios */
+  .servicios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7em; }
+  .servicio { background: #fff; border-radius: 12px; padding: 0.9em; border: 2px solid var(--m-borde); border-top: 6px solid var(--m-primario); }
+  .servicio.b { border-top-color: var(--m-acento); }
+  .servicio.c { border-top-color: var(--m-positivo); }
+  .servicio h4 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 0.95em; }
+  .servicio .gaveta-tag { display: inline-block; background: var(--m-primario-claro); color: var(--m-primario-oscuro); font-size: 0.6em; font-weight: 700; padding: 0.15em 0.55em; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4em; }
+  .servicio .promesa { font-size: 0.78em; color: var(--m-texto); font-style: italic; margin: 0.3em 0 0.5em; }
+  .servicio ul { margin: 0; padding-left: 1.1em; font-size: 0.7em; color: var(--m-texto-sutil); }
+  .servicio.b .gaveta-tag { background: var(--m-acento-claro); color: var(--m-acento); }
+  .servicio.c .gaveta-tag { background: #E8F5EF; color: var(--m-positivo); }
+
+  /* Diagrama día a día */
+  .dia-a-dia { display: flex; gap: 0.6em; align-items: stretch; }
+  .dia-a-dia .paso { flex: 1; background: #fff; border: 2px solid var(--m-borde); border-radius: 10px; padding: 0.7em; text-align: center; position: relative; }
+  .dia-a-dia .paso.tu { border-color: var(--m-acento); background: var(--m-acento-claro); }
+  .dia-a-dia .paso.nos { border-color: var(--m-primario); background: var(--m-primario-claro); }
+  .dia-a-dia .paso .ico { font-size: 1.6em; margin-bottom: 0.3em; }
+  .dia-a-dia .paso h5 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 0.85em; }
+  .dia-a-dia .paso p { font-size: 0.65em; color: var(--m-texto-sutil); margin: 0; line-height: 1.3; }
+  .dia-a-dia .paso .quien { display: block; font-size: 0.55em; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-top: 0.4em; padding: 0.15em 0; border-radius: 4px; }
+  .dia-a-dia .paso.tu .quien { background: var(--m-acento); color: #fff; }
+  .dia-a-dia .paso.nos .quien { background: var(--m-primario); color: #fff; }
+  .dia-a-dia .flecha { display: flex; align-items: center; color: var(--m-acento); font-size: 1.5em; font-weight: 800; }
+
+  /* Tranquilidad bullets */
+  .tranqui { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7em; }
+  .tranqui-item { background: #E8F5EF; border-left: 5px solid var(--m-positivo); padding: 0.8em 1em; border-radius: 0 10px 10px 0; }
+  .tranqui-item h5 { margin: 0 0 0.3em; color: var(--m-primario-oscuro); font-size: 0.95em; }
+  .tranqui-item p { margin: 0; font-size: 0.78em; color: var(--m-texto); line-height: 1.4; }
+
+  .next-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6em; }
+  .step { background: #fff; border-radius: 10px; padding: 0.9em; border: 2px solid var(--m-borde); position: relative; }
+  .step .num { position: absolute; top: -12px; left: 12px; background: var(--m-acento); color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75em; }
+  .step h5 { margin: 0.3em 0 0.3em; color: var(--m-primario-oscuro); font-size: 0.92em; }
+  .step p { margin: 0; font-size: 0.72em; color: var(--m-texto-sutil); line-height: 1.4; }
+
+  .cierre-frase { font-size: 1.4em; line-height: 1.4; color: var(--m-primario-oscuro); font-weight: 700; }
+  .cierre-frase em { color: var(--m-acento); }
+
+  .reveal .slide-number { color: var(--m-texto-sutil); background: transparent; font-family: "Inter", sans-serif; }
+  .nota-fuente { font-size: 0.5em; color: var(--m-texto-sutil); margin-top: 0.6em; font-style: italic; line-height: 1.4; }
+
+  .btn-demo { display: inline-block; background: var(--m-acento); color: #fff; padding: 0.6em 1.2em; border-radius: 8px; font-weight: 700; font-size: 0.85em; text-decoration: none; }
+  .btn-demo:hover { filter: brightness(1.1); }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 0.5em 0 0.5em 1.8em; position: relative; border-bottom: 1px solid var(--m-borde); font-size: 0.88em; }
+  .checklist li::before { content: "✓"; position: absolute; left: 0.2em; color: var(--m-positivo); font-size: 1.2em; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ====================================================== -->
+<!-- S1 · PORTADA                                            -->
+<!-- ====================================================== -->
+<section class="portada" data-background-color="#003DA5">
+  <div class="marca">Mercantil Asset &amp; Wealth Management</div>
+  <div class="kicker">El siguiente paso después del curso</div>
+  <h1 style="margin-top: 1em; font-size: 2.4em;">Acompañando<br>tu cooperativa</h1>
+  <h2 style="font-weight: 400; opacity: 0.92; margin-top: 0.6em;">Tres servicios profesionales · Un mismo equipo</h2>
+  <p style="margin-top: 2.5em; opacity: 0.85; font-size: 0.85em;">Conversación con el comité directivo · 30-45 min · Sin compromiso</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S2 · REPASO DEL CURSO                                    -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Lo que ya sabemos · del curso</div>
+  <h2>Tres ideas que se quedaron de la capacitación</h2>
+  <div class="grid-3" style="margin-top: 0.6em;">
+    <div class="tarjeta primario" style="padding: 0.8em;">
+      <h4 style="margin: 0 0 0.3em; font-size: 0.92em;">1. Foto miente; película no</h4>
+      <p style="font-size: 0.75em; margin: 0; color: var(--m-texto);">Un balance sano no garantiza caja. La gobernanza vive en el flujo proyectado, no en el saldo del 31 de diciembre.</p>
+    </div>
+    <div class="tarjeta acento" style="padding: 0.8em;">
+      <h4 style="margin: 0 0 0.3em; font-size: 0.92em;">2. Las 4 gavetas del dinero</h4>
+      <p style="font-size: 0.75em; margin: 0; color: var(--m-texto);">Cada peso de la cooperativa pertenece a una gaveta según su horizonte. Mismatch = costo real, demostrado en S3.</p>
+    </div>
+    <div class="tarjeta positivo" style="padding: 0.8em;">
+      <h4 style="margin: 0 0 0.3em; font-size: 0.92em;">3. El horizonte ordena el riesgo</h4>
+      <p style="font-size: 0.75em; margin: 0; color: var(--m-texto);">Los conos de rentabilidad: a 30 años el riesgo se ordena, a 3 meses es lotería. Por eso la Gaveta 4 puede tolerar volatilidad.</p>
+    </div>
+  </div>
+  <div class="callout-grande acento" style="font-size: 0.92em; margin-top: 1em;">
+    <em>"El curso enseñó qué mirar. Hoy hablamos de cómo se hace, semana a semana, dentro de tu cooperativa."</em>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S3 · LA PREGUNTA AL COMITÉ                               -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">La pregunta que abre la conversación</div>
+  <h2 style="font-size: 1.7em;">¿Quién, dentro de tu cooperativa, está pensando esto <em>sistemáticamente</em>?</h2>
+  <p style="font-size: 0.9em; color: var(--m-texto-sutil); margin: 0.8em 0;">Si la respuesta es "el comité de inversiones cuando se reúne", la siguiente pregunta importa:</p>
+  <ul class="checklist" style="font-size: 0.92em;">
+    <li>¿Cuándo fue la última vez que ese comité revisó la <strong>política de mínimo operativo</strong>?</li>
+    <li>¿Tienen <strong>proyección de flujo a 12 meses</strong> con escenarios de estrés?</li>
+    <li>¿Está la <strong>Gaveta 4 vacía</strong> porque "no nos atrevemos", o porque es la decisión informada de la junta?</li>
+    <li>Si mañana renuncia tu mejor analista financiero, <strong>¿quién aplica la lógica de las 4 gavetas</strong> sin perder continuidad?</li>
+  </ul>
+  <div class="callout-grande" style="font-size: 0.9em;">
+    <strong>Esa continuidad — sistemática, documentada, sin depender de una persona — es lo que ofrecemos.</strong>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S4 · EL CASO COACECSS · POR QUÉ IMPORTA                 -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">No es teoría · pasó en Panamá</div>
+  <h3>COACECSS — la cooperativa que no se imaginaba que iba a llegar a esto</h3>
+  <p style="font-size: 0.85em; color: var(--m-texto); margin: 0.3em 0 0.5em;">
+    Cooperativa de Empleados de la CSS. <strong>Quinta más grande del país</strong>. Más de 15,000 asociados. Era considerada sólida.
+    En 2013, IPACOOP la intervino. Lo que falló — según el propio IPACOOP — es exactamente lo que el curso explica:
+  </p>
+  <div class="callout-grande alerta" style="font-size: 1em;">
+    <em>"Colocaron en largo plazo, sin liquidez para Navidad y DPF."</em>
+    <p style="font-size: 0.7em; margin: 0.4em 0 0; color: var(--m-texto-sutil); font-style: italic;">— Cita textual de IPACOOP sobre el origen del problema</p>
+  </div>
+  <table style="font-size: 0.7em;">
+    <tbody>
+      <tr><td>Activos al momento de intervenir</td><td style="text-align:right;"><strong>USD 112M</strong></td></tr>
+      <tr><td>Morosidad acumulada</td><td style="text-align:right; color: var(--m-alerta);"><strong>33%</strong></td></tr>
+      <tr><td>Edificio comprado USD 6.7M, vendido en liquidación por</td><td style="text-align:right; color: var(--m-alerta);"><strong>USD 2.5M</strong> · pérdida 63%</td></tr>
+      <tr><td>Asociados afectados</td><td style="text-align:right;">15,000+ (10,633 con devolución parcial)</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 0.78em; margin-top: 0.5em; color: var(--m-texto-sutil);">
+    En <strong>noviembre 2024</strong>, IPACOOP intervino otra cooperativa (COOPACC, Colón). El problema no es histórico.
+    No traemos esto para asustar — lo traemos porque <strong>la junta directiva es responsable fiduciaria</strong>, y la prevención es tu mejor herramienta.
+  </p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S5 · TRES SERVICIOS · EL CORE DE LA OFERTA              -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Lo que hacemos · contigo, semana a semana</div>
+  <h2>Tres servicios profesionales</h2>
+  <div class="servicios">
+    <div class="servicio">
+      <span class="gaveta-tag">Gaveta 1-2</span>
+      <h4>A · Caja transaccional</h4>
+      <p class="promesa">"La plata que tu cooperativa necesita en cualquier momento, lista. Sin sorpresa de penalización."</p>
+      <ul>
+        <li>Política mínimo operativo escrita con tu junta</li>
+        <li>Fondo de liquidez T+1</li>
+        <li>DPF cortos rotativos en 3+ contrapartes</li>
+        <li>Reportes mensuales de cobertura</li>
+      </ul>
+    </div>
+    <div class="servicio b">
+      <span class="gaveta-tag">Gaveta 2-3</span>
+      <h4>B · ALM mediano plazo</h4>
+      <p class="promesa">"Tu colchón de 6-24 meses calzado con cobros previstos. Si un mes ajusta, no rompes nada."</p>
+      <ul>
+        <li>Bonos cupón generoso, calidad crediticia diversa</li>
+        <li>DPF plazos escalonados</li>
+        <li>Stress tests con escenarios no previstos</li>
+        <li>Calce real con calendario de pasivos</li>
+      </ul>
+    </div>
+    <div class="servicio c">
+      <span class="gaveta-tag">Gaveta 4</span>
+      <h4>C · Inversión estratégica</h4>
+      <p class="promesa">"Tu plata de décadas en clases de activos a las que no accedes sola."</p>
+      <ul>
+        <li>Fondos PE, equity global, RF larga duración</li>
+        <li>Pooling para acceso institucional</li>
+        <li>Diversificación real dentro de cada clase</li>
+        <li>Rango de retorno declarado por escenarios</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S6 · CFO/CIO VIRTUAL · EL DÍA A DÍA                     -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Cómo se ve la relación · cada mes</div>
+  <h2>Tu equipo financiero externo, sin contratar a nadie</h2>
+  <div class="dia-a-dia">
+    <div class="paso tu">
+      <div class="ico">📄</div>
+      <h5>1. Tu cooperativa</h5>
+      <p>Nos manda EE.FF. mensual auditable + proyección de flujo</p>
+      <span class="quien">Tú</span>
+    </div>
+    <div class="flecha">→</div>
+    <div class="paso nos">
+      <div class="ico">⚙️</div>
+      <h5>2. Análisis</h5>
+      <p>Calculamos asignación óptima G1-G2-G3-G4 + alertas de mismatch</p>
+      <span class="quien">Mercantil</span>
+    </div>
+    <div class="flecha">→</div>
+    <div class="paso tu">
+      <div class="ico">✓</div>
+      <h5>3. Tu comité firma</h5>
+      <p>Recibes propuesta de rebalanceo. Tu junta aprueba o ajusta. La firma siempre es tuya.</p>
+      <span class="quien">Tú</span>
+    </div>
+    <div class="flecha">→</div>
+    <div class="paso nos">
+      <div class="ico">📊</div>
+      <h5>4. Ejecutamos + reportamos</h5>
+      <p>Trades a custodia + reporte trazable al comité</p>
+      <span class="quien">Mercantil</span>
+    </div>
+  </div>
+  <div class="callout-grande" style="font-size: 0.9em; margin-top: 0.9em;">
+    <strong>La decisión final siempre es de tu junta.</strong> Nosotros ponemos el análisis, el motor, los productos. Tu comité aprueba dentro de la política que ya tienen escrita. Trazabilidad completa para auditoría y reguladores.
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S7 · ACCESO A PRODUCTOS INSTITUCIONALES                  -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Lo que NO consigues yendo sola</div>
+  <h3>Productos institucionales que requieren ticket grande</h3>
+  <p style="font-size: 0.82em; color: var(--m-texto); margin: 0.3em 0 0.5em;">
+    Tu cooperativa, individualmente, no puede comprar un fondo de capital privado de USD 250k mínimo. Pero <strong>20 cooperativas pooleadas sí pueden</strong>. Eso es lo que hacemos.
+  </p>
+  <table style="font-size: 0.7em;">
+    <thead>
+      <tr><th>Tipo de producto</th><th style="text-align:center;">Sola</th><th style="text-align:center;">Con Mercantil</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cuenta de ahorro / DPF tradicional</td><td style="text-align:center;">✅</td><td style="text-align:center;">✅ con plazos escalonados</td></tr>
+      <tr><td>Bonos individuales</td><td style="text-align:center; color: var(--m-aviso);">⚠️ limitado</td><td style="text-align:center;">✅</td></tr>
+      <tr><td><strong>Fondos balanceados institucionales</strong></td><td style="text-align:center; color: var(--m-alerta); font-weight: 700;">❌</td><td style="text-align:center;">✅ vía pooling</td></tr>
+      <tr><td><strong>Fondos de acciones globales</strong></td><td style="text-align:center; color: var(--m-alerta); font-weight: 700;">❌</td><td style="text-align:center;">✅ vía pooling</td></tr>
+      <tr><td><strong>Fondos de capital privado</strong></td><td style="text-align:center; color: var(--m-alerta); font-weight: 700;">❌</td><td style="text-align:center;">✅ vía pooling</td></tr>
+      <tr><td><strong>Renta fija larga duración (10+ años)</strong></td><td style="text-align:center; color: var(--m-alerta); font-weight: 700;">❌</td><td style="text-align:center;">✅</td></tr>
+    </tbody>
+  </table>
+  <div class="callout-grande acento" style="font-size: 0.85em;">
+    <strong>4 clases de activos institucionales que no acceden cooperativas individuales en Panamá.</strong> Eso es lo que el curso S3 llama "diversificación a la que no accedes si vas sola".
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S8 · DEMO CONOS                                          -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Recordatorio del curso · en vivo</div>
+  <h3>El horizonte ordena el riesgo</h3>
+  <div class="grid-2" style="margin-top: 0.6em; gap: 1em;">
+    <div class="tarjeta alerta" style="padding: 0.8em;">
+      <div class="kicker" style="color: var(--m-alerta);">Cono CAGR · 3 meses</div>
+      <p style="font-size: 0.85em; margin: 0.4em 0;">P10 anualizado: <strong>−60%</strong> · P90: <strong>+120%</strong></p>
+      <p style="font-size: 0.78em; color: var(--m-texto); margin-top: 0.5em; font-style: italic;">Plazo corto = caos. Plata que necesitas pronto NO va aquí.</p>
+    </div>
+    <div class="tarjeta positivo" style="padding: 0.8em;">
+      <div class="kicker" style="color: var(--m-positivo);">Cono CAGR · 30 años</div>
+      <p style="font-size: 0.85em; margin: 0.4em 0;">P10 anualizado: <strong>+6%</strong> · P90: <strong>+14%</strong></p>
+      <p style="font-size: 0.78em; color: var(--m-texto); margin-top: 0.5em; font-style: italic;">Plazo largo = convergencia. El tiempo paga el riesgo.</p>
+    </div>
+  </div>
+  <div class="callout-grande acento" style="font-size: 0.95em; margin-top: 0.8em;">
+    <em>"El horizonte es la palanca que separa ahorro de inversión."</em>
+  </div>
+  <p style="text-align: center; margin-top: 0.8em;">
+    <a class="btn-demo" href="../../../sesiones/sesion-3-productos-financieros/herramientas/conos-rentabilidad/" target="_blank" rel="noopener">▶ Demo en vivo</a>
+  </p>
+  <p class="nota-fuente">Esta es la herramienta del curso S3 que ya conocen. Hoy te mostramos cómo la aplicamos a TU cooperativa, con los inputs reales de TU tesorería.</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S9 · QUÉ COBRAMOS · TRANSPARENCIA TOTAL                  -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">El precio · sin sorpresas</div>
+  <h2>1.4% AUM al año · all-in</h2>
+  <p style="font-size: 0.85em; color: var(--m-texto-sutil); margin: 0.3em 0 0.5em;">
+    Una sola tarifa anual sobre los activos que gestionamos para tu cooperativa. Eso incluye <strong>todo</strong>:
+  </p>
+  <ul class="checklist" style="font-size: 0.85em;">
+    <li><strong>Análisis y propuesta mensual</strong> de rebalanceo entre las 4 gavetas</li>
+    <li><strong>Custodia</strong> de los activos</li>
+    <li><strong>Ejecución</strong> de los trades aprobados por tu comité</li>
+    <li><strong>Reporte mensual</strong> trazable a la junta + reporte trimestral consolidado</li>
+    <li><strong>Acceso a fondos institucionales</strong> (PE, equity global, RF larga, balanceados)</li>
+    <li><strong>Stress tests</strong> con escenarios no previstos (despidos masivos, recesión sectorial)</li>
+    <li><strong>Política mínimo operativo escrita</strong> y revisada anualmente con tu junta</li>
+  </ul>
+  <div class="callout-grande" style="font-size: 0.85em;">
+    <strong>Lo que el 1.4% reemplaza:</strong> el costo de un CFO interno (B/. 60-90k al año), el costo de un asesor financiero externo part-time (B/. 30-50k al año), y mucho más importante — <strong>el costo esperado de errores de gobernanza débil</strong> (caso COACECSS).
+  </div>
+  <p class="nota-fuente">Para una cooperativa con AUM USD 5M, el fee anual es ~USD 70k. Para AUM USD 10M, ~USD 140k. Para AUM USD 3M, ~USD 42k.</p>
+</section>
+
+<!-- ====================================================== -->
+<!-- S10 · TRANQUILIDAD FIDUCIARIA                            -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Lo que la junta directiva más necesita</div>
+  <h2>Gobernanza fiduciaria documentada</h2>
+  <div class="tranqui">
+    <div class="tranqui-item">
+      <h5>📋 Política escrita y aprobada</h5>
+      <p>Tu junta aprueba lineamientos (asset allocation, política de riesgo, mínimo operativo). Mercantil ejecuta dentro de ese marco. La firma final siempre es de la junta.</p>
+    </div>
+    <div class="tranqui-item">
+      <h5>🔍 Trazabilidad completa</h5>
+      <p>Cada decisión queda guardada con sus inputs, supuestos, y razones. Si en una asamblea o auditoría preguntan "¿por qué hicieron este movimiento en marzo?", tienes la respuesta documentada.</p>
+    </div>
+    <div class="tranqui-item">
+      <h5>👥 No depende de una persona</h5>
+      <p>Si renuncia tu CFO o cambia tu comité, la metodología sigue aplicándose igual. La continuidad institucional es del proceso, no de un individuo.</p>
+    </div>
+    <div class="tranqui-item">
+      <h5>⚖️ Auditable por reguladores</h5>
+      <p>IPACOOP y SBP cada vez exigen más documentación de las decisiones de inversión cooperativa. Nuestro reporte mensual cumple con ese estándar.</p>
+    </div>
+  </div>
+  <div class="callout-grande positivo" style="font-size: 0.9em; margin-top: 0.6em;">
+    <strong>El comité directivo asume responsabilidad fiduciaria.</strong> Que las decisiones estén documentadas con metodología profesional reduce sustancialmente el riesgo personal de cada miembro de la junta.
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S11 · PRÓXIMOS PASOS                                     -->
+<!-- ====================================================== -->
+<section>
+  <div class="kicker">Cómo seguimos · sin compromiso</div>
+  <h2>Tres pasos para conocernos sin decidir nada hoy</h2>
+  <div class="next-steps" style="margin-top: 1em;">
+    <div class="step">
+      <div class="num">1</div>
+      <h5>Diagnóstico de gavetas</h5>
+      <p><strong>30 minutos · gratis · sin compromiso.</strong> Un PM senior nuestro revisa los productos actuales de tu cooperativa contra el modelo de las 4 gavetas. Te mostramos los mismatches que detectamos.</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <h5>Workshop · política mínimo operativo</h5>
+      <p><strong>90 minutos · gratis · con tu comité.</strong> Diseñamos juntos la política mínimo operativo escrita. La política queda tuya — la usas con o sin nosotros.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <h5>Propuesta personalizada</h5>
+      <p>Si después de los dos pasos anteriores el comité quiere seguir, presentamos propuesta formal. <strong>Piloto contractual de 6 meses</strong>, sin penalización de salida.</p>
+    </div>
+  </div>
+  <div class="callout-grande acento" style="font-size: 0.9em; margin-top: 0.8em;">
+    <strong>Los dos primeros pasos son gratis y útiles para tu cooperativa <em>incluso si decides no continuar con nosotros</em>.</strong> Es nuestra forma de demostrar el valor antes de pedir contrato.
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- S12 · CIERRE                                             -->
+<!-- ====================================================== -->
+<section data-background-color="#002868">
+  <div style="color: #fff; padding: 2em 1.5em; text-align: center;">
+    <div class="kicker" style="color: var(--m-acento-claro);">El cierre</div>
+    <p class="cierre-frase" style="color: #fff; margin-top: 1em;">El curso enseñó <em>qué mirar</em>.<br>Hoy proponemos <em>quién lo mira contigo</em>,<br>semana a semana,<br>sin que tengas que contratar a nadie.</p>
+    <h1 style="color: #fff; margin-top: 1.5em; font-size: 2.2em;">Queremos ser <em style="color: var(--m-acento);">tu equipo financiero externo</em>.</h1>
+    <p style="opacity: 0.85; font-size: 0.85em; margin-top: 2em;">Mercantil Asset &amp; Wealth Management · Acompañamiento a cooperativas financieras panameñas</p>
+    <p style="opacity: 0.7; font-size: 0.75em; margin-top: 0.5em;">Contacto: [PM responsable de tu cuenta] · [email] · [teléfono]</p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    controls: true,
+    progress: true,
+    transition: 'fade',
+    backgroundTransition: 'fade',
+    width: 1280,
+    height: 800,
+    margin: 0.06,
+    center: false,
+  });
+</script>
+</body>
+</html>
