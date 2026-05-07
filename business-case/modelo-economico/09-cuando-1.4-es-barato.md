@@ -23,7 +23,7 @@
 
 ## El componente más subestimado: costo de oportunidad
 
-### Caso 1 — DPF roto (del curso S3)
+### Caso 1 — DPF roto (del curso S3, ilustrativo)
 
 Cooperativa rompe DPF de B/. 1M a 5 años en mes 10 para comprar edificio (B/. 1.5M, plazo decisión 60 días):
 - Penalización ruptura DPF (2% × 1M): **B/. 20,000**
@@ -33,7 +33,25 @@ Cooperativa rompe DPF de B/. 1M a 5 años en mes 10 para comprar edificio (B/. 1
 
 > El financiamiento permanente que necesite DESPUÉS para cubrir lo que el DPF roto no alcanzó (~B/. 520k) NO se cuenta — ese crédito hubiera existido con o sin mismatch.
 
-Si esto pasa **una vez en 10 años**, costo amortizado = B/. 8.6k/año. Solo este tipo de error pagaría parte del fee — y este es UN solo tipo de error.
+### Caso 1 BIS — COACECSS (caso REAL Panamá, intervenido por IPACOOP 2013)
+
+Lo que el caso del curso ilustra teóricamente, **en COACECSS pasó de verdad**:
+
+- 5ª cooperativa A&C más grande del país: **USD 112M activos**, USD 95M ahorros, USD 83M cartera.
+- **Mismatch ALM documentado por IPACOOP**: *"colocaron en largo plazo, sin liquidez para Navidad y DPF"* — cita textual.
+- Crecimiento agresivo sin gobernanza por subtipo.
+- **Edificio comprado en USD 6.7M, vendido en liquidación en USD 2.5M** (pérdida 63%).
+- Inversión en Uruguay perdida: USD 13M.
+- **Morosidad al momento de intervenir: 33%**.
+- **15,000+ asociados afectados** (10,633 recibieron devolución parcial).
+
+> **No es un caso teórico — es un caso paradigmático panameño**. Y en **noviembre 2024 IPACOOP intervino COOPACC** (Colón). El problema sigue vigente.
+
+Si un evento de mismatch como COACECSS pasa una vez en 10 años en una cooperativa típica, costo amortizado fácilmente excede el fee Mercantil. El fee no se compara con DPF — se compara con el costo esperado de gobernanza débil sin asesor profesional.
+
+Fuentes:
+- [Panamá América · 8 cooperativas bajo intervención IPACOOP](https://www.panamaamerica.com.pa/economia/ocho-cooperativas-estan-bajo-la-intervencion-del-ipacoop-852704)
+- [El Capital Financiero · liquidación COACECSS](https://elcapitalfinanciero.com/liquidacion-de-coacecss-sigue-generando-polemica/)
 
 ### Caso 2 — Gaveta 4 vacía 20 años
 
