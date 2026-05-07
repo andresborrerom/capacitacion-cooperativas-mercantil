@@ -784,3 +784,128 @@ Inspirada en el FanChart del proyecto `mercantil-planner` del usuario (React + R
 ### Memoria actualizada en esta iteración
 - `project_capacitacion_cooperativas.md`: estado v1.3 completo + 5 herramientas + Conos integrado + servidor robusto.
 
+---
+
+## 2026-05-07 — Sesión completa · Business case Mercantil A&WM × Cooperativas
+
+### Lo que se construyó hoy
+
+**Proyecto NUEVO en el repo:** `business-case/` — pitch interno para que Mercantil Asset & Wealth Management apruebe la entrada al segmento cooperativas financieras panameñas con servicio diferenciado (CFO/CIO virtual). Separado del curso pero usa S3 como puerta comercial.
+
+#### Iteraciones del Movimiento 1 del pitch (3 versiones)
+
+- **v1 (mañana):** "Reconocer que somos caros vs. mercado". → Hipótesis sin datos.
+- **v2 (post-benchmark Panamá):** "Somos los únicos transparentes en mercado opaco". → Hallazgo del agente: 22 instituciones WM Panamá, NINGUNA publica fee de gestión discrecional. Único punto comparable: BG Fondo General 1.3125% (Mercantil +7.5 bps).
+- **v3 (post-benchmark global):** "1.4% es precio institucional global con transparencia local". → Datos de 15 fuentes (ESMA, ICI, FCA, Morningstar, Cerulli, Kitces, PwC, McKinsey, ANBIMA Brasil).
+  - All-in US típico (advisor 1% + fund 0.5%): 1.50% → Mercantil −10 bps.
+  - Brasil ANBIMA Ações: 1.54% → Mercantil −14 bps.
+  - UCITS RV activa retail UE: 1.11% → +29 bps justificable por wrap.
+  - Posicionamiento: percentil 60-75 global. Dentro de mercado, no marginal.
+
+#### Caso del edificio S3 — Opción B aplicada
+
+Usuario detectó incoherencia matemática (24m de crédito puente vs 60d de venta del bono). Recálculo con supuestos defendibles:
+- Penalización 2% × 1M = B/. 20,000
+- Intereses devengados perdidos (10m × 5.2%/12 × 1M, banco no reconoce al ruptura) = B/. 43,333
+- Crédito puente 60 días (1.5M × 9% × 60/360) = B/. 22,500
+- **Total: B/. 85,833 ≈ 8.6% del principal** (era 11% inflado)
+
+Aplicado en S3 slides, guion, plan-sesion, instructivo, y 6 menciones en el business case.
+
+#### Tipología de cooperativas Panamá (5 subtipos × 4 gavetas)
+
+Pregunta del usuario: cómo demostramos que entendemos el sector sin ser cooperativistas. Tesis: no necesitamos ser cooperativistas — necesitamos entender los patrones de tesorería de cada subtipo mejor que un dirigente cooperativo promedio.
+
+Subtipos analizados con asignación recomendada G1/G2/G3/G4:
+- **A. Educadores** (Coopeduc, Coopeve, UCACEP) → G4 ALTA
+- **B. Militar/Policial** (FF.PP., SENAFRONT) → G4 MUY ALTA
+- **C. Sector salud** (Cooperativa Profesionales) → G3-G4 media-alta · cliente prioritario
+- **D. Agropecuaria/Pesca** → G2 alta calzada por ciclos
+- **E. Empresarial** → diversificación crítica por concentración
+
+Datos clave verificados (agente):
+- 973 cooperativas activas en Panamá (2025, +103% vs 2019)
+- 131 son A&C según directorio IPACOOP
+- Top 4 A&C combinadas: >USD 800M
+- Cooperativa Profesionales: ~$500M activos, comprometió $79M para hospital Bella Vista 2023
+- **67.8% cartera A&C cobra por descuento de planilla** (IPACOOP 2021) — dato icónico
+- Cartera A&C 2021: B/. 904M (última cifra agregada pública)
+
+#### Caso real COACECSS
+
+Reemplaza el caso anonimizado del DPF roto en el slide 7 del pitch al presidente:
+- 5ª cooperativa A&C de Panamá, intervenida por IPACOOP 2013
+- USD 112M activos, 33% morosidad
+- Edificio comprado USD 6.7M, vendido en liquidación USD 2.5M (−63%)
+- Cita textual IPACOOP: *colocaron en largo plazo, sin liquidez para Navidad y DPF* — exactamente el mismatch del curso S3
+- 15,000+ asociados afectados
+- Bonus: COOPACC intervenida nov-2024 → el problema sigue vigente
+
+#### Framing correcto del 67.8% (corrección del usuario)
+
+El usuario detectó contradicción: si decimos "morosidad casi nula" pero mostramos COACECSS con 33%, perdemos credibilidad. Reformulado:
+
+> *"67.8% cartera A&C cobra por descuento de planilla → mecánica de cobranza robusta. Análisis crediticio sigue siendo del comité. Nuestro complemento: estresar el ALM con escenarios no previstos (despidos masivos, recesión, regulación) que el comité voluntario no tiene tiempo ni herramientas para modelar."*
+
+**Posicionamiento:** complemento técnico al riesgo crediticio que ya manejan, NO sustituto.
+
+#### 2 pitches construidos en HTML (Reveal.js)
+
+**Pitch 1 — Visión estratégica · interno (16 slides):** `business-case/pitch/index.html`
+- Audiencia: presidente Mercantil A&WM
+- Tono: estratégico, técnico, datos-driven
+- Apertura: benchmark global (15 fuentes)
+- Caso COACECSS real
+- Slide tipología 5 subtipos
+- Cierre: "Lo que falta es decisión"
+
+**Pitch 2 — Pitch a Cooperativas (12 slides):** `business-case/pitch/cooperativas/index.html`
+- Audiencia: comité directivo cooperativa
+- Tono: cálido, pedagógico, hereda voz del curso
+- Apertura: repaso del curso (3 conceptos)
+- Caso COACECSS con tacto pedagógico
+- Día a día con etiquetas TÚ vs MERCANTIL
+- Slide tranquilidad fiduciaria (4 callouts verdes)
+- Próximos pasos: 2 acciones GRATIS
+- Cierre: "Queremos ser tu equipo financiero externo"
+
+#### Renombre en indice.html (a pedido del usuario)
+
+- Sección "Business case · Pitch al Presidente" → **"Trabajemos juntos"**
+- Item interno "Pitch al Presidente Mercantil" → **"Visión estratégica · interno"**
+- Razón: el indice puede quedar visible durante la reunión con el presidente; "Pitch al Presidente" expone el juego.
+
+### Pendientes para próxima sesión
+
+#### Refinamiento de pitches
+- Ensayar voz natural del usuario sobre los pitches (lo que es muy "consultor" vs lo que es muy "él").
+- Ajustar slides donde falte "voz Pocho".
+
+#### Datos adicionales valiosos (si surgen)
+- Calcular ANBIMA balanced ponderado (60/40 = 0.99%) — argumento bonus.
+- Mystery shopping a 2-3 competidores panameños (MMG, BG, Prival) para validar fee real.
+- Top 10 cooperativas A&C completo (agente trajo top 4-5).
+- Cifra agregada cartera A&C 2024-2025 (última pública 2021).
+
+#### Operativo
+- Imprimir documento de respaldo (~25 pp de los .md) para entregar al presidente.
+- Probar ambos pitches end-to-end en el navegador con conexión real a la herramienta de Conos.
+
+#### Si presidente aprueba tras pitch (Fase 4)
+- Construir motor CFO/CIO virtual en otro repo con Claude Code.
+
+### Commits añadidos en esta sesión 2026-05-07 (cronológico)
+
+- `27d796d` — add business-case: esqueleto inicial con 16 .md
+- `7a7ee33` — S3 caso edificio Opción B + business case Movimiento 1 v2
+- `30a80e2` — pitch HTML construido + Movimiento 1 v3 con datos globales
+- `1cbf1a0` — tipología cooperativas + slide al pitch
+- `1093c8c` — 3 cambios al pitch (COACECSS + 67.8% framing + sector salud)
+- `8f1997c` — pitch a cooperativas (12 slides)
+- `b5ff815` — indice rename "Trabajemos juntos"
+
+### Memoria persistente actualizada en esta sesión
+- `project_capacitacion_cooperativas.md`: nota agregada del business case como proyecto hermano.
+- **`project_business_case_mercantil.md` (NUEVA)**: estado completo del business case.
+- `MEMORY.md`: índice actualizado con nuevo archivo.
+
