@@ -336,6 +336,20 @@
       </div>
     </div>
 
+    <div class="seccion">
+      <h3><span class="icono-cuadro" style="background: var(--color-aviso);">!</span> Calidad de cartera <span style="font-weight:400; font-size:0.85rem; color: var(--color-texto-sutil);">· opcional</span></h3>
+      <p class="pista">Para ver el <strong>compromiso patrimonial</strong>: cuánto de tu patrimonio está en juego si la mora &gt; 30 días no se recupera. Si no tienes estos datos a mano, déjalos en blanco — el resto de indicadores funciona igual.</p>
+
+      <div class="campo">
+        <label for="c-mora">Cartera en mora &gt; 30 días (saldo)</label>
+        <input type="text" inputmode="numeric" id="c-mora" min="0" step="10000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-provisiones">Provisiones para cartera constituidas</label>
+        <input type="text" inputmode="numeric" id="c-provisiones" min="0" step="10000" placeholder="0">
+      </div>
+    </div>
+
     <div class="totales">
       <div class="fila"><span class="etiqueta">Cuadro 1 · Activo total</span><span class="valor" id="c-total-activos">B/. 0.00</span></div>
       <div class="fila"><span class="etiqueta">Cuadro 2 · Pasivo total</span><span class="valor" id="c-total-pasivos">B/. 0.00</span></div>
@@ -362,6 +376,11 @@
         <div class="etiqueta">Nivel de endeudamiento</div>
         <div class="valor">—</div>
         <div class="interpretacion">Pasivo total como porcentaje del activo total.</div>
+      </div>
+      <div class="kpi" id="kpi-compromiso">
+        <div class="etiqueta">Compromiso patrimonial</div>
+        <div class="valor">—</div>
+        <div class="interpretacion">(Mora &gt;30d − provisiones) / patrimonio. El número que casi nadie mira.</div>
       </div>
     </div>
 
@@ -484,9 +503,10 @@
     const kpiCo = document.getElementById("kpi-concentracion");
     const kpiLi = document.getElementById("kpi-liquidez");
     const kpiAp = document.getElementById("kpi-apalancamiento");
+    const kpiCp = document.getElementById("kpi-compromiso");
 
     if (activos === 0) {
-      [kpiAd, kpiCo, kpiLi, kpiAp].forEach(k => {
+      [kpiAd, kpiCo, kpiLi, kpiAp, kpiCp].forEach(k => {
         k.querySelector(".valor").textContent = "—";
         k.className = "kpi";
       });
@@ -533,10 +553,30 @@
     kpiAp.querySelector(".valor").textContent = Fmt.porcentaje(apalanc, 1);
     let nap, iap;
     if (apalanc > 0.92) { nap = "rojo"; iap = "Muy alto. El patrimonio es colchón delgado ante pérdidas."; }
-    else if (apalanc > 0.85) { nap = "amarillo"; iap = "Alto, típico del sector. Vigilar crecimiento."; }
+    else if (apalanc > 0.85) { nap = "amarillo"; iap = "Alto, típico del sector. La mayoría son depósitos: cuidar el calce vista vs. plazo, no asustarse del nivel."; }
     else { nap = "verde"; iap = "Razonable. Apalancamiento prudente."; }
     kpiAp.className = "kpi " + nap;
     kpiAp.querySelector(".interpretacion").textContent = iap;
+
+    // Compromiso patrimonial: cuánto del patrimonio se evaporaría si la mora >30d
+    // no se recupera, una vez agotadas las provisiones ya constituidas. Opcional.
+    const mora = val("c-mora");
+    const provisiones = val("c-provisiones");
+    if (mora === 0 || patrimonio <= 0) {
+      kpiCp.querySelector(".valor").textContent = "—";
+      kpiCp.querySelector(".interpretacion").textContent = "Ingresa la cartera en mora >30d (y provisiones) para verlo. El número que casi nadie mira.";
+      kpiCp.className = "kpi";
+    } else {
+      const compromiso = (mora - provisiones) / patrimonio;
+      kpiCp.querySelector(".valor").textContent = compromiso > 0 ? Fmt.porcentaje(compromiso, 0) : "0%";
+      let ncp, icp;
+      if (compromiso <= 0) { ncp = "verde"; icp = "Las provisiones ya cubren la mora >30d. El patrimonio queda protegido."; }
+      else if (compromiso < 0.15) { ncp = "verde"; icp = "Bajo. Aun si la mora >30d no paga, el patrimonio apenas se toca."; }
+      else if (compromiso < 0.30) { ncp = "amarillo"; icp = "Atención. Una parte relevante del patrimonio depende de recuperar la mora >30d."; }
+      else { ncp = "rojo"; icp = "Alto. Si la mora >30d no paga, una porción grande del patrimonio se evapora."; }
+      kpiCp.className = "kpi " + ncp;
+      kpiCp.querySelector(".interpretacion").textContent = icp;
+    }
   }
 
   function cargarCasoEjemplo(cual = "paraiso") {
@@ -551,7 +591,9 @@
         "c-dep-corto": 4800000,
         "c-dep-largo": 8200000,
         "c-prestamos": 600000,
-        "c-otros-pasivos": 200000
+        "c-otros-pasivos": 200000,
+        "c-mora": 2548000,
+        "c-provisiones": 800000
       },
       mediano: {
         "c-caja": 900000,
@@ -563,7 +605,9 @@
         "c-dep-corto": 3000000,
         "c-dep-largo": 33500000,
         "c-prestamos": 300000,
-        "c-otros-pasivos": 200000
+        "c-otros-pasivos": 200000,
+        "c-mora": 3320000,
+        "c-provisiones": 1800000
       }
     };
     const casos = presets[cual] || presets.paraiso;

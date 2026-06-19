@@ -3,7 +3,7 @@
 **Formato:** Virtual, ~100 participantes.
 **Duración meta:** 120 min · **Techo duro:** 150 min.
 **Plataforma:** Zoom/Teams + herramientas HTML abiertas por QR desde celular.
-**Slides:** 37 slides numerados (referencia `[SLIDE N]` al lado de cada tiempo). Reveal.js muestra el contador `c/t` abajo a la derecha.
+**Slides:** ~41 slides (numeración indicativa; tras añadir perfil del director, compromiso patrimonial y un acento técnico, los `[SLIDE N]` son orientativos). Reveal.js muestra el contador `c/t` abajo a la derecha.
 
 ## Setup previo (responsabilidad del facilitador)
 
@@ -49,7 +49,8 @@
   - Caja: B/. 180k. Depósitos de asociados exigibles en 90 días: B/. 2.1M.
   - *La foto era buena. La película decía otra cosa.*
 - [0:11] [SLIDE 9 · casos reales] Mostrar casos SVB 2023 y Metro Bank 2019 para dar dimensión al "7% que agota la caja". Leer las dos tarjetas, medio minuto cada una.
-- [0:13] [SLIDE 10] Pregunta retórica: *"¿Dónde estaba la información de esto? En los mismos estados. Solo había que mirar en otra parte."* Transición.
+- [0:13] [SLIDE 10] Pregunta retórica: *"¿Dónde estaba la información de esto? En los mismos estados. Solo había que mirar en otra parte."*
+- [0:14] [SLIDE perfil del director] Cierre humano del caso. Facilitador: *"El error de El Paraíso no fue de cálculo: fue querer dar buenas noticias."* Enumerar los cuatro hábitos del director (leer los números, visión de negocio, cabeza fría no corazón, mirada de largo plazo). **No** se necesita un PhD en finanzas. Nombrar la tensión sin culpar: *"el cooperativista se va con el corazón queriendo favorecer al asociado, y descuida la sostenibilidad de largo plazo."* Transición: *"Los tres cuadros son la herramienta para no repetirlo."*
 
 ---
 
@@ -108,6 +109,7 @@ Repetir la frase del día 2 veces (una en [0:26], otra al cerrar el acento técn
   - Definición simple: *"¿De cada dólar que tengo, cuánto debo?"*
   - Fórmula: Pasivo total / Activo total.
   - En cooperativas: *apalancamiento por depósitos*. Alto no necesariamente es malo — es el negocio. Pero sin gestión de plazos, se vuelve trampa.
+  - **Desactivar el susto del 70%:** el cooperativista, por cultura, le tiene aversión al crédito y celebra financiarse con lo propio, aunque eso frene el crecimiento. Cuando ve pasivos/activos > 70% lo lee como caos. Aclarar: ~90% de esos pasivos son **depósitos de los asociados** — no deuda cara, sino la materia prima del negocio. Lo que se cuida no es el nivel, es el **equilibrio entre depósitos a la vista y a plazo fijo** (eso es la Sesión 2).
 - [0:50] [SLIDE 21] Indicador 2: **Capacidad de ahorro / capacidad de generar patrimonio**.
   - Definición simple: *"¿Crece mi patrimonio con el tiempo o se estanca?"*
   - En cooperativas: crecimiento del patrimonio año contra año.
@@ -116,8 +118,10 @@ Repetir la frase del día 2 veces (una en [0:26], otra al cerrar el acento técn
   - Definición simple: *"¿Cuántas fuentes de ingreso tengo? Si una se corta, ¿sobrevivo?"*
   - En cooperativas: concentración de cartera por sector, por tipo de asociado, por producto.
   - Si el 60% de la cartera está con empleados de una sola institución y esa institución reduce personal, la cooperativa tiene un problema.
-- [0:58] [SLIDE 23] **Acento técnico opcional:**
+- [0:56] [SLIDE compromiso patrimonial] **El indicador que casi nadie mira.** Plantear la pregunta: *"Si los créditos en mora >30 días no pagaran más, ¿cuánto de mi patrimonio se evapora?"* Fórmula: (Mora >30d − Provisiones) / Patrimonio. En El Paraíso: (2.55M − 0.80M) / 3.0M = **58%**. Rematar: *"Parecía sólida con 15% de capital, pero más de la mitad del patrimonio dependía de cobrar esa mora. La adecuación 'real' caería a ~7%."* Mencionar que **la herramienta lo calcula sola** (sección opcional 'Calidad de cartera').
+- [0:58] [SLIDE 23 · acento técnico] **Acento técnico opcional:**
   > *Estos tres indicadores son la base. Para profundización real se usan ROA, ROE, eficiencia operativa, margen financiero, índices de cobertura de mora. IPACOOP publica benchmarks sectoriales. Mercantil Asset & Wealth Management entrega informes comparativos a cooperativas asesoradas.*
+- [0:59] [SLIDE acento técnico · dos lecturas mal hechas] Si el grupo está técnico, dos correcciones rápidas: (1) **la liquidez no se mide como una ferretería** (activo corriente/pasivo corriente no aplica a una cooperativa: el pasivo es depósitos y el activo es cartera) — la medida correcta es la cobertura de liquidez ya vista; (2) **no todos los activos pesan igual** — sin la fórmula de la Super, basta una ponderación por riesgo (caja ~0%, gobierno ~20%, hipoteca ~50%, consumo ~100%). Si el grupo no es técnico, saltar este slide.
 - [1:00] Frase de transición: *"Cinco minutos de descanso. Vuelvan con una pregunta en mente. La vamos a usar."*
 
 ---
@@ -142,7 +146,7 @@ Repetir la frase del día 2 veces (una en [0:26], otra al cerrar el acento técn
 - [1:13] Los participantes re-abren **"Mi foto financiera"** en modo cooperativa. Dos caminos:
   - (a) **Click al botón "Caso mediano · B/. 45M"** → se llenan los 10 campos automáticamente. Rápido.
   - (b) Ingresan los números manualmente siguiendo el desglose que aparece en el slide. Más lento pero más formativo.
-  - Sea cual sea el camino, **la herramienta calcula y muestra los 4 semáforos** (adecuación, concentración, cobertura de liquidez, apalancamiento).
+  - Sea cual sea el camino, **la herramienta calcula y muestra los semáforos** (adecuación, concentración, cobertura de liquidez, endeudamiento y —si se cargan mora y provisiones— compromiso patrimonial). El botón "Caso mediano" ya trae mora y provisiones, así que el compromiso patrimonial aparece.
 - [1:17] Discusión guiada (chat + 2-3 intervenciones de voz, co-facilitador elige):
   - ¿Qué te preocupa más?
   - ¿Qué le preguntarías al gerente financiero?

@@ -18,6 +18,19 @@ sesion: 1
 
 ---
 
+## El perfil del director (no hace falta un PhD)
+
+Para cuidar una cooperativa no se necesita un doctorado en finanzas. Se necesitan **cuatro hábitos**:
+
+1. **Saber leer los números** — no calcularlos, *leerlos* y cuestionarlos.
+2. **Visión de negocio** — entender de dónde sale el excedente y qué lo sostiene.
+3. **Cabeza fría, no corazón** — decidir con criterio, no con el deseo de complacer.
+4. **Mirada de largo plazo** — cuidar la cooperativa que recibirán los que vienen.
+
+> La trampa más común y más humana: irse con el corazón queriendo favorecer al asociado de hoy, y descuidar la sostenibilidad de mañana. El cargo es fiduciario; la lealtad es con la cooperativa en el tiempo.
+
+---
+
 ## Los tres cuadros, traducidos
 
 | Cuadro | Nombre contable | Pregunta que responde |
@@ -47,6 +60,18 @@ Regla aritmética que siempre se cumple: **Activo = Pasivo + Patrimonio.** Si no
 | **Cobertura de liquidez inmediata** | (Caja + inversiones líquidas) / Depósitos exigibles a 90 días o menos | Si el 20% de los depositantes viene mañana, ¿tenemos con qué? |
 
 No son los únicos que existen. Son los tres que tú, como directivo, **debes poder leer y cuestionar** antes de aprobar presupuesto o balance.
+
+### Y uno más, el que casi nadie mira: compromiso patrimonial
+
+> **Compromiso patrimonial = (Cartera en mora >30 días − Provisiones) / Patrimonio.**
+> Responde: *si los créditos atrasados no pagaran más, ¿cuánto de mi patrimonio se evapora?*
+
+En el caso El Paraíso, una mora que parecía "solo 14%" comprometía el **58% del patrimonio**, porque las provisiones cubrían apenas una fracción. La adecuación de capital se veía cómoda (15%), pero el colchón real era frágil. **Mi foto financiera** lo calcula sola en la sección opcional *Calidad de cartera*.
+
+### Cuidado con dos lecturas que se hacen mal
+
+- **La liquidez no se mide como una ferretería.** Activo corriente ÷ pasivo corriente sirve para un comercio, no para una cooperativa de ahorro y crédito (tu "pasivo corriente" son depósitos y tu "activo corriente" es cartera). Usa la **cobertura de liquidez** de arriba.
+- **No te asustes del 70% de pasivos/activos.** En una cooperativa ~90% de los pasivos son depósitos de los asociados — materia prima del negocio, no deuda cara. Lo que se cuida es el **equilibrio entre depósitos a la vista y a plazo fijo**, no el nivel.
 
 ---
 
@@ -89,6 +114,7 @@ Si te interesa profundizar:
 
 - **Marco regulatorio del sector:** Ley 17 de 1997 (régimen especial de las cooperativas), Decreto Ejecutivo 137 de 2001 (reglamento). IPACOOP publica benchmarks sectoriales.
 - **Adecuación de capital como métrica formal:** en cooperativas panameñas se mide como patrimonio/activo; IPACOOP vigila umbrales mínimos. Los bancos comerciales usan ratios Basilea — distintos, pero misma intención conceptual.
+- **Ponderación de activos por riesgo:** sin llegar a la fórmula de la Superintendencia, una aproximación simple ya ayuda: no todos los activos pesan igual (caja ~0%, inversiones en gobierno ~20%, hipotecas ~50%, consumo ~100%). En una cooperativa con casi todo en cartera, esa ponderación apenas cambia el número — y eso mismo es la lección: el colchón es tan real como la exposición.
 - **Siguiente paso en estados financieros:** aprender a leer el estado de flujos de efectivo (tema de Sesión 2) y las notas de los estados auditados (donde suele esconderse la información realmente relevante).
 
 ---

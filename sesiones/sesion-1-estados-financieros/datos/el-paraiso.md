@@ -68,7 +68,10 @@ Chequeo aritmético: Activo 20,000,000 = Pasivo 17,000,000 + Patrimonio 3,000,00
 - **Adecuación de capital** (Patrimonio/Activo) = 3,000,000 / 20,000,000 = **15%**
 - **Concentración en cartera** (Cartera neta/Activo) = 17,400,000 / 20,000,000 = **87%**
 - **Cobertura de liquidez inmediata** = (Caja + Inversiones líquidas) / (Depósitos a la vista + Depósitos <90 días) = 500,000 / 8,000,000 = **6.3%**
-- **Mora de cartera** (no en el balance explícito; dato del caso): **14% >30 días**
+- **Mora de cartera** (no en el balance explícito; dato del caso): **14% >30 días** → sobre cartera bruta de 18.2M ≈ **B/. 2,548,000** en mora.
+- **Compromiso patrimonial** = (Mora >30d − Provisiones) / Patrimonio = (2,548,000 − 800,000) / 3,000,000 = **58%**. Más de la mitad del patrimonio depende de que esa mora se recupere.
+- **Adecuación si la mora >30d se castigara** (escenario): patrimonio 3.0M − 1.748M no provisionado = 1.252M; activo 20M − 1.748M = 18.25M → adecuación ≈ **7%** (la holgada 15% era espejismo).
+- **Adecuación ponderada por riesgo** (ilustrativa, sin la fórmula de la Super): activos ponderados ≈ caja 0% + inv. líquidas 20% + cartera 100% + fijos 100% + otros 100% ≈ 19.6M → 3.0M / 19.6M ≈ **15.3%**. Apenas cambia porque casi todo el activo es cartera: el colchón es tan real como la exposición.
 - **Concentración por empleador** (no en balance; dato del caso): **≈ 72% de cartera** con empleados de una sola cadena.
 
 ## La trampa del caso
@@ -79,6 +82,7 @@ Pero:
 - La **cobertura de liquidez inmediata de 6.3%** es peligrosamente baja. Si solo el 7% de los depositantes a la vista y a plazo <90 días retira, la cooperativa agota su caja.
 - La **mora >30 días de 14%** erosiona el flujo real de intereses cobrados (los B/. 2.18M de ingreso contable tienen un equivalente en cobro menor).
 - La **concentración del 72% de cartera en empleados de una sola cadena** significa que si esa cadena recorta personal, la morosidad puede duplicarse en meses.
+- El **compromiso patrimonial del 58%** lo amarra todo: la mora que parece "solo 14%" pone en juego más de la mitad del patrimonio porque las provisiones (800k) cubren apenas una fracción de los 2.55M en mora.
 
 El flujo de caja, que se ve en Sesión 2, es el que permitió predecir el problema.
 
