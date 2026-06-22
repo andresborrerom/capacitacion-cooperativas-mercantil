@@ -112,8 +112,8 @@ Si tu cooperativa aún no te lo facilita con agilidad, esa ya es información ú
 
 Si te interesa profundizar:
 
-- **Marco regulatorio del sector:** Ley 17 de 1997 (régimen especial de las cooperativas), Decreto Ejecutivo 137 de 2001 (reglamento). IPACOOP publica benchmarks sectoriales.
-- **Adecuación de capital como métrica formal:** en cooperativas panameñas se mide como patrimonio/activo; IPACOOP vigila umbrales mínimos. Los bancos comerciales usan ratios Basilea — distintos, pero misma intención conceptual.
+- **Marco regulatorio del sector:** Ley 17 de 1997 (régimen especial de las cooperativas), Decreto Ejecutivo 137 de 2001 (reglamento). IPACOOP recopila reportes trimestrales de morosidad y divulga cifras agregadas del sector (morosidad, liquidez, activos, patrimonio).
+- **Adecuación de capital como métrica formal:** en cooperativas panameñas se mide como patrimonio/activo. A diferencia de los bancos (supervisados por la SBP con ratios Basilea), las cooperativas no tienen una supervisión prudencial equivalente; el 8% circula como referencia sectorial, no como norma cuantitativa uniforme.
 - **Ponderación de activos por riesgo:** sin llegar a la fórmula de la Superintendencia, una aproximación simple ya ayuda: no todos los activos pesan igual (caja ~0%, inversiones en gobierno ~20%, hipotecas ~50%, consumo ~100%). En una cooperativa con casi todo en cartera, esa ponderación apenas cambia el número — y eso mismo es la lección: el colchón es tan real como la exposición.
 - **Siguiente paso en estados financieros:** aprender a leer el estado de flujos de efectivo (tema de Sesión 2) y las notas de los estados auditados (donde suele esconderse la información realmente relevante).
 
