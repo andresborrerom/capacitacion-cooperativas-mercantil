@@ -93,7 +93,7 @@ Tres meses después del cierre, una combinación de:
 2. Retiros anticipados concentrados en los depósitos a la vista.
 3. Mora que sube a 19% en un trimestre (empleados preocupados dejan de pagar primero las cuotas de cooperativa).
 
-… deja a la cooperativa sin liquidez para pagar el aguinaldo de empleados (B/. 120,000 en diciembre). Tuvo que tomar un préstamo de emergencia con otra cooperativa del sector a tasa mayor a la usual.
+… deja a la cooperativa sin liquidez para cubrir las obligaciones de diciembre: **salarios (B/. 100,000) + aguinaldo/décimo (B/. 120,000) = B/. 220,000**, contra una caja de solo **B/. 180,000** (y bajo presión de retiros). Nunca se apartó una provisión para esto (B/. 0), pese a ser obligaciones conocidas desde enero. Faltaban B/. 40,000+, así que tuvo que tomar un préstamo de emergencia con otra cooperativa del sector a tasa mayor a la usual. El excedente de B/. 420,000 ya se había "celebrado" en asamblea en vez de convertirse en reserva líquida.
 
 ## Moraleja (para el participante)
 
