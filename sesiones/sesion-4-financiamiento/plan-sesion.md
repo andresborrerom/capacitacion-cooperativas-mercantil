@@ -20,10 +20,10 @@
 Comparar dos ofertas de crédito lado a lado: tasa nominal, comisiones, plazo. La herramienta calcula tasa efectiva, cuota, costo total, y muestra amortización mes a mes.
 
 ### Funcionalidad mínima
-- Dos columnas lado a lado (Oferta A, Oferta B).
-- Inputs por oferta: monto, tasa nominal anual, plazo (meses), comisión de apertura (%), comisiones mensuales, seguro mensual.
-- Outputs por oferta: cuota mensual, tasa efectiva anual (TEA), costo total del crédito, % del costo total que es capital vs. intereses.
-- Gráfica de amortización: cuánto del pago va a capital vs. interés cada mes.
+- Tres columnas lado a lado (A plazo largo, B plazo corto, C plazo largo + abonos).
+- Inputs por oferta: monto, tasa nominal anual, plazo (meses), seguro mensual, abono extra a capital.
+- Outputs por oferta: pago mensual, se salda en (meses), intereses totales, seguros, tasa efectiva anual (TEA), costo total.
+- Gráfica: interés acumulado en el tiempo (una línea por oferta).
 - Botón "cuál conviene" que compara y da una opinión basada en criterio simple (menor costo total + plazo razonable al propósito).
 - Caso precargado de ejemplo.
 

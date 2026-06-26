@@ -48,11 +48,11 @@ Aumentar aportes de asociados o capitalizar utilidades. Es la **única fuente qu
 
 Si te quedas con la tasa nominal, te estás perdiendo la mitad de la historia.
 
-### 1. Comisiones
-Apertura, manejo, mensuales, estudio, seguros atados. Un crédito al 7% "nominal" con 3% de comisión de apertura y seguros obligatorios puede costar **9-10% real**.
+### 1. Plazo
+El plazo decide la cuota **y también** cuánto pagas en total. Un crédito al 8% a 10 años paga casi el **triple** de intereses que a 4 años. La cuota es menor — el costo total es mucho mayor.
 
-### 2. Plazo
-El plazo decide la cuota **y también** cuánto pagas en total. Un crédito al 7% a 10 años paga casi el doble de lo que pagaría a 3 años. La cuota es menor — el costo total es mucho mayor.
+### 2. Abonos a capital
+Pagar por encima de la cuota va directo a capital: acorta el plazo y baja el interés total. Así puedes tener una cuota mínima baja (flexibilidad) **y** un costo bajo, a la vez.
 
 ### 3. Comportamiento
 Las multas por mora, los intereses por atraso, las comisiones por renegociación. Si hay riesgo de atraso en el perfil de flujo, la tasa verdadera es más alta que la nominal.

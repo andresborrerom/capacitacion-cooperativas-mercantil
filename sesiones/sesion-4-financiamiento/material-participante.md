@@ -36,8 +36,8 @@ sesion: 4
 
 ## Las 3 cosas que no son la tasa (pero cambian el costo)
 
-1. **Comisiones.** Apertura, manejo, seguros atados.
-2. **Plazo.** Mismo préstamo a 3 años vs. 10 años: intereses totales pueden ser **3x** mayores.
+1. **Plazo.** Mismo préstamo a 4 años vs. 10 años: los intereses totales pueden casi **triplicarse**. La cuota baja engaña.
+2. **Abonos a capital.** Pagar por encima de la cuota acorta el plazo y baja el interés total: cuota mínima baja **y** costo bajo a la vez.
 3. **Comportamiento.** Multas, intereses por mora, renegociaciones.
 
 El concepto que une todo: **Tasa Efectiva Anual (TEA)**. En Panamá, los bancos regulados están obligados a mostrarla. Siempre pedirla.

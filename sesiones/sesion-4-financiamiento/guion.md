@@ -42,23 +42,19 @@
 
 - [0:05] **[Slide 3 · Banner caso]** Co-facilitador cuenta la situación:
   > *"Cooperativa mediana, 22 años, quiere invertir B/. 1.5M en abrir una sucursal en un distrito vecino. Análisis dice que recuperará inversión en 7 años. Dos bancos le ofrecen crédito."*
-- [0:07] **[Slide 4 · Tabla A vs B]** Dos ofertas lado a lado:
+- [0:07] **[Slide 4 · Tabla A vs B]** El mismo crédito de B/. 1.5M, **misma tasa (8%)**, distinto plazo:
 
-### Oferta A (banco 1)
-- Tasa nominal: 8.5% anual
-- Plazo: 7 años (84 meses)
-- Comisión de apertura: 2%
-- Seguro mensual: B/. 75
+### Oferta A · 10 años
+- Monto: B/. 1.5M · Tasa nominal: 8% · Plazo: 10 años (120 meses)
+- Cuota mensual: B/. 18,200 (la mitad que B)
 
-### Oferta B (emisión a asociados — certificado)
-- Tasa nominal: 5.5% anual
-- Plazo: 3 años (36 meses)
-- Costo emisión: B/. 20,000 (≈1.33% del monto)
-- Sin comisiones mensuales
+### Oferta B · 4 años
+- Monto: B/. 1.5M · Tasa nominal: 8% · Plazo: 4 años (48 meses)
+- Cuota mensual: B/. 36,600
 
 - [0:09] Pregunta al chat: *"¿Cuál eligen a simple vista?"*
 - [0:12] Facilitador:
-  > *"La mayoría elige B por la tasa. Vamos a ver si después de 15 minutos sigue pareciendo la misma respuesta."*
+  > *"La mayoría elige A: la cuota es la mitad, se ve más liviana. Vamos a ver si después de 15 minutos sigue pareciendo la misma respuesta."*
 
 ---
 
@@ -71,14 +67,13 @@
   > **"Tasa cuenta. Plazo pesa."**
 - [0:17] **[Slide 6 · 3 cosas + TEA]** Desglose: **3 cosas que no son la tasa** pero cambian el costo real:
 
-### 1. Comisiones
-- Apertura, manejo, seguros atados, comisiones mensuales.
-- Un crédito al 7% nominal con 3% apertura y B/. 50 mensual de seguro puede costar **9-10% real**.
+### 1. Plazo
+- Plazo más largo = cuota más cómoda, pero costo total **mucho** mayor.
+- Ejemplo: B/. 100k al 8% a 4 años paga ~B/. 17k en intereses. A 10 años: ~B/. 46k. **Casi el triple.**
 
-### 2. Plazo
-- Plazo más largo = cuota más cómoda.
-- Plazo más largo = costo total **mucho** mayor.
-- Ejemplo: B/. 100k al 7% a 3 años paga B/. 11k en intereses. A 10 años: B/. 39k. **Tres veces y media.**
+### 2. Abonos a capital
+- Pagar por encima de la cuota va directo a capital: acorta el plazo y baja el interés total.
+- Es la forma de tener cuota mínima baja (flexibilidad) **y** costo bajo a la vez.
 
 ### 3. Comportamiento
 - Multas por mora, intereses por atraso, comisiones por renegociación.
@@ -98,24 +93,25 @@
 **Slides:** 7 (banner herramienta) → 8 (QR) → 9 (tabla resultados comparador) → 10 (callout "B barata si...").
 
 - [0:30] **[Slide 7 → 8 · Banner + QR]** 1 min para escanear.
-- [0:31] *"Abre la herramienta y carga el ejemplo del curso. Vamos a desmontar las dos ofertas juntos."*
-- [0:33] Con botón "Cargar ejemplo del curso" (precargado con las ofertas del caso):
-  - Oferta A: B/. 1.5M, 8.5%, 84 meses, 2% apertura, B/. 75 mensual.
-  - Oferta B: B/. 1.5M, 5.5%, 36 meses, 1.33% costo emisión, sin mensual.
+- [0:31] *"Abre la herramienta y carga el ejemplo del curso. Vamos a desmontar las opciones juntos."*
+- [0:33] Con botón "Cargar ejemplo del curso" (precargado):
+  - A: B/. 1.5M, 8%, 120 meses, sin abono.
+  - B: B/. 1.5M, 8%, 48 meses, sin abono.
+  - C: B/. 1.5M, 8%, 120 meses, abono extra B/. 18,000/mes a capital.
 - [0:36] **[Slide 9 · Resultados comparador]** Guiar lectura:
-  - **Cuota mensual A:** B/. 23,800. Cuota mensual B: B/. 45,300.
-  - **Costo total A:** ≈B/. 527,000. Costo total B: ≈B/. 150,000.
-  - **Veredicto de la herramienta:** B es más barato en total.
-- [0:40] Pregunta importante:
-  > *"Aparentemente B gana. Pero vean la cuota mensual: B/. 45k vs B/. 24k. ¿Aguanta el flujo de la cooperativa esa cuota mensual en los próximos 36 meses?"*
-- [0:43] **[POLL #2]:** *"La inversión produce retorno en año 3 (B/. 200k anuales). ¿Qué opción calza mejor con ese flujo?"*
-  - (a) Opción A (7 años).
-  - (b) Opción B (3 años).
-  - (c) Una combinación.
-- [0:46] **[Slide 10 · Callout "B barata si..."]** Análisis:
-  > *"Opción B tiene costo bajo pero **termina en año 3** — justo cuando la inversión empieza a producir bien. Hay que refinanciarla. Riesgo de refinanciación = tasa futura desconocida. Opción A es más cara pero **calza con el horizonte de producción** de la inversión. **Plazo pesa.**"*
+  - **Pago mensual:** A B/. 18,200 · B B/. 36,600 · C B/. 36,200.
+  - **Costo total:** A ≈B/. 2,183,900 · B ≈B/. 1,757,700 · C ≈B/. 1,761,400.
+  - **Veredicto:** A "parecía" la más liviana (cuota mitad), pero es la **más cara**: paga ≈B/. 426k más que B, con la misma tasa. *El plazo pesa.*
+- [0:40] El giro (opción C):
+  > *"¿Y si no quiero amarrarme a la cuota alta de B? Tomo el plazo largo —cuota mínima baja— pero abono a capital. Eso es C: se salda en ~4 años y cuesta casi lo mismo que B. El plazo largo no es la trampa; la trampa es no abonar."*
+- [0:43] **[POLL #2]:** *"Mismo crédito a 8%. ¿Qué estructura te conviene más?"*
+  - (a) A — 10 años (cuota baja, pagas más en total).
+  - (b) B — 4 años (cuota alta, pagas menos).
+  - (c) C — 10 años pero abonando a capital.
+- [0:46] **[Slide 10 · Callout opción C]** Cierre del razonamiento:
+  > *"B cuesta menos pero exige cuota alta. C te da lo mejor de los dos: cuota mínima baja como A, pero abonando a capital el costo baja casi al de B. Tasa cuenta, plazo pesa — y abonar a capital es tu palanca."*
 - [0:49] Cierre del bloque:
-  > *"Hace 15 minutos la mayoría elegía B por la tasa. ¿Cuántos siguen eligiendo B?"*
+  > *"Hace 15 minutos la mayoría elegía A por la cuota baja. ¿Cuántos ahora ven que esa cuota baja costaba B/. 426k más?"*
 
 ---
 
@@ -171,7 +167,7 @@
   >
   > **Opciones de financiamiento:**
   > - A: usar B/. 1.5M de inversiones líquidas actuales.
-  > - B: crédito bancario 8.5% a 7 años, 2% apertura.
+  > - B: crédito bancario 8.5% a 7 años.
   > - C: emisión de certificados al 5.5% a 3 años, costo B/. 20k.
   >
   > **¿Qué recomendarías y por qué?**

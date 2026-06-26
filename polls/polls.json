@@ -204,12 +204,12 @@
       "sesion": 4,
       "orden": 2,
       "titulo": "Sesión 4 · Poll #2",
-      "pregunta": "La inversión produce retorno desde año 3 (B/. 200k anuales). ¿Qué opción calza mejor?",
+      "pregunta": "Mismo crédito a 8%, distinto plazo. ¿Qué estructura te conviene más?",
       "tipo": "single",
       "opciones": [
-        "Opción A (7 años)",
-        "Opción B (3 años)",
-        "Una combinación"
+        "A — 10 años (cuota baja, pagas más en total)",
+        "B — 4 años (cuota alta, pagas menos)",
+        "C — 10 años pero abonando a capital"
       ]
     },
     "s4-p3-senal-oida": {
