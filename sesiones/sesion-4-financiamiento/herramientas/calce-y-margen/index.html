@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es-PA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calce y margen · El motor de tu cooperativa · Sesión 4</title>
+<link rel="stylesheet" href="../../../../assets/css/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { background: var(--color-fondo-sutil); }
+  .contenedor { max-width: 1000px; }
+
+  .panel {
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+    box-shadow: var(--shadow-1);
+  }
+  .panel h3 { margin: 0 0 0.2rem 0; }
+  .panel .pista { color: var(--color-texto-sutil); font-size: 0.85rem; margin: 0 0 1rem 0; }
+
+  .balance { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  @media (max-width: 760px) { .balance { grid-template-columns: 1fr; } }
+  .balance h4 { margin: 0 0 0.5rem 0; font-size: 0.95rem; }
+  .balance h4.act { color: var(--color-primario); }
+  .balance h4.pas { color: var(--color-acento); }
+
+  .fila-in {
+    display: grid;
+    grid-template-columns: 1fr 90px 64px;
+    gap: 0.4rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .fila-in label { font-size: 0.82rem; color: var(--color-texto); margin: 0; }
+  .fila-in input { text-align: right; padding: 0.4rem 0.5rem; font-variant-numeric: tabular-nums; font-size: 0.85rem; }
+  .fila-in .cab { font-size: 0.68rem; color: var(--color-texto-sutil); text-transform: uppercase; letter-spacing: 0.04em; text-align: right; }
+
+  .controles { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-4); align-items: center; }
+  @media (max-width: 760px) { .controles { grid-template-columns: 1fr; } }
+  .toggle-tasa { display: flex; gap: 0.5rem; }
+  .toggle-tasa button {
+    flex: 1; padding: 0.7rem 0.5rem; border-radius: var(--radius-sm);
+    border: 2px solid var(--color-borde); background: #fff; cursor: pointer;
+    font-weight: 600; color: var(--color-texto-sutil); font-family: inherit; font-size: 0.9rem;
+  }
+  .toggle-tasa button.activo { border-color: var(--color-primario); background: var(--color-primario); color: #fff; }
+  .shock label { display: block; font-size: 0.85rem; color: var(--color-texto-sutil); margin-bottom: 0.3rem; }
+  .shock input[type=range] { width: 100%; }
+  .shock .valor-shock { font-weight: 700; color: var(--color-acento); font-size: 1.1rem; }
+
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: var(--space-2); }
+  @media (max-width: 620px) { .kpis { grid-template-columns: 1fr; } }
+  .kpi { background: #fff; border: 1px solid var(--color-borde); border-left: 5px solid var(--color-texto-sutil); border-radius: var(--radius-sm); padding: 0.9rem; }
+  .kpi .etq { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-texto-sutil); font-weight: 600; }
+  .kpi .val { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--color-primario-oscuro); line-height: 1.15; }
+  .kpi .sub { font-size: 0.75rem; color: var(--color-texto-sutil); margin-top: 0.2rem; }
+  .kpi.fija { border-left-color: var(--color-alerta); }
+  .kpi.fija .val { color: #8B2320; }
+  .kpi.variable { border-left-color: var(--color-positivo); }
+  .kpi.variable .val { color: #1F5B3D; }
+
+  .calce-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); align-items: center; }
+  @media (max-width: 620px) { .calce-wrap { grid-template-columns: 1fr; } }
+  .barra-calce { margin: 0.4rem 0; }
+  .barra-calce .et { font-size: 0.75rem; color: var(--color-texto-sutil); display: flex; justify-content: space-between; }
+  .barra-calce .track { height: 18px; background: var(--color-fondo-sutil); border-radius: 4px; overflow: hidden; }
+  .barra-calce .fill { height: 100%; border-radius: 4px; }
+  .fill.exig { background: var(--color-acento); }
+  .fill.disp { background: var(--color-primario); }
+
+  .semaforo { padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 500; }
+  .semaforo.verde { background: #E8F5EF; border: 1px solid #BCD9C8; color: #1F5B3D; }
+  .semaforo.amarillo { background: #FAF3D7; border: 1px solid #E5D593; color: #7A5C00; }
+  .semaforo.rojo { background: #FBE9E8; border: 1px solid #E9B9B6; color: #8B2320; }
+
+  svg.chart { width: 100%; height: 260px; display: block; }
+  .leyenda { display: flex; gap: 1.2rem; font-size: 0.8rem; color: var(--color-texto-sutil); margin-bottom: 0.5rem; }
+  .leyenda .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.3rem; vertical-align: middle; }
+
+  .acciones { display: flex; gap: 0.7rem; justify-content: flex-end; flex-wrap: wrap; margin-top: var(--space-3); }
+  .privacidad { text-align: center; font-size: 0.82rem; color: var(--color-texto-sutil); padding: var(--space-3); }
+  .nota-preset { font-size: 0.78rem; color: var(--color-texto-sutil); background: var(--color-fondo-sutil); border-radius: var(--radius-sm); padding: 0.6rem 0.8rem; margin-top: 0.6rem; }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div>
+    <div class="marca">Calce y margen · el motor de tu cooperativa</div>
+    <div class="subtitulo">ALM (calce de plazos) + NIM (margen) · Mercantil Asset &amp; Wealth Management · Sesión 4</div>
+  </div>
+</header>
+
+<div class="contenedor">
+
+  <div class="callout info" style="margin-bottom: var(--space-4);">
+    El caso <strong>El Paraíso v2.0</strong>: la misma cooperativa, pero reestructurada hacia <strong>depósitos de largo plazo</strong>. Mira cómo el <strong>calce de plazos</strong> y el <strong>margen (NIM)</strong> aguantan —o no— una subida de tasas, según uses tasa <strong>fija</strong> o <strong>variable</strong>.
+  </div>
+
+  <!-- SECCIÓN 1 · BALANCE POR PLAZOS -->
+  <div class="panel">
+    <h3>1 · Balance por plazos</h3>
+    <p class="pista">Ordena lo que tienes (activos) y lo que debes (pasivos) por <strong>cuándo se mueve la plata</strong>. Monto en miles de B/. y tasa anual %.</p>
+    <div class="balance">
+      <div>
+        <h4 class="act">Activos · ¿cuándo me regresa?</h4>
+        <div class="fila-in"><span></span><span class="cab">B/. (miles)</span><span class="cab">tasa %</span></div>
+        <div class="fila-in"><label>Líquido (caja + inversiones)</label><input type="number" id="act_liq_m"><input type="number" id="act_liq_t" step="0.1"></div>
+        <div class="fila-in"><label>Cartera que vence &lt; 1 año</label><input type="number" id="act_carc_m"><input type="number" id="act_carc_t" step="0.1"></div>
+        <div class="fila-in"><label>Cartera que vence &gt; 1 año</label><input type="number" id="act_carl_m"><input type="number" id="act_carl_t" step="0.1"></div>
+        <div class="fila-in"><label>Fijos + otros (no producen)</label><input type="number" id="act_fij_m"><input type="number" id="act_fij_t" step="0.1" value="0" disabled></div>
+      </div>
+      <div>
+        <h4 class="pas">Pasivos · ¿cuándo me lo piden?</h4>
+        <div class="fila-in"><span></span><span class="cab">B/. (miles)</span><span class="cab">tasa %</span></div>
+        <div class="fila-in"><label>Depósitos a la vista</label><input type="number" id="pas_vis_m"><input type="number" id="pas_vis_t" step="0.1"></div>
+        <div class="fila-in"><label>Plazo fijo corto (≤ 1 año)</label><input type="number" id="pas_cor_m"><input type="number" id="pas_cor_t" step="0.1"></div>
+        <div class="fila-in"><label>Plazo fijo largo (&gt; 1 año)</label><input type="number" id="pas_lar_m"><input type="number" id="pas_lar_t" step="0.1"></div>
+        <div class="fila-in"><label>Préstamos bancarios + otros</label><input type="number" id="pas_pre_m"><input type="number" id="pas_pre_t" step="0.1"></div>
+      </div>
+    </div>
+    <div class="nota-preset" id="nota-preset"></div>
+  </div>
+
+  <!-- SECCIÓN 2 · ESCENARIO -->
+  <div class="panel">
+    <h3>2 · Escenario de tasas</h3>
+    <p class="pista">¿Qué pasa si las tasas del mercado suben? ¿Tu cartera y tus depósitos están a tasa fija o variable?</p>
+    <div class="controles">
+      <div>
+        <div style="font-size: 0.85rem; color: var(--color-texto-sutil); margin-bottom: 0.3rem;">Tipo de tasa (cartera y depósitos):</div>
+        <div class="toggle-tasa">
+          <button id="btn-fija" onclick="setTipo('fija')">Fija</button>
+          <button id="btn-variable" onclick="setTipo('variable')">Variable</button>
+        </div>
+      </div>
+      <div class="shock">
+        <label>Sube las tasas del mercado: <span class="valor-shock" id="shock-val">+0.0 pp</span></label>
+        <input type="range" id="shock" min="0" max="6" step="0.5" value="0">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 3 · DASHBOARD -->
+  <div class="panel">
+    <h3>3 · Tablero de resultados</h3>
+
+    <div class="semaforo" id="semaforo" style="margin-bottom: var(--space-3);">—</div>
+
+    <div class="kpis">
+      <div class="kpi" id="kpi-base"><div class="etq">Margen base (sin shock)</div><div class="val">—</div><div class="sub">Margen financiero anual</div></div>
+      <div class="kpi fija" id="kpi-fija"><div class="etq">Margen con shock · FIJA</div><div class="val">—</div><div class="sub">Cartera no reprecia</div></div>
+      <div class="kpi variable" id="kpi-variable"><div class="etq">Margen con shock · VARIABLE</div><div class="val">—</div><div class="sub">Cartera reprecia con el mercado</div></div>
+    </div>
+
+    <div style="height: 1px; background: var(--color-borde); margin: var(--space-3) 0;"></div>
+
+    <div class="calce-wrap">
+      <div>
+        <h4 style="margin: 0 0 0.5rem;">Calce de plazos (≤ 1 año)</h4>
+        <div class="barra-calce">
+          <div class="et"><span>Me lo pueden pedir (exigible)</span><span id="calce-exig-lbl">—</span></div>
+          <div class="track"><div class="fill exig" id="calce-exig-bar" style="width:0%"></div></div>
+        </div>
+        <div class="barra-calce">
+          <div class="et"><span>Me regresa (disponible)</span><span id="calce-disp-lbl">—</span></div>
+          <div class="track"><div class="fill disp" id="calce-disp-bar" style="width:0%"></div></div>
+        </div>
+        <div class="semaforo" id="calce-semaforo" style="margin-top: 0.6rem; font-size: 0.82rem;">—</div>
+        <p style="font-size: 0.72rem; color: var(--color-texto-sutil); margin: 0.5rem 0 0;">El Paraíso original: B/. 8.0M exigible ≤ 1 año (brecha −4.9M). Reestructurado a plazo largo, la brecha se reduce.</p>
+      </div>
+      <div>
+        <h4 style="margin: 0 0 0.5rem;">El margen cuando suben las tasas</h4>
+        <div class="leyenda">
+          <span><span class="dot" style="background: var(--color-alerta);"></span>Tasa fija</span>
+          <span><span class="dot" style="background: var(--color-positivo);"></span>Tasa variable</span>
+        </div>
+        <svg class="chart" id="chart" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="acciones">
+    <button class="ghost" onclick="cargarParaiso()">Cargar El Paraíso v2.0</button>
+    <button class="ghost" onclick="limpiar()">Limpiar</button>
+  </div>
+
+  <p class="privacidad">
+    <strong>Tu privacidad importa.</strong> Los datos no salen de tu dispositivo.
+  </p>
+</div>
+
+<footer class="pie">
+  Mercantil Asset &amp; Wealth Management · Curso para dirigentes de cooperativas financieras · Sesión 4
+</footer>
+
+<script src="../../../../assets/js/shared.js"></script>
+<script>
+  const CAMPOS = ["act_liq_m","act_liq_t","act_carc_m","act_carc_t","act_carl_m","act_carl_t","act_fij_m",
+                  "pas_vis_m","pas_vis_t","pas_cor_m","pas_cor_t","pas_lar_m","pas_lar_t","pas_pre_m","pas_pre_t"];
+  const PRESET = {
+    act_liq_m:500, act_liq_t:2, act_carc_m:2600, act_carc_t:9, act_carl_m:14800, act_carl_t:9, act_fij_m:2100,
+    pas_vis_m:2000, pas_vis_t:1, pas_cor_m:3000, pas_cor_t:3.5, pas_lar_m:11200, pas_lar_t:5, pas_pre_m:800, pas_pre_t:7
+  };
+  let tipo = "fija";
+
+  function v(id) { const el = document.getElementById(id); return parseFloat(el && el.value) || 0; }
+  function milesFmt(n) { return "B/. " + Math.round(n).toLocaleString("en-US") + "k"; }
+
+  // Margen financiero anual (en miles de B/.) a un shock dado y tipo de tasa.
+  function calcMargen(shock, t) {
+    const liqM = v("act_liq_m"), liqT = v("act_liq_t");
+    const carcM = v("act_carc_m"), carcT = v("act_carc_t");
+    const carlM = v("act_carl_m"), carlT = v("act_carl_t");
+    const carteraVar = (t === "variable") ? shock : 0; // la cartera reprecia solo si es variable
+    const income = liqM*(liqT+shock)/100 + carcM*(carcT+carteraVar)/100 + carlM*(carlT+carteraVar)/100;
+    // Pasivos: la vista es insensible; el resto reprecia con el mercado (son más cortos / se renuevan).
+    const cost = v("pas_vis_m")*v("pas_vis_t")/100
+               + v("pas_cor_m")*(v("pas_cor_t")+shock)/100
+               + v("pas_lar_m")*(v("pas_lar_t")+shock)/100
+               + v("pas_pre_m")*(v("pas_pre_t")+shock)/100;
+    const productivos = liqM + carcM + carlM;
+    const margen = income - cost;
+    return { margen, nim: productivos ? margen/productivos : 0 };
+  }
+
+  function setTipo(t) {
+    tipo = t;
+    document.getElementById("btn-fija").classList.toggle("activo", t === "fija");
+    document.getElementById("btn-variable").classList.toggle("activo", t === "variable");
+    recalc();
+  }
+
+  function recalc() {
+    const shock = parseFloat(document.getElementById("shock").value);
+    document.getElementById("shock-val").textContent = "+" + shock.toFixed(1) + " pp";
+
+    const base = calcMargen(0, tipo);
+    const fija = calcMargen(shock, "fija");
+    const variable = calcMargen(shock, "variable");
+
+    document.getElementById("kpi-base").querySelector(".val").textContent = milesFmt(base.margen);
+    document.getElementById("kpi-fija").querySelector(".val").textContent = milesFmt(fija.margen);
+    document.getElementById("kpi-variable").querySelector(".val").textContent = milesFmt(variable.margen);
+    document.getElementById("kpi-fija").querySelector(".sub").textContent = "NIM " + Fmt.porcentaje(fija.nim, 1) + " · cartera no reprecia";
+    document.getElementById("kpi-variable").querySelector(".sub").textContent = "NIM " + Fmt.porcentaje(variable.nim, 1) + " · reprecia con el mercado";
+
+    // Semáforo según el tipo seleccionado
+    const sel = (tipo === "fija") ? fija : variable;
+    const sem = document.getElementById("semaforo");
+    if (sel.nim < 0.02) {
+      sem.className = "semaforo rojo";
+      sem.innerHTML = "🔴 <strong>Con tasa " + tipo + " y +" + shock.toFixed(1) + " pp, el margen (NIM " + Fmt.porcentaje(sel.nim,1) + ") no cubre los gastos operativos.</strong> Camino a pérdidas — es el riesgo de tasa.";
+    } else if (sel.nim < 0.04) {
+      sem.className = "semaforo amarillo";
+      sem.innerHTML = "🟡 Con tasa " + tipo + " y +" + shock.toFixed(1) + " pp, el margen queda ajustado (NIM " + Fmt.porcentaje(sel.nim,1) + "). Vigilar.";
+    } else {
+      sem.className = "semaforo verde";
+      sem.innerHTML = "🟢 Con tasa " + tipo + " y +" + shock.toFixed(1) + " pp, el margen aguanta (NIM " + Fmt.porcentaje(sel.nim,1) + ").";
+    }
+
+    // Calce ≤ 1 año
+    const exig = v("pas_vis_m") + v("pas_cor_m");
+    const disp = v("act_liq_m") + v("act_carc_m");
+    const maxc = Math.max(exig, disp, 1);
+    document.getElementById("calce-exig-lbl").textContent = milesFmt(exig);
+    document.getElementById("calce-disp-lbl").textContent = milesFmt(disp);
+    document.getElementById("calce-exig-bar").style.width = (exig/maxc*100) + "%";
+    document.getElementById("calce-disp-bar").style.width = (disp/maxc*100) + "%";
+    const cobertura = exig ? disp/exig : 1;
+    const cs = document.getElementById("calce-semaforo");
+    const brecha = disp - exig;
+    if (cobertura < 0.5) { cs.className = "semaforo rojo"; cs.textContent = "Brecha " + milesFmt(brecha) + ": lo exigible a corto supera con creces lo disponible. Descalce peligroso."; }
+    else if (cobertura < 0.8) { cs.className = "semaforo amarillo"; cs.textContent = "Brecha " + milesFmt(brecha) + ": hay descalce, pero acotado. Los depósitos largos ayudan."; }
+    else { cs.className = "semaforo verde"; cs.textContent = "Brecha " + milesFmt(brecha) + ": el corto plazo está bien calzado."; }
+
+    dibujarChart(shock);
+  }
+
+  function dibujarChart(shockActual) {
+    const svg = document.getElementById("chart");
+    const W = 600, H = 260, padL = 54, padR = 16, padT = 14, padB = 28;
+    const ancho = W - padL - padR, alto = H - padT - padB;
+    const maxShock = 6, paso = 0.25;
+    const ptsF = [], ptsV = [];
+    for (let s = 0; s <= maxShock + 1e-9; s += paso) {
+      ptsF.push([s, calcMargen(s, "fija").margen]);
+      ptsV.push([s, calcMargen(s, "variable").margen]);
+    }
+    const todos = ptsF.concat(ptsV).map(p => p[1]);
+    let maxY = Math.max(...todos, 0), minY = Math.min(...todos, 0);
+    const rango = (maxY - minY) || 1;
+    maxY += rango*0.08; minY -= rango*0.08;
+    const x = s => padL + (s/maxShock)*ancho;
+    const y = m => padT + alto - ((m-minY)/(maxY-minY))*alto;
+
+    let c = `<rect x="${padL}" y="${padT}" width="${ancho}" height="${alto}" fill="#F5F7FA" rx="4"/>`;
+    // línea cero si aplica
+    if (minY < 0 && maxY > 0) {
+      const y0 = y(0);
+      c += `<line x1="${padL}" y1="${y0}" x2="${padL+ancho}" y2="${y0}" stroke="#C9CFDA" stroke-width="1" stroke-dasharray="3 3"/>`;
+    }
+    const linea = (pts, color) => {
+      let d = "";
+      pts.forEach((p,i) => { d += (i===0?"M ":"L ") + x(p[0]).toFixed(1) + " " + y(p[1]).toFixed(1) + " "; });
+      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    };
+    c += linea(ptsF, "#B4312E");
+    c += linea(ptsV, "#2E7D55");
+    // marcador del shock actual
+    const mf = calcMargen(shockActual, "fija").margen, mv = calcMargen(shockActual, "variable").margen;
+    const xa = x(shockActual);
+    c += `<line x1="${xa}" y1="${padT}" x2="${xa}" y2="${padT+alto}" stroke="#5A6375" stroke-width="1" stroke-dasharray="2 2"/>`;
+    c += `<circle cx="${xa}" cy="${y(mf)}" r="3.5" fill="#B4312E"/>`;
+    c += `<circle cx="${xa}" cy="${y(mv)}" r="3.5" fill="#2E7D55"/>`;
+    // ejes
+    c += `<text x="${padL-6}" y="${y(maxY)+8}" text-anchor="end" font-size="9" fill="#5A6375" font-family="Inter">${Math.round(maxY)}k</text>`;
+    c += `<text x="${padL-6}" y="${y(minY)}" text-anchor="end" font-size="9" fill="#5A6375" font-family="Inter">${Math.round(minY)}k</text>`;
+    if (minY < 0 && maxY > 0) c += `<text x="${padL-6}" y="${y(0)+3}" text-anchor="end" font-size="9" fill="#5A6375" font-family="Inter">0</text>`;
+    for (let s = 0; s <= maxShock; s += 2) {
+      c += `<text x="${x(s)}" y="${H-padB+14}" text-anchor="middle" font-size="9" fill="#5A6375" font-family="Inter">+${s}pp</text>`;
+    }
+    svg.innerHTML = c;
+  }
+
+  function cargarParaiso() {
+    Object.keys(PRESET).forEach(k => { const el = document.getElementById(k); if (el) el.value = PRESET[k]; });
+    document.getElementById("shock").value = 0;
+    setTipo("fija");
+  }
+  function limpiar() {
+    CAMPOS.forEach(id => { const el = document.getElementById(id); if (el && !el.disabled) el.value = ""; });
+    Store.borrar("calce-margen");
+    recalc();
+  }
+
+  document.getElementById("nota-preset").innerHTML =
+    "<strong>El Paraíso v2.0 (precargado):</strong> Activos — líquido 500@2%, cartera &lt;1año 2,600@9%, cartera &gt;1año 14,800@9%, fijos 2,100. " +
+    "Pasivos — vista 2,000@1%, PF corto 3,000@3.5%, PF largo 11,200@5%, préstamos 800@7%.";
+
+  CAMPOS.forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener("input", () => { Store.guardar("calce-margen", snapshot()); recalc(); }); });
+  document.getElementById("shock").addEventListener("input", recalc);
+
+  function snapshot() { const o = {}; CAMPOS.forEach(id => o[id] = document.getElementById(id).value); return o; }
+  function restore() { const d = Store.leer("calce-margen"); if (!d) return false; Object.keys(d).forEach(k => { const el = document.getElementById(k); if (el) el.value = d[k]; }); return true; }
+
+  if (!restore()) cargarParaiso(); else setTipo("fija");
+</script>
+</body>
+</html>
