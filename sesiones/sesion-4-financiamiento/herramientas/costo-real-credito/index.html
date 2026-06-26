@@ -8,13 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   body { background: var(--color-fondo-sutil); }
+  .contenedor { max-width: 1080px; }
 
   .comparador {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: var(--space-3);
   }
-  @media (max-width: 720px) { .comparador { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .comparador { grid-template-columns: 1fr; } }
 
   .oferta {
     background: #fff;
@@ -25,6 +26,7 @@
     box-shadow: var(--shadow-1);
   }
   .oferta.b { border-top-color: var(--color-acento); }
+  .oferta.c { border-top-color: var(--color-positivo); }
   .oferta .titulo {
     font-size: 0.8rem;
     font-weight: 700;
@@ -33,7 +35,8 @@
     letter-spacing: 0.08em;
   }
   .oferta.b .titulo { color: var(--color-acento); }
-  .oferta h3 { margin: 0.2rem 0 1rem 0; }
+  .oferta.c .titulo { color: var(--color-positivo); }
+  .oferta h3 { margin: 0.2rem 0 1rem 0; font-size: 1.05rem; }
 
   .campo { margin-bottom: 0.8rem; }
   .campo label { display: block; font-size: 0.85rem; margin-bottom: 0.25rem; color: var(--color-texto-sutil); font-weight: 500; }
@@ -50,29 +53,28 @@
     display: flex;
     justify-content: space-between;
     padding: 0.3rem 0;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
   }
   .resumen .fila.destacado {
     border-top: 1px solid var(--color-borde);
     margin-top: 0.4rem;
     padding-top: 0.7rem;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--color-primario-oscuro);
   }
   .resumen .valor { font-variant-numeric: tabular-nums; font-weight: 600; }
 
   .veredicto {
-    background: var(--color-primario);
+    background: var(--color-acento);
     color: #fff;
     padding: var(--space-4);
     border-radius: var(--radius);
     margin-top: var(--space-3);
     text-align: center;
   }
-  .veredicto.acento { background: var(--color-acento); }
   .veredicto h3 { color: #fff; margin: 0 0 0.5rem 0; }
-  .veredicto p { margin: 0; opacity: 0.95; }
+  .veredicto p { margin: 0; opacity: 0.96; }
   .veredicto .diferencia { font-size: 1.8rem; font-weight: 700; margin: 0.3rem 0; font-variant-numeric: tabular-nums; }
 
   .grafica-wrap {
@@ -87,6 +89,7 @@
   .grafica-wrap .leyenda {
     display: flex;
     gap: 1.2rem;
+    flex-wrap: wrap;
     margin-bottom: 0.8rem;
     font-size: 0.8rem;
     color: var(--color-texto-sutil);
@@ -121,7 +124,7 @@
 <div class="contenedor">
 
   <div class="callout info" style="margin-bottom: var(--space-4);">
-    Dos ofertas de crédito lado a lado. Ingresa los datos y mira lo que la tasa nominal <em>no</em> te estaba diciendo.
+    El mismo crédito, tres formas de tomarlo. Mira lo que la tasa nominal <em>no</em> te dice — y cómo el <strong>plazo</strong> y los <strong>abonos a capital</strong> cambian el costo total.
   </div>
 
   <div class="comparador">
@@ -129,7 +132,7 @@
     <!-- OFERTA A -->
     <div class="oferta a">
       <div class="titulo">Oferta A</div>
-      <h3 id="titulo-a">Banco / cooperativa 1</h3>
+      <h3 id="titulo-a">Plazo largo</h3>
 
       <div class="campo">
         <label for="a-monto">Monto del crédito (B/.)</label>
@@ -148,11 +151,17 @@
         <label for="a-seguro">Seguro mensual (B/.)</label>
         <input type="number" id="a-seguro" min="0" step="5" placeholder="0">
       </div>
+      <div class="campo">
+        <label for="a-abono">Abono extra a capital (B/. mensual)</label>
+        <input type="number" id="a-abono" min="0" step="100" placeholder="0">
+        <div class="hint">Pago voluntario sobre la cuota, directo a capital.</div>
+      </div>
 
       <div class="resumen" id="resumen-a">
-        <div class="fila"><span>Cuota mensual</span><span class="valor" id="a-cuota">—</span></div>
+        <div class="fila"><span>Pago mensual</span><span class="valor" id="a-cuota">—</span></div>
+        <div class="fila"><span>Se salda en</span><span class="valor" id="a-plazoreal">—</span></div>
         <div class="fila"><span>Intereses totales</span><span class="valor" id="a-intereses">—</span></div>
-        <div class="fila"><span>Seguros</span><span class="valor" id="a-comisiones">—</span></div>
+        <div class="fila"><span>Seguros</span><span class="valor" id="a-seguros">—</span></div>
         <div class="fila"><span>Tasa efectiva anual</span><span class="valor" id="a-tea">—</span></div>
         <div class="fila destacado"><span>Costo total</span><span class="valor" id="a-total">—</span></div>
       </div>
@@ -161,7 +170,7 @@
     <!-- OFERTA B -->
     <div class="oferta b">
       <div class="titulo">Oferta B</div>
-      <h3 id="titulo-b">Banco / cooperativa 2</h3>
+      <h3 id="titulo-b">Plazo corto</h3>
 
       <div class="campo">
         <label for="b-monto">Monto del crédito (B/.)</label>
@@ -179,13 +188,56 @@
         <label for="b-seguro">Seguro mensual (B/.)</label>
         <input type="number" id="b-seguro" min="0" step="5" placeholder="0">
       </div>
+      <div class="campo">
+        <label for="b-abono">Abono extra a capital (B/. mensual)</label>
+        <input type="number" id="b-abono" min="0" step="100" placeholder="0">
+        <div class="hint">Pago voluntario sobre la cuota, directo a capital.</div>
+      </div>
 
       <div class="resumen" id="resumen-b">
-        <div class="fila"><span>Cuota mensual</span><span class="valor" id="b-cuota">—</span></div>
+        <div class="fila"><span>Pago mensual</span><span class="valor" id="b-cuota">—</span></div>
+        <div class="fila"><span>Se salda en</span><span class="valor" id="b-plazoreal">—</span></div>
         <div class="fila"><span>Intereses totales</span><span class="valor" id="b-intereses">—</span></div>
-        <div class="fila"><span>Seguros</span><span class="valor" id="b-comisiones">—</span></div>
+        <div class="fila"><span>Seguros</span><span class="valor" id="b-seguros">—</span></div>
         <div class="fila"><span>Tasa efectiva anual</span><span class="valor" id="b-tea">—</span></div>
         <div class="fila destacado"><span>Costo total</span><span class="valor" id="b-total">—</span></div>
+      </div>
+    </div>
+
+    <!-- OFERTA C -->
+    <div class="oferta c">
+      <div class="titulo">Oferta C</div>
+      <h3 id="titulo-c">Plazo largo + abonos</h3>
+
+      <div class="campo">
+        <label for="c-monto">Monto del crédito (B/.)</label>
+        <input type="number" id="c-monto" min="0" step="1000" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-tasa">Tasa nominal anual (%)</label>
+        <input type="number" id="c-tasa" min="0" step="0.05" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-plazo">Plazo (meses)</label>
+        <input type="number" id="c-plazo" min="1" step="1" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-seguro">Seguro mensual (B/.)</label>
+        <input type="number" id="c-seguro" min="0" step="5" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="c-abono">Abono extra a capital (B/. mensual)</label>
+        <input type="number" id="c-abono" min="0" step="100" placeholder="0">
+        <div class="hint">Pago voluntario sobre la cuota, directo a capital.</div>
+      </div>
+
+      <div class="resumen" id="resumen-c">
+        <div class="fila"><span>Pago mensual</span><span class="valor" id="c-cuota">—</span></div>
+        <div class="fila"><span>Se salda en</span><span class="valor" id="c-plazoreal">—</span></div>
+        <div class="fila"><span>Intereses totales</span><span class="valor" id="c-intereses">—</span></div>
+        <div class="fila"><span>Seguros</span><span class="valor" id="c-seguros">—</span></div>
+        <div class="fila"><span>Tasa efectiva anual</span><span class="valor" id="c-tea">—</span></div>
+        <div class="fila destacado"><span>Costo total</span><span class="valor" id="c-total">—</span></div>
       </div>
     </div>
 
@@ -202,10 +254,11 @@
     <div class="leyenda">
       <span><span class="dot" style="background: #003DA5;"></span>Interés acumulado · A</span>
       <span><span class="dot" style="background: #F47B20;"></span>Interés acumulado · B</span>
+      <span><span class="dot" style="background: #2E7D55;"></span>Interés acumulado · C</span>
     </div>
     <svg class="amortizacion" id="grafica-amort" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
     <p style="font-size: 0.8rem; color: var(--color-texto-sutil); margin-top: 0.8rem;">
-      Cada línea suma los intereses que pagas mes a mes. La oferta de plazo más largo sigue acumulando intereses años después de que la corta ya terminó — por eso, aun con la cuota más baja, termina costando más.
+      Cada línea suma los intereses que pagas mes a mes. La de plazo largo (A) sigue acumulando años después; la corta (B) termina rápido; y la de plazo largo <em>con abonos a capital</em> (C) alcanza casi el mismo costo que B — sin renunciar a una cuota mínima baja.
     </p>
   </div>
 
@@ -226,16 +279,24 @@
 
 <script src="../../../../assets/js/shared.js"></script>
 <script>
-  function calcularOferta(pre) {
-    const monto = parseFloat(document.getElementById(pre + "monto").value) || 0;
-    const tasaAnual = (parseFloat(document.getElementById(pre + "tasa").value) || 0) / 100;
-    const plazo = parseInt(document.getElementById(pre + "plazo").value) || 0;
-    const seguroMensual = parseFloat(document.getElementById(pre + "seguro").value) || 0;
+  const CAMPOS = [];
+  ["a-","b-","c-"].forEach(p => ["monto","tasa","plazo","seguro","abono"].forEach(c => CAMPOS.push(p + c)));
 
+  function val(id) {
+    const el = document.getElementById(id);
+    return el ? el.value : "";
+  }
+
+  function calcularOferta(pre) {
+    const monto = parseFloat(val(pre + "monto")) || 0;
+    const tasaAnual = (parseFloat(val(pre + "tasa")) || 0) / 100;
+    const plazo = parseInt(val(pre + "plazo")) || 0;
+    const seguroMensual = parseFloat(val(pre + "seguro")) || 0;
+    const abonoExtra = parseFloat(val(pre + "abono")) || 0;
+
+    const claves = ["cuota", "plazoreal", "intereses", "seguros", "tea", "total"];
     if (monto <= 0 || plazo <= 0) {
-      ["cuota", "intereses", "comisiones", "tea", "total"].forEach(k => {
-        document.getElementById(pre + k).textContent = "—";
-      });
+      claves.forEach(k => { document.getElementById(pre + k).textContent = "—"; });
       return null;
     }
 
@@ -247,109 +308,105 @@
       cuotaBase = monto * tasaMensual * Math.pow(1 + tasaMensual, plazo) / (Math.pow(1 + tasaMensual, plazo) - 1);
     }
 
-    // Tabla de amortización
+    // Amortización con abono extra a capital; el crédito puede saldarse antes del plazo.
     const amort = [];
     let saldo = monto;
     let interesesTotales = 0;
-    for (let m = 1; m <= plazo; m++) {
+    let mesesReales = 0;
+    for (let m = 1; m <= plazo && saldo > 0.005; m++) {
       const interesMes = saldo * tasaMensual;
-      const capitalMes = cuotaBase - interesMes;
+      let capitalMes = cuotaBase - interesMes + abonoExtra;
+      if (capitalMes > saldo) capitalMes = saldo; // último mes ajusta
       saldo -= capitalMes;
       interesesTotales += interesMes;
-      amort.push({ mes: m, capital: capitalMes, interes: interesMes, saldo: Math.max(0, saldo) });
+      mesesReales = m;
+      amort.push({ mes: m, interes: interesMes });
     }
 
-    const segurosTotal = seguroMensual * plazo;
-    const comisionesTotal = segurosTotal;
-    const cuotaTotal = cuotaBase + seguroMensual;
-    const costoTotal = interesesTotales + comisionesTotal;
+    const segurosTotal = seguroMensual * mesesReales;
+    const costoTotal = interesesTotales + segurosTotal;
     const totalPagado = monto + costoTotal;
+    const pagoMensual = cuotaBase + seguroMensual + abonoExtra;
+    const tea = Math.pow(1 + tasaMensual, 12) - 1;
 
-    // Tasa efectiva anual: capitalización mensual de la tasa nominal.
-    const teaSimple = Math.pow(1 + tasaMensual, 12) - 1;
-
-    document.getElementById(pre + "cuota").textContent = Fmt.moneda(cuotaTotal);
+    document.getElementById(pre + "cuota").textContent = Fmt.moneda(pagoMensual);
+    document.getElementById(pre + "plazoreal").textContent = mesesReales + " meses";
     document.getElementById(pre + "intereses").textContent = Fmt.moneda(interesesTotales);
-    document.getElementById(pre + "comisiones").textContent = Fmt.moneda(comisionesTotal);
-    document.getElementById(pre + "tea").textContent = Fmt.porcentaje(teaSimple, 2);
+    document.getElementById(pre + "seguros").textContent = Fmt.moneda(segurosTotal);
+    document.getElementById(pre + "tea").textContent = Fmt.porcentaje(tea, 2);
     document.getElementById(pre + "total").textContent = Fmt.moneda(totalPagado);
 
-    return { monto, amort, cuotaBase, cuotaTotal, interesesTotales, comisionesTotal, costoTotal, totalPagado, teaSimple, plazo };
+    return { monto, amort, cuotaBase, pagoMensual, interesesTotales, segurosTotal, costoTotal, totalPagado, tea, plazo, plazoReal: mesesReales, abonoExtra };
   }
 
   function recalc() {
     const A = calcularOferta("a-");
     const B = calcularOferta("b-");
-    actualizarVeredicto(A, B);
-    dibujarAmort(A, B);
+    const C = calcularOferta("c-");
+    actualizarVeredicto(A, B, C);
+    dibujarAmort(A, B, C);
   }
 
-  function actualizarVeredicto(A, B) {
+  function actualizarVeredicto(A, B, C) {
     const v = document.getElementById("veredicto");
-    if (!A || !B) { v.style.display = "none"; return; }
+    const arr = [["A", A], ["B", B], ["C", C]].filter(x => x[1]);
+    if (arr.length < 2) { v.style.display = "none"; return; }
     v.style.display = "block";
-    const diferencia = Math.abs(A.costoTotal - B.costoTotal);
-    const masBarata = A.costoTotal < B.costoTotal ? "A" : "B";
-    const masLarga = A.plazo > B.plazo ? "A" : "B";
 
-    v.className = "veredicto" + (masBarata === "B" ? " acento" : "");
-    document.getElementById("v-titulo").textContent = `La oferta ${masBarata} cuesta menos en total`;
-    document.getElementById("v-diferencia").textContent = Fmt.moneda(diferencia);
+    arr.sort((p, q) => p[1].costoTotal - q[1].costoTotal);
+    const barata = arr[0];
+    const cara = arr[arr.length - 1];
+    const dif = cara[1].costoTotal - barata[1].costoTotal;
 
-    let detalle;
-    if (A.plazo !== B.plazo) {
-      const pL = Math.max(A.plazo, B.plazo), pC = Math.min(A.plazo, B.plazo);
-      detalle = `La oferta ${masLarga} tiene la cuota mensual más baja y parece más liviana — pero su plazo más largo (${pL} vs ${pC} meses) la encarece: pagas ${Fmt.moneda(diferencia)} más en total. La tasa cuenta, pero el plazo pesa. Antes de decidir: ¿la plata prestada generará retorno durante todo ese plazo?`;
-    } else {
-      detalle = `Con el mismo plazo, la diferencia viene de la tasa y los seguros. La tasa efectiva anual resume el costo en un solo número comparable.`;
+    document.getElementById("v-titulo").textContent = `La opción ${barata[0]} es la de menor costo total`;
+    document.getElementById("v-diferencia").textContent = Fmt.moneda(dif);
+
+    let detalle = `La opción ${cara[0]} tiene la cuota más baja y parece más liviana, pero su plazo largo la hace pagar ${Fmt.moneda(dif)} más que ${barata[0]}. La tasa cuenta, pero el plazo pesa.`;
+    const conAbono = arr.find(x => x[1].abonoExtra > 0);
+    if (conAbono) {
+      detalle += ` Mira la opción ${conAbono[0]}: mismo plazo largo, pero abonando a capital se salda en ${conAbono[1].plazoReal} meses y su costo baja casi al de un plazo corto — cuota mínima baja + disciplina de abono.`;
     }
     document.getElementById("v-detalle").textContent = detalle;
   }
 
-  function dibujarAmort(A, B) {
+  function dibujarAmort(A, B, C) {
     const svg = document.getElementById("grafica-amort");
-    if (!A && !B) { svg.innerHTML = ""; return; }
+    const defs = [
+      { o: A, color: "#003DA5", anchor: "end", dy: 14 },
+      { o: B, color: "#F47B20", anchor: "start", dy: -8 },
+      { o: C, color: "#2E7D55", anchor: "start", dy: 16 }
+    ].filter(d => d.o);
+    if (!defs.length) { svg.innerHTML = ""; return; }
 
-    const W = 600, H = 260, padL = 50, padR = 18, padT = 16, padB = 30;
+    const W = 600, H = 260, padL = 50, padR = 20, padT = 16, padB = 30;
     const ancho = W - padL - padR;
     const alto = H - padT - padB;
 
-    const maxPlazo = Math.max(A ? A.plazo : 0, B ? B.plazo : 0);
+    defs.forEach(d => { let s = 0; d.cum = d.o.amort.map(r => (s += r.interes)); });
+    const maxPlazo = Math.max(...defs.map(d => d.cum.length), 1);
+    const maxInt = Math.max(...defs.map(d => d.cum[d.cum.length - 1] || 0), 1);
 
-    function cum(data) { let s = 0; const arr = []; for (const r of data) { s += r.interes; arr.push(s); } return arr; }
-    const cumA = A ? cum(A.amort) : [];
-    const cumB = B ? cum(B.amort) : [];
-    const maxInt = Math.max(cumA.length ? cumA[cumA.length - 1] : 0, cumB.length ? cumB[cumB.length - 1] : 0, 1);
-
-    const x = m => padL + (m / Math.max(maxPlazo, 1)) * ancho;
+    const x = m => padL + (m / maxPlazo) * ancho;
     const y = v => padT + alto - (v / maxInt) * alto;
 
     let c = `<rect x="${padL}" y="${padT}" width="${ancho}" height="${alto}" fill="#F5F7FA" rx="4"/>`;
 
-    function linea(cumArr, color) {
-      if (!cumArr.length) return "";
-      let d = "M " + x(0) + " " + y(0);
-      for (let i = 0; i < cumArr.length; i++) d += " L " + x(i + 1) + " " + y(cumArr[i]);
-      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/>`;
-    }
-    c += linea(cumA, "#003DA5");
-    c += linea(cumB, "#F47B20");
+    defs.forEach(d => {
+      let dp = "M " + x(0) + " " + y(0);
+      for (let i = 0; i < d.cum.length; i++) dp += " L " + x(i + 1) + " " + y(d.cum[i]);
+      c += `<path d="${dp}" fill="none" stroke="${d.color}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    });
 
-    function punto(cumArr, color, anchor, dy) {
-      if (!cumArr.length) return "";
-      const tot = cumArr[cumArr.length - 1];
-      const px = x(cumArr.length), py = y(tot);
-      const tx = anchor === "end" ? px - 5 : px + 5;
-      return `<circle cx="${px}" cy="${py}" r="3.2" fill="${color}"/>` +
-        `<text x="${tx}" y="${py + dy}" text-anchor="${anchor}" font-size="11" font-weight="700" fill="${color}" font-family="Inter">${Fmt.moneda(tot)}</text>`;
-    }
-    c += punto(cumA, "#003DA5", "end", 14);
-    c += punto(cumB, "#F47B20", "start", -6);
+    defs.forEach(d => {
+      const tot = d.cum[d.cum.length - 1];
+      const px = x(d.cum.length), py = y(tot);
+      const tx = d.anchor === "end" ? px - 5 : px + 5;
+      c += `<circle cx="${px}" cy="${py}" r="3.2" fill="${d.color}"/>` +
+        `<text x="${tx}" y="${py + d.dy}" text-anchor="${d.anchor}" font-size="10.5" font-weight="700" fill="${d.color}" font-family="Inter">B/. ${Math.round(tot / 1000)}k</text>`;
+    });
 
-    // Eje Y (compacto)
     c += `<text x="${padL - 6}" y="${padT + 4}" text-anchor="end" font-size="9" fill="#5A6375" font-family="Inter">${Math.round(maxInt / 1000)}k</text>`;
     c += `<text x="${padL - 6}" y="${padT + alto + 4}" text-anchor="end" font-size="9" fill="#5A6375" font-family="Inter">0</text>`;
-    // Eje X
     for (let t = 1; t <= 4; t++) {
       const mes = Math.round((t / 4) * maxPlazo);
       const px = padL + (t / 4) * ancho;
@@ -360,32 +417,43 @@
   }
 
   function cargarEjemplo() {
-    // Caso del curso: mismo monto y misma tasa; lo único que cambia es el PLAZO.
-    // La oferta A (10 años) tiene la cuota más baja y "parece" más liviana,
-    // pero paga mucho más interés total. La ganadora es la no obvia (B, 4 años).
-    document.getElementById("titulo-a").textContent = "Oferta A · 10 años";
+    // Mismo monto y misma tasa (8%); lo único que cambia es el PLAZO y los abonos.
+    // A (10 años): cuota baja, "parece" liviana, pero paga mucho más interés total.
+    // B (4 años): cuota alta pero costo bajo (la ganadora no obvia).
+    // C (10 años + abonos a capital): cuota mínima baja como A, pero costo casi igual a B.
+    document.getElementById("titulo-a").textContent = "A · 10 años";
     document.getElementById("a-monto").value = 1500000;
     document.getElementById("a-tasa").value = 8.0;
     document.getElementById("a-plazo").value = 120;
     document.getElementById("a-seguro").value = 0;
+    document.getElementById("a-abono").value = 0;
 
-    document.getElementById("titulo-b").textContent = "Oferta B · 4 años";
+    document.getElementById("titulo-b").textContent = "B · 4 años";
     document.getElementById("b-monto").value = 1500000;
     document.getElementById("b-tasa").value = 8.0;
     document.getElementById("b-plazo").value = 48;
     document.getElementById("b-seguro").value = 0;
+    document.getElementById("b-abono").value = 0;
+
+    document.getElementById("titulo-c").textContent = "C · 10 años + abonos";
+    document.getElementById("c-monto").value = 1500000;
+    document.getElementById("c-tasa").value = 8.0;
+    document.getElementById("c-plazo").value = 120;
+    document.getElementById("c-seguro").value = 0;
+    document.getElementById("c-abono").value = 18000;
+
     recalc();
   }
 
   function limpiar() {
-    ["a-monto","a-tasa","a-plazo","a-seguro","b-monto","b-tasa","b-plazo","b-seguro"].forEach(id => document.getElementById(id).value = "");
+    CAMPOS.forEach(id => document.getElementById(id).value = "");
     Store.borrar("costo-credito");
     recalc();
   }
 
   function guardar() {
     const data = {};
-    ["a-monto","a-tasa","a-plazo","a-seguro","b-monto","b-tasa","b-plazo","b-seguro"].forEach(id => data[id] = document.getElementById(id).value);
+    CAMPOS.forEach(id => data[id] = document.getElementById(id).value);
     Store.guardar("costo-credito", data);
     avisar("Guardado en este celular.");
   }
@@ -407,10 +475,7 @@
     });
   }
 
-  // Listeners
-  ["a-monto","a-tasa","a-plazo","a-seguro","b-monto","b-tasa","b-plazo","b-seguro"].forEach(id => {
-    document.getElementById(id).addEventListener("input", recalc);
-  });
+  CAMPOS.forEach(id => document.getElementById(id).addEventListener("input", recalc));
 
   restore();
   recalc();
