@@ -122,6 +122,20 @@
         <div class="fila-in"><label>Préstamos bancarios + otros</label><input type="number" id="pas_pre_m"><input type="number" id="pas_pre_t" step="0.1"></div>
       </div>
     </div>
+
+    <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:0.6rem; margin-top:1rem;">
+      <div class="kpi"><div class="etq">Activo total</div><div class="val" id="tot-activo">—</div></div>
+      <div class="kpi"><div class="etq">Pasivo total</div><div class="val" id="tot-pasivo">—</div></div>
+      <div class="kpi"><div class="etq">Patrimonio</div><div class="val" id="tot-patrimonio">—</div><div class="sub">Activo − Pasivo</div></div>
+      <div class="kpi"><div class="etq">Adecuación</div><div class="val" id="tot-adec">—</div><div class="sub">Patrimonio / Activo</div></div>
+    </div>
+
+    <div class="fila-in" style="grid-template-columns: 1fr 90px; max-width: 340px; margin-top: 0.9rem;">
+      <label>Gastos operativos anuales (para proyectar)</label><input type="number" id="opex_m">
+    </div>
+    <div style="font-size:0.8rem; color:var(--color-texto-sutil); margin-top:0.4rem;">
+      <strong>La servilleta de la Sesión 1:</strong> Activo = Pasivo + Patrimonio. Hoy cuadra y se ve sólida — pero esta foto <em>no muestra el riesgo de tasa</em>. Eso se ve en el flujo y en el balance de un año después.
+    </div>
     <div class="nota-preset" id="nota-preset"></div>
   </div>
 
@@ -181,6 +195,29 @@
         <svg class="chart" id="chart" viewBox="0 0 600 260" preserveAspectRatio="none"></svg>
       </div>
     </div>
+
+    <div style="height: 1px; background: var(--color-borde); margin: var(--space-3) 0;"></div>
+
+    <h4 style="margin: 0 0 0.3rem;">El balance, 1 año después del shock</h4>
+    <p class="pista">La foto de hoy se ve bien. Pero el <strong>resultado del año</strong> (margen − gastos operativos) cambia el <strong>patrimonio</strong> y la <strong>caja</strong>. Eso es lo que el NIM, solo, no te muestra.</p>
+    <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+      <thead>
+        <tr style="text-align:right; color:var(--color-texto-sutil); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em;">
+          <th style="text-align:left; padding:0.4rem 0.3rem;"></th>
+          <th style="padding:0.4rem 0.3rem;">Hoy</th>
+          <th style="padding:0.4rem 0.3rem; color:var(--color-alerta);">Año 1 · Fija</th>
+          <th style="padding:0.4rem 0.3rem; color:var(--color-positivo);">Año 1 · Variable</th>
+        </tr>
+      </thead>
+      <tbody style="font-variant-numeric: tabular-nums;">
+        <tr><td style="padding:0.4rem 0.3rem;">Resultado del año</td><td style="text-align:right;">—</td><td style="text-align:right;" id="b-res-f">—</td><td style="text-align:right;" id="b-res-v">—</td></tr>
+        <tr style="border-top:1px solid var(--color-borde);"><td style="padding:0.4rem 0.3rem;"><strong>Patrimonio</strong></td><td style="text-align:right;" id="b-pat-0">—</td><td style="text-align:right; font-weight:700;" id="b-pat-f">—</td><td style="text-align:right; font-weight:700;" id="b-pat-v">—</td></tr>
+        <tr><td style="padding:0.4rem 0.3rem;">Caja</td><td style="text-align:right;" id="b-caja-0">—</td><td style="text-align:right;" id="b-caja-f">—</td><td style="text-align:right;" id="b-caja-v">—</td></tr>
+        <tr><td style="padding:0.4rem 0.3rem;">Adecuación de capital</td><td style="text-align:right;" id="b-adec-0">—</td><td style="text-align:right;" id="b-adec-f">—</td><td style="text-align:right;" id="b-adec-v">—</td></tr>
+      </tbody>
+    </table>
+    <div class="semaforo" id="bal-semaforo" style="margin-top:0.7rem;">—</div>
+    <p style="font-size:0.78rem; color:var(--color-texto-sutil); margin:0.5rem 0 0;">La servilleta sigue mandando: Activo = Pasivo + Patrimonio. El shock no estaba en la foto, pero un año después se ve quién aguantó.</p>
   </div>
 
   <div class="acciones">
@@ -200,10 +237,11 @@
 <script src="../../../../assets/js/shared.js"></script>
 <script>
   const CAMPOS = ["act_liq_m","act_liq_t","act_carc_m","act_carc_t","act_carl_m","act_carl_t","act_fij_m",
-                  "pas_vis_m","pas_vis_t","pas_cor_m","pas_cor_t","pas_lar_m","pas_lar_t","pas_pre_m","pas_pre_t"];
+                  "pas_vis_m","pas_vis_t","pas_cor_m","pas_cor_t","pas_lar_m","pas_lar_t","pas_pre_m","pas_pre_t","opex_m"];
   const PRESET = {
-    act_liq_m:500, act_liq_t:2, act_carc_m:2600, act_carc_t:9, act_carl_m:14800, act_carl_t:9, act_fij_m:2100,
-    pas_vis_m:2000, pas_vis_t:1, pas_cor_m:3000, pas_cor_t:3.5, pas_lar_m:11200, pas_lar_t:5, pas_pre_m:800, pas_pre_t:7
+    act_liq_m:500, act_liq_t:2, act_carc_m:2600, act_carc_t:7, act_carl_m:14800, act_carl_t:7, act_fij_m:2100,
+    pas_vis_m:2000, pas_vis_t:1, pas_cor_m:3000, pas_cor_t:3.5, pas_lar_m:11200, pas_lar_t:5, pas_pre_m:800, pas_pre_t:7,
+    opex_m:400
   };
   let tipo = "fija";
 
@@ -277,6 +315,43 @@
     else if (cobertura < 0.8) { cs.className = "semaforo amarillo"; cs.textContent = "Brecha " + milesFmt(brecha) + ": hay descalce, pero acotado. Los depósitos largos ayudan."; }
     else { cs.className = "semaforo verde"; cs.textContent = "Brecha " + milesFmt(brecha) + ": el corto plazo está bien calzado."; }
 
+    // Totales y patrimonio (la servilleta)
+    const activo0 = v("act_liq_m")+v("act_carc_m")+v("act_carl_m")+v("act_fij_m");
+    const pasivo0 = v("pas_vis_m")+v("pas_cor_m")+v("pas_lar_m")+v("pas_pre_m");
+    const patrimonio0 = activo0 - pasivo0;
+    const caja0 = v("act_liq_m");
+    document.getElementById("tot-activo").textContent = milesFmt(activo0);
+    document.getElementById("tot-pasivo").textContent = milesFmt(pasivo0);
+    document.getElementById("tot-patrimonio").textContent = milesFmt(patrimonio0);
+    document.getElementById("tot-adec").textContent = activo0 ? Fmt.porcentaje(patrimonio0/activo0,1) : "—";
+
+    // Balance proyectado a 1 año: resultado = margen financiero − gastos operativos
+    const opex = v("opex_m");
+    const resF = fija.margen - opex, resV = variable.margen - opex;
+    const patF = patrimonio0 + resF, patV = patrimonio0 + resV;
+    const cajaF = caja0 + resF, cajaV = caja0 + resV;
+    const actF = activo0 + resF, actV = activo0 + resV;
+    const g = (id,val) => { document.getElementById(id).textContent = val; };
+    g("b-res-f", milesFmt(resF)); g("b-res-v", milesFmt(resV));
+    g("b-pat-0", milesFmt(patrimonio0)); g("b-pat-f", milesFmt(patF)); g("b-pat-v", milesFmt(patV));
+    g("b-caja-0", milesFmt(caja0)); g("b-caja-f", milesFmt(cajaF)); g("b-caja-v", milesFmt(cajaV));
+    g("b-adec-0", activo0 ? Fmt.porcentaje(patrimonio0/activo0,1) : "—");
+    g("b-adec-f", actF ? Fmt.porcentaje(patF/actF,1) : "—");
+    g("b-adec-v", actV ? Fmt.porcentaje(patV/actV,1) : "—");
+
+    const resSel = (tipo==="fija")?resF:resV, patSel=(tipo==="fija")?patF:patV, cajaSel=(tipo==="fija")?cajaF:cajaV;
+    const bs = document.getElementById("bal-semaforo");
+    if (cajaSel < 0 || patSel < patrimonio0*0.9) {
+      bs.className = "semaforo rojo";
+      bs.innerHTML = "🔴 Con tasa " + tipo + ", en 1 año el resultado es " + milesFmt(resSel) + ": el patrimonio cae a " + milesFmt(patSel) + (cajaSel<0 ? " y la caja se agota (" + milesFmt(cajaSel) + ")" : "") + ". Es la quiebra de El Paraíso, ahora por riesgo de tasa.";
+    } else if (resSel < 0) {
+      bs.className = "semaforo amarillo";
+      bs.innerHTML = "🟡 Con tasa " + tipo + ", el año cierra en pérdida (" + milesFmt(resSel) + "): el patrimonio empieza a erosionarse.";
+    } else {
+      bs.className = "semaforo verde";
+      bs.innerHTML = "🟢 Con tasa " + tipo + ", el año cierra con resultado " + milesFmt(resSel) + ": el patrimonio se mantiene o crece. Sobrevive al shock.";
+    }
+
     dibujarChart(shock);
   }
 
@@ -338,8 +413,8 @@
   }
 
   document.getElementById("nota-preset").innerHTML =
-    "<strong>El Paraíso v2.0 (precargado):</strong> Activos — líquido 500@2%, cartera &lt;1año 2,600@9%, cartera &gt;1año 14,800@9%, fijos 2,100. " +
-    "Pasivos — vista 2,000@1%, PF corto 3,000@3.5%, PF largo 11,200@5%, préstamos 800@7%.";
+    "<strong>El Paraíso v2.0 (precargado):</strong> Activos — líquido 500@2%, cartera &lt;1año 2,600@7%, cartera &gt;1año 14,800@7%, fijos 2,100. " +
+    "Pasivos — vista 2,000@1%, PF corto 3,000@3.5%, PF largo 11,200@5%, préstamos 800@7%. Gastos operativos 400/año.";
 
   CAMPOS.forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener("input", () => { Store.guardar("calce-margen", snapshot()); recalc(); }); });
   document.getElementById("shock").addEventListener("input", recalc);
