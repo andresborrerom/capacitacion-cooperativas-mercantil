@@ -156,6 +156,13 @@
         <input type="range" id="shock" min="0" max="6" step="0.5" value="0">
       </div>
     </div>
+    <div style="height:1px; background:var(--color-borde); margin:1rem 0;"></div>
+    <div style="font-size:0.85rem; color:var(--color-texto-sutil); margin-bottom:0.5rem;">Estudio de crédito · si algo sale mal y hay que cubrir un hueco de caja:</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-4);">
+      <div class="fila-in" style="grid-template-columns:1fr 90px;"><label>Mora / descalce a cubrir este año (B/. miles)</label><input type="number" id="mora_m"></div>
+      <div class="fila-in" style="grid-template-columns:1fr 64px;"><label>Tasa base de la línea bancaria de emergencia (%)</label><input type="number" id="banco_t" step="0.1"></div>
+    </div>
+    <div style="font-size:0.78rem; color:var(--color-texto-sutil); margin-top:0.3rem;">La línea bancaria de emergencia es a <strong>tasa de mercado (variable)</strong>: cuesta <span id="banco-eff" style="font-weight:700; color:var(--color-acento);">—</span> con el shock actual.</div>
   </div>
 
   <!-- SECCIÓN 3 · DASHBOARD -->
@@ -212,11 +219,27 @@
       <tbody style="font-variant-numeric: tabular-nums;">
         <tr><td style="padding:0.4rem 0.3rem;">Resultado del año</td><td style="text-align:right;">—</td><td style="text-align:right;" id="b-res-f">—</td><td style="text-align:right;" id="b-res-v">—</td></tr>
         <tr style="border-top:1px solid var(--color-borde);"><td style="padding:0.4rem 0.3rem;"><strong>Patrimonio</strong></td><td style="text-align:right;" id="b-pat-0">—</td><td style="text-align:right; font-weight:700;" id="b-pat-f">—</td><td style="text-align:right; font-weight:700;" id="b-pat-v">—</td></tr>
-        <tr><td style="padding:0.4rem 0.3rem;">Caja</td><td style="text-align:right;" id="b-caja-0">—</td><td style="text-align:right;" id="b-caja-f">—</td><td style="text-align:right;" id="b-caja-v">—</td></tr>
+        <tr><td style="padding:0.4rem 0.3rem;">Caja antes de emergencia</td><td style="text-align:right;" id="b-caja-0">—</td><td style="text-align:right;" id="b-caja-f">—</td><td style="text-align:right;" id="b-caja-v">—</td></tr>
         <tr><td style="padding:0.4rem 0.3rem;">Adecuación de capital</td><td style="text-align:right;" id="b-adec-0">—</td><td style="text-align:right;" id="b-adec-f">—</td><td style="text-align:right;" id="b-adec-v">—</td></tr>
       </tbody>
     </table>
     <div class="semaforo" id="bal-semaforo" style="margin-top:0.7rem;">—</div>
+
+    <h4 style="margin:1.2rem 0 0.3rem;">Última instancia: la línea de emergencia</h4>
+    <p class="pista">Si la caja no alcanza, vas al banco a tasa de mercado (variable). Lo que decide tu suerte es el <strong>gap de tasa</strong>: lo que cuesta esa línea vs. lo que rinde tu cartera.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3);">
+      <div class="kpi fija">
+        <div class="etq">Gap de tasa · cartera FIJA</div>
+        <div class="val" id="emg-gapval-f">—</div>
+        <div class="sub" id="emg-gapsub-f">—</div>
+      </div>
+      <div class="kpi variable">
+        <div class="etq">Gap de tasa · cartera VARIABLE</div>
+        <div class="val" id="emg-gapval-v">—</div>
+        <div class="sub" id="emg-gapsub-v">—</div>
+      </div>
+    </div>
+    <div class="semaforo" id="emg-semaforo" style="margin-top:0.7rem;">—</div>
     <p style="font-size:0.78rem; color:var(--color-texto-sutil); margin:0.5rem 0 0;">La servilleta sigue mandando: Activo = Pasivo + Patrimonio. El shock no estaba en la foto, pero un año después se ve quién aguantó.</p>
   </div>
 
@@ -237,11 +260,12 @@
 <script src="../../../../assets/js/shared.js"></script>
 <script>
   const CAMPOS = ["act_liq_m","act_liq_t","act_carc_m","act_carc_t","act_carl_m","act_carl_t","act_fij_m",
-                  "pas_vis_m","pas_vis_t","pas_cor_m","pas_cor_t","pas_lar_m","pas_lar_t","pas_pre_m","pas_pre_t","opex_m"];
+                  "pas_vis_m","pas_vis_t","pas_cor_m","pas_cor_t","pas_lar_m","pas_lar_t","pas_pre_m","pas_pre_t",
+                  "opex_m","mora_m","banco_t"];
   const PRESET = {
     act_liq_m:500, act_liq_t:2, act_carc_m:2600, act_carc_t:7, act_carl_m:14800, act_carl_t:7, act_fij_m:2100,
     pas_vis_m:2000, pas_vis_t:1, pas_cor_m:3000, pas_cor_t:3.5, pas_lar_m:11200, pas_lar_t:5, pas_pre_m:800, pas_pre_t:7,
-    opex_m:400
+    opex_m:400, mora_m:1000, banco_t:8
   };
   let tipo = "fija";
 
@@ -325,31 +349,62 @@
     document.getElementById("tot-patrimonio").textContent = milesFmt(patrimonio0);
     document.getElementById("tot-adec").textContent = activo0 ? Fmt.porcentaje(patrimonio0/activo0,1) : "—";
 
-    // Balance proyectado a 1 año: resultado = margen financiero − gastos operativos
+    // --- Capa 2: estudio de crédito + línea de emergencia ---
     const opex = v("opex_m");
-    const resF = fija.margen - opex, resV = variable.margen - opex;
-    const patF = patrimonio0 + resF, patV = patrimonio0 + resV;
-    const cajaF = caja0 + resF, cajaV = caja0 + resV;
-    const actF = activo0 + resF, actV = activo0 + resV;
-    const g = (id,val) => { document.getElementById(id).textContent = val; };
-    g("b-res-f", milesFmt(resF)); g("b-res-v", milesFmt(resV));
-    g("b-pat-0", milesFmt(patrimonio0)); g("b-pat-f", milesFmt(patF)); g("b-pat-v", milesFmt(patV));
-    g("b-caja-0", milesFmt(caja0)); g("b-caja-f", milesFmt(cajaF)); g("b-caja-v", milesFmt(cajaV));
-    g("b-adec-0", activo0 ? Fmt.porcentaje(patrimonio0/activo0,1) : "—");
-    g("b-adec-f", actF ? Fmt.porcentaje(patF/actF,1) : "—");
-    g("b-adec-v", actV ? Fmt.porcentaje(patV/actV,1) : "—");
+    const mora = v("mora_m");
+    const tasaEmerg = v("banco_t") + shock;        // la línea bancaria es variable (mercado)
+    document.getElementById("banco-eff").textContent = tasaEmerg.toFixed(1) + "%";
+    const carteraM = v("act_carc_m") + v("act_carl_m");
+    const carteraTasa = carteraM ? (v("act_carc_m")*v("act_carc_t") + v("act_carl_m")*v("act_carl_t"))/carteraM : 0;
 
-    const resSel = (tipo==="fija")?resF:resV, patSel=(tipo==="fija")?patF:patV, cajaSel=(tipo==="fija")?cajaF:cajaV;
+    function proyectar(margenObj, tipoLocal) {
+      const resOp = margenObj.margen - opex;
+      const cajaAntes = caja0 + resOp - mora;             // hueco si la mora/descalce no se cubre
+      const draw = cajaAntes < 0 ? -cajaAntes : 0;        // línea de emergencia necesaria
+      const costoEmg = draw * tasaEmerg/100;
+      const resFinal = resOp - costoEmg;
+      const pat = patrimonio0 + resFinal;
+      const pasivo = pasivo0 + draw;
+      const activo = pat + pasivo;
+      const carteraEff = carteraTasa + (tipoLocal === "variable" ? shock : 0);
+      return { resOp, cajaAntes, draw, costoEmg, resFinal, pat, adec: activo ? pat/activo : 0, carteraEff, gap: tasaEmerg - carteraEff };
+    }
+    const pF = proyectar(fija, "fija");
+    const pV = proyectar(variable, "variable");
+
+    const g = (id,val) => { document.getElementById(id).textContent = val; };
+    g("b-res-f", milesFmt(pF.resFinal)); g("b-res-v", milesFmt(pV.resFinal));
+    g("b-pat-0", milesFmt(patrimonio0)); g("b-pat-f", milesFmt(pF.pat)); g("b-pat-v", milesFmt(pV.pat));
+    g("b-caja-0", milesFmt(caja0)); g("b-caja-f", milesFmt(pF.cajaAntes)); g("b-caja-v", milesFmt(pV.cajaAntes));
+    g("b-adec-0", activo0 ? Fmt.porcentaje(patrimonio0/activo0,1) : "—");
+    g("b-adec-f", Fmt.porcentaje(pF.adec,1));
+    g("b-adec-v", Fmt.porcentaje(pV.adec,1));
+
+    g("emg-gapval-f", (pF.gap>=0?"+":"") + pF.gap.toFixed(1) + " pp");
+    g("emg-gapval-v", (pV.gap>=0?"+":"") + pV.gap.toFixed(1) + " pp");
+    document.getElementById("emg-gapsub-f").textContent = "Línea " + tasaEmerg.toFixed(1) + "% vs cartera " + pF.carteraEff.toFixed(1) + "% · pides " + milesFmt(pF.draw);
+    document.getElementById("emg-gapsub-v").textContent = "Línea " + tasaEmerg.toFixed(1) + "% vs cartera " + pV.carteraEff.toFixed(1) + "% · pides " + milesFmt(pV.draw);
+
+    const es = document.getElementById("emg-semaforo");
+    if (pF.draw > 0 || pV.draw > 0) {
+      es.className = "semaforo amarillo";
+      es.innerHTML = "Hay que ir al banco (última instancia, tasa de mercado). <strong>Con cartera FIJA el gap es " + pF.gap.toFixed(1) + " pp en contra; con VARIABLE baja a " + pV.gap.toFixed(1) + " pp.</strong> Por eso depósitos y préstamos a tasa variable hacen el descalce mucho menos peligroso: puedes salir a pedir crédito variable y el gap casi se cierra.";
+    } else {
+      es.className = "semaforo verde";
+      es.innerHTML = "Con estos datos la caja cubre el hueco: no hace falta línea de emergencia.";
+    }
+
+    const selP = (tipo === "fija") ? pF : pV;
     const bs = document.getElementById("bal-semaforo");
-    if (cajaSel < 0 || patSel < patrimonio0*0.9) {
+    if (selP.cajaAntes < 0 && selP.pat < patrimonio0*0.9) {
       bs.className = "semaforo rojo";
-      bs.innerHTML = "🔴 Con tasa " + tipo + ", en 1 año el resultado es " + milesFmt(resSel) + ": el patrimonio cae a " + milesFmt(patSel) + (cajaSel<0 ? " y la caja se agota (" + milesFmt(cajaSel) + ")" : "") + ". Es la quiebra de El Paraíso, ahora por riesgo de tasa.";
-    } else if (resSel < 0) {
+      bs.innerHTML = "🔴 Con tasa " + tipo + ": el año cierra en " + milesFmt(selP.resFinal) + ", el patrimonio cae a " + milesFmt(selP.pat) + " y la caja se va a " + milesFmt(selP.cajaAntes) + " (hay que pedir emergencia). Es la quiebra de El Paraíso, ahora por riesgo de tasa.";
+    } else if (selP.resFinal < 0) {
       bs.className = "semaforo amarillo";
-      bs.innerHTML = "🟡 Con tasa " + tipo + ", el año cierra en pérdida (" + milesFmt(resSel) + "): el patrimonio empieza a erosionarse.";
+      bs.innerHTML = "🟡 Con tasa " + tipo + ", el año cierra en pérdida (" + milesFmt(selP.resFinal) + "): el patrimonio se erosiona.";
     } else {
       bs.className = "semaforo verde";
-      bs.innerHTML = "🟢 Con tasa " + tipo + ", el año cierra con resultado " + milesFmt(resSel) + ": el patrimonio se mantiene o crece. Sobrevive al shock.";
+      bs.innerHTML = "🟢 Con tasa " + tipo + ", el año cierra con " + milesFmt(selP.resFinal) + ": el patrimonio aguanta. Sobrevive al shock.";
     }
 
     dibujarChart(shock);
@@ -414,7 +469,7 @@
 
   document.getElementById("nota-preset").innerHTML =
     "<strong>El Paraíso v2.0 (precargado):</strong> Activos — líquido 500@2%, cartera &lt;1año 2,600@7%, cartera &gt;1año 14,800@7%, fijos 2,100. " +
-    "Pasivos — vista 2,000@1%, PF corto 3,000@3.5%, PF largo 11,200@5%, préstamos 800@7%. Gastos operativos 400/año.";
+    "Pasivos — vista 2,000@1%, PF corto 3,000@3.5%, PF largo 11,200@5%, préstamos 800@7%. Gastos operativos 400/año · mora a cubrir 1,000 · línea bancaria base 8%.";
 
   CAMPOS.forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener("input", () => { Store.guardar("calce-margen", snapshot()); recalc(); }); });
   document.getElementById("shock").addEventListener("input", recalc);
