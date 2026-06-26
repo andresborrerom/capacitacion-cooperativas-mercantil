@@ -190,13 +190,13 @@
       "sesion": 4,
       "orden": 1,
       "titulo": "Sesión 4 · Poll #1",
-      "pregunta": "Un asesor te ofrece B/. 500,000 al 9% anual. Antes de decir sí, ¿qué haces? (marca todas)",
+      "pregunta": "Un asesor te ofrece un crédito de B/. 500,000 al 9% anual. Antes de decir sí, ¿qué haces? (marca todas)",
       "tipo": "multiple",
       "opciones": [
         "Negociar la tasa",
         "Preguntar las comisiones ocultas",
         "Modelar el impacto en el flujo",
-        "Preguntar el plazo de amortización",
+        "Preguntar el plazo (y cómo se amortiza)",
         "Comparar con al menos otra oferta"
       ]
     },
