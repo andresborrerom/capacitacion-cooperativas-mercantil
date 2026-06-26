@@ -71,6 +71,16 @@
   .fill.exig { background: var(--color-acento); }
   .fill.disp { background: var(--color-primario); }
 
+  .cajon { border: 1px solid var(--color-borde); border-radius: 8px; padding: 0.55rem 0.7rem; margin-bottom: 0.5rem; background: #fff; }
+  .cajon .ch { display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; font-weight: 600; color: var(--color-primario-oscuro); margin-bottom: 0.35rem; }
+  .cajon .gapchip { font-size: 0.7rem; font-weight: 700; padding: 0.1em 0.55em; border-radius: 10px; }
+  .cajon .b { display: grid; grid-template-columns: 48px 1fr 64px; gap: 0.4rem; align-items: center; font-size: 0.72rem; color: var(--color-texto-sutil); margin: 0.18rem 0; }
+  .cajon .b .track { height: 13px; background: var(--color-fondo-sutil); border-radius: 3px; overflow: hidden; }
+  .cajon .b .fill { height: 100%; border-radius: 3px; }
+  .cajon .b .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .fill.act { background: var(--color-primario); }
+  .fill.pas { background: var(--color-acento); }
+
   .semaforo { padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 500; }
   .semaforo.verde { background: #E8F5EF; border: 1px solid #BCD9C8; color: #1F5B3D; }
   .semaforo.amarillo { background: #FAF3D7; border: 1px solid #E5D593; color: #7A5C00; }
@@ -181,15 +191,9 @@
 
     <div class="calce-wrap">
       <div>
-        <h4 style="margin: 0 0 0.5rem;">Calce de plazos (≤ 1 año)</h4>
-        <div class="barra-calce">
-          <div class="et"><span>Me lo pueden pedir (exigible)</span><span id="calce-exig-lbl">—</span></div>
-          <div class="track"><div class="fill exig" id="calce-exig-bar" style="width:0%"></div></div>
-        </div>
-        <div class="barra-calce">
-          <div class="et"><span>Me regresa (disponible)</span><span id="calce-disp-lbl">—</span></div>
-          <div class="track"><div class="fill disp" id="calce-disp-bar" style="width:0%"></div></div>
-        </div>
+        <h4 style="margin: 0 0 0.4rem;">Calce de plazos · los cajones</h4>
+        <p style="font-size: 0.75rem; color: var(--color-texto-sutil); margin: 0 0 0.6rem;">Cada cajón es un plazo. <span style="color: var(--color-primario); font-weight: 600;">Azul = lo que me regresa (activo)</span> · <span style="color: var(--color-acento); font-weight: 600;">naranja = lo que me piden (pasivo)</span>. Si el naranja gana, hay descalce.</p>
+        <div id="cajones"></div>
         <div class="semaforo" id="calce-semaforo" style="margin-top: 0.6rem; font-size: 0.82rem;">—</div>
         <p style="font-size: 0.72rem; color: var(--color-texto-sutil); margin: 0.5rem 0 0;">El Paraíso original: B/. 8.0M exigible ≤ 1 año (brecha −4.9M). Reestructurado a plazo largo, la brecha se reduce.</p>
       </div>
@@ -324,14 +328,29 @@
       sem.innerHTML = "🟢 Con tasa " + tipo + " y +" + shock.toFixed(1) + " pp, el margen aguanta (NIM " + Fmt.porcentaje(sel.nim,1) + ").";
     }
 
-    // Calce ≤ 1 año
+    // Cajones (escalera de plazos): activo vs pasivo en cada cajón
+    const buckets = [
+      { n:"Inmediato · vista", a:v("act_liq_m"), p:v("pas_vis_m") },
+      { n:"≤ 1 año", a:v("act_carc_m"), p:v("pas_cor_m") },
+      { n:"> 1 año", a:v("act_carl_m"), p:v("pas_lar_m")+v("pas_pre_m") }
+    ];
+    const maxB = Math.max(1, ...buckets.map(b => Math.max(b.a, b.p)));
+    let cajHtml = "";
+    buckets.forEach(b => {
+      const gap = b.a - b.p;
+      const bg = gap < -1 ? "#FBE9E8" : (gap > 1 ? "#E8F5EF" : "var(--color-fondo-sutil)");
+      const fg = gap < -1 ? "#8B2320" : (gap > 1 ? "#1F5B3D" : "var(--color-texto-sutil)");
+      cajHtml += '<div class="cajon">'
+        + '<div class="ch"><span>' + b.n + '</span><span class="gapchip" style="background:' + bg + ';color:' + fg + ';">' + (gap>=0?"+":"") + milesFmt(gap) + '</span></div>'
+        + '<div class="b"><span>Activo</span><div class="track"><div class="fill act" style="width:' + (b.a/maxB*100) + '%"></div></div><span class="num">' + milesFmt(b.a) + '</span></div>'
+        + '<div class="b"><span>Pasivo</span><div class="track"><div class="fill pas" style="width:' + (b.p/maxB*100) + '%"></div></div><span class="num">' + milesFmt(b.p) + '</span></div>'
+        + '</div>';
+    });
+    document.getElementById("cajones").innerHTML = cajHtml;
+
+    // Semáforo del corto plazo (≤ 1 año acumulado)
     const exig = v("pas_vis_m") + v("pas_cor_m");
     const disp = v("act_liq_m") + v("act_carc_m");
-    const maxc = Math.max(exig, disp, 1);
-    document.getElementById("calce-exig-lbl").textContent = milesFmt(exig);
-    document.getElementById("calce-disp-lbl").textContent = milesFmt(disp);
-    document.getElementById("calce-exig-bar").style.width = (exig/maxc*100) + "%";
-    document.getElementById("calce-disp-bar").style.width = (disp/maxc*100) + "%";
     const cobertura = exig ? disp/exig : 1;
     const cs = document.getElementById("calce-semaforo");
     const brecha = disp - exig;
