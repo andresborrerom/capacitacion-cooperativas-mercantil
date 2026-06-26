@@ -112,6 +112,10 @@
   > *"B cuesta menos pero exige cuota alta. C te da lo mejor de los dos: cuota mínima baja como A, pero abonando a capital el costo baja casi al de B. Tasa cuenta, plazo pesa — y abonar a capital es tu palanca."*
 - [0:49] Cierre del bloque:
   > *"Hace 15 minutos la mayoría elegía A por la cuota baja. ¿Cuántos ahora ven que esa cuota baja costaba B/. 426k más?"*
+- [0:49] **[Slides acento técnico · NIM y ALM · opcional]** Solo si la junta es técnica (si no, saltar). Nombrar lo visto:
+  - **ALM** (gestión de activos y pasivos) = *que las gavetas calcen*. Las 4 gavetas de la S3 (plata por plazo) son el activo; los depósitos a la vista vs. plazo fijo (S1) son el pasivo. El descalce de El Paraíso era exactamente ALM.
+  - **NIM** (margen financiero neto) = (intereses ganados − pagados) / activos productivos. Vive en el **estado de resultados** (S1); el curso muestra los ingredientes pero no lo calcula como tal. El Paraíso ≈ 9%.
+  - **Énfasis (el corazón de la junta):** el NIM no se maximiza, se **equilibra**. Bajar tasas de préstamo o subir las de ahorro complace al asociado hoy y comprime el margen de mañana. Misma tensión del **perfil del director** (S1): corazón vs. sostenibilidad. NIM *suficiente*, no máximo.
 
 ---
 
