@@ -114,7 +114,7 @@
   > *"Hace 15 minutos la mayoría elegía A por la cuota baja. ¿Cuántos ahora ven que esa cuota baja costaba B/. 426k más?"*
 - [0:49] **[Slides acento técnico · NIM y ALM · opcional]** Solo si la junta es técnica (si no, saltar). Nombrar lo visto:
   - **ALM** (gestión de activos y pasivos) = *que las gavetas calcen*. Las 4 gavetas de la S3 (plata por plazo) son el activo; los depósitos a la vista vs. plazo fijo (S1) son el pasivo. El descalce de El Paraíso era exactamente ALM.
-  - **NIM** (margen financiero neto) = (intereses ganados − pagados) / activos productivos. Vive en el **estado de resultados** (S1); el curso muestra los ingredientes pero no lo calcula como tal. El Paraíso: rinde ~12% en cartera, paga ~3% por depósitos → margen **bruto ≈ 9%** (amplio por ser cartera de consumo). Aclarar: de ese 9% bruto, gastos y provisiones se llevan casi todo → **utilidad neta ≈ 2% del activo**. El "~3%" que uno espera es el neto, no el bruto.
+  - **NIM** (margen financiero neto) = (intereses ganados − pagados) / activos productivos. Vive en el **estado de resultados**; el curso muestra los ingredientes pero no lo calcula como tal. En dólares, una coop de consumo: cartera ~7-9%, depósitos ~4-5% → margen **~3-5%**. Aclarar: tras gastos y provisiones, la **utilidad neta queda en ~1-2% del activo**. El margen no es holgura — por eso un shock de tasas con cartera fija lo borra.
   - **Énfasis (el corazón de la junta):** el NIM no se maximiza, se **equilibra**. Bajar tasas de préstamo o subir las de ahorro complace al asociado hoy y comprime el margen de mañana. Misma tensión del **perfil del director** (S1): corazón vs. sostenibilidad. NIM *suficiente*, no máximo.
 
 ---
