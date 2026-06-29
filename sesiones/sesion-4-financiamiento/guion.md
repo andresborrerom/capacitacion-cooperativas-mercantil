@@ -164,35 +164,76 @@
 **Voz:** facilitador conduce la herramienta **Calce y margen** proyectada en vivo; participantes siguen (no abren 3 herramientas).
 **Slides:** El Paraíso v2.0 (banner → cajones ALM → shock fija/variable → herramienta) → Esfuerzo Unido (opcional) → Poll #4.
 
-- [1:05] **[Slide · El Paraíso v2.0]** Retomar: El Paraíso (S1) quebró por **descalce** — prestaba largo, se fondeaba corto. *"¿Y si hubiera gestionado ALM y NIM? Veámoslo."*
-- [1:08] **[Slide · cajones · herramienta Calce y margen]** Abrir la herramienta (precargada con El Paraíso v2.0) y mostrar **los cajones**: inmediato (activo 500 vs pasivo 2,000), ≤1 año (2,600 vs 3,000), >1 año (14,800 vs 12,000). Señalar el descalce en los cajones cortos. v2.0 ya bajó la brecha de corto de −4.9M a −1.9M moviendo plata a PF largo. El balance cuadra (servilleta), **pero la foto no muestra el riesgo de tasa.**
-- [1:14] **[Slide · shock +5 pp]** Mover el slider a **+5 pp** y alternar el toggle:
-  - **FIJA:** margen NIM **−238k** (negativo), caja **−1,138k**, pide emergencia **1,138 @ 13%**, gap de tasa **6 pp**, patrimonio **3,000 → 2,214**. *"Es la quiebra de El Paraíso, ahora por riesgo de tasa."*
-  - **VARIABLE:** margen **+632k**, hueco solo **−268k**, gap **1 pp**, patrimonio **→ 3,197**.
-  - Cerrar: *"Depósitos y préstamos a tasa variable mueven todo junto: el gap casi se cierra. Por eso la tasa variable blinda el descalce."*
-- [1:20] **[Slide · Calce y margen]** Invitar a quien quiera a abrirla en su celular y jugar con el slider.
+- [1:05] **[Slide · El Paraíso v2.0]** Retomar: El Paraíso (S1) quebró por **descalce** — prestaba largo, se fondeaba corto. *"¿Y si hubiera gestionado ALM y NIM? Veámoslo en una sola herramienta."*
+
+#### Paso a paso en pantalla · herramienta "Calce y margen" (proyectada)
+
+> Está **precargada con El Paraíso v2.0**. El facilitador la conduce; los participantes observan (quien quiera, la abre en su celular: pestaña 🛠️ del QR → "Calce y margen"). No se les pide abrir 3 herramientas.
+
+1. **[1:06] Abrir y leer la foto (Sección 1 · Balance por plazos).** Señalar los totales: **Activo 20,000 · Pasivo 17,000 · Patrimonio 3,000 · Adecuación 15%.**
+   > *"La servilleta de la S1 cuadra y el balance se ve sólido: 15% de adecuación. Guarden esta foto."*
+
+2. **[1:08] Los cajones (tablero · Calce de plazos).** Bajar al tablero y señalar cajón por cajón — **azul = lo que regresa (activo), naranja = lo que piden (pasivo):**
+   - Inmediato · vista: **500 vs 2,000 → −1,500** (rojo)
+   - ≤ 1 año: **2,600 vs 3,000 → −400** (rojo)
+   - > 1 año: **14,800 vs 12,000 → +2,800** (verde)
+   > *"En los plazos cortos les piden más de lo que regresa: eso es el descalce. Ya está mejor que la v1 (−4.9M en el corto) porque movieron plata a plazo fijo largo. Pero la foto no muestra el riesgo de tasa."*
+
+3. **[1:11] Escenario en calma (Sección 2, slider en +0).** Señalar el KPI **Margen base ≈ +487k (NIM ~4.7%)** y el semáforo verde.
+   > *"En calma, el margen alcanza. Subamos las tasas — como en 2022-2023, +5 puntos."*
+
+4. **[1:14] Shock +5 pp · TASA FIJA.** Mover el slider a **+5.0 pp**, toggle en **Fija**. Señalar en orden:
+   - KPI **Margen con shock FIJA: −238k** (¡negativo!).
+   - Tabla *Balance 1 año*: **Patrimonio 3,000 → 2,214**, **Caja antes de emergencia −1,138k**.
+   - Bloque *Última instancia*: **pide 1,138 al 13%**, **gap de tasa 6 pp**.
+   > *"Subió la tasa. Con cartera fija el margen se vuelve negativo, la caja se agota, y para taparla hay que pedirle al banco al 13% mientras la cartera rinde 7%. Ese gap de 6 puntos se come el patrimonio. Es El Paraíso otra vez — ahora por riesgo de tasa."*
+
+5. **[1:17] Mismo shock · TASA VARIABLE.** Cambiar el toggle a **Variable** (dejar +5) y mostrar el cambio en vivo:
+   - **Margen +632k** (verde) · **Patrimonio → 3,197** · hueco solo **−268k** · **gap de tasa 1 pp**.
+   > *"Mismo golpe, pero con depósitos y préstamos a tasa variable todo se mueve junto: la cartera también sube, el gap baja de 6 a 1 punto, y el patrimonio en vez de caer, crece. La tasa variable la salvó."*
+
+6. **[1:19] La gráfica.** Señalar las dos líneas (roja = fija, cae; verde = variable, se sostiene) y el marcador en +5.
+   > *"El ALM (los cajones) evita la corrida; el NIM y la tasa variable evitan que un cambio de tasas se coma el patrimonio. Eso es gestionar la cooperativa con los ojos abiertos."*
 
 ---
 
-### Opcional — Esfuerzo Unido (si queda tiempo o como repaso post-curso)
+### Opcional — Esfuerzo Unido R.L. · paso a paso (si queda tiempo o como repaso)
 
-> Caso de **fuentes de financiamiento** (distinto al de tasa). Ver la **guía paso a paso** en el material. Si no hay tiempo, saltar directo al Poll #4 / cierre.
+> Caso distinto (fuente de financiamiento, no riesgo de tasa): invertir B/. 1.5M en una sucursal que rinde **+200k/año desde el año 3**. Opciones: **A** usar liquidez · **B** crédito banco 8.5% a 7 años · **C** emisión 5.5% a 3 años. Si no hay tiempo, saltar al Poll #4 / cierre.
 
-- **[Slide · Esfuerzo Unido + datos]** Caso:
-  > **Esfuerzo Unido R.L.** — 22 años, 2,800 asociados, activos B/. 28M, patrimonio B/. 3.6M, caja + líquido B/. 1.2M, utilidad año B/. 380k, mora 7%. Propuesta: invertir B/. 1.5M en sucursal (+B/. 200k/año desde año 3). Opciones: A usar liquidez · B crédito bancario 8.5% a 7 años · C emisión 5.5% a 3 años.
+**1 · Mi foto financiera (modo cooperativa)** — ingresar (B/.):
 
-- **[Slide · 3 opciones]** Recorrido con las herramientas (opcional):
-  - **Abre Mi foto financiera** → ingresa los datos de Esfuerzo Unido. Ve adecuación, concentración.
-  - **Abre Mi película del mes** → piensa en el efecto de cada opción en el flujo.
-  - **Abre Costo real del crédito** → compara B y C.
-- [1:18] **[Slide 16 · Poll #4]** *"¿Qué recomiendas?"*
-  - (a) Opción A.
-  - (b) Opción B.
-  - (c) Opción C.
-  - (d) Una combinación B+C.
-- [1:21] 3-4 intervenciones abiertas. Co-facilitador elige argumentos que integran varias palancas.
-- [1:26] Síntesis del facilitador integrando **las 8 palancas**:
-  > *"Miren lo que acaban de hacer: para una sola decisión de B/. 1.5M, miraron el balance (palanca 3), el flujo (palancas 1 y 2), clasificaron la inversión en gaveta (palanca 4), miraron plazo vs propósito (palanca 5), calcularon costo real (palanca 6), consideraron concentración de fuente (palanca 7) y pensaron qué preguntar al asesor (palanca 8). Todo en 20 minutos. Hace 4 sesiones nadie sabía que estas palancas existían."*
+| Campo | Valor | | Campo | Valor |
+|---|---|---|---|---|
+| Caja y bancos | 400,000 | | Depósitos a la vista | 5,000,000 |
+| Inversiones líquidas | 800,000 | | Depósitos < 90 días | 6,000,000 |
+| Cartera de crédito neta | 23,000,000 | | Depósitos > 90 días | 12,400,000 |
+| Activos fijos | 2,800,000 | | Préstamos recibidos | 600,000 |
+| Otros activos | 1,000,000 | | Otros pasivos | 400,000 |
+| Mora > 30d (opcional) | 1,666,000 | | Provisiones (opcional) | 800,000 |
+
+→ Leer: **Patrimonio 3.6M · Adecuación 12.9% · Concentración cartera 82% · Cobertura de liquidez ~11% (baja) · Compromiso patrimonial ~24%.**
+> *"Antes de invertir: la liquidez ya está justa (11%). La opción A —gastar 1.2M de caja— los deja casi sin colchón."*
+
+**2 · Mi película del mes** — el flujo:
+> La inversión cuesta 1.5M hoy y **no rinde hasta el año 3**, pero la cuota del crédito sale todos los meses desde el mes 1. *"¿Aguanta el flujo la cuota antes de que la sucursal produzca?"*
+
+**3 · Costo real del crédito** — comparar B vs C (columna A = Opción B, columna B = Opción C):
+
+| | Opción B · banco 7 años | Opción C · emisión 3 años |
+|---|---|---|
+| Monto / Tasa / Plazo | 1,500,000 · 8.5% · 84 m | 1,500,000 · 5.5% · 36 m |
+| Cuota mensual | **B/. 23,755** | **B/. 45,294** |
+| Intereses totales | ~B/. 495,000 | ~B/. 131,000 (+20k emisión) |
+| Cuota anual | 285,000 | **543,000** |
+
+→ *"C es más barata en total, pero su cuota (543k/año) casi duplica a B y **vence en el año 3**, justo cuando la inversión apenas empieza a rendir 200k. B (285k/año, 7 años) calza con el horizonte."*
+
+**Recomendación (cierre del caso):** **Opción B.** Calza el plazo con el horizonte de retorno y su cuota la aguanta el flujo mientras la sucursal madura; cuesta más en intereses, pero no ahoga la caja. C es "barata" en papel pero impagable temprano; A deja sin colchón de liquidez. *Una combinación B + algo de liquidez también es defendible.* **Tasa cuenta — pero plazo y flujo mandan.**
+
+- **[Slide 16 · Poll #4]** *"¿Qué recomiendas para Esfuerzo Unido?"* — (a) A · (b) B · (c) C · (d) combinación B+C. Luego 3-4 intervenciones abiertas.
+- **Síntesis del facilitador integrando las 8 palancas:**
+  > *"Miren lo que acaban de hacer: para una sola decisión de B/. 1.5M miraron el balance (palanca 3), el flujo (palancas 1 y 2), la gaveta de la inversión (palanca 4), plazo vs propósito (palanca 5), costo real (palanca 6), concentración de la fuente (palanca 7) y qué preguntarle al asesor (palanca 8). Todo en minutos. Hace 4 sesiones nadie sabía que estas palancas existían."*
 
 ---
 
