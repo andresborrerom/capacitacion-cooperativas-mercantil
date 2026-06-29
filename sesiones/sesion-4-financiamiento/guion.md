@@ -159,24 +159,29 @@
 
 ---
 
-## Bloque 6 — Caso integrador (1:05–1:30 · 25 min)
+## Bloque 6 — Caso final: El Paraíso v2.0 (1:05–1:30 · 25 min)
 
-**Voz:** facilitador principal introduce · ambos guían · participantes resuelven en vivo.
-**Slides:** 13 (banner "Esfuerzo Unido") → 14 (datos) → 15 (3 opciones) → 16 (Poll #4).
+**Voz:** facilitador conduce la herramienta **Calce y margen** proyectada en vivo; participantes siguen (no abren 3 herramientas).
+**Slides:** El Paraíso v2.0 (banner → cajones ALM → shock fija/variable → herramienta) → Esfuerzo Unido (opcional) → Poll #4.
 
-- [1:05] **[Slide 13 → 14 · Esfuerzo Unido + datos]** Caso:
-  > **Esfuerzo Unido R.L.** — cooperativa 22 años, 2,800 asociados, activos B/. 28M, patrimonio B/. 3.6M, caja + líquido B/. 1.2M, utilidad año B/. 380k, mora 7%.
-  >
-  > Propuesta del gerente: **inversión de B/. 1.5M** en nueva sucursal. Estimación: +B/. 200k/año desde año 3.
-  >
-  > **Opciones de financiamiento:**
-  > - A: usar B/. 1.5M de inversiones líquidas actuales.
-  > - B: crédito bancario 8.5% a 7 años.
-  > - C: emisión de certificados al 5.5% a 3 años, costo B/. 20k.
-  >
-  > **¿Qué recomendarías y por qué?**
+- [1:05] **[Slide · El Paraíso v2.0]** Retomar: El Paraíso (S1) quebró por **descalce** — prestaba largo, se fondeaba corto. *"¿Y si hubiera gestionado ALM y NIM? Veámoslo."*
+- [1:08] **[Slide · cajones · herramienta Calce y margen]** Abrir la herramienta (precargada con El Paraíso v2.0) y mostrar **los cajones**: inmediato (activo 500 vs pasivo 2,000), ≤1 año (2,600 vs 3,000), >1 año (14,800 vs 12,000). Señalar el descalce en los cajones cortos. v2.0 ya bajó la brecha de corto de −4.9M a −1.9M moviendo plata a PF largo. El balance cuadra (servilleta), **pero la foto no muestra el riesgo de tasa.**
+- [1:14] **[Slide · shock +5 pp]** Mover el slider a **+5 pp** y alternar el toggle:
+  - **FIJA:** margen NIM **−238k** (negativo), caja **−1,138k**, pide emergencia **1,138 @ 13%**, gap de tasa **6 pp**, patrimonio **3,000 → 2,214**. *"Es la quiebra de El Paraíso, ahora por riesgo de tasa."*
+  - **VARIABLE:** margen **+632k**, hueco solo **−268k**, gap **1 pp**, patrimonio **→ 3,197**.
+  - Cerrar: *"Depósitos y préstamos a tasa variable mueven todo junto: el gap casi se cierra. Por eso la tasa variable blinda el descalce."*
+- [1:20] **[Slide · Calce y margen]** Invitar a quien quiera a abrirla en su celular y jugar con el slider.
 
-- [1:08] **[Slide 15 · 3 opciones]** Los participantes hacen el recorrido con las herramientas:
+---
+
+### Opcional — Esfuerzo Unido (si queda tiempo o como repaso post-curso)
+
+> Caso de **fuentes de financiamiento** (distinto al de tasa). Ver la **guía paso a paso** en el material. Si no hay tiempo, saltar directo al Poll #4 / cierre.
+
+- **[Slide · Esfuerzo Unido + datos]** Caso:
+  > **Esfuerzo Unido R.L.** — 22 años, 2,800 asociados, activos B/. 28M, patrimonio B/. 3.6M, caja + líquido B/. 1.2M, utilidad año B/. 380k, mora 7%. Propuesta: invertir B/. 1.5M en sucursal (+B/. 200k/año desde año 3). Opciones: A usar liquidez · B crédito bancario 8.5% a 7 años · C emisión 5.5% a 3 años.
+
+- **[Slide · 3 opciones]** Recorrido con las herramientas (opcional):
   - **Abre Mi foto financiera** → ingresa los datos de Esfuerzo Unido. Ve adecuación, concentración.
   - **Abre Mi película del mes** → piensa en el efecto de cada opción en el flujo.
   - **Abre Costo real del crédito** → compara B y C.
