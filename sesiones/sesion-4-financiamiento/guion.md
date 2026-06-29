@@ -81,7 +81,8 @@
 
 - [0:24] Slide central:
   > **"La tasa llama la atención. El plazo es quien decide si la deuda te crece o te ahoga."**
-- [0:26] Concepto formal: **Tasa Efectiva Anual (TEA)** — comprime todo en un solo número comparable.
+- [0:25] **Habla en cuotas, no en tasas.** El directivo (y el asociado) no sienten un "8.3%": sienten la **cuota en B/. que sale cada mes**. Insistir en decir las ofertas así: *"B/. X al mes por Y años = B/. Z en total"*. La tasa es para comparar; la cuota es lo que se decide y se paga.
+- [0:26] Concepto formal: **Tasa Efectiva Anual (TEA)** — comprime todo en un solo número comparable (úsala para comparar, no para comunicar la decisión).
 - [0:28] **Acento técnico opcional:**
   > *La SBP obliga a bancos panameños a mostrar TEA. Pero no siempre es visible en el primer folleto. Siempre pedirla. Si no la calculan, calcularla tú. O contratar a alguien que lo haga (aviso: nosotros hacemos esto).*
 
