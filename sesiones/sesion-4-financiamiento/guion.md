@@ -281,7 +281,7 @@
 
 - [1:50] **[Slide 21 · Poll #5 word cloud]** *"En una palabra, ¿cómo se van del curso?"* (muestra word cloud en vivo).
 - [1:52] Leer en voz alta 8-10 palabras del word cloud.
-- [1:54] **[Slide 22 · Evaluación de la sesión · QR]** *"Un último pedido: 3 minutos para contarnos cómo estuvo la sesión — la misma evaluación de siempre. Anónima opcional; nos ayuda a mejorar."* Pega en el chat el link de la **Evaluación de la Sesión 4**. (El pre/post-test transversal del curso, si se aplica, va por separado — no aquí.)
+- [1:54] **[Slide 22 · Evaluación de la sesión · QR]** *"Un último pedido: 3 minutos para contarnos cómo estuvo la sesión — la misma evaluación de siempre. Anónima opcional; nos ayuda a mejorar."* Pega en el chat el link de la **Evaluación de la Sesión 4**: `https://forms.gle/auu1uumWAe4kFXFJ7` (o abre la pestaña 📝 Evaluación del landing). El pre/post-test transversal del curso, si se aplica, va por separado — no aquí.
 - [1:56] **[Slide 23 · Gracias]** Agradecimiento genuino:
   > *"Gracias por 8 horas de atención, de preguntas, de paciencia con lo que no supimos explicar bien. Este grupo particular nos enseñó cosas que se van a colar en las próximas cohortes. Gracias de verdad."*
 - [1:58] Cerrar exactamente en 2:00.
