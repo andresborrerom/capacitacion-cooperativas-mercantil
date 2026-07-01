@@ -79,6 +79,32 @@ function crearEvaluaciones() {
 }
 
 // ============================================================
+// CREAR SOLO LA EVALUACIÓN DE LA SESIÓN 4
+// Úsala si ya creaste los otros formularios y solo te falta el de S4
+// (así no se duplican los demás). Corre esta función, no crearEvaluaciones().
+// ============================================================
+function crearEvalSesion4() {
+  var spec = null;
+  FORMULARIOS.forEach(function(f) { if (f.id === 'eval-sesion-4') spec = f; });
+  if (!spec) { Logger.log('No encontré la definición eval-sesion-4.'); return; }
+
+  var form = FormApp.create(spec.titulo);
+  form.setDescription(spec.descripcion);
+  form.setCollectEmail(false);
+  form.setShowLinkToRespondAgain(false);
+  form.setConfirmationMessage('Gracias por tu respuesta. Tu aporte mejora el curso.');
+  spec.preguntas.forEach(function(p) { agregarPregunta(form, p); });
+
+  var publico = form.getPublishedUrl();
+  Logger.log('\n===== EVALUACIÓN SESIÓN 4 CREADA =====');
+  Logger.log('▶ ' + spec.titulo);
+  Logger.log('  Publico (compartir con participantes): ' + publico);
+  Logger.log('  Corto: ' + form.shortenFormUrl(publico));
+  Logger.log('  Editar: ' + form.getEditUrl());
+  Logger.log('===== FIN =====');
+}
+
+// ============================================================
 // AGREGAR PREGUNTA SEGÚN TIPO
 // ============================================================
 function agregarPregunta(form, p) {
