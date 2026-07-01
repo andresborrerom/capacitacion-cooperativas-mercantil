@@ -416,6 +416,80 @@ var FORMULARIOS = [
   },
 
   // ============================================================
+  // 4b. EVALUACIÓN SESIÓN 4 (evaluación corta de la sesión · NO es el examen final)
+  // ============================================================
+  {
+    id: 'eval-sesion-4',
+    titulo: 'Evaluación · Sesión 4 · Financiamiento',
+    descripcion: 'Al cierre de la sesión. ~3 minutos. Es la evaluación de siempre sobre esta sesión, no un examen final.',
+    preguntas: [
+      {t: 'section', titulo: 'Parte A · Conocimiento'},
+
+      {t: 'choice', req: true,
+       titulo: '1. La diferencia entre tasa nominal y tasa efectiva anual (TEA) es:',
+       opciones: [
+         'Son sinónimos regulatorios.',
+         'La TEA incluye el efecto de comisiones/seguros y la capitalización; la nominal es solo la base.',
+         'La nominal siempre es mayor que la TEA.',
+         'Solo aplica a bancos, no a cooperativas.']},
+
+      {t: 'choice', req: true,
+       titulo: '2. Mismo monto y misma tasa, un crédito a 10 años frente a uno a 4 años:',
+       opciones: [
+         'Tiene la misma cuota y el mismo costo total.',
+         'Tiene cuota menor pero costo total mayor.',
+         'Tiene cuota mayor y costo total menor.',
+         'Imposible de determinar.']},
+
+      {t: 'choice', req: true,
+       titulo: '3. "Endeudarse bien" requiere sobre todo:',
+       opciones: [
+         'Conseguir la tasa más baja.',
+         'Calce entre lo que produce la plata prestada y lo que cuesta, en el mismo horizonte.',
+         'Un plazo muy corto siempre.',
+         'Trabajar con un solo banco.']},
+
+      {t: 'choice', req: true,
+       titulo: '4. Una señal de alerta en una oferta de crédito es:',
+       opciones: [
+         '"Tasa fija por todo el plazo."',
+         '"No te preocupes por la tasa, mira la cuota."',
+         '"Pedimos estados financieros."',
+         '"La aprobación toma dos semanas."']},
+
+      {t: 'choice', req: true,
+       titulo: '5. Ante una fuerte subida de tasas, lo que más protege el margen (NIM) de la cooperativa es:',
+       opciones: [
+         'Tener la cartera y los depósitos a tasa variable (se mueven juntos).',
+         'Tener toda la cartera a tasa fija muy baja.',
+         'No dar más créditos.',
+         'Subir solo la tasa de los ahorros.']},
+
+      {t: 'section', titulo: 'Parte B · Aplicación'},
+
+      {t: 'paragraph', req: true,
+       titulo: '6. Escribe una pregunta concreta que ahora sabes que debes hacer antes de aprobar un crédito o una inversión, y que antes no hacías.'},
+
+      {t: 'section', titulo: 'Parte C · Experiencia'},
+
+      {t: 'scale', req: true, min: 1, max: 5,
+       titulo: '7. Después de esta sesión, distingo mejor un buen endeudamiento de uno malo.'},
+      {t: 'scale', req: true, min: 1, max: 5,
+       titulo: '8. El ritmo de la sesión fue apropiado (ni rápido ni lento).'},
+      {t: 'scale', req: true, min: 1, max: 5,
+       titulo: '9. Las herramientas (Costo real del crédito · Calce y margen) las usaría de nuevo.'},
+
+      {t: 'scale', req: true, min: 0, max: 10, etiquetaIzq: 'No recomendaría', etiquetaDer: 'Definitivamente',
+       titulo: '10. Recomendaría este curso a otro directivo de cooperativa.'},
+
+      {t: 'section', titulo: 'Parte D · Abierta'},
+
+      {t: 'paragraph', titulo: '11. ¿Qué te llevas del curso que no tenías al empezar?'},
+      {t: 'paragraph', titulo: '12. ¿Qué te quedó sin resolver? (alimenta el seguimiento)'}
+    ]
+  },
+
+  // ============================================================
   // 5. POST-TEST + NPS (al cierre de Sesión 4 · cierre del curso)
   // ============================================================
   {
