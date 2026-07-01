@@ -1,67 +1,71 @@
 # Sesión 4 — Evaluación
 
-Se integra con el **post-test transversal** (`evaluacion/post-test.md`) aplicado al cierre. Las preguntas específicas de esta sesión se incluyen abajo; en el día del evento, viven dentro del post-test global.
+Instrumento **corto de la sesión** (~3 minutos), igual que en las sesiones 1-3: se aplica al cierre vía Google Forms, anónimo opcional. **No es un examen final** — es la evaluación de la sesión de siempre.
 
-## Parte A — Conocimiento específico de Sesión 4
+> Nota: el pre/post-test transversal del curso (`evaluacion/post-test.md`) es un instrumento aparte y **opcional**; si se aplica, va por separado, no como cierre de esta sesión.
+
+## Parte A — Conocimiento (alineada con los objetivos de la sesión)
 
 ### 1. La diferencia entre tasa nominal y tasa efectiva anual (TEA) es:
 - [ ] Son sinónimos regulatorios.
-- [ ] La TEA incluye efecto de comisiones y capitalización; la nominal es solo la base. ✅
-- [ ] La nominal es mayor que la TEA siempre.
+- [ ] La TEA incluye el efecto de comisiones/seguros y la capitalización; la nominal es solo la base. ✅
+- [ ] La nominal siempre es mayor que la TEA.
 - [ ] Solo aplica a bancos, no a cooperativas.
 
-### 2. Un crédito de B/. 100,000 al 7% nominal tiene cuota mensual **menor** a:
-- [ ] Un crédito de B/. 100,000 al 7% a 3 años, comparado con 10 años.
-- [ ] **Un crédito a 10 años comparado con 3 años.** ✅ (10 años = cuota menor, costo total mayor.)
-- [ ] Es la misma cuota independientemente del plazo.
-- [ ] Imposible de determinar sin más datos.
+### 2. Mismo monto y misma tasa, un crédito a 10 años frente a uno a 4 años:
+- [ ] Tiene la misma cuota y el mismo costo total.
+- [ ] Tiene cuota **menor** pero costo total **mayor**. ✅
+- [ ] Tiene cuota mayor y costo total menor.
+- [ ] Imposible de determinar.
 
-### 3. "Endeudarse bien" requiere:
+### 3. "Endeudarse bien" requiere sobre todo:
 - [ ] Conseguir la tasa más baja.
 - [ ] Calce entre lo que produce la plata prestada y lo que cuesta, en el mismo horizonte. ✅
-- [ ] Plazo muy corto siempre.
-- [ ] Solo trabajar con un banco.
+- [ ] Un plazo muy corto siempre.
+- [ ] Trabajar con un solo banco.
 
-### 4. ¿Cuál es una señal de alerta en una oferta de crédito?
+### 4. Una señal de alerta en una oferta de crédito es:
 - [ ] "Tasa fija por todo el plazo."
 - [ ] "No te preocupes por la tasa, mira la cuota." ✅
-- [ ] "La aprobación toma 2 semanas."
 - [ ] "Pedimos estados financieros."
+- [ ] "La aprobación toma dos semanas."
 
-### 5. En Panamá, las tasas típicas de crédito personal bancario en 2025 rondan:
-- [ ] 2-3%.
-- [ ] 7-10%.
-- [ ] 9-11% promedio SBP. ✅
-- [ ] 20%+.
+### 5. Ante una fuerte subida de tasas, lo que más protege el margen (NIM) de la cooperativa es:
+- [ ] Tener la cartera y los depósitos a **tasa variable** (se mueven juntos). ✅
+- [ ] Tener toda la cartera a tasa fija muy baja.
+- [ ] No dar más créditos.
+- [ ] Subir solo la tasa de los ahorros.
 
-## Parte B — Aplicación (caso integrador)
+## Parte B — Aplicación
 
-### 6. En el caso Esfuerzo Unido, la opción **menos apropiada** es:
-- [ ] A (usar liquidez propia). ✅ (mismatch de gaveta, destruye colchón)
-- [ ] B (crédito bancario 7 años).
-- [ ] C (emisión 3 años).
-- [ ] Depende del contexto.
+### 6. Pregunta para tu asesor / tu gerente
+Escribe **una pregunta concreta** que ahora sabes que debes hacer antes de aprobar un crédito o una inversión, y que antes no hacías.
 
-### 7. El principal argumento a favor de la Opción B (crédito 7 años al 8.5%) vs. Opción C (emisión 3 años al 5.5%) es:
-- [ ] La tasa nominal.
-- [ ] El costo total del crédito.
-- [ ] El calce entre plazo del crédito y horizonte de producción de la inversión. ✅
-- [ ] Mercantil Asset & Wealth Management lo recomienda.
+*(Campo abierto · se usa cualitativamente.)*
 
-## Parte C — Integración del curso (abierta)
+## Parte C — Experiencia (Likert 1–5)
 
-### 8. Describe en 3 frases qué harás diferente en tu cooperativa a partir de la semana próxima, usando 2 o más de las 8 palancas del curso.
+7. Después de esta sesión, distingo mejor un **buen endeudamiento** de uno malo.
+   `1 - Para nada · 2 · 3 · 4 · 5 - Mucho mejor`
 
-## Parte D — Satisfacción (incluido en post-test y feedback-nps transversal)
+8. El ritmo de la sesión fue apropiado (ni rápido ni lento).
+   `1 · 2 · 3 · 4 · 5`
 
-- NPS del curso: 0-10.
-- Sesión que más te aportó.
-- Qué cambiarías.
-- Interés en sesión de seguimiento.
+9. Las herramientas (Costo real del crédito · Calce y margen) las usaría de nuevo.
+   `1 - No · 2 · 3 · 4 · 5 - Sí, muy útiles`
+
+10. Recomendaría este curso a otro directivo de cooperativa.
+    `NPS 0–10`
+
+## Parte D — Abierta
+
+11. **¿Qué te llevas del curso que no tenías al empezar?** (opcional, libre)
+
+12. **¿Qué te quedó sin resolver?** (opcional, libre — alimenta el seguimiento)
 
 ## Criterios de éxito
 
-- ≥ 80% correcto en 1-5.
-- ≥ 70% responde 6-7 correctamente (integración).
-- ≥ 60% integra ≥ 2 palancas con claridad en pregunta 8.
-- NPS global ≥ 60.
+- ≥ 80% correcto en preguntas 1-5 (promedio).
+- ≥ 70% califica la pregunta 7 con ≥ 4.
+- NPS ≥ 50 (promotores − detractores).
+- Análisis cualitativo de 6, 11 y 12 para el seguimiento post-curso.

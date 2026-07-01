@@ -98,7 +98,7 @@ Antes de la sesión, intenta identificar estas en cualquier oferta que hayas vis
 ## Qué vamos a hacer en la sesión
 
 - Abrir la herramienta "**Costo real del crédito**" y comparar **dos ofertas reales** (la tuya si trajiste una, o una del curso). Ver las tasas efectivas, el costo total, la amortización mes a mes.
-- Resolver un **caso integrador** que combina balance, flujo, productos y financiamiento. Es el "examen final" sin examen.
+- Ver el caso final **El Paraíso v2.0** (la herramienta Calce y margen) y, si hay tiempo, un caso opcional que combina balance, flujo, productos y financiamiento. Sin examen final: cerramos aplicando, no evaluando.
 - Cerrar el curso. Reconectar con el arco. Celebrar que llegaron hasta acá.
 
 ---

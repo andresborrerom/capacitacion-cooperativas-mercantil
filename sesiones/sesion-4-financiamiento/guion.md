@@ -11,7 +11,7 @@
 - [ ] Slides cargadas.
 - [ ] Polls pre-configurados (5).
 - [ ] Caso integrador (Esfuerzo Unido) listo.
-- [ ] Post-test + feedback NPS preparados para lanzar al cierre.
+- [ ] Evaluación de la sesión (~3 min, incluye NPS) preparada para lanzar al cierre.
 - [ ] Contacto de Mercantil Asset & Wealth Management listo para compartir al final (para quien lo pida).
 
 ---
@@ -19,17 +19,20 @@
 ## Bloque 0 — Apertura (0:00–0:05 · 5 min)
 
 **Voz:** facilitador principal.
-**Slides:** 1 (portada) → 2 (Poll #1 con opciones).
+**Slides:** portada → QR → 2 de repaso express (S3) → Poll #1.
 
-- [0:00] **[Slide 1 · Portada]** Bienvenida. Reconocer que es la última sesión.
+- [0:00] **[Portada]** Bienvenida. Reconocer que es la última sesión.
   > *"La última vez nos vemos en este curso. Hoy cerramos."*
-- [0:01] **[Slide 2 · Pregunta disparadora]**
-  > **"Si un asesor te ofrece B/. 500,000 al 9% anual para tu cooperativa, ¿qué haces antes de decir sí?"**
-- [0:02] **[POLL #1]** — marca todas las que harías:
+- [0:01] **[2 slides · repaso express de la Sesión 3]** 60 segundos para reforzar lo que quedó flojo en la evaluación de la S3:
+  - **Invertir ≠ especular:** invertir = tesis + criterio de salida + riesgo definido y aceptado. "Consultar a un asesor" no es la definición.
+  - **El "asesor mágico":** alta rentabilidad + bajo riesgo + liquidez total + sin plazo = imposible (rompe las 4 dimensiones) → **sospechar**, no "ir a otra sucursal".
+- [0:02] **[Pregunta disparadora]**
+  > **"Si un asesor te ofrece un crédito de B/. 500,000 al 9% anual para tu cooperativa, ¿qué haces antes de decir sí?"**
+- [0:03] **[POLL #1]** — marca todas las que harías:
   - (a) Negociar la tasa.
   - (b) Preguntar las comisiones ocultas.
   - (c) Modelar el impacto en el flujo.
-  - (d) Preguntar el plazo de amortización.
+  - (d) Preguntar el plazo (y cómo se amortiza).
   - (e) Comparar con al menos otra oferta.
 - [0:04] Sin respuesta aún. *"Las respuestas de hoy te van a cambiar la prioridad."*
 
@@ -274,11 +277,11 @@
 ## Bloque 8 — Cierre emocional + evaluación (1:50–2:00 · 10 min)
 
 **Voz:** facilitador principal.
-**Slides:** 21 (Poll #5 word cloud) → 22 (post-test QR) → 23 (Gracias).
+**Slides:** 21 (Poll #5 word cloud) → 22 (evaluación de la sesión · QR) → 23 (Gracias).
 
 - [1:50] **[Slide 21 · Poll #5 word cloud]** *"En una palabra, ¿cómo se van del curso?"* (muestra word cloud en vivo).
 - [1:52] Leer en voz alta 8-10 palabras del word cloud.
-- [1:54] **[Slide 22 · Post-test QR]** *"Un último pedido: 10 minutos para contarnos cómo fue. Las primeras 8 preguntas son las mismas del pre-test — así medimos cuánto movió el curso tu conocimiento. El resto es evaluación integral + NPS. Es anónimo opcional, y sinceramente, es nuestro insumo más valioso para mejorar la siguiente cohorte."* Pega en el chat: `https://forms.gle/juVNGrodnWJccfht9`.
+- [1:54] **[Slide 22 · Evaluación de la sesión · QR]** *"Un último pedido: 3 minutos para contarnos cómo estuvo la sesión — la misma evaluación de siempre. Anónima opcional; nos ayuda a mejorar."* Pega en el chat el link de la **Evaluación de la Sesión 4**. (El pre/post-test transversal del curso, si se aplica, va por separado — no aquí.)
 - [1:56] **[Slide 23 · Gracias]** Agradecimiento genuino:
   > *"Gracias por 8 horas de atención, de preguntas, de paciencia con lo que no supimos explicar bien. Este grupo particular nos enseñó cosas que se van a colar en las próximas cohortes. Gracias de verdad."*
 - [1:58] Cerrar exactamente en 2:00.
@@ -289,4 +292,4 @@
 
 - **Si el caso integrador se extiende:** recortar al mínimo el mini-debate y dejar el grueso del tiempo a ritual de cierre.
 - **Si muchos piden productos Mercantil:** dar contacto general por chat + ofrecer reunión individual por separado. No convertir el cierre en ventas.
-- **Si el post-test tiene baja completitud:** recordar por correo 24 h después. Respondieron <50% = recordar con incentivo ligero (acceso a la sesión de seguimiento).
+- **Si la evaluación tiene baja completitud:** recordar por correo 24 h después. Respondieron <50% = recordar con incentivo ligero (acceso a la sesión de seguimiento).
